@@ -40,7 +40,7 @@ const Location = _ref => {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-location"
   }), /*#__PURE__*/_react.default.createElement("div", {
-    className: elipsis ? _mainModule.default.text_elipsis : ''
+    className: (0, _commons.combineClassNames)([_mainModule.default.line_breaker, elipsis ? _mainModule.default.text_elipsis : ''])
   }, isLink ? /*#__PURE__*/_react.default.createElement("a", {
     href: href,
     target: "_blank"

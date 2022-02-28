@@ -20,7 +20,7 @@ const Location = ({
   return (
     <div className={ combineClassNames([styles.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)]) }>
       <div className='icon-location' />
-      <div className={ elipsis ? styles.text_elipsis : '' }>
+      <div className={ combineClassNames([styles.line_breaker, elipsis ? styles.text_elipsis : '']) }>
         {
           isLink ?
           

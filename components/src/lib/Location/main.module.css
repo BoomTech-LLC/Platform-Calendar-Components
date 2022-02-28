@@ -13,18 +13,6 @@
   color: inherit
 }
 
-/* .location_parent a,
-.location_parent P{
-  margin: 0;
-  overflow-wrap: anywhere;
-} */
-
-/* .location_parent .icon {
-  width: 1em;
-} */
-
-/* .oneLine{
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-} */
+.line_breaker {
+  word-break: break-all;
+}
