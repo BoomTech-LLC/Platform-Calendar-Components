@@ -1,3 +1,4 @@
+import moment from 'moment'
 import {encodeId} from '../helpers/commons'
 
 export function downloadSharer(e, type, event) {

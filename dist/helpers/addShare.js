@@ -14,7 +14,11 @@ require("core-js/modules/es.regexp.exec.js");
 
 require("core-js/modules/es.string.replace.js");
 
+var _moment = _interopRequireDefault(require("moment"));
+
 var _commons = require("../helpers/commons");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function downloadSharer(e, type, event) {
   e.stopPropagation();
@@ -31,12 +35,12 @@ function openAddToUrl(e, type, event) {
   switch (type) {
     case 'google':
       eventDescription = event.desc ? createDesc(event, 'google') : '';
-      if (event.all_day) url = 'https://calendar.google.com/calendar/r/eventedit?text=' + encodeURIComponent(event.title) + '&dates=' + moment(formatForAddtoCalendar(event, 'start', type)).format('YYYYMMDD') + '/' + moment(formatForAddtoCalendar(event, 'end')).format('YYYYMMDD') + '&details=' + (event.desc ? eventDescription : '') + '&location=' + setLocation(event, 'encode') + '&sprop=name';else url = 'https://calendar.google.com/calendar/r/eventedit?text=' + encodeURIComponent(event.title) + '&dates=' + moment(formatForAddtoCalendar(event, 'start', type)).format('YYYYMMDD[T]HHmmss') + '/' + moment(formatForAddtoCalendar(event, 'end')).format('YYYYMMDD[T]HHmmss') + '&details=' + (event.desc ? eventDescription : '') + '&location=' + setLocation(event, 'encode') + '&sprop=name';
+      if (event.all_day) url = 'https://calendar.google.com/calendar/r/eventedit?text=' + encodeURIComponent(event.title) + '&dates=' + (0, _moment.default)(formatForAddtoCalendar(event, 'start', type)).format('YYYYMMDD') + '/' + (0, _moment.default)(formatForAddtoCalendar(event, 'end')).format('YYYYMMDD') + '&details=' + (event.desc ? eventDescription : '') + '&location=' + setLocation(event, 'encode') + '&sprop=name';else url = 'https://calendar.google.com/calendar/r/eventedit?text=' + encodeURIComponent(event.title) + '&dates=' + (0, _moment.default)(formatForAddtoCalendar(event, 'start', type)).format('YYYYMMDD[T]HHmmss') + '/' + (0, _moment.default)(formatForAddtoCalendar(event, 'end')).format('YYYYMMDD[T]HHmmss') + '&details=' + (event.desc ? eventDescription : '') + '&location=' + setLocation(event, 'encode') + '&sprop=name';
       break;
 
     case 'yahoo':
       eventDescription = event.desc ? createDesc(event, 'yahoo') : '';
-      if (event.all_day) url = 'https://calendar.yahoo.com/?v=60&view=d&type=20&DUR=' + (event.all_day ? 'all_day' : '') + '&TITLE=' + encodeURIComponent(event.title) + '&ST=' + moment(formatForAddtoCalendar(event, 'start', type)).format('YYYYMMDD') + '&ET=' + moment(formatForAddtoCalendar(event, 'end', 'yahoo')).format('YYYYMMDD') + '&DESC=' + eventDescription + '&in_loc=' + setLocation(event);else url = 'https://calendar.yahoo.com/?v=60&view=d&type=20&TITLE=' + encodeURIComponent(event.title) + '&ST=' + moment(formatForAddtoCalendar(event, 'start', type)).format('YYYYMMDD[T]HHmmss') + '&ET=' + moment(formatForAddtoCalendar(event, 'end')).format('YYYYMMDD[T]HHmmss') + '&DESC=' + eventDescription + '&in_loc=' + setLocation(event);
+      if (event.all_day) url = 'https://calendar.yahoo.com/?v=60&view=d&type=20&DUR=' + (event.all_day ? 'all_day' : '') + '&TITLE=' + encodeURIComponent(event.title) + '&ST=' + (0, _moment.default)(formatForAddtoCalendar(event, 'start', type)).format('YYYYMMDD') + '&ET=' + (0, _moment.default)(formatForAddtoCalendar(event, 'end', 'yahoo')).format('YYYYMMDD') + '&DESC=' + eventDescription + '&in_loc=' + setLocation(event);else url = 'https://calendar.yahoo.com/?v=60&view=d&type=20&TITLE=' + encodeURIComponent(event.title) + '&ST=' + (0, _moment.default)(formatForAddtoCalendar(event, 'start', type)).format('YYYYMMDD[T]HHmmss') + '&ET=' + (0, _moment.default)(formatForAddtoCalendar(event, 'end')).format('YYYYMMDD[T]HHmmss') + '&DESC=' + eventDescription + '&in_loc=' + setLocation(event);
       break;
 
     default:
@@ -51,20 +55,20 @@ function formatForAddtoCalendar(event, key, type) {
   let fullStart, fullEnd;
 
   if (event.all_day) {
-    fullStart = moment(event.start).format('YYYY-MM-DD');
+    fullStart = (0, _moment.default)(event.start).format('YYYY-MM-DD');
 
     if (event.end !== event.start) {
-      fullEnd = moment(event.end).add(1, 'days').format('YYYY-MM-DD');
+      fullEnd = (0, _moment.default)(event.end).add(1, 'days').format('YYYY-MM-DD');
     } else {
-      fullEnd = moment(event.end).format('YYYY-MM-DD');
-      if (type !== 'yahoo') fullEnd = moment(event.end).add(1, 'days').format('YYYY-MM-DD');
+      fullEnd = (0, _moment.default)(event.end).format('YYYY-MM-DD');
+      if (type !== 'yahoo') fullEnd = (0, _moment.default)(event.end).add(1, 'days').format('YYYY-MM-DD');
     }
   } else {
-    fullStart = moment(event.start).format('YYYY-MM-DDTHH:mm:ss');
-    fullEnd = moment(event.end).format('YYYY-MM-DDTHH:mm:ss');
+    fullStart = (0, _moment.default)(event.start).format('YYYY-MM-DDTHH:mm:ss');
+    fullEnd = (0, _moment.default)(event.end).format('YYYY-MM-DDTHH:mm:ss');
   }
 
-  if (type === 'yahoo' && event.end !== event.start) fullEnd = moment(fullEnd).subtract(1, 'day').format('YYYY-MM-DDTHH:mm:ss');
+  if (type === 'yahoo' && event.end !== event.start) fullEnd = (0, _moment.default)(fullEnd).subtract(1, 'day').format('YYYY-MM-DDTHH:mm:ss');
   return key === 'start' ? fullStart : fullEnd;
 }
 
@@ -130,7 +134,7 @@ function generateEventUrl(event, encode, boomEventUrlBase, comp_id, instance) {
   if (event.kind === 4) {
     return event.eventPageUrl || '';
   } else {
-    return "".concat(boomEventUrlBase).concat((0, _commons.encodeId)("".concat(event.id)), "?").concat(encode ? encodeURIComponent("comp_id=".concat(comp_id, "&instance=").concat(instance, "&startDate=").concat(event.repeat.type ? moment(event.start).format('YYYY-MM-DD') : '')) : "comp_id=".concat(comp_id, "&instance=").concat(instance), "&startDate=").concat(event.repeat.type ? moment(event.start).format('YYYY-MM-DD') : '');
+    return "".concat(boomEventUrlBase).concat((0, _commons.encodeId)("".concat(event.id)), "?").concat(encode ? encodeURIComponent("comp_id=".concat(comp_id, "&instance=").concat(instance, "&startDate=").concat(event.repeat.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '')) : "comp_id=".concat(comp_id, "&instance=").concat(instance), "&startDate=").concat(event.repeat.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '');
   }
 }
 
