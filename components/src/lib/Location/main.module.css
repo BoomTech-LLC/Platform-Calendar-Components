@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  gap: .5rem;
+}
+
+.wrapper .text_elipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.wrapper a {
+  color: inherit
+}
+
+/* .location_parent a,
+.location_parent P{
+  margin: 0;
+  overflow-wrap: anywhere;
+} */
+
+/* .location_parent .icon {
+  width: 1em;
+} */
+
+/* .oneLine{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+} */

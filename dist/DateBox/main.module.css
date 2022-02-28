@@ -1,0 +1,80 @@
+.two_line_start,
+.two_line_end {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.two_line_start p,
+.two_line_end p,
+.month_day_of_week_parent p,
+.all_day_text_parent p {
+  margin: 0;
+}
+
+.two_line_start svg,
+.two_line_end svg {
+  margin-right: 8px;
+  fill: #2B5672;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.container.column{
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container > div {
+  line-height: 1;
+}
+
+.day_of_month {
+  font-size: 48.45px;
+  line-height: 0.9;
+}
+
+.day_of_month p {
+  margin-top: 0;
+  margin-right: 0.3rem;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.month_day_of_week_parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.oneLine {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.start_date_icon {
+  transform: rotate(-133deg);
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.timebox_wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+
+@media only screen and (max-width: 650px) {
+  .day_of_month p {
+    margin-right: 0;
+  }
+}

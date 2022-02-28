@@ -1,0 +1,12 @@
+.description p{
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.description_title {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  padding-bottom: .5rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
