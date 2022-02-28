@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import styles from './main.module.css'
 import '../assets/styles/icons.css'
 import PropTypes from 'prop-types'
@@ -30,11 +30,12 @@ const CategoryItem = (props) => {
 
 CategoryItem.propTypes = {
   category: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     name: PropTypes.string, 
     color: PropTypes.string,
+    selected: PropTypes.bool
   }),
   wrapperCustomClassNames: PT_CLASSNAMES
 }
 
-export default memo(CategoryItem)
+export default CategoryItem

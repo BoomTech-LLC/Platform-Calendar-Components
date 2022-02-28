@@ -36,7 +36,7 @@ const BlurryLoadableImg = _ref => {
   } = _ref;
   const [isOrigLoaded, setIsOrigLoaded] = (0, _react.useState)((0, _blurryLoadableImage.isImgCached)(url));
   const [imgLoadingFailed, setImgLoadingFailed] = (0, _react.useState)(false);
-  const wrapperClassNames = (0, _react.useMemo)(() => (0, _commons.combineClassNames)([_mainModule.default.imgWrapper, ...wrapperCustomClassNames]), [wrapperCustomClassNames]);
+  const wrapperClassNames = (0, _commons.combineClassNames)([_mainModule.default.imgWrapper, ...wrapperCustomClassNames]);
 
   if (!url) {
     if (showColorAsBackground === false) return null;
@@ -77,7 +77,5 @@ BlurryLoadableImg.propTypes = {
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   imgCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
-
-var _default = /*#__PURE__*/(0, _react.memo)(BlurryLoadableImg);
-
+var _default = BlurryLoadableImg;
 exports.default = _default;

@@ -78,7 +78,7 @@ function AddShareIcons(props) {
   })));
 }
 
-const AddShareIconsRow = /*#__PURE__*/(0, _react.memo)(_ref => {
+const AddShareIconsRow = _ref => {
   let {
     comp_id,
     instance,
@@ -114,7 +114,8 @@ const AddShareIconsRow = /*#__PURE__*/(0, _react.memo)(_ref => {
       className: (0, _commons.combineClassNames)([_mainModule.default.copy_tooltip, ...copyTooltipCustomClassNames])
     }, copyTooltipText));
   })));
-});
+};
+
 AddShareIcons.propTypes = {
   title: _propTypes.default.string,
   comp_id: _propTypes.default.string.isRequired,

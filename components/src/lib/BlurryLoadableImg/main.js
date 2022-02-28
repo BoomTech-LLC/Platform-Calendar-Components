@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import { decreaseImgQuality, isImgCached, isImgDecreasable } from '../helpers/blurryLoadableImage'
@@ -16,7 +16,7 @@ const BlurryLoadableImg = ({
 
   const [ isOrigLoaded, setIsOrigLoaded ] = useState(isImgCached(url))
   const [ imgLoadingFailed, setImgLoadingFailed ] = useState(false)
-  const wrapperClassNames = useMemo(() => combineClassNames([styles.imgWrapper, ...wrapperCustomClassNames]), [wrapperCustomClassNames])
+  const wrapperClassNames = combineClassNames([styles.imgWrapper, ...wrapperCustomClassNames])
 
   if(!url) {
     if(showColorAsBackground === false) return null
@@ -62,4 +62,4 @@ BlurryLoadableImg.propTypes = {
   imgCustomClassNames: PT_CLASSNAMES,
 }
 
-export default memo(BlurryLoadableImg)
+export default BlurryLoadableImg

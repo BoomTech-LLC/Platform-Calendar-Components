@@ -58,8 +58,7 @@ const DateBox = _ref => {
   }, /*#__PURE__*/_react.default.createElement("p", null, week))));
 };
 
-var _default = /*#__PURE__*/(0, _react.memo)(DateBox);
-
+var _default = DateBox;
 exports.default = _default;
 DateBox.propTypes = {
   start: _propTypes.default.string,

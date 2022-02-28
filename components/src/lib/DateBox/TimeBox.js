@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import styles from './main.module.css'
 import PropTypes from 'prop-types'
 import { formatDate, formatTime } from '../helpers/dateBox'
@@ -87,7 +87,7 @@ const TimeBox = ({
   )
 }
 
-export default memo(TimeBox)
+export default TimeBox
 
 TimeBox.propTypes = {
   start: PropTypes.string,

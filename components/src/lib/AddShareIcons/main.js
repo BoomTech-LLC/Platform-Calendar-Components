@@ -1,4 +1,4 @@
-import React, { Fragment, memo, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import '../assets/styles/icons.css'
@@ -69,7 +69,7 @@ export default function AddShareIcons(props) {
    )
 }
 
-const AddShareIconsRow = memo(({
+const AddShareIconsRow = ({
    comp_id,
    instance,
    constructor, 
@@ -121,7 +121,7 @@ const AddShareIconsRow = memo(({
          </div>
       </div>
    )
-})
+}
 
 AddShareIcons.propTypes = {
    title: PropTypes.string,
