@@ -60,7 +60,7 @@ export const SHAPE_REGISTRATION = PropTypes.shape({
     cid: PT_CID,
     enabled: PropTypes.bool,
     general: PropTypes.shape({
-        adminEmails: PropTypes.arrayOf(PropTypes.string),
+        admin: PropTypes.string,
         external: PropTypes.bool,
         url: PropTypes.string,
         countDount: REGISTRATION_COUNTDOWN_OPTIONS,

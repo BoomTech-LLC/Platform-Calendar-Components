@@ -11,7 +11,7 @@ const D_REGISTRATION = {
   cid: '123',
   enabled: true,
   general: {
-    adminEmails: ['boomtech@.com'],
+    admin: 'boomtech@.com',
     external: false,
     url: 'https://www.wix-style-react.com/storybook/?activeTab=API&path=%2Fstory%2Fcomponents-layout--layout',
     countDount: _commonPropTypes.REGISTRATION_COUNTDOWN_OPTIONS[0]

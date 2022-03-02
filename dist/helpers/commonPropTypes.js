@@ -78,7 +78,7 @@ const SHAPE_REGISTRATION = _propTypes.default.shape({
   cid: PT_CID,
   enabled: _propTypes.default.bool,
   general: _propTypes.default.shape({
-    adminEmails: _propTypes.default.arrayOf(_propTypes.default.string),
+    admin: _propTypes.default.string,
     external: _propTypes.default.bool,
     url: _propTypes.default.string,
     countDount: REGISTRATION_COUNTDOWN_OPTIONS

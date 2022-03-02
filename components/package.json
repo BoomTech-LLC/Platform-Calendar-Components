@@ -1,6 +1,6 @@
 {
   "name": "boom-components",
-  "version": "1.5.2",
+  "version": "1.5.4",
   "private": true,
   "files": [
     "dist",
