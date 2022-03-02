@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_TICKET_FIELDS = exports.CURRENCY_TYPES = exports.SHAPE_REGISTRATION = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_GUEST_TICKET = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_CID = exports.PT_CLASSNAMES = void 0;
+exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_TICKET_FIELDS = exports.CURRENCY_TYPES = exports.SHAPE_REGISTRATION = exports.REGISTRATION_COUNTDOWN_OPTIONS = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_GUEST_TICKET = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_CID = exports.PT_CLASSNAMES = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -70,15 +70,24 @@ const SHAPE_ORGANIZER = _propTypes.default.shape({
 
 exports.SHAPE_ORGANIZER = SHAPE_ORGANIZER;
 
+const REGISTRATION_COUNTDOWN_OPTIONS = _propTypes.default.oneOf(['15 mins', '30 mins', '45 mins', '60 mins']);
+
+exports.REGISTRATION_COUNTDOWN_OPTIONS = REGISTRATION_COUNTDOWN_OPTIONS;
+
 const SHAPE_REGISTRATION = _propTypes.default.shape({
   cid: PT_CID,
   enabled: _propTypes.default.bool,
-  external: _propTypes.default.bool,
-  adminEmail: _propTypes.default.string,
-  url: _propTypes.default.string,
-  limited: _propTypes.default.bool,
-  limit: _propTypes.default.number,
-  showGuests: _propTypes.default.bool
+  general: _propTypes.default.shape({
+    adminEmails: _propTypes.default.arrayOf(_propTypes.default.string),
+    external: _propTypes.default.bool,
+    url: _propTypes.default.string,
+    countDount: REGISTRATION_COUNTDOWN_OPTIONS
+  }),
+  guestsOptions: _propTypes.default.shape({
+    isLimited: _propTypes.default.bool,
+    limit: _propTypes.default.number,
+    show: _propTypes.default.bool
+  })
 });
 
 exports.SHAPE_REGISTRATION = SHAPE_REGISTRATION;

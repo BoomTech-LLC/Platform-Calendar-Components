@@ -7,16 +7,16 @@ export function getShowRegistrationButtonStatus(event, enabled) {
 }
 
 export function generateRegistrationURL(cid, event, registration, urlBase) {
-  if(registration.external) return registration.url
-  return `${urlBase}${encodeId(String(event.id))}?cid=${cid}${event?.repeat?.type ? '&startDate='+event.start.split('T')[0] : ''}`
+  if(registration.general.external) return registration.general.url
+  return `${urlBase}${encodeId(event.id.toString())}?cid=${cid}${event?.repeat?.type ? '&startDate='+event.start.split('T')[0] : ''}`
 }
 
 export function getGuestsOptions(event, registration, tickets) {
-  if(!registration.enabled || registration.external) return null
+  if(!registration.enabled) return null
   if(tickets?.enabled && event.guests?.length && event.guests?.tickets?.length) return calcGuestsOptionsByTickets(event, tickets)
   return {
     count: event?.guests?.length ?? 0,
-    limit: registration.guestsLimit
+    limit: registration.guestsOptions.limit
   }
 }
 

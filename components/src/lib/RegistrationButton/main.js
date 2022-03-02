@@ -40,11 +40,11 @@ const RegistrationButton = ({
 RegistrationButton.propTypes = {
   cid: PT_CID.isRequired,
   urlBase: PropTypes.string.isRequired,
-  text: PropTypes.string,
   event: SHAPE_EVENT,
+  text: PropTypes.string,
+  wrapperCustomClassNames: PT_CLASSNAMES,
   globalRegistration: SHAPE_REGISTRATION,
   globalTickets: SHAPE_TICKETS,
-  wrapperCustomClassNames: PT_CLASSNAMES
 }
 
 

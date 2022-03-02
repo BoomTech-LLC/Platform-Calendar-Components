@@ -49,15 +49,27 @@ export const SHAPE_ORGANIZER = PropTypes.shape({
     website: PropTypes.string
 })
 
+export const REGISTRATION_COUNTDOWN_OPTIONS = PropTypes.oneOf([
+    '15 mins',
+    '30 mins',
+    '45 mins',
+    '60 mins',
+])
+
 export const SHAPE_REGISTRATION = PropTypes.shape({
     cid: PT_CID,
     enabled: PropTypes.bool,
-    external: PropTypes.bool,
-    adminEmail: PropTypes.string,
-    url: PropTypes.string,
-    limited: PropTypes.bool,
-    limit: PropTypes.number,
-    showGuests: PropTypes.bool
+    general: PropTypes.shape({
+        adminEmails: PropTypes.arrayOf(PropTypes.string),
+        external: PropTypes.bool,
+        url: PropTypes.string,
+        countDount: REGISTRATION_COUNTDOWN_OPTIONS,
+    }),
+    guestsOptions: PropTypes.shape({
+        isLimited: PropTypes.bool,
+        limit: PropTypes.number,
+        show: PropTypes.bool,
+    })
 })
 
 export const CURRENCY_TYPES = PropTypes.oneOf(["$ Dollars", "฿ Baht", "€ Euros", "Ft Forint", "CHF Francs", "Kč Koruna", "kr Krona", "$ Mexican Pesos", "£ Pounds Sterling", "RM Ringgit", "₪ Shekel", "zł Zloty", "₹ Rupee"])

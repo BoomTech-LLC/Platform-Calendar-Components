@@ -54,11 +54,11 @@ const RegistrationButton = _ref => {
 RegistrationButton.propTypes = {
   cid: _commonPropTypes.PT_CID.isRequired,
   urlBase: _propTypes.default.string.isRequired,
-  text: _propTypes.default.string,
   event: _commonPropTypes.SHAPE_EVENT,
+  text: _propTypes.default.string,
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
-  globalTickets: _commonPropTypes.SHAPE_TICKETS,
-  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
+  globalTickets: _commonPropTypes.SHAPE_TICKETS
 };
 var _default = RegistrationButton;
 exports.default = _default;

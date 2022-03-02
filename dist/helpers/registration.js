@@ -8,6 +8,8 @@ exports.generateRegistrationURL = generateRegistrationURL;
 exports.getGuestsOptions = getGuestsOptions;
 exports.calcGuestsOptionsByTickets = calcGuestsOptionsByTickets;
 
+require("core-js/modules/es.regexp.to-string.js");
+
 require("core-js/modules/es.regexp.exec.js");
 
 require("core-js/modules/es.string.split.js");
@@ -28,18 +30,18 @@ function getShowRegistrationButtonStatus(event, enabled) {
 function generateRegistrationURL(cid, event, registration, urlBase) {
   var _event$repeat;
 
-  if (registration.external) return registration.url;
-  return "".concat(urlBase).concat((0, _commons.encodeId)(String(event.id)), "?cid=").concat(cid).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? '&startDate=' + event.start.split('T')[0] : '');
+  if (registration.general.external) return registration.general.url;
+  return "".concat(urlBase).concat((0, _commons.encodeId)(event.id.toString()), "?cid=").concat(cid).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? '&startDate=' + event.start.split('T')[0] : '');
 }
 
 function getGuestsOptions(event, registration, tickets) {
   var _event$guests, _event$guests2, _event$guests2$ticket, _event$guests$length, _event$guests3;
 
-  if (!registration.enabled || registration.external) return null;
+  if (!registration.enabled) return null;
   if (tickets !== null && tickets !== void 0 && tickets.enabled && (_event$guests = event.guests) !== null && _event$guests !== void 0 && _event$guests.length && (_event$guests2 = event.guests) !== null && _event$guests2 !== void 0 && (_event$guests2$ticket = _event$guests2.tickets) !== null && _event$guests2$ticket !== void 0 && _event$guests2$ticket.length) return calcGuestsOptionsByTickets(event, tickets);
   return {
     count: (_event$guests$length = event === null || event === void 0 ? void 0 : (_event$guests3 = event.guests) === null || _event$guests3 === void 0 ? void 0 : _event$guests3.length) !== null && _event$guests$length !== void 0 ? _event$guests$length : 0,
-    limit: registration.guestsLimit
+    limit: registration.guestsOptions.limit
   };
 }
 
