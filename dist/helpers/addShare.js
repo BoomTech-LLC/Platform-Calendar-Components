@@ -134,7 +134,9 @@ function generateEventUrl(event, encode, boomEventUrlBase, comp_id, instance) {
   if (event.kind === 4) {
     return event.eventPageUrl || '';
   } else {
-    return "".concat(boomEventUrlBase).concat((0, _commons.encodeId)("".concat(event.id)), "?").concat(encode ? encodeURIComponent("comp_id=".concat(comp_id, "&instance=").concat(instance, "&startDate=").concat(event.repeat.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '')) : "comp_id=".concat(comp_id, "&instance=").concat(instance), "&startDate=").concat(event.repeat.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '');
+    var _event$repeat, _event$repeat2;
+
+    return "".concat(boomEventUrlBase).concat((0, _commons.encodeId)("".concat(event.id)), "?").concat(encode ? encodeURIComponent("comp_id=".concat(comp_id, "&instance=").concat(instance, "&startDate=").concat((_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '')) : "comp_id=".concat(comp_id, "&instance=").concat(instance), "&startDate=").concat((_event$repeat2 = event.repeat) !== null && _event$repeat2 !== void 0 && _event$repeat2.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '');
   }
 }
 

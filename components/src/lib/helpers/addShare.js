@@ -121,7 +121,7 @@ export function generateEventUrl(event, encode, boomEventUrlBase, comp_id, insta
     if (event.kind === 4) {
         return event.eventPageUrl || ''
     } else {
-        return `${boomEventUrlBase}${encodeId(`${event.id}`)}?${encode ? encodeURIComponent(`comp_id=${comp_id}&instance=${instance}&startDate=${event.repeat.type ? moment(event.start).format('YYYY-MM-DD') : ''}`) : `comp_id=${comp_id}&instance=${instance}`}&startDate=${event.repeat.type ? moment(event.start).format('YYYY-MM-DD') : ''}`
+        return `${boomEventUrlBase}${encodeId(`${event.id}`)}?${encode ? encodeURIComponent(`comp_id=${comp_id}&instance=${instance}&startDate=${event.repeat?.type ? moment(event.start).format('YYYY-MM-DD') : ''}`) : `comp_id=${comp_id}&instance=${instance}`}&startDate=${event.repeat?.type ? moment(event.start).format('YYYY-MM-DD') : ''}`
     }
 }
 
