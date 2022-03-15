@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 export const PT_CLASSNAMES = PropTypes.arrayOf(PropTypes.string)
 
 export const PT_CID = PropTypes.string
+export const PT_UID = PropTypes.string
 
 export const SHAPE_PHYSICAL_LOCATION = PropTypes.shape({
     address: PropTypes.string,

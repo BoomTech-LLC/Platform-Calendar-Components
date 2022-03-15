@@ -1,14 +1,14 @@
 import moment from "moment";
-import {encodeId} from './commons'
+import { validateURL } from './../helpers/commons'
 
 export function getShowRegistrationButtonStatus(event, enabled) {
   if(moment(event.end).isBefore(moment())) return false
   return enabled
 }
 
-export function generateRegistrationURL(cid, event, registration, urlBase) {
-  if(registration.general.external) return registration.general.url
-  return `${urlBase}${encodeId(event.id.toString())}?cid=${cid}${event?.repeat?.type ? '&startDate='+event.start.split('T')[0] : ''}`
+export function generateRegistrationURL(cid, uid, event, registration, urlBase) {
+  if(registration.external) return validateURL(registration.url)
+  return `${urlBase}${uid}/${cid}/${String(event.id)}${event?.repeat?.type ? '?startDate='+event.start.split('T')[0] : ''}`
 }
 
 export function getGuestsOptions(event, registration, tickets) {

@@ -8,8 +8,6 @@ exports.generateRegistrationURL = generateRegistrationURL;
 exports.getGuestsOptions = getGuestsOptions;
 exports.calcGuestsOptionsByTickets = calcGuestsOptionsByTickets;
 
-require("core-js/modules/es.regexp.to-string.js");
-
 require("core-js/modules/es.regexp.exec.js");
 
 require("core-js/modules/es.string.split.js");
@@ -18,7 +16,7 @@ require("core-js/modules/web.dom-collections.iterator.js");
 
 var _moment = _interopRequireDefault(require("moment"));
 
-var _commons = require("./commons");
+var _commons = require("./../helpers/commons");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27,11 +25,11 @@ function getShowRegistrationButtonStatus(event, enabled) {
   return enabled;
 }
 
-function generateRegistrationURL(cid, event, registration, urlBase) {
+function generateRegistrationURL(cid, uid, event, registration, urlBase) {
   var _event$repeat;
 
-  if (registration.general.external) return registration.general.url;
-  return "".concat(urlBase).concat((0, _commons.encodeId)(event.id.toString()), "?cid=").concat(cid).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? '&startDate=' + event.start.split('T')[0] : '');
+  if (registration.external) return (0, _commons.validateURL)(registration.url);
+  return "".concat(urlBase).concat(uid, "/").concat(cid, "/").concat(String(event.id)).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? '?startDate=' + event.start.split('T')[0] : '');
 }
 
 function getGuestsOptions(event, registration, tickets) {
