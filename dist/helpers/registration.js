@@ -26,9 +26,9 @@ function getShowRegistrationButtonStatus(event, enabled) {
 }
 
 function generateRegistrationURL(cid, uid, event, registration, urlBase) {
-  var _event$repeat;
+  var _registration$general, _registration$general2, _event$repeat;
 
-  if (registration.external) return (0, _commons.validateURL)(registration.url);
+  if ((_registration$general = registration.general) !== null && _registration$general !== void 0 && _registration$general.external) return (0, _commons.validateURL)((_registration$general2 = registration.general) === null || _registration$general2 === void 0 ? void 0 : _registration$general2.url);
   return "".concat(urlBase).concat(uid, "/").concat(cid, "/").concat(String(event.id)).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? '?startDate=' + event.start.split('T')[0] : '');
 }
 
