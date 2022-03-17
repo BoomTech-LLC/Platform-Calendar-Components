@@ -55,21 +55,7 @@ const DateBox = ({
 }
 
 DateBox.propTypes = {
-  start: PropTypes.string.isRequired,
-  end: PropTypes.string.isRequired,
-  locale: PropTypes.string,
-  dateFormat: PropTypes.string,
-  timeFormat: PropTypes.string,
-  allDay: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
-  showTimeZone: PropTypes.bool, 
-  timeZone: PropTypes.string,
-  type: PropTypes.string,
-  showIcons: PropTypes.bool,
-  wrapperCustomClassNames: PropTypes.array,
-  oneLine: PropTypes.bool,
-  direction: PropTypes.string,
-  fixedHeight: PropTypes.bool,
-  dayNumberSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+
 
 }
 

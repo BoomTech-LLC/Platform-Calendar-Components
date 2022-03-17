@@ -8,15 +8,15 @@ import Location from './../Location'
 import { PT_CLASSNAMES } from '../helpers/commonPropTypes'
 
 const ListedDetails = ({
-    id,
-    values,
-    title = '',
-    titleBorderHidden = false,
-    wrapperCustomClassNames = [],
-    textDetailsCustomClassNames = [],
-    linkDetailsCustomClassNames = [],
-    rowSpace = '0.25rem'
-  }) => {
+  id,
+  values,
+  title = '',
+  titleBorderHidden = false,
+  wrapperCustomClassNames = [],
+  textDetailsCustomClassNames = [],
+  linkDetailsCustomClassNames = [],
+  rowSpace = 0.25
+}) => {
 
   const parsedValues = parseJson(values)
   const hasAcceptableValues = Object.entries(parsedValues).some(([key, value]) => LISTED_DETAILS_CONSTRUCTOR[key] && value);
@@ -24,7 +24,7 @@ const ListedDetails = ({
   if(isObjectEmpty(parsedValues) || !hasAcceptableValues) return null
 
   return (
-    <div className={combineClassNames([styles.listed_details_block, ...wrapperCustomClassNames])} style={{gap: rowSpace}}>
+    <div className={combineClassNames([styles.listed_details_block, ...wrapperCustomClassNames])} style={{gap: rowSpace+'rem'}}>
       <h3 className={titleBorderHidden ? '' : styles.bordered}>{title}</h3>
       {Object.entries(parsedValues).map(val => {
 

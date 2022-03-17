@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import { combineClassNames } from './../helpers/commons'
-import { PT_CLASSNAMES, SHAPE_GUEST, SHAPE_REGISTRATION, SHAPE_TICKETS } from '../helpers/commonPropTypes'
+import { PT_CLASSNAMES, SHAPE_EVENT, SHAPE_GUEST, SHAPE_REGISTRATION, SHAPE_TICKETS } from '../helpers/commonPropTypes'
 import { getGuestsOptions, getShowRegistrationButtonStatus } from '../helpers/registration'
 
 const GuestLimit = ({
@@ -36,6 +36,7 @@ const GuestLimit = ({
 
 GuestLimit.propTypes = {
     foreword: PropTypes.string,
+    event: SHAPE_EVENT,
     guests: PropTypes.arrayOf(PropTypes.shape(SHAPE_GUEST)),
     globalRegistration: SHAPE_REGISTRATION,
     globalTickets: SHAPE_TICKETS,

@@ -16,7 +16,7 @@ h3.bordered {
 
 .listed_details_row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   overflow-wrap: anywhere;
   gap: .5rem
 }
