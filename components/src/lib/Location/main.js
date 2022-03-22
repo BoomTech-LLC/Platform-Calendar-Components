@@ -10,7 +10,8 @@ const Location = ({
   elipsis = false,
   linkCustomClassNames = [],
   textCustomClassNames = [],
-  wrapperCustomClassNames = []
+  wrapperCustomClassNames = [],
+  showIcons = true
 }) => {
   
   if(!data) return null
@@ -19,7 +20,7 @@ const Location = ({
 
   return (
     <div className={ combineClassNames([styles.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)]) }>
-      <div className='icon-location' />
+      {showIcons && <div className='icon-location' />}
       <div className={ combineClassNames([styles.line_breaker, elipsis ? styles.text_elipsis : '']) }>
         {
           isLink ?
@@ -46,6 +47,7 @@ Location.propTypes = {
   linkCustomClassNames: PT_CLASSNAMES,
   textCustomClassNames: PT_CLASSNAMES,
   wrapperCustomClassNames: PT_CLASSNAMES,
+  showIcons: PropTypes.bool
 }
 
 export default Location
