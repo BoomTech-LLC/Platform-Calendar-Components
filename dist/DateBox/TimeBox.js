@@ -36,7 +36,8 @@ const TimeBox = _ref => {
     agenda,
     allDayText,
     oneLine,
-    fixedHeight
+    fixedHeight,
+    startDateOnly
   } = _ref;
   const {
     startDate,
@@ -66,7 +67,7 @@ const TimeBox = _ref => {
     className: datesEqual ? 'icon-date' : _mainModule.default.start_date_icon + ' icon-clock'
   }), /*#__PURE__*/_react.default.createElement("p", {
     className: oneLine ? _mainModule.default.oneLine : 'undefined'
-  }, startDate + (datesEqual ? '' : startTime + ' ' + timeZoneToShow))), !(datesEqual && allDay) && /*#__PURE__*/_react.default.createElement("div", {
+  }, startDate + (datesEqual ? '' : startTime + ' ' + timeZoneToShow))), !(datesEqual && allDay) && !startDateOnly && /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.two_line_end
   }, showIcons && /*#__PURE__*/_react.default.createElement("div", {
     className: (datesEqual ? _mainModule.default.start_date_icon : '') + ' icon-clock'
@@ -87,5 +88,6 @@ TimeBox.propTypes = {
   showIcons: _propTypes.default.bool,
   wrapperCustomClassNames: _propTypes.default.array,
   oneLine: _propTypes.default.bool,
-  fixedHeight: _propTypes.default.bool
+  fixedHeight: _propTypes.default.bool,
+  startDateOnly: _propTypes.default.bool
 };

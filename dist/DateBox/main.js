@@ -33,7 +33,8 @@ const DateBox = _ref => {
     oneLine = false,
     direction = 'row',
     fixedHeight = false,
-    dayNumberSize = 40
+    dayNumberSize = 40,
+    startDateOnly = false
   } = _ref;
 
   if (type === 'timeBox') {
@@ -80,7 +81,8 @@ DateBox.propTypes = {
   oneLine: _propTypes.default.bool,
   direction: _propTypes.default.string,
   fixedHeight: _propTypes.default.bool,
-  dayNumberSize: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])
+  dayNumberSize: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+  startDateOnly: _propTypes.default.bool
 };
 var _default = DateBox;
 exports.default = _default;

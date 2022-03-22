@@ -19,6 +19,7 @@ const TimeBox = ({
   allDayText,
   oneLine,
   fixedHeight,
+  startDateOnly
 }) => {
 
   const { startDate, endDate } = formatDate(start, end, dateFormat, locale)
@@ -59,7 +60,7 @@ const TimeBox = ({
         </div>
       }
 
-      {!(datesEqual && allDay) &&
+      {!(datesEqual && allDay) && !startDateOnly &&
         <div className={styles.two_line_end}>
           {
             showIcons && 
@@ -95,5 +96,6 @@ TimeBox.propTypes = {
   showIcons: PropTypes.bool,
   wrapperCustomClassNames: PropTypes.array,
   oneLine: PropTypes.bool,
-  fixedHeight: PropTypes.bool
+  fixedHeight: PropTypes.bool,
+  startDateOnly: PropTypes.bool
 }

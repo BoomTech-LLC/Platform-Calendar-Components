@@ -20,7 +20,8 @@ const DateBox = ({
   oneLine = false,
   direction = 'row',
   fixedHeight = false,
-  dayNumberSize = 40
+  dayNumberSize = 40,
+  startDateOnly = false
 }) => {
   if (type === 'timeBox') {
     return (
@@ -69,7 +70,8 @@ DateBox.propTypes = {
   oneLine: PropTypes.bool,
   direction: PropTypes.string,
   fixedHeight: PropTypes.bool,
-  dayNumberSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  dayNumberSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  startDateOnly: PropTypes.bool
 
 }
 
