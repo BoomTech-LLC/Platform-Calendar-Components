@@ -52,7 +52,8 @@ const DateBox = _ref => {
       agenda: agenda,
       allDayText: allDayText,
       oneLine: oneLine,
-      fixedHeight: fixedHeight
+      fixedHeight: fixedHeight,
+      startDateOnly: startDateOnly
     });
   }
 

@@ -40,6 +40,7 @@ const DateBox = ({
         allDayText={allDayText}
         oneLine={oneLine}
         fixedHeight={fixedHeight}
+        startDateOnly={startDateOnly}
       />
     )
   }
