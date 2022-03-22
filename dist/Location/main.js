@@ -28,7 +28,7 @@ const Location = _ref => {
     linkCustomClassNames = [],
     textCustomClassNames = [],
     wrapperCustomClassNames = [],
-    showIcons = true
+    showIcon = true
   } = _ref;
   if (!data) return null;
   const {
@@ -38,7 +38,7 @@ const Location = _ref => {
   } = (0, _location.getLocationOptions)(data);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)])
-  }, showIcons && /*#__PURE__*/_react.default.createElement("div", {
+  }, showIcon && /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-location"
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.line_breaker, elipsis ? _mainModule.default.text_elipsis : ''])
@@ -54,7 +54,7 @@ Location.propTypes = {
   linkCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   textCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
-  showIcons: _propTypes.default.bool
+  showIcon: _propTypes.default.bool
 };
 var _default = Location;
 exports.default = _default;
