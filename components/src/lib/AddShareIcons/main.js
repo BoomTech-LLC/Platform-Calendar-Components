@@ -46,6 +46,7 @@ export default function AddShareIcons(props) {
                   rowId={ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS.rowId}
                />
             }
+            {order === 'horizontal' && <div className={styles.horizontal_divider}/> }
             {
                !hideShareIcons && 
                +event.kind !== 4 && 

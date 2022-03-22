@@ -4,11 +4,18 @@
 
 .horizontal .add_share_icons_row:first-of-type {
     padding-right: calc(1rem - 1px);
-    border-right: 1px solid rgb(95, 94, 94);
 }
 
 .horizontal .add_share_icons_row:last-of-type {
     padding-left: 1rem;
+}
+
+.horizontal .horizontal_divider{
+    height: 18px;
+    width: 1px;
+    background-color: #2B5672;
+    margin-top: auto;
+    margin-bottom: 0.2rem;
 }
 
 .add_share_icons_block > h3 {
