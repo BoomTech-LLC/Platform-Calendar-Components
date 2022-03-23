@@ -17,6 +17,6 @@ Category.args = {
 
 export const Uncategorised = Template.bind({})
 Uncategorised.args = {
-    category: D_UNCATEGORISED,
-    wrapperCustomClassNames: D_WRAPPER_CLASSNAMES
+  category: D_UNCATEGORISED,
+  wrapperCustomClassNames: D_WRAPPER_CLASSNAMES
 }

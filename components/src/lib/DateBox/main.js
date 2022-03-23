@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import DateBoxComponent from './DateBox'
 import TimeBox from './TimeBox'
 
