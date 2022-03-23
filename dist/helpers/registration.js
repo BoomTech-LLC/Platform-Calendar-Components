@@ -20,12 +20,8 @@ var _commons = require("./../helpers/commons");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const timestamp = new Date().getTime()
-// const oneDayMs = 86400000
-// const tsToCompare = event.allDay ? event.endMs + oneDayMs : event.endMs 
-// if(tsToCompare >= timestamp) return false
-// return enabled
 function getShowRegistrationButtonStatus(event, enabled) {
+  if (event.isDefault) return false;
   const dateToCompare = event.allDay ? (0, _moment.default)(event.end).add(1, 'd') : (0, _moment.default)(event.end);
   if (dateToCompare.isBefore((0, _moment.default)())) return false;
   return enabled;
