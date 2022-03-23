@@ -3,10 +3,10 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.calcGuestsOptionsByTickets = calcGuestsOptionsByTickets;
+exports.getShowRegistrationButtonStatus = getShowRegistrationButtonStatus;
 exports.generateRegistrationURL = generateRegistrationURL;
 exports.getGuestsOptions = getGuestsOptions;
-exports.getShowRegistrationButtonStatus = getShowRegistrationButtonStatus;
+exports.calcGuestsOptionsByTickets = calcGuestsOptionsByTickets;
 
 require("core-js/modules/es.regexp.exec.js");
 

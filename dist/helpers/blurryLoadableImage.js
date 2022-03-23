@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isImgDecreasable = exports.isImgCached = exports.decreaseImgQuality = void 0;
+exports.isImgCached = exports.decreaseImgQuality = exports.isImgDecreasable = void 0;
 
 require("core-js/modules/es.regexp.exec.js");
 
