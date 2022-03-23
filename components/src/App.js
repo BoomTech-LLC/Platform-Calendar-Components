@@ -36,14 +36,14 @@ function App() {
       >
         {exampleEvent1.desc}
       </Description> */}
-      <AddShareIcons
+      {/* <AddShareIcons
           comp_id={'comp-ky3hw27'}
           instance={'b75dQ3ITC3GqJcOOQOHXDDpNVVcSTMZtaSnLfUC-VJ4.eyJpbnN0YW5jZUlkIjoiNTgxMmVlNWQtNjVhOC00ODNiLTlhYjctOTg2OTVmMjMwYTg5IiwiYXBwRGVmSWQiOiIxM2I0YTAyOC0wMGZhLTcxMzMtMjQyZi00NjI4MTA2YjhjOTEiLCJzaWduRGF0ZSI6IjIwMjItMDEtMTdUMDg6MjA6MTUuMTE1WiIsInZlbmRvclByb2R1Y3RJZCI6IlByZW1pdW0iLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImExOWNkMGIwLTY2ZTUtNGZhZC1iMThiLTdkOGJiZDliYzNmMiIsInNpdGVPd25lcklkIjoiZjRhZjE0OGEtNWY4My00NzQ1LTg5Y2YtYWVlMWExNGVkMGFlIn0'}
           event={exampleEvent2}
           boomEventUrlBase={'https://calendar.boomte.ch/single/'}
           order='horizontal'
           hideAddToIcons={false}
-      />
+      /> */}
       {/* <ListedDetails
           title='title' 
           id={'id'}
@@ -60,7 +60,7 @@ function App() {
           textDetailsCustomClassNames={['textDetailsCustomClassNames']}
           linkDetailsCustomClassNames={['linkDetailsCustomClassNames']}
       /> */}
-      <Location
+      {/* <Location
         elipsis
         textCustomClassNames={['123']}
         linkCustomClassNames={['456']}
@@ -79,17 +79,17 @@ function App() {
           }
             
         }}
-      />
+      /> */}
       
       <hr/>
-      <RegistrationButton
+      {/* <RegistrationButton
           cid={'123'}
           uid={'123'}
           text={'Pele'}
           urlBase='https://shahen.boomtechdev.com/calendar/model/registration.php/'
           event={D_EVENT_1}
           globalRegistration={D_REGISTRATION}
-      />
+      /> */}
       <GuestLimit
           foreword='Guests'
           event={D_EVENT_1}
@@ -119,7 +119,7 @@ function App() {
         direction='row'
         /> */}
         <hr/>
-      <DateBox
+      {/* <DateBox
         start="11/19/2021T17:00"
         end="11/19/2021T19:00"
         type='timeBox'
@@ -133,7 +133,7 @@ function App() {
         year={2019}
         fixedHeight={true}
         // agenda={true}
-      />
+      /> */}
         {/* <DateBox
           start="09/27/2021T13:30"
           end="09/27/2022T13:30"
@@ -154,7 +154,7 @@ function App() {
         }}
         wrapperCustomClassNames={['customClassName']}
       /> */}
-      <TicketList
+      {/* <TicketList
         enabled={true}
         tickets={[
           {
@@ -170,8 +170,8 @@ function App() {
             quantity: 1,
           },
         ]}
-      />
-
+      /> */}
+{/* 
       <div style={{height: 150, width: 150}}>
         <BlurryLoadableImg
           // url={'https://drive.google.com/uc?id=1rJhGctvvf5L-3qfLe1zfgmleuSo-AhWB'}
@@ -179,7 +179,7 @@ function App() {
           color={"red"}
           title={'title'}
           />
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -10,12 +10,12 @@ const GuestLimit = ({
     event,
     globalRegistration,
     globalTickets,
-    wrapperCustomClassNames = []    
+    wrapperCustomClassNames = []
 }) => {
 
   const registration = event.registration ?? globalRegistration
   const tickets = event.tickets ?? globalTickets
-  
+
   const show = getShowRegistrationButtonStatus(event, tickets?.enabled || registration?.enabled)
   if(!show) return null
   if(!tickets?.list?.length && (!registration.guestsOptions.isLimited || !registration.guestsOptions.show)) return null
