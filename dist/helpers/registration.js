@@ -27,10 +27,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // return enabled
 function getShowRegistrationButtonStatus(event, enabled) {
   const dateToCompare = event.allDay ? (0, _moment.default)(event.end).add(1, 'd') : (0, _moment.default)(event.end);
-  console.log({
-    event,
-    dateToCompare
-  }, (0, _moment.default)(event.end));
   if (dateToCompare.isBefore((0, _moment.default)())) return false;
   return enabled;
 }

@@ -7,7 +7,6 @@ import { validateURL } from './../helpers/commons'
 // return enabled
 export function getShowRegistrationButtonStatus(event, enabled) {
   const dateToCompare = event.allDay ? moment(event.end).add(1, 'd') : moment(event.end)
-  console.log({event, dateToCompare}, moment(event.end));
   if(dateToCompare.isBefore(moment())) return false
   return enabled
 }
