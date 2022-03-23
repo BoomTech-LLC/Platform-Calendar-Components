@@ -1,8 +1,14 @@
 import moment from "moment";
 import { validateURL } from './../helpers/commons'
-
+// const timestamp = new Date().getTime()
+// const oneDayMs = 86400000
+// const tsToCompare = event.allDay ? event.endMs + oneDayMs : event.endMs 
+// if(tsToCompare >= timestamp) return false
+// return enabled
 export function getShowRegistrationButtonStatus(event, enabled) {
-  if(moment(event.end).isBefore(moment())) return false
+  const dateToCompare = event.allDay ? moment(event.end).add(1, 'd') : moment(event.end)
+  console.log({event, dateToCompare}, moment(event.end));
+  if(dateToCompare.isBefore(moment())) return false
   return enabled
 }
 

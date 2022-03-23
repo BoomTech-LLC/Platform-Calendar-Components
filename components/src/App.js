@@ -84,6 +84,7 @@ function App() {
       <hr/>
       <RegistrationButton
           cid={'123'}
+          uid={'123'}
           text={'Pele'}
           urlBase='https://shahen.boomtechdev.com/calendar/model/registration.php/'
           event={D_EVENT_1}
