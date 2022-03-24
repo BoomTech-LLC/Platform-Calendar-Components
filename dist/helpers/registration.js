@@ -7,6 +7,7 @@ exports.getShowRegistrationButtonStatus = getShowRegistrationButtonStatus;
 exports.generateRegistrationURL = generateRegistrationURL;
 exports.getGuestsOptions = getGuestsOptions;
 exports.calcGuestsOptionsByTickets = calcGuestsOptionsByTickets;
+exports.filterEventGuests = void 0;
 
 require("core-js/modules/es.regexp.exec.js");
 
@@ -19,6 +20,12 @@ var _moment = _interopRequireDefault(require("moment"));
 var _commons = require("./../helpers/commons");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function getShowRegistrationButtonStatus(event, enabled) {
   if (event.isDefault) return false;
@@ -35,12 +42,16 @@ function generateRegistrationURL(cid, uid, event, registration, urlBase) {
 }
 
 function getGuestsOptions(event, registration, tickets) {
-  var _event$guests, _event$guests2, _event$guests2$ticket, _event$guests$length, _event$guests3;
+  var _eventCopy$guests, _eventCopy$guests2, _eventCopy$guests2$ti, _eventCopy$guests$len, _eventCopy$guests3;
+
+  const eventCopy = _objectSpread(_objectSpread({}, event), {}, {
+    guests: filterEventGuests(event)
+  });
 
   if (!registration.enabled) return null;
-  if (tickets !== null && tickets !== void 0 && tickets.enabled && (_event$guests = event.guests) !== null && _event$guests !== void 0 && _event$guests.length && (_event$guests2 = event.guests) !== null && _event$guests2 !== void 0 && (_event$guests2$ticket = _event$guests2.tickets) !== null && _event$guests2$ticket !== void 0 && _event$guests2$ticket.length) return calcGuestsOptionsByTickets(event, tickets);
+  if (tickets !== null && tickets !== void 0 && tickets.enabled && (_eventCopy$guests = eventCopy.guests) !== null && _eventCopy$guests !== void 0 && _eventCopy$guests.length && (_eventCopy$guests2 = eventCopy.guests) !== null && _eventCopy$guests2 !== void 0 && (_eventCopy$guests2$ti = _eventCopy$guests2.tickets) !== null && _eventCopy$guests2$ti !== void 0 && _eventCopy$guests2$ti.length) return calcGuestsOptionsByTickets(eventCopy, tickets);
   return {
-    count: (_event$guests$length = event === null || event === void 0 ? void 0 : (_event$guests3 = event.guests) === null || _event$guests3 === void 0 ? void 0 : _event$guests3.length) !== null && _event$guests$length !== void 0 ? _event$guests$length : 0,
+    count: (_eventCopy$guests$len = eventCopy === null || eventCopy === void 0 ? void 0 : (_eventCopy$guests3 = eventCopy.guests) === null || _eventCopy$guests3 === void 0 ? void 0 : _eventCopy$guests3.length) !== null && _eventCopy$guests$len !== void 0 ? _eventCopy$guests$len : 0,
     limit: registration.guestsOptions.limit
   };
 }
@@ -54,13 +65,27 @@ function calcGuestsOptionsByTickets(event, tickets) {
 
   for (let guest of event.guests) {
     guest.tickets.forEach(guestTicket => {
-      var _event$repeat2;
-
-      if (!guest.date || event !== null && event !== void 0 && (_event$repeat2 = event.repeat) !== null && _event$repeat2 !== void 0 && _event$repeat2.type && (0, _moment.default)(guest.date).format('DD-MM-YYYY') === (0, _moment.default)(event.start).format('DD-MM-YYYY')) {
-        result.count += guestTicket.quantity;
-      }
+      result.count += guestTicket.quantity;
     });
   }
 
   return result;
 }
+
+const filterEventGuests = _ref => {
+  let {
+    guests,
+    start,
+    repeat,
+    repeated
+  } = _ref;
+  if (!(repeat !== null && repeat !== void 0 && repeat.type) && !repeated) return guests;
+  return guests.filter(_ref2 => {
+    let {
+      date
+    } = _ref2;
+    return (0, _moment.default)(date).isSame(start);
+  });
+};
+
+exports.filterEventGuests = filterEventGuests;

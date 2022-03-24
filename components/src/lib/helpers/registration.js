@@ -14,10 +14,15 @@ export function generateRegistrationURL(cid, uid, event, registration, urlBase) 
 }
 
 export function getGuestsOptions(event, registration, tickets) {
+  const eventCopy = {
+    ...event,
+    guests: filterEventGuests(event)
+  }
+  
   if(!registration.enabled) return null
-  if(tickets?.enabled && event.guests?.length && event.guests?.tickets?.length) return calcGuestsOptionsByTickets(event, tickets)
+  if(tickets?.enabled && eventCopy.guests?.length && eventCopy.guests?.tickets?.length) return calcGuestsOptionsByTickets(eventCopy, tickets)
   return {
-    count: event?.guests?.length ?? 0,
+    count: eventCopy?.guests?.length ?? 0,
     limit: registration.guestsOptions.limit
   }
 }
@@ -30,13 +35,14 @@ export function calcGuestsOptionsByTickets(event, tickets) {
   }
   for(let guest of event.guests) {
     guest.tickets.forEach(guestTicket => {
-      if(
-        !guest.date || 
-        (event?.repeat?.type && moment(guest.date).format('DD-MM-YYYY') === moment(event.start).format('DD-MM-YYYY'))
-      ) {
         result.count += guestTicket.quantity
-      }
     })
   }
   return result
+}
+
+export const filterEventGuests = ({guests, start, repeat, repeated}) => {
+  if(!repeat?.type && !repeated) return guests;
+
+  return guests.filter(({date}) => moment(date).isSame(start))
 }
