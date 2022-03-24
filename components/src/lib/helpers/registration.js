@@ -10,7 +10,7 @@ export function getShowRegistrationButtonStatus(event, enabled) {
 
 export function generateRegistrationURL(cid, uid, event, registration, urlBase) {
   if(registration.general?.external) return validateURL(registration.general?.url)
-  return `${urlBase}${uid}/${cid}/${String(event.id)}${event?.repeat?.type ? '?startDate='+event.start.split('T')[0] : ''}`
+  return `${urlBase}${uid}/${cid}/${String(event.id)}${(event?.repeat?.type || event?.repeated) ? '?startDate='+event.start.split('T')[0] : ''}`
 }
 
 export function getGuestsOptions(event, registration, tickets) {
