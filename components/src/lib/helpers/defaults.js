@@ -1,3 +1,7 @@
+export const DEMO_UID = 'demo-user-id'
+
+export const DEMO_CID = 'demo-calendar-id'
+
 export const D_WRAPPER_CLASSNAMES = [
     'default-wrapper-className-1',
     'default-wrapper-className-2'
@@ -35,8 +39,9 @@ export const D_GUEST_1 = {
 }
 
 export const D_REGISTRATION = {
-  cid: null,
+  cid: 'demo-calendar-id',
   enabled: true,
+  emailsEnabled: true,
   general: {
     admin: 'bommtech@gmail.com',
     external: false,
@@ -45,7 +50,7 @@ export const D_REGISTRATION = {
   },
   guestsOptions: {
     isLimited: true,
-    limit: 500,
+    limit: 25,
     show: true,
   },
   form: {

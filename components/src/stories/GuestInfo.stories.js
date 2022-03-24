@@ -1,5 +1,6 @@
+import GuestLimitComponent from '../lib/GuestLimit'
 import { D_EVENT_1, D_REGISTRATION, D_WRAPPER_CLASSNAMES } from '../lib/helpers/defaults'
-import GuestLimitComponent from '../lib/GuestLimit/main'
+import './main.css'
 
 export default {
     title: 'Components/GuestLimit',
@@ -9,12 +10,11 @@ export default {
 const Template = args => <GuestLimitComponent { ...args } />
 
 export const GuestLimit = Template.bind({})
-
 GuestLimit.args = {
-    foreword: 'Guests: ',
+    foreword: 'Guests',
     event: D_EVENT_1,
-    guests: [],
+    urlBase: 'https://shahen.boomtechdev.com/calendar/model/registration.php/',
     globalRegistration: D_REGISTRATION,
-    globalTickets: {},
-    wrapperCustomClassNames: D_WRAPPER_CLASSNAMES
+    globalTickets: [],
+    wrapperCustomClassNames: D_WRAPPER_CLASSNAMES,
 }

@@ -50,13 +50,6 @@ export const SHAPE_ORGANIZER = PropTypes.shape({
     website: PropTypes.string
 })
 
-export const REGISTRATION_COUNTDOWN_OPTIONS = PropTypes.oneOf([
-    '15 mins',
-    '30 mins',
-    '45 mins',
-    '60 mins',
-])
-
 export const SHAPE_REGISTRATION = PropTypes.shape({
     cid: PT_CID,
     enabled: PropTypes.bool,
@@ -64,7 +57,6 @@ export const SHAPE_REGISTRATION = PropTypes.shape({
         admin: PropTypes.string,
         external: PropTypes.bool,
         url: PropTypes.string,
-        countDount: REGISTRATION_COUNTDOWN_OPTIONS,
     }),
     guestsOptions: PropTypes.shape({
         isLimited: PropTypes.bool,
@@ -83,13 +75,15 @@ export const SHAPE_TICKET_FIELDS = PropTypes.shape({
     limit: PropTypes.number
 })
 
-export const SHAPE_TICKETS = PropTypes.shape({
+export const SHAPE_TICKET = PropTypes.shape({
     enabled: PropTypes.bool,
     fee: PropTypes.number,
     showLimit: PropTypes.bool,
     currency: CURRENCY_TYPES,
     list: PropTypes.arrayOf(SHAPE_TICKET_FIELDS)
 })
+
+export const SHAPE_TICKETS = PropTypes.arrayOf(SHAPE_TICKET)
 
 export const SHAPE_REPEAT = PropTypes.shape({
     type: PropTypes.oneOf([ 'Day', 'Week', 'Month', 'Year']),
