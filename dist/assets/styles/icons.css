@@ -88,3 +88,6 @@
 .icon-ticket:before {
   content: "\e566";
 }
+.icon-guests:before {
+  content: "\e900";
+}

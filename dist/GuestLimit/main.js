@@ -29,7 +29,8 @@ const GuestLimit = _ref => {
     event,
     globalRegistration,
     globalTickets,
-    wrapperCustomClassNames = []
+    wrapperCustomClassNames = [],
+    showIcon = false
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
   const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
@@ -44,7 +45,9 @@ const GuestLimit = _ref => {
   } = guestsOptions;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.guest_limit_parent, ...wrapperCustomClassNames])
-  }, /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", count, " / ", limit));
+  }, showIcon && /*#__PURE__*/_react.default.createElement("span", {
+    className: "icon-guests"
+  }), /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", count, " / ", limit));
 };
 
 GuestLimit.propTypes = {
@@ -52,7 +55,8 @@ GuestLimit.propTypes = {
   guests: _propTypes.default.arrayOf(_propTypes.default.shape(_commonPropTypes.SHAPE_GUEST)),
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
   globalTickets: _commonPropTypes.SHAPE_TICKETS,
-  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  showIcon: _propTypes.default.bool
 };
 var _default = GuestLimit;
 exports.default = _default;

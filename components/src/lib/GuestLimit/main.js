@@ -10,7 +10,8 @@ const GuestLimit = ({
     event,
     globalRegistration,
     globalTickets,
-    wrapperCustomClassNames = []
+    wrapperCustomClassNames = [],
+    showIcon = false
 }) => {
 
   const registration = event.registration ?? globalRegistration
@@ -27,6 +28,7 @@ const GuestLimit = ({
 
   return (
     <div className={combineClassNames([styles.guest_limit_parent, ...wrapperCustomClassNames])}>
+      {showIcon && <span className="icon-guests"/>}
       <p>
         {foreword}: {count} / {limit}
       </p>
@@ -39,7 +41,8 @@ GuestLimit.propTypes = {
     guests: PropTypes.arrayOf(PropTypes.shape(SHAPE_GUEST)),
     globalRegistration: SHAPE_REGISTRATION,
     globalTickets: SHAPE_TICKETS,
-    wrapperCustomClassNames: PT_CLASSNAMES
+    wrapperCustomClassNames: PT_CLASSNAMES,
+    showIcon: PropTypes.bool
 }
 
 export default GuestLimit
