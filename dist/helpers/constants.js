@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = exports.LOCATION_TYPES = void 0;
+exports.LOCATION_TYPES = exports.LISTED_DETAILS_CONSTRUCTOR = exports.ADD_SHARE_ICONS_CONSTRUCTOR = void 0;
 
 var _addShare = require("./addShare");
 

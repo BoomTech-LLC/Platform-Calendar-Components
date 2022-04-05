@@ -53,14 +53,14 @@ const BlurryLoadableImg = _ref => {
     style: {
       backgroundColor: imgLoadingFailed ? color : 'transparent'
     }
-  }, !imgLoadingFailed && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, (0, _blurryLoadableImage.isImgDecreasable)(url) && !isOrigLoaded && /*#__PURE__*/_react.default.createElement("img", {
+  }, !imgLoadingFailed && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, !isOrigLoaded && /*#__PURE__*/_react.default.createElement("img", {
     className: (0, _commons.combineClassNames)([_mainModule.default.blurred, ...imgCustomClassNames]),
     src: (0, _blurryLoadableImage.decreaseImgQuality)(url),
     title: title,
     alt: title,
     onError: () => setImgLoadingFailed(true)
   }), /*#__PURE__*/_react.default.createElement("img", {
-    className: (0, _commons.combineClassNames)([...imgCustomClassNames, !(0, _blurryLoadableImage.isImgDecreasable)(url) || isOrigLoaded ? _mainModule.default.shown : _mainModule.default.hidden]),
+    className: (0, _commons.combineClassNames)([...imgCustomClassNames, isOrigLoaded ? _mainModule.default.shown : _mainModule.default.hidden]),
     onLoad: () => setIsOrigLoaded(true),
     src: url,
     title: title,

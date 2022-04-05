@@ -28,7 +28,6 @@ const BlurryLoadableImg = ({
         {!imgLoadingFailed &&
           <>
             {
-              isImgDecreasable(url) &&
               !isOrigLoaded &&
               <img
                 className={combineClassNames([styles.blurred, ...imgCustomClassNames])}
@@ -40,7 +39,7 @@ const BlurryLoadableImg = ({
             }
             
             <img
-              className={combineClassNames([...imgCustomClassNames, (!isImgDecreasable(url) || isOrigLoaded) ? styles.shown: styles.hidden])}
+              className={combineClassNames([...imgCustomClassNames, isOrigLoaded ? styles.shown: styles.hidden])}
               onLoad={() => setIsOrigLoaded(true)}
               src={ url }
               title={ title }

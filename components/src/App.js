@@ -171,7 +171,6 @@ function App() {
           },
         ]}
       /> */}
-{/* 
       <div style={{height: 150, width: 150}}>
         <BlurryLoadableImg
           // url={'https://drive.google.com/uc?id=1rJhGctvvf5L-3qfLe1zfgmleuSo-AhWB'}
@@ -179,7 +178,7 @@ function App() {
           color={"red"}
           title={'title'}
           />
-      </div> */}
+      </div>
     </div>
   )
 }
