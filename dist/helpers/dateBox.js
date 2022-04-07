@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getDateForDateBox = exports.formatTime = exports.formatDate = void 0;
+exports.formatTime = exports.formatDate = exports.getDateForDateBox = void 0;
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
@@ -40,10 +40,10 @@ const getDateForDateBox = (start, end, locale) => {
 
 exports.getDateForDateBox = getDateForDateBox;
 
-const getFormattedDate = (date, dateFormat, locale) => {
+const getFormattedDate = (date, dateFormat, locale, showYear) => {
   let format = dateFormat;
 
-  if (dateFormat.includes('YYYY') && (0, _moment.default)(date).format('YYYY') === (0, _moment.default)().format('YYYY')) {
+  if (dateFormat.includes('YYYY') && (0, _moment.default)(date).format('YYYY') === (0, _moment.default)().format('YYYY') && !showYear) {
     const yearRegex = new RegExp(',? ?,?YYYY,? ?,?');
     format = dateFormat.split(yearRegex)[1] ? dateFormat.replace(/,? ?,?YYYY/, '').trim() : dateFormat.replace(yearRegex, '').trim();
   }
@@ -51,9 +51,9 @@ const getFormattedDate = (date, dateFormat, locale) => {
   return (0, _moment.default)(date).locale(locale).format(format);
 };
 
-const formatDate = (start, end, dateFormat, locale) => ({
-  startDate: getFormattedDate(start.replace('T', ' '), dateFormat, locale),
-  endDate: getFormattedDate(end.replace('T', ' '), dateFormat, locale)
+const formatDate = (start, end, dateFormat, locale, showYear) => ({
+  startDate: getFormattedDate(start.replace('T', ' '), dateFormat, locale, showYear),
+  endDate: getFormattedDate(end.replace('T', ' '), dateFormat, locale, showYear)
 });
 
 exports.formatDate = formatDate;

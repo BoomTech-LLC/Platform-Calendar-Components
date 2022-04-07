@@ -19,7 +19,7 @@ const DateBox = ({ start, end, locale, wrapperCustomClassNames = [], direction =
 
   return (
     <div className={combineClassNames([styles.container, styles[direction], ...wrapperCustomClassNames])} ref={container}>
-      <div className={styles.day_of_month} style={{fontSize: dayNumberSize}}>
+      <div className={styles.day_of_month} style={{ fontSize: dayNumberSize }}>
         <p>{day}</p>
       </div>
       <div className={styles.month_day_of_week_parent}>

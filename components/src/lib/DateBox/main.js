@@ -21,7 +21,8 @@ const DateBox = ({
   direction = 'row',
   fixedHeight = false,
   dayNumberSize = 40,
-  startDateOnly = false
+  startDateOnly = false,
+  showYear = false,
 }) => {
   if (type === 'timeBox') {
     return (
@@ -41,6 +42,7 @@ const DateBox = ({
         oneLine={oneLine}
         fixedHeight={fixedHeight}
         startDateOnly={startDateOnly}
+        showYear={showYear}
       />
     )
   }
@@ -63,7 +65,7 @@ DateBox.propTypes = {
   dateFormat: PropTypes.string,
   timeFormat: PropTypes.string,
   allDay: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
-  showTimeZone: PropTypes.bool, 
+  showTimeZone: PropTypes.bool,
   timeZone: PropTypes.string,
   type: PropTypes.string,
   showIcons: PropTypes.bool,
@@ -72,8 +74,8 @@ DateBox.propTypes = {
   direction: PropTypes.string,
   fixedHeight: PropTypes.bool,
   dayNumberSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  startDateOnly: PropTypes.bool
-
+  startDateOnly: PropTypes.bool,
+  showYear: PropTypes.bool
 }
 
 export default DateBox

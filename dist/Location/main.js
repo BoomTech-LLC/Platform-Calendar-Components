@@ -44,7 +44,8 @@ const Location = _ref => {
     className: (0, _commons.combineClassNames)([_mainModule.default.line_breaker, elipsis ? _mainModule.default.text_elipsis : ''])
   }, isLink ? /*#__PURE__*/_react.default.createElement("a", {
     href: href,
-    target: "_blank"
+    target: "_blank",
+    rel: "noreferrer"
   }, value) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, value)));
 };
 

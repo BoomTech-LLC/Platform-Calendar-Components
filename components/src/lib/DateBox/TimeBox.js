@@ -19,10 +19,10 @@ const TimeBox = ({
   allDayText,
   oneLine,
   fixedHeight,
-  startDateOnly
+  startDateOnly,
+  showYear,
 }) => {
-
-  const { startDate, endDate } = formatDate(start, end, dateFormat, locale)
+  const { startDate, endDate } = formatDate(start, end, dateFormat, locale, showYear)
   const { startTime, endTime } = formatTime(
     start,
     end,
@@ -49,8 +49,8 @@ const TimeBox = ({
       {!(datesEqual && agenda) &&
         <div className={styles.two_line_start}>
           {
-            showIcons && 
-            <div className={datesEqual ? 'icon-date' : styles.start_date_icon + ' icon-clock'}/>
+            showIcons &&
+            <div className={datesEqual ? 'icon-date' : styles.start_date_icon + ' icon-clock'} />
           }
           <p className={oneLine ? styles.oneLine : 'undefined'}>
             {
@@ -63,26 +63,26 @@ const TimeBox = ({
       {!(datesEqual && allDay) && !startDateOnly &&
         <div className={styles.two_line_end}>
           {
-            showIcons && 
+            showIcons &&
             <div className={(datesEqual ? styles.start_date_icon : '') + ' icon-clock'} />
           }
           <p className={oneLine ? styles.oneLine : null}>
-          {
-            datesEqual ? 
-            (startTime.trim() + (startTime === endTime ? '' : ' -' + endTime) + ' ' + timeZoneToShow) :
-            endDate + endTime + ' ' + timeZoneToShow 
-          }
+            {
+              datesEqual ?
+                (startTime.trim() + (startTime === endTime ? '' : ' -' + endTime) + ' ' + timeZoneToShow) :
+                endDate + endTime + ' ' + timeZoneToShow
+            }
           </p>
         </div>
       }
       {
         showHiddenRow ?
-        <div className={combineClassNames([styles.two_line_start, styles.hidden])}>
-          <p className={oneLine ? styles.oneLine : undefined}>
-            hidden row
-          </p>
-        </div> :
-        null
+          <div className={combineClassNames([styles.two_line_start, styles.hidden])}>
+            <p className={oneLine ? styles.oneLine : undefined}>
+              hidden row
+            </p>
+          </div> :
+          null
       }
     </div>
   )

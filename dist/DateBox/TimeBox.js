@@ -37,12 +37,13 @@ const TimeBox = _ref => {
     allDayText,
     oneLine,
     fixedHeight,
-    startDateOnly
+    startDateOnly,
+    showYear
   } = _ref;
   const {
     startDate,
     endDate
-  } = (0, _dateBox.formatDate)(start, end, dateFormat, locale);
+  } = (0, _dateBox.formatDate)(start, end, dateFormat, locale, showYear);
   const {
     startTime,
     endTime

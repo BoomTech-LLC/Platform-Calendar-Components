@@ -13,28 +13,29 @@ const Location = ({
   wrapperCustomClassNames = [],
   showIcon = true
 }) => {
-  
-  if(!data) return null
-  
+
+  if (!data) return null
+
   const { isLink, value, href } = getLocationOptions(data)
 
   return (
-    <div className={ combineClassNames([styles.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)]) }>
+    <div className={combineClassNames([styles.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)])}>
       {showIcon && <div className='icon-location' />}
-      <div className={ combineClassNames([styles.line_breaker, elipsis ? styles.text_elipsis : '']) }>
+      <div className={combineClassNames([styles.line_breaker, elipsis ? styles.text_elipsis : ''])}>
         {
           isLink ?
-          
-          <a
-            href={ href }
-            target='_blank'
-          >
-            { value }
-          </a> :
 
-          <>
-            { value }
-          </>
+            <a
+              href={href}
+              target='_blank'
+              rel='noreferrer'
+            >
+              {value}
+            </a> :
+
+            <>
+              {value}
+            </>
         }
       </div>
     </div>
