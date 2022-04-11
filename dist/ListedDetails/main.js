@@ -49,7 +49,7 @@ const ListedDetails = _ref => {
     let [key, value] = _ref2;
     return _constants.LISTED_DETAILS_CONSTRUCTOR[key] && value;
   });
-  if ((0, _commons.isObjectEmpty)(parsedValues) || !hasAcceptableValues) return null;
+  if (!values || (0, _commons.isObjectEmpty)(parsedValues) || !hasAcceptableValues) return null;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.listed_details_block, ...wrapperCustomClassNames]),
     style: {

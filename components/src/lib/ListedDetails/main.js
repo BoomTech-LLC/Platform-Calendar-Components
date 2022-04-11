@@ -21,7 +21,7 @@ const ListedDetails = ({
   const parsedValues = parseJson(values)
   const hasAcceptableValues = Object.entries(parsedValues).some(([key, value]) => LISTED_DETAILS_CONSTRUCTOR[key] && value);
   
-  if(isObjectEmpty(parsedValues) || !hasAcceptableValues) return null
+  if(!values || isObjectEmpty(parsedValues) || !hasAcceptableValues) return null
 
   return (
     <div className={combineClassNames([styles.listed_details_block, ...wrapperCustomClassNames])} style={{gap: rowSpace}}>
