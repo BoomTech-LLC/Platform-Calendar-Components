@@ -83,14 +83,13 @@ const plainTextFromHTML = (htmlStr) => {
 }
 
 const createDesc = (event, type) => {
-    const organizer = event.organizer ?? {}
     return `${event.desc ? `${encodeURIComponent(type === 'yahoo' ? plainTextFromHTML(event.desc) : event.desc)}` : ""}
-    ${Object.values(organizer)?.length > 0 ? "%0D%0A%0D%0AVenue Details:%0D%0A" : ""}
+    ${Object.values(event.venue ?? {})?.length > 0 ? "%0D%0A%0D%0AVenue Details:%0D%0A" : ""}
     ${event.venue.name ? `${encodeURIComponent(event.venue.name)}%0D%0A` : ""}
     ${event.venue.phone ? `${encodeURIComponent(event.venue.phone)}%0D%0A` : ""}
     ${event.venue.email ? `${encodeURIComponent(event.venue.email)}%0D%0A` : ""}
     ${event.venue.website ? `${encodeURIComponent(event.venue.website)}%0D%0A%0D%0A`: ""}
-    ${Object.values(organizer)?.length > 0 ? "%0D%0A%0D%0AOrganizer Details:%0D%0A" : ""}
+    ${Object.values(event.organizer ?? {})?.length > 0 ? "%0D%0A%0D%0AOrganizer Details:%0D%0A" : ""}
     ${event.organizer.name ? `${encodeURIComponent(event.organizer.name)}%0D%0A` : ""}
     ${event.organizer.phone ? `${encodeURIComponent(event.organizer.phone)}%0D%0A` : ""}
     ${event.organizer.email ? `${encodeURIComponent(event.organizer.email)}%0D%0A` : ""}
