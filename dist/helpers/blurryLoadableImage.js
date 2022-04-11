@@ -5,12 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.isImgCached = exports.decreaseImgQuality = void 0;
 
-// const acceptableFormats = [ 'png', 'jpeg', 'jpg', 'webm' ]
-// export const isImgDecreasable = url => {
-//   let splitted = url.split('.')
-//   let format = splitted[splitted.length - 1]
-//   return acceptableFormats.includes(format)
-// }
 const decreaseImgQuality = function decreaseImgQuality(url) {
   let decreaseTo = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 40;
   return "https://images.weserv.nl/?url=".concat(url, "&w=100&h=100&q=").concat(decreaseTo, "&fit=inside&we");
