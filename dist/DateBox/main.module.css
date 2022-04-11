@@ -58,9 +58,9 @@
   overflow: hidden;
 }
 
-.start_date_icon {
+/* .start_date_icon {
   transform: rotate(-133deg);
-}
+} */
 
 .hidden{
   visibility: hidden;
