@@ -64,7 +64,7 @@ const TimeBox = ({
         <div className={styles.two_line_end}>
           {
             showIcons &&
-            <div className={(datesEqual ? styles.start_date_icon : '') + ' icon-clock'} />
+            <div className={(datesEqual ? styles.start_date_icon : '') + ' icon-date'} />
           }
           <p className={oneLine ? styles.oneLine : null}>
             {
