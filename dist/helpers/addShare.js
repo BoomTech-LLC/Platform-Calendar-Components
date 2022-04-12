@@ -3,12 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.copyLink = copyLink;
 exports.downloadSharer = downloadSharer;
-exports.generateEventUrl = generateEventUrl;
 exports.openAddToUrl = openAddToUrl;
-exports.openShareUrl = openShareUrl;
 exports.setLocation = setLocation;
+exports.openShareUrl = openShareUrl;
+exports.generateEventUrl = generateEventUrl;
+exports.copyLink = copyLink;
 
 require("core-js/modules/es.regexp.exec.js");
 
