@@ -21,9 +21,13 @@ var _commons = require("../helpers/commons");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function downloadSharer(e, type, event) {
+  var _event$venue, _event$organizer;
+
+  const venue = (_event$venue = event === null || event === void 0 ? void 0 : event.venue) !== null && _event$venue !== void 0 ? _event$venue : {};
+  const organizer = (_event$organizer = event === null || event === void 0 ? void 0 : event.organizer) !== null && _event$organizer !== void 0 ? _event$organizer : {};
   e.stopPropagation();
-  let desc = "".concat(event.desc ? "".concat(event.desc.replace(/&lt/g, '<').replace(/&gt/g, '>').replace(/&nbsp/g, ' '), "  ") : '').concat(event.venue.name || event.venue.phone || event.venue.email || event.venue.website ? '<p><b>Venue Details.</b></p>  ' : '').concat(event.venue.name ? "".concat(event.venue.name, ",<br/>  ") : '').concat(event.venue.phone ? "".concat(event.venue.phone, ",<br/>  ") : '').concat(event.venue.email ? "".concat(event.venue.email, ",<br/>  ") : '').concat(event.venue.website ? "".concat(event.venue.website, ".<br/>  ") : '').concat(event.organizer.name || event.organizer.phone || event.organizer.email || event.organizer.website ? '<p><b>Organizer</b></p>  ' : '').concat(event.organizer.name ? "".concat(event.organizer.name, ",<br/>  ") : '').concat(event.organizer.phone ? "".concat(event.organizer.phone, ",<br/>  ") : '').concat(event.organizer.email ? "".concat(event.organizer.email, ",<br/>  ") : '').concat(event.organizer.website ? "".concat(event.organizer.website, ".<br/>  ") : '');
-  let icsSharer = "https://calendar.boomte.ch/createIcsFile?title=".concat(event.title, "&desc=").concat(encodeURIComponent(type === 'icalendar' ? desc.replace(/(<([^>]+)>)/ig, '') : desc), "&start=").concat(event.start, "&end=").concat(event.end, "&address=").concat(encodeURIComponent(event.venue.address));
+  let desc = "\n        ".concat(event.desc ? "".concat(event.desc.replace(/&lt/g, '<').replace(/&gt/g, '>').replace(/&nbsp/g, ' '), "  ") : '', "\n        ").concat(venue.name || venue.phone || venue.email || venue.website ? '<p><b>Venue Details.</b></p>  ' : '').concat(venue.name ? "".concat(venue.name, ",<br/>  ") : '').concat(venue.phone ? "".concat(venue.phone, ",<br/>  ") : '').concat(venue.email ? "".concat(venue.email, ",<br/>  ") : '').concat(venue.website ? "".concat(venue.website, ".<br/>  ") : '', "\n        ").concat(organizer.name || organizer.phone || organizer.email || organizer.website ? '<p><b>Organizer</b></p>  ' : '').concat(organizer.name ? "".concat(organizer.name, ",<br/>  ") : '').concat(organizer.phone ? "".concat(organizer.phone, ",<br/>  ") : '').concat(organizer.email ? "".concat(organizer.email, ",<br/>  ") : '').concat(organizer.website ? "".concat(organizer.website, ".<br/>  ") : '', "\n    ");
+  let icsSharer = "https://calendar.boomte.ch/createIcsFile?title=".concat(event.title, "&desc=").concat(encodeURIComponent(type === 'icalendar' ? desc.replace(/(<([^>]+)>)/ig, '') : desc), "&start=").concat(event.start, "&end=").concat(event.end, "&address=").concat(encodeURIComponent(venue.address));
   window.location.href = icsSharer;
 }
 
@@ -99,10 +103,10 @@ const plainTextFromHTML = htmlStr => {
 };
 
 const createDesc = (event, type) => {
-  var _event$venue, _event$organizer, _Object$values, _Object$values2;
+  var _event$venue2, _event$organizer2, _Object$values, _Object$values2;
 
-  const venue = (_event$venue = event.venue) !== null && _event$venue !== void 0 ? _event$venue : {};
-  const organizer = (_event$organizer = event.organizer) !== null && _event$organizer !== void 0 ? _event$organizer : {};
+  const venue = (_event$venue2 = event.venue) !== null && _event$venue2 !== void 0 ? _event$venue2 : {};
+  const organizer = (_event$organizer2 = event.organizer) !== null && _event$organizer2 !== void 0 ? _event$organizer2 : {};
   return "".concat(event.desc ? "".concat(encodeURIComponent(type === 'yahoo' ? plainTextFromHTML(event.desc) : event.desc)) : "", "\n    ").concat(((_Object$values = Object.values(venue)) === null || _Object$values === void 0 ? void 0 : _Object$values.length) > 0 ? "%0D%0A%0D%0AVenue Details:%0D%0A" : "", "\n    ").concat(venue.name ? "".concat(encodeURIComponent(venue.name), "%0D%0A") : "", "\n    ").concat(venue.phone ? "".concat(encodeURIComponent(venue.phone), "%0D%0A") : "", "\n    ").concat(venue.email ? "".concat(encodeURIComponent(venue.email), "%0D%0A") : "", "\n    ").concat(venue.website ? "".concat(encodeURIComponent(venue.website), "%0D%0A%0D%0A") : "", "\n    ").concat(((_Object$values2 = Object.values(organizer)) === null || _Object$values2 === void 0 ? void 0 : _Object$values2.length) > 0 ? "%0D%0A%0D%0AOrganizer Details:%0D%0A" : "", "\n    ").concat(organizer.name ? "".concat(encodeURIComponent(organizer.name), "%0D%0A") : "", "\n    ").concat(organizer.phone ? "".concat(encodeURIComponent(organizer.phone), "%0D%0A") : "", "\n    ").concat(organizer.email ? "".concat(encodeURIComponent(organizer.email), "%0D%0A") : "", "\n    ").concat(organizer.website ? "".concat(encodeURIComponent(organizer.website)) : "");
 };
 
