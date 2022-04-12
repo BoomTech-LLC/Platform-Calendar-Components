@@ -32,7 +32,8 @@ const RegistrationButton = _ref => {
     event,
     globalRegistration,
     globalTickets,
-    wrapperCustomClassNames = []
+    wrapperCustomClassNames = [],
+    disabledBg = '"#c850ff'
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
   const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
@@ -45,9 +46,13 @@ const RegistrationButton = _ref => {
     count,
     limit
   } = guestsOptions;
+  const disabled = count >= limit;
   return /*#__PURE__*/_react.default.createElement("button", {
     className: (0, _commons.combineClassNames)([_mainModule.default.register_button, ...wrapperCustomClassNames]),
-    disabled: count >= limit,
+    style: {
+      backgroundColor: disabled ? disabledBg : null
+    },
+    disabled: disabled,
     onClick: () => window.open(url, '_blank')
   }, text);
 };
@@ -60,7 +65,8 @@ RegistrationButton.propTypes = {
   text: _propTypes.default.string,
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
-  globalTickets: _commonPropTypes.SHAPE_TICKETS
+  globalTickets: _commonPropTypes.SHAPE_TICKETS,
+  disabledBg: _propTypes.default.string
 };
 var _default = RegistrationButton;
 exports.default = _default;

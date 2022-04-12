@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.D_EVENT_1 = exports.D_GUEST_1 = exports.D_REGISTRATION = void 0;
+exports.D_REGISTRATION = exports.D_GUEST_1 = exports.D_EVENT_1 = void 0;
 
 var _commonPropTypes = require("./commonPropTypes");
 

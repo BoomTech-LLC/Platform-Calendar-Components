@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.formatTime = exports.formatDate = exports.getDateForDateBox = void 0;
+exports.getDateForDateBox = exports.formatTime = exports.formatDate = void 0;
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
