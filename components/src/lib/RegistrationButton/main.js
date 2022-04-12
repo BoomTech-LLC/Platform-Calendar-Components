@@ -14,7 +14,7 @@ const RegistrationButton = ({
   globalRegistration,
   globalTickets,
   wrapperCustomClassNames = [],
-  disabledBg = '"#c850ff'
+  disabledClassName = ''
 }) => {
   const registration = event.registration ?? globalRegistration
   const tickets = event.tickets ?? globalTickets
@@ -31,8 +31,7 @@ const RegistrationButton = ({
   
   return (
     <button
-      className={combineClassNames([styles.register_button, ...wrapperCustomClassNames])}
-      style={{ backgroundColor: disabled ? disabledBg : null }}
+      className={combineClassNames([styles.register_button, ...wrapperCustomClassNames, disabled ? disabledClassName : null])}
       disabled={disabled}
       onClick={() => window.open(url, '_blank')}
     >
@@ -50,7 +49,7 @@ RegistrationButton.propTypes = {
   wrapperCustomClassNames: PT_CLASSNAMES,
   globalRegistration: SHAPE_REGISTRATION,
   globalTickets: SHAPE_TICKETS,
-  disabledBg: PropTypes.string
+  disabledClassName: PropTypes.string
 }
 
 
