@@ -65,7 +65,7 @@ const TimeBox = _ref => {
   }, !(datesEqual && agenda) && /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.two_line_start
   }, showIcons && /*#__PURE__*/_react.default.createElement("div", {
-    className: datesEqual ? 'icon-date' : _mainModule.default.start_date_icon + ' icon-date'
+    className: datesEqual ? 'icon-date' : _mainModule.default.start_date_icon + ' icon-clock'
   }), /*#__PURE__*/_react.default.createElement("p", {
     className: oneLine ? _mainModule.default.oneLine : 'undefined'
   }, startDate + (datesEqual ? '' : startTime + ' ' + timeZoneToShow))), !(datesEqual && allDay) && !startDateOnly && /*#__PURE__*/_react.default.createElement("div", {
