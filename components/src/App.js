@@ -83,13 +83,13 @@ function App() {
 
       <hr />
       <RegistrationButton
-          cid={'123'}
-          uid={'123'}
-          text={'Pele'}
-          urlBase='https://shahen.boomtechdev.com/calendar/model/registration.php/'
-          event={D_EVENT_1}
-          globalRegistration={D_REGISTRATION}
-          disabledBg='lightgreen'
+        cid={'123'}
+        uid={'123'}
+        text={'Pele'}
+        urlBase='https://shahen.boomtechdev.com/calendar/model/registration.php/'
+        event={D_EVENT_1}
+        globalRegistration={D_REGISTRATION}
+        disabledBg='lightgreen'
       />
       <GuestLimit
         foreword='Guests'
@@ -136,8 +136,8 @@ function App() {
         // agenda={true}
       /> */}
       <DateBox
-        start="2022-04-15"
-        end="2022-04-20"
+        start="2022-04-15T13:15"
+        end="2022-04-20T15:13"
         dateFormat="DD/MM/YYYY"
         allDay={true}
         showIcons={true}
