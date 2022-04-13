@@ -82,14 +82,15 @@ function App() {
       /> */}
 
       <hr />
-      {/* <RegistrationButton
+      <RegistrationButton
           cid={'123'}
           uid={'123'}
           text={'Pele'}
           urlBase='https://shahen.boomtechdev.com/calendar/model/registration.php/'
           event={D_EVENT_1}
           globalRegistration={D_REGISTRATION}
-      /> */}
+          disabledBg='lightgreen'
+      />
       <GuestLimit
         foreword='Guests'
         event={D_EVENT_1}

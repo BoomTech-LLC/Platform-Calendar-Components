@@ -9,6 +9,7 @@ const TicketList = ({
   tickets = [],
   wrapperCustomClassNames = []
   }) => {
+  return null
   
   if(!enabled || tickets.length === 0) return null
   

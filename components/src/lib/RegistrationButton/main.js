@@ -13,7 +13,8 @@ const RegistrationButton = ({
   event,
   globalRegistration,
   globalTickets,
-  wrapperCustomClassNames = []
+  wrapperCustomClassNames = [],
+  disabledClassName = ''
 }) => {
   const registration = event.registration ?? globalRegistration
   const tickets = event.tickets ?? globalTickets
@@ -26,11 +27,12 @@ const RegistrationButton = ({
   if(!guestsOptions) return null
 
   const { count, limit } = guestsOptions
+  const disabled = count >= limit
   
   return (
     <button
-      className={combineClassNames([styles.register_button, ...wrapperCustomClassNames])}
-      disabled={count >= limit}
+      className={combineClassNames([styles.register_button, ...wrapperCustomClassNames, disabled ? disabledClassName : null])}
+      disabled={disabled}
       onClick={() => window.open(url, '_blank')}
     >
       { text }
@@ -47,6 +49,7 @@ RegistrationButton.propTypes = {
   wrapperCustomClassNames: PT_CLASSNAMES,
   globalRegistration: SHAPE_REGISTRATION,
   globalTickets: SHAPE_TICKETS,
+  disabledClassName: PropTypes.string
 }
 
 

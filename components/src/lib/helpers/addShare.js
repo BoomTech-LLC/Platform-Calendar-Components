@@ -2,9 +2,15 @@ import moment from 'moment'
 import {encodeId} from '../helpers/commons'
 
 export function downloadSharer(e, type, event) {
+    const venue = event?.venue ?? {}
+    const organizer = event?.organizer ?? {}
     e.stopPropagation()
-    let desc = `${event.desc ? `${event.desc.replace(/&lt/g , '<').replace(/&gt/g, '>').replace(/&nbsp/g, ' ')}  ` : ''}${(event.venue.name || event.venue.phone || event.venue.email || event.venue.website) ? '<p><b>Venue Details.</b></p>  ' : ''}${event.venue.name ? `${event.venue.name},<br/>  ` : ''}${event.venue.phone ? `${event.venue.phone},<br/>  ` : ''}${event.venue.email ? `${event.venue.email},<br/>  ` : ''}${event.venue.website ? `${event.venue.website}.<br/>  ` : ''}${(event.organizer.name || event.organizer.phone || event.organizer.email || event.organizer.website) ? '<p><b>Organizer</b></p>  ' : ''}${event.organizer.name ? `${event.organizer.name},<br/>  ` : ''}${event.organizer.phone ? `${event.organizer.phone},<br/>  ` : ''}${event.organizer.email ? `${event.organizer.email},<br/>  ` : ''}${event.organizer.website ? `${event.organizer.website}.<br/>  ` : ''}`
-    let icsSharer = `https://calendar.boomte.ch/createIcsFile?title=${event.title}&desc=${encodeURIComponent(type==='icalendar' ? desc.replace(/(<([^>]+)>)/ig, '') : desc)}&start=${event.start}&end=${event.end}&address=${encodeURIComponent(event.venue.address)}`
+    let desc = `
+        ${event.desc ? `${event.desc.replace(/&lt/g , '<').replace(/&gt/g, '>').replace(/&nbsp/g, ' ')}  ` : ''}
+        ${(venue.name || venue.phone || venue.email || venue.website) ? '<p><b>Venue Details.</b></p>  ' : ''}${venue.name ? `${venue.name},<br/>  ` : ''}${venue.phone ? `${venue.phone},<br/>  ` : ''}${venue.email ? `${venue.email},<br/>  ` : ''}${venue.website ? `${venue.website}.<br/>  ` : ''}
+        ${(organizer.name || organizer.phone || organizer.email || organizer.website) ? '<p><b>Organizer</b></p>  ' : ''}${organizer.name ? `${organizer.name},<br/>  ` : ''}${organizer.phone ? `${organizer.phone},<br/>  ` : ''}${organizer.email ? `${organizer.email},<br/>  ` : ''}${organizer.website ? `${organizer.website}.<br/>  ` : ''}
+    `
+    let icsSharer = `https://calendar.boomte.ch/createIcsFile?title=${event.title}&desc=${encodeURIComponent(type==='icalendar' ? desc.replace(/(<([^>]+)>)/ig, '') : desc)}&start=${event.start}&end=${event.end}&address=${encodeURIComponent(venue.address)}`
     window.location.href = icsSharer
 }
 
@@ -83,17 +89,19 @@ const plainTextFromHTML = (htmlStr) => {
 }
 
 const createDesc = (event, type) => {
+    const venue = event.venue ?? {}
+    const organizer = event.organizer ?? {}
     return `${event.desc ? `${encodeURIComponent(type === 'yahoo' ? plainTextFromHTML(event.desc) : event.desc)}` : ""}
-    ${Object.values(event.organizer)?.length > 0 ? "%0D%0A%0D%0AVenue Details:%0D%0A" : ""}
-    ${event.venue.name ? `${encodeURIComponent(event.venue.name)}%0D%0A` : ""}
-    ${event.venue.phone ? `${encodeURIComponent(event.venue.phone)}%0D%0A` : ""}
-    ${event.venue.email ? `${encodeURIComponent(event.venue.email)}%0D%0A` : ""}
-    ${event.venue.website ? `${encodeURIComponent(event.venue.website)}%0D%0A%0D%0A`: ""}
-    ${Object.values(event.organizer)?.length > 0 ? "%0D%0A%0D%0AOrganizer Details:%0D%0A" : ""}
-    ${event.organizer.name ? `${encodeURIComponent(event.organizer.name)}%0D%0A` : ""}
-    ${event.organizer.phone ? `${encodeURIComponent(event.organizer.phone)}%0D%0A` : ""}
-    ${event.organizer.email ? `${encodeURIComponent(event.organizer.email)}%0D%0A` : ""}
-    ${event.organizer.website ? `${encodeURIComponent(event.organizer.website)}` : ""}`
+    ${Object.values(venue)?.length > 0 ? "%0D%0A%0D%0AVenue Details:%0D%0A" : ""}
+    ${venue.name ? `${encodeURIComponent(venue.name)}%0D%0A` : ""}
+    ${venue.phone ? `${encodeURIComponent(venue.phone)}%0D%0A` : ""}
+    ${venue.email ? `${encodeURIComponent(venue.email)}%0D%0A` : ""}
+    ${venue.website ? `${encodeURIComponent(venue.website)}%0D%0A%0D%0A`: ""}
+    ${Object.values(organizer)?.length > 0 ? "%0D%0A%0D%0AOrganizer Details:%0D%0A" : ""}
+    ${organizer.name ? `${encodeURIComponent(organizer.name)}%0D%0A` : ""}
+    ${organizer.phone ? `${encodeURIComponent(organizer.phone)}%0D%0A` : ""}
+    ${organizer.email ? `${encodeURIComponent(organizer.email)}%0D%0A` : ""}
+    ${organizer.website ? `${encodeURIComponent(organizer.website)}` : ""}`
 }
 
 export function openShareUrl(e, type, eventUrl) {

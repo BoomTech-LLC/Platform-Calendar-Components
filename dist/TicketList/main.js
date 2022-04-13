@@ -25,6 +25,7 @@ const TicketList = _ref => {
     tickets = [],
     wrapperCustomClassNames = []
   } = _ref;
+  return null;
   if (!enabled || tickets.length === 0) return null;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames])
