@@ -16,9 +16,12 @@ export const getTicketPrice = (ticket) => {
 export const calculateTicketsPriceRange = ({tickets, currency, showCurrencyAs}) => {
     const prices = [];
     for(let ticket of tickets){
-        prices.push(...getTicketPrice(ticket))
+        prices.push(...getTicketPrice(ticket));
     }
     const min = Math.min(...prices);
     const max = Math.max(...prices);
-    return `${currency[showCurrencyAs]} ${min} ${max !== min ? `- ${max}` : ''}`
+    if(min === 0 && max === 0){
+        return 'Free';
+    }
+    return `${currency[showCurrencyAs]} ${min} ${max !== min ? `- ${max}` : ''}`;
 }

@@ -38,6 +38,11 @@ const calculateTicketsPriceRange = _ref => {
 
   const min = Math.min(...prices);
   const max = Math.max(...prices);
+
+  if (min === 0 && max === 0) {
+    return 'Free';
+  }
+
   return "".concat(currency[showCurrencyAs], " ").concat(min, " ").concat(max !== min ? "- ".concat(max) : '');
 };
 
