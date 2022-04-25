@@ -170,7 +170,7 @@ export const SHAPE_EVENT = PropTypes.shape({
     organizer: SHAPE_ORGANIZER,
     guests: PropTypes.arrayOf(SHAPE_GUEST),
     registration: SHAPE_REGISTRATION,
-    ticketIds: PropTypes.arrayOf(SHAPE_TICKET.id),
+    ticketIds: PropTypes.arrayOf(PropTypes.number),
     ticketEnabled: PropTypes.bool,
     repeat: SHAPE_REPEAT
 })

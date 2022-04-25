@@ -252,7 +252,7 @@ const SHAPE_EVENT = _propTypes.default.shape({
   organizer: SHAPE_ORGANIZER,
   guests: _propTypes.default.arrayOf(SHAPE_GUEST),
   registration: SHAPE_REGISTRATION,
-  ticketIds: _propTypes.default.arrayOf(SHAPE_TICKET.id),
+  ticketIds: _propTypes.default.arrayOf(_propTypes.default.number),
   ticketEnabled: _propTypes.default.bool,
   repeat: SHAPE_REPEAT
 });
