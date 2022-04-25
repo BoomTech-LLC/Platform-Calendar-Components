@@ -195,7 +195,7 @@ const SHAPE_TICKET = _propTypes.default.shape({
   type: _propTypes.default.oneOf(TICKET_TYPES),
   price: _propTypes.default.shape({
     type: _propTypes.default.oneOf(TICKET_PRICING_TYPES),
-    amount: _propTypes.default.oneOf([_propTypes.default.number, null])
+    amount: _propTypes.default.number
   }),
   plans: _propTypes.default.arrayOf(SHAPE_PLAN),
   sales: _propTypes.default.shape({
@@ -213,8 +213,8 @@ const SHAPE_TICKET = _propTypes.default.shape({
     quantity: _propTypes.default.number,
     show: _propTypes.default.bool,
     perOrder: _propTypes.default.shape({
-      min: _propTypes.default.oneOf([_propTypes.default.number, null]),
-      max: _propTypes.default.oneOf([_propTypes.default.number, null])
+      min: _propTypes.default.number,
+      max: _propTypes.default.number
     })
   }),
   description: _propTypes.default.string

@@ -119,7 +119,7 @@ export const SHAPE_TICKET= PropTypes.shape({
     type: PropTypes.oneOf(TICKET_TYPES),
     price: PropTypes.shape({
         type: PropTypes.oneOf(TICKET_PRICING_TYPES),
-        amount: PropTypes.oneOf([PropTypes.number, null])
+        amount: PropTypes.number
     }),
     plans: PropTypes.arrayOf(SHAPE_PLAN),
     sales: PropTypes.shape({
@@ -137,8 +137,8 @@ export const SHAPE_TICKET= PropTypes.shape({
         quantity: PropTypes.number,
         show: PropTypes.bool,
         perOrder: PropTypes.shape({
-            min: PropTypes.oneOf([PropTypes.number, null]),
-            max: PropTypes.oneOf([PropTypes.number, null])
+            min: PropTypes.number,
+            max: PropTypes.number
         })
     }),
     description: PropTypes.string
