@@ -1,17 +1,24 @@
 import { TICKET_PRICING_TYPES, TICKET_TYPES } from "./commonPropTypes";
 
-export const getTicketDisplayPrice = ({ticket, currency, showCurrencyAs}) => {
-    console.log(ticket, currency, showCurrencyAs);
-    if(ticket.type === TICKET_TYPES[2]){
-        return 'Donation';
+export const getTicketPrice = (ticket) => {
+    if(ticket.type === TICKET_TYPES[2] || ticket.price.type === TICKET_PRICING_TYPES[1]){
+        return [0];
     }else if(ticket.type === TICKET_TYPES[1]){
         const prices = ticket.plans.map(plan => plan.price);
         const minPrice = Math.min(...prices);
-        const maxProce = Math.max(...prices);
-        return `${currency[showCurrencyAs]} ${minPrice === maxProce ? minPrice : `${minPrice} - ${maxProce}`}`;
-    }else if(ticket.price.type === TICKET_PRICING_TYPES[1]){
-        return 'Free';
+        const maxPrice = Math.max(...prices);
+        return [minPrice, maxPrice]
     }else{
-        return `${currency[showCurrencyAs]} ${ticket.price.amount}`;
+        return [ticket.price.amount];
     }
+}
+
+export const calculateTicketsPriceRange = ({tickets, currency, showCurrencyAs}) => {
+    const prices = [];
+    for(let ticket of tickets){
+        prices.push(...getTicketPrice(ticket))
+    }
+    const min = Math.min(...prices);
+    const max = Math.max(...prices);
+    return `${currency[showCurrencyAs]} ${min} ${max !== min ? `- ${max}` : ''}`
 }

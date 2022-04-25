@@ -23,25 +23,27 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const TicketPrice = _ref => {
   let {
-    ticket,
+    tickets,
     currency,
     showCurrencyAs,
     Icon,
     wrapperCustomClassNames = []
   } = _ref;
+  if (!tickets.length) return null;
+  const priceRange = (0, _ticket.calculateTicketsPriceRange)({
+    tickets,
+    currency,
+    showCurrencyAs
+  });
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames])
   }, Icon ? /*#__PURE__*/_react.default.createElement(Icon, null) : /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-ticket"
-  }), /*#__PURE__*/_react.default.createElement("div", null, (0, _ticket.getTicketDisplayPrice)({
-    ticket,
-    currency,
-    showCurrencyAs
-  })));
+  }), /*#__PURE__*/_react.default.createElement("div", null, priceRange));
 };
 
 TicketPrice.propTypes = {
-  ticket: _commonPropTypes.SHAPE_TICKET,
+  ticket: _commonPropTypes.SHAPE_TICKETS,
   Icon: _propTypes.default.any,
   currency: _commonPropTypes.SHAPE_CURRENCY,
   showCurrencyAs: _propTypes.default.oneOf(['code', 'symbol']),

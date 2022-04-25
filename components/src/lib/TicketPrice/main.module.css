@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   gap: .5rem;
+  align-items: center;
 }
 
 .wrapper > div:first-of-type {
@@ -11,8 +12,4 @@
   flex-direction: column;
   display: flex;
   gap: .25rem;
-}
-
-.price {
-  margin-left: 16px;
 }
