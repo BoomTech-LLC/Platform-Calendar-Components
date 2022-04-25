@@ -9,6 +9,8 @@ import AddShareIcons from './lib/AddShareIcons/index'
 import CategoryItem from './lib/CategoryItem'
 import { D_EVENT_1, D_REGISTRATION } from './lib/helpers/defaults'
 import TicketList from './lib/TicketList/main'
+import TicketPrice from './lib/TicketPrice/main'
+import { CURRENCY_TYPES } from './lib/helpers/commonPropTypes'
 
 function App() {
   let exampleEvent1 = { "id": 343491, "title": "Open Air Poetry Reading and Discussion", "start": "2021-04-21", "end": "2021-04-27", "allDay": 1, "image": "https:\/\/static.wixstatic.com\/media\/11062b_b31efefcdf3846849b7fe93d9203f105~mv2_d_6200_4132_s_4_2.jpg", "desc": "<p>Four amazing evenings of poetry reading and discussion! We will do a poetry reading from various poets followed by an interactive discussion. Each day there will be three poets whose works will be read and discussed.<br>If you want to attend and listen to some great poetry, please register. Our organizers will get back to you.<\/p>", "color": "color-13", "venue": { "name": "Virginia Road", "address": "1485 Virginia Road, San Marino, CA 91108, USA", "city": "", "statesList": "", "country": "", "postal": "", "phone": "", "email": "", "website": "", "showMap": "1", "showMapLink": "1", "lat": "34.1204167", "long": "-118.1201348" }, "organizer": { "name": "", "phone": "", "website": "", "email": "" }, "repeat": { "type": "", "interval": "", "end": "", "advanced": "", "exclude": "" }, "kind": "4", "categories": [], "guests": [], "registration": null, "tickets": null };
@@ -181,6 +183,11 @@ function App() {
           title={'title'}
         />
       </div>
+      <TicketPrice
+        ticket={test_ticket}
+        currency={CURRENCY_TYPES[0]}
+        showCurrencyAs='symbol'
+      />
     </div>
   )
 }
@@ -201,5 +208,6 @@ const test_event_ticket =
 const test_event_guests =
   '[{"id":144,"created_at":"2021-09-02 13:14:49","comp_id":"comp-kr1zjlxk","instance":"67f3a243-b89c-4c58-96f4-87e2ebcdaac7","event_id":"808367","value":{"ticket":[{"quantity":2,"ticket_label":"tesxt"}],"first_name":"gd","last_name":"gdfg","email":"dfgdfg@fs.fd"},"passed":0,"date":"2021-09-04","time_zone":"Asia/Yerevan","info":{"boom_type":"cash","boom_status":"unpaid"},"status":"unpaid","type":"cash","sold_tickets":[{"id":360,"created_at":"2021-09-02T13:14:49.000000Z","updated_at":"2021-09-02T13:14:49.000000Z","option_id":"12","event_id":"808367","guest_id":"144","passed":0,"label":"tesxt"},{"id":361,"created_at":"2021-09-02T13:14:49.000000Z","updated_at":"2021-09-02T13:14:49.000000Z","option_id":"12","event_id":"808367","guest_id":"144","passed":0,"label":"tesxt"}]},{"id":145,"created_at":"2021-09-02 13:15:27","comp_id":"comp-kr1zjlxk","instance":"67f3a243-b89c-4c58-96f4-87e2ebcdaac7","event_id":"808367","value":{"ticket":[{"quantity":1,"ticket_label":"tesxt"}],"first_name":"sdfsd","last_name":"sdfsd","email":"fsdf@fsd.sdf"},"passed":0,"date":"2021-09-04","time_zone":"Asia/Yerevan","info":{"boom_type":"cash","boom_status":"unpaid"},"status":"unpaid","type":"cash","sold_tickets":[{"id":362,"created_at":"2021-09-02T13:15:27.000000Z","updated_at":"2021-09-02T13:15:27.000000Z","option_id":"12","event_id":"808367","guest_id":"145","passed":0,"label":"tesxt"}]},{"id":146,"created_at":"2021-09-02 13:15:48","comp_id":"comp-kr1zjlxk","instance":"67f3a243-b89c-4c58-96f4-87e2ebcdaac7","event_id":"808367","value":{"ticket":[{"quantity":1,"ticket_label":"tesxt"}],"first_name":"dfgdf","last_name":"gdf","email":"gdfgd@fsdf.sdf"},"passed":0,"date":"2021-09-04","time_zone":"Asia/Yerevan","info":{"boom_type":"cash","boom_status":"unpaid"},"status":"unpaid","type":"cash","sold_tickets":[{"id":363,"created_at":"2021-09-02T13:15:48.000000Z","updated_at":"2021-09-02T13:15:48.000000Z","option_id":"12","event_id":"808367","guest_id":"146","passed":0,"label":"tesxt"}]}]'
 
+const test_ticket = {"id":423,"name":"ticket 2","type":"Ticket","price":{"type":"Paid","amount":5},"plans":[{"cycle":"Monthly","price":1,"duration":1,"id":0}],"sales":{"type":"Fixed","Dynamic":{"start":"On event date"},"Fixed":{"start":"2022-04-20T00:00","end":"2022-04-21T00:00"}},"limit":{"type":"Limited","quantity":20,"show":true,"perOrder":{"min":null,"max":null}},"description":""}
 
 export default App

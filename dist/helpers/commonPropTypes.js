@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_TICKET_FIELDS = exports.CURRENCY_TYPES = exports.SHAPE_REGISTRATION = exports.REGISTRATION_COUNTDOWN_OPTIONS = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_GUEST_TICKET = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_UID = exports.PT_CID = exports.PT_CLASSNAMES = void 0;
+exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_TICKET = exports.TICKET_LIMITATION_TYPES = exports.TICKET_SALES_TYPES = exports.TICKET_PRICING_TYPES = exports.TICKET_TYPES = exports.CURRENCY_TYPES = exports.SHAPE_PLAN = exports.TICKET_BILLING_CYCLE_TYPES = exports.SHAPE_REGISTRATION = exports.REGISTRATION_COUNTDOWN_OPTIONS = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_GUEST_TICKET = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_UID = exports.PT_CID = exports.PT_CLASSNAMES = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -93,28 +93,126 @@ const SHAPE_REGISTRATION = _propTypes.default.shape({
 });
 
 exports.SHAPE_REGISTRATION = SHAPE_REGISTRATION;
+const TICKET_BILLING_CYCLE_TYPES = ['Weekly', 'Monthly', 'Yearly'];
+exports.TICKET_BILLING_CYCLE_TYPES = TICKET_BILLING_CYCLE_TYPES;
 
-const CURRENCY_TYPES = _propTypes.default.oneOf(["$ Dollars", "฿ Baht", "€ Euros", "Ft Forint", "CHF Francs", "Kč Koruna", "kr Krona", "$ Mexican Pesos", "£ Pounds Sterling", "RM Ringgit", "₪ Shekel", "zł Zloty", "₹ Rupee"]);
-
-exports.CURRENCY_TYPES = CURRENCY_TYPES;
-
-const SHAPE_TICKET_FIELDS = _propTypes.default.shape({
-  label: _propTypes.default.string,
+const SHAPE_PLAN = _propTypes.default.shape({
+  cycle: _propTypes.default.oneOf(TICKET_BILLING_CYCLE_TYPES),
   price: _propTypes.default.number,
-  free: _propTypes.default.bool,
-  limited: _propTypes.default.bool,
-  limit: _propTypes.default.number
+  duration: _propTypes.default.number,
+  id: _propTypes.default.number
 });
 
-exports.SHAPE_TICKET_FIELDS = SHAPE_TICKET_FIELDS;
+exports.SHAPE_PLAN = SHAPE_PLAN;
+const CURRENCY_TYPES = [{
+  id: 0,
+  value: '$ Dollars',
+  code: 'USD',
+  symbol: '$'
+}, {
+  id: 1,
+  value: '฿ Baht',
+  code: 'THB',
+  symbol: '฿'
+}, {
+  id: 2,
+  value: '€ Euros',
+  code: 'EUR',
+  symbol: '€'
+}, {
+  id: 3,
+  value: 'Ft Forint',
+  code: 'HUF',
+  symbol: 'Ft'
+}, {
+  id: 4,
+  value: 'CHF Francs',
+  code: 'CHF',
+  symbol: 'CHF'
+}, {
+  id: 5,
+  value: 'Kč Koruna',
+  code: 'CZK',
+  symbol: 'Kč'
+}, {
+  id: 6,
+  value: 'kr Krona',
+  code: 'SEK',
+  symbol: 'kr'
+}, {
+  id: 7,
+  value: '$ Mexican Pesos',
+  code: 'MXN',
+  symbol: '$'
+}, {
+  id: 8,
+  value: '£ Pounds Sterling',
+  code: 'GBP',
+  symbol: '£'
+}, {
+  id: 9,
+  value: 'RM Ringgit',
+  code: 'MYR',
+  symbol: 'RM'
+}, {
+  id: 10,
+  value: '₪ Shekel',
+  code: 'ILS',
+  symbol: '₪'
+}, {
+  id: 11,
+  value: 'zł Zloty',
+  code: 'PLN',
+  symbol: 'zł'
+}, {
+  id: 13,
+  value: '₹ Rupee',
+  code: 'INR',
+  symbol: '₹'
+}];
+exports.CURRENCY_TYPES = CURRENCY_TYPES;
+const TICKET_TYPES = ['Ticket', 'Plan', 'Donation'];
+exports.TICKET_TYPES = TICKET_TYPES;
+const TICKET_PRICING_TYPES = ['Paid', 'Free'];
+exports.TICKET_PRICING_TYPES = TICKET_PRICING_TYPES;
+const TICKET_SALES_TYPES = ['Dynamic', 'Fixed'];
+exports.TICKET_SALES_TYPES = TICKET_SALES_TYPES;
+const TICKET_LIMITATION_TYPES = ['Unlimited', 'Limited'];
+exports.TICKET_LIMITATION_TYPES = TICKET_LIMITATION_TYPES;
 
-const SHAPE_TICKETS = _propTypes.default.shape({
-  enabled: _propTypes.default.bool,
-  fee: _propTypes.default.number,
-  showLimit: _propTypes.default.bool,
-  currency: CURRENCY_TYPES,
-  list: _propTypes.default.arrayOf(SHAPE_TICKET_FIELDS)
+const SHAPE_TICKET = _propTypes.default.shape({
+  name: _propTypes.default.string,
+  type: _propTypes.default.oneOf(TICKET_TYPES),
+  price: _propTypes.default.shape({
+    type: _propTypes.default.oneOf(TICKET_PRICING_TYPES),
+    amount: _propTypes.default.oneOf([_propTypes.default.number, null])
+  }),
+  plans: _propTypes.default.arrayOf(SHAPE_PLAN),
+  sales: _propTypes.default.shape({
+    type: _propTypes.default.oneOf(TICKET_SALES_TYPES),
+    Dynamic: _propTypes.default.shape({
+      start: _propTypes.default.string
+    }),
+    Fixed: _propTypes.default.shape({
+      start: _propTypes.default.string,
+      end: _propTypes.default.string
+    })
+  }),
+  limit: _propTypes.default.shape({
+    type: _propTypes.default.oneOf(TICKET_LIMITATION_TYPES),
+    quantity: _propTypes.default.number,
+    show: _propTypes.default.bool,
+    perOrder: _propTypes.default.shape({
+      min: _propTypes.default.oneOf([_propTypes.default.number, null]),
+      max: _propTypes.default.oneOf([_propTypes.default.number, null])
+    })
+  }),
+  description: _propTypes.default.string
 });
+
+exports.SHAPE_TICKET = SHAPE_TICKET;
+
+const SHAPE_TICKETS = _propTypes.default.arrayOf(SHAPE_TICKET);
 
 exports.SHAPE_TICKETS = SHAPE_TICKETS;
 
@@ -144,7 +242,8 @@ const SHAPE_EVENT = _propTypes.default.shape({
   organizer: SHAPE_ORGANIZER,
   guests: _propTypes.default.arrayOf(SHAPE_GUEST),
   registration: SHAPE_REGISTRATION,
-  tickets: SHAPE_TICKETS,
+  ticketIds: _propTypes.default.arrayOf(),
+  ticketEnabled: _propTypes.default.bool,
   repeat: SHAPE_REPEAT
 });
 

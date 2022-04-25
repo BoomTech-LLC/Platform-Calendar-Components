@@ -73,23 +73,70 @@ export const SHAPE_REGISTRATION = PropTypes.shape({
     })
 })
 
-export const CURRENCY_TYPES = PropTypes.oneOf(["$ Dollars", "฿ Baht", "€ Euros", "Ft Forint", "CHF Francs", "Kč Koruna", "kr Krona", "$ Mexican Pesos", "£ Pounds Sterling", "RM Ringgit", "₪ Shekel", "zł Zloty", "₹ Rupee"])
+export const TICKET_BILLING_CYCLE_TYPES = [ 'Weekly', 'Monthly', 'Yearly' ]
 
-export const SHAPE_TICKET_FIELDS = PropTypes.shape({
-    label: PropTypes.string,
+export const SHAPE_PLAN = PropTypes.shape({
+    cycle: PropTypes.oneOf(TICKET_BILLING_CYCLE_TYPES),
     price: PropTypes.number,
-    free: PropTypes.bool,
-    limited: PropTypes.bool,
-    limit: PropTypes.number
+    duration: PropTypes.number,
+    id: PropTypes.number
 })
 
-export const SHAPE_TICKETS = PropTypes.shape({
-    enabled: PropTypes.bool,
-    fee: PropTypes.number,
-    showLimit: PropTypes.bool,
-    currency: CURRENCY_TYPES,
-    list: PropTypes.arrayOf(SHAPE_TICKET_FIELDS)
+export const CURRENCY_TYPES = [
+    { id: 0, value: '$ Dollars', code:'USD', symbol: '$' },
+    { id: 1, value: '฿ Baht', code:'THB', symbol: '฿' },
+    { id: 2, value: '€ Euros', code:'EUR', symbol: '€' },
+    { id: 3, value: 'Ft Forint', code:'HUF', symbol: 'Ft' },
+    { id: 4, value: 'CHF Francs', code:'CHF', symbol: 'CHF' },
+    { id: 5, value: 'Kč Koruna', code:'CZK', symbol: 'Kč' },
+    { id: 6, value: 'kr Krona', code:'SEK', symbol: 'kr' },
+    { id: 7, value: '$ Mexican Pesos', code:'MXN', symbol: '$'},
+    { id: 8, value: '£ Pounds Sterling', code:'GBP', symbol: '£'},
+    { id: 9, value: 'RM Ringgit', code:'MYR', symbol: 'RM' },
+    { id: 10, value: '₪ Shekel', code:'ILS', symbol: '₪' },
+    { id: 11, value: 'zł Zloty', code:'PLN', symbol: 'zł' },
+    { id: 13, value: '₹ Rupee', code:'INR', symbol: '₹' },
+]
+
+export const TICKET_TYPES = [ 'Ticket', 'Plan', 'Donation' ]
+
+export const TICKET_PRICING_TYPES = [ 'Paid', 'Free' ]
+
+export const TICKET_SALES_TYPES = [ 'Dynamic', 'Fixed' ]
+
+export const TICKET_LIMITATION_TYPES = [ 'Unlimited', 'Limited' ]
+
+export const SHAPE_TICKET= PropTypes.shape({
+    name: PropTypes.string,
+    type: PropTypes.oneOf(TICKET_TYPES),
+    price: PropTypes.shape({
+        type: PropTypes.oneOf(TICKET_PRICING_TYPES),
+        amount: PropTypes.oneOf([PropTypes.number, null])
+    }),
+    plans: PropTypes.arrayOf(SHAPE_PLAN),
+    sales: PropTypes.shape({
+        type: PropTypes.oneOf(TICKET_SALES_TYPES),
+        Dynamic: PropTypes.shape({
+            start: PropTypes.string
+        }),
+        Fixed: PropTypes.shape({
+            start: PropTypes.string,
+            end: PropTypes.string
+        })
+    }),
+    limit: PropTypes.shape({
+        type: PropTypes.oneOf(TICKET_LIMITATION_TYPES),
+        quantity: PropTypes.number,
+        show: PropTypes.bool,
+        perOrder: PropTypes.shape({
+            min: PropTypes.oneOf([PropTypes.number, null]),
+            max: PropTypes.oneOf([PropTypes.number, null])
+        })
+    }),
+    description: PropTypes.string
 })
+
+export const SHAPE_TICKETS = PropTypes.arrayOf(SHAPE_TICKET)
 
 export const SHAPE_REPEAT = PropTypes.shape({
     type: PropTypes.oneOf([ 'Day', 'Week', 'Month', 'Year']),
@@ -115,7 +162,8 @@ export const SHAPE_EVENT = PropTypes.shape({
     organizer: SHAPE_ORGANIZER,
     guests: PropTypes.arrayOf(SHAPE_GUEST),
     registration: SHAPE_REGISTRATION,
-    tickets: SHAPE_TICKETS,
+    ticketIds: PropTypes.arrayOf(),
+    ticketEnabled: PropTypes.bool,
     repeat: SHAPE_REPEAT
 })
 
