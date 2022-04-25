@@ -43,7 +43,7 @@ const TicketPrice = _ref => {
 TicketPrice.propTypes = {
   ticket: _commonPropTypes.SHAPE_TICKET,
   Icon: _propTypes.default.any,
-  currency: _propTypes.default.oneOf(_commonPropTypes.CURRENCY_TYPES),
+  currency: _commonPropTypes.SHAPE_CURRENCY,
   showCurrencyAs: _propTypes.default.oneOf(['code', 'symbol']),
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };

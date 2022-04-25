@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_TICKET = exports.TICKET_LIMITATION_TYPES = exports.TICKET_SALES_TYPES = exports.TICKET_PRICING_TYPES = exports.TICKET_TYPES = exports.CURRENCY_TYPES = exports.SHAPE_PLAN = exports.TICKET_BILLING_CYCLE_TYPES = exports.SHAPE_REGISTRATION = exports.REGISTRATION_COUNTDOWN_OPTIONS = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_GUEST_TICKET = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_UID = exports.PT_CID = exports.PT_CLASSNAMES = void 0;
+exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_TICKET = exports.TICKET_LIMITATION_TYPES = exports.TICKET_SALES_TYPES = exports.TICKET_PRICING_TYPES = exports.TICKET_TYPES = exports.CURRENCY_TYPES = exports.SHAPE_CURRENCY = exports.SHAPE_PLAN = exports.TICKET_BILLING_CYCLE_TYPES = exports.SHAPE_REGISTRATION = exports.REGISTRATION_COUNTDOWN_OPTIONS = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_GUEST_TICKET = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_UID = exports.PT_CID = exports.PT_CLASSNAMES = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -104,6 +104,15 @@ const SHAPE_PLAN = _propTypes.default.shape({
 });
 
 exports.SHAPE_PLAN = SHAPE_PLAN;
+
+const SHAPE_CURRENCY = _propTypes.default.shape({
+  id: _propTypes.default.number,
+  value: _propTypes.default.string,
+  code: _propTypes.default.string,
+  symbol: _propTypes.default.string
+});
+
+exports.SHAPE_CURRENCY = SHAPE_CURRENCY;
 const CURRENCY_TYPES = [{
   id: 0,
   value: '$ Dollars',
@@ -181,6 +190,7 @@ const TICKET_LIMITATION_TYPES = ['Unlimited', 'Limited'];
 exports.TICKET_LIMITATION_TYPES = TICKET_LIMITATION_TYPES;
 
 const SHAPE_TICKET = _propTypes.default.shape({
+  id: _propTypes.default.number,
   name: _propTypes.default.string,
   type: _propTypes.default.oneOf(TICKET_TYPES),
   price: _propTypes.default.shape({
@@ -242,7 +252,7 @@ const SHAPE_EVENT = _propTypes.default.shape({
   organizer: SHAPE_ORGANIZER,
   guests: _propTypes.default.arrayOf(SHAPE_GUEST),
   registration: SHAPE_REGISTRATION,
-  ticketIds: _propTypes.default.arrayOf(),
+  ticketIds: _propTypes.default.arrayOf(SHAPE_TICKET.id),
   ticketEnabled: _propTypes.default.bool,
   repeat: SHAPE_REPEAT
 });

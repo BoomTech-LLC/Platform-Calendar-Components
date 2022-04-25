@@ -82,6 +82,13 @@ export const SHAPE_PLAN = PropTypes.shape({
     id: PropTypes.number
 })
 
+export const SHAPE_CURRENCY = PropTypes.shape({
+    id: PropTypes.number,
+    value: PropTypes.string,
+    code: PropTypes.string,
+    symbol: PropTypes.string
+})
+
 export const CURRENCY_TYPES = [
     { id: 0, value: '$ Dollars', code:'USD', symbol: '$' },
     { id: 1, value: '฿ Baht', code:'THB', symbol: '฿' },
@@ -107,6 +114,7 @@ export const TICKET_SALES_TYPES = [ 'Dynamic', 'Fixed' ]
 export const TICKET_LIMITATION_TYPES = [ 'Unlimited', 'Limited' ]
 
 export const SHAPE_TICKET= PropTypes.shape({
+    id: PropTypes.number,
     name: PropTypes.string,
     type: PropTypes.oneOf(TICKET_TYPES),
     price: PropTypes.shape({
@@ -162,7 +170,7 @@ export const SHAPE_EVENT = PropTypes.shape({
     organizer: SHAPE_ORGANIZER,
     guests: PropTypes.arrayOf(SHAPE_GUEST),
     registration: SHAPE_REGISTRATION,
-    ticketIds: PropTypes.arrayOf(),
+    ticketIds: PropTypes.arrayOf(SHAPE_TICKET.id),
     ticketEnabled: PropTypes.bool,
     repeat: SHAPE_REPEAT
 })
