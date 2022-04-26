@@ -23,5 +23,5 @@ export const calculateTicketsPriceRange = ({tickets, currency, showCurrencyAs}) 
     if(min === 0 && max === 0){
         return 'Free';
     }
-    return `${currency[showCurrencyAs]} ${min} ${max !== min ? `- ${max}` : ''}`;
+    return `${currency[showCurrencyAs]} ${min} ${max !== min ? `- ${currency[showCurrencyAs]} ${max}` : ''}`;
 }
