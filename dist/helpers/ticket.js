@@ -43,7 +43,7 @@ const calculateTicketsPriceRange = _ref => {
     return 'Free';
   }
 
-  return "".concat(currency[showCurrencyAs], " ").concat(min, " ").concat(max !== min ? "- ".concat(currency[showCurrencyAs], " ").concat(max) : '');
+  return "".concat(currency[showCurrencyAs]).concat(min, " ").concat(max !== min ? "- ".concat(currency[showCurrencyAs]).concat(max) : '');
 };
 
 exports.calculateTicketsPriceRange = calculateTicketsPriceRange;
