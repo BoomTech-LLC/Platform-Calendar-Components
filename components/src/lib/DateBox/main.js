@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import DateBoxComponent from './DateBox'
-import TimeBox from './TimeBox'
+import TimeBox from './timeBox/TimeBox'
 
 const DateBox = ({
   start,
