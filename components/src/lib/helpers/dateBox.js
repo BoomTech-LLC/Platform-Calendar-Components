@@ -16,23 +16,23 @@ export const getDateForDateBox = (start, end, locale) => {
     month: moment(dateToShow).locale(locale).format('MMMM'),
   }
 }
+ 
+const getFormattedDate = (date, dateFormat, locale) => {
+  // let format = dateFormat;
 
-const getFormattedDate = (date, dateFormat, locale, showYear) => {
-  let format = dateFormat;
+  // if (dateFormat.includes('YYYY') && moment(date).format('YYYY') === moment().format('YYYY') && !showYear) {
+  //   const yearRegex = new RegExp(',? ?,?YYYY,? ?,?')
+  //   format = dateFormat.split(yearRegex)[1]
+  //     ? dateFormat.replace(/,? ?,?YYYY/, '').trim()
+  //     : dateFormat.replace(yearRegex, '').trim()
+  // }
 
-  if (dateFormat.includes('YYYY') && moment(date).format('YYYY') === moment().format('YYYY') && !showYear) {
-    const yearRegex = new RegExp(',? ?,?YYYY,? ?,?')
-    format = dateFormat.split(yearRegex)[1]
-      ? dateFormat.replace(/,? ?,?YYYY/, '').trim()
-      : dateFormat.replace(yearRegex, '').trim()
-  }
-
-  return moment(date).locale(locale).format(format)
+  return moment(date).locale(locale).format(dateFormat)
 }
 
-export const formatDate = (start, end, dateFormat, locale, showYear) => ({
-  startDate: getFormattedDate(start.replace('T', ' '), dateFormat, locale, showYear),
-  endDate: getFormattedDate(end.replace('T', ' '), dateFormat, locale, showYear),
+export const formatDate = (start, end, dateFormat, locale) => ({
+  startDate: getFormattedDate(start.replace('T', ' '), dateFormat, locale),
+  endDate: getFormattedDate(end.replace('T', ' '), dateFormat, locale),
 })
 
 export const formatTime = (start, end, timeFormat, all_day, locale) => {

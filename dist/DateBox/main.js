@@ -11,7 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _DateBox = _interopRequireDefault(require("./DateBox"));
 
-var _TimeBox = _interopRequireDefault(require("./TimeBox"));
+var _TimeBox = _interopRequireDefault(require("./timeBox/TimeBox"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34,8 +34,7 @@ const DateBox = _ref => {
     direction = 'row',
     fixedHeight = false,
     dayNumberSize = 40,
-    startDateOnly = false,
-    showYear = false
+    startDateOnly = false
   } = _ref;
 
   if (type === 'timeBox') {
@@ -54,8 +53,7 @@ const DateBox = _ref => {
       allDayText: allDayText,
       oneLine: oneLine,
       fixedHeight: fixedHeight,
-      startDateOnly: startDateOnly,
-      showYear: showYear
+      startDateOnly: startDateOnly
     });
   }
 
@@ -73,20 +71,21 @@ DateBox.propTypes = {
   start: _propTypes.default.string.isRequired,
   end: _propTypes.default.string.isRequired,
   locale: _propTypes.default.string,
+  showIcons: _propTypes.default.bool,
   dateFormat: _propTypes.default.string,
   timeFormat: _propTypes.default.string,
   allDay: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.bool]),
   showTimeZone: _propTypes.default.bool,
   timeZone: _propTypes.default.string,
-  type: _propTypes.default.string,
-  showIcons: _propTypes.default.bool,
   wrapperCustomClassNames: _propTypes.default.array,
+  agenda: _propTypes.default.bool,
+  type: _propTypes.default.string,
+  allDayText: _propTypes.default.string,
   oneLine: _propTypes.default.bool,
   direction: _propTypes.default.string,
   fixedHeight: _propTypes.default.bool,
   dayNumberSize: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
-  startDateOnly: _propTypes.default.bool,
-  showYear: _propTypes.default.bool
+  startDateOnly: _propTypes.default.bool
 };
 var _default = DateBox;
 exports.default = _default;
