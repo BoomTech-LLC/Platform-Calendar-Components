@@ -11,10 +11,12 @@ const EndTimeRow = ({
     startTime,
     endTime,
     endDate,
-    timeZoneToShow
+    timeZoneToShow,
+    agenda,
+    allDayText
 }) => {
     return(
-        !(datesEqual && allDay) && !startDateOnly &&
+        !(datesEqual && allDay && !agenda) && !startDateOnly &&
             <div className={styles.two_line_end}>
                 {
                     showIcons &&
@@ -22,8 +24,8 @@ const EndTimeRow = ({
                 }
                 <p className={oneLine ? styles.oneLine : undefined}>
                 {
-                    datesEqual ?
-                    `${startTime}${startTime === endTime ? '' : ` -${endTime}`} ${timeZoneToShow}` :
+                    datesEqual && allDay && agenda ? allDayText :
+                    datesEqual ? `${startTime}${startTime === endTime ? '' : ` -${endTime}`} ${timeZoneToShow}` :
                     `${endDate}${endTime} ${timeZoneToShow}`
                 }
                 </p>
@@ -42,6 +44,8 @@ EndTimeRow.propTypes = {
     startDateOnly: PropTypes.bool,
     endTime: PropTypes.string,
     endDate: PropTypes.string,
+    agenda: PropTypes.bool,
+    allDayText: PropTypes.string
   }
 
 export default EndTimeRow;

@@ -34,15 +34,6 @@ const TimeBox = ({
   const timeZoneToShow = (allDay || !showTimeZone) ? '' : timeZone;
   const datesEqual = startDate === endDate
 
-  if (datesEqual && allDay && agenda) {
-    return (
-      <div className={combineClassNames([styles.all_day_text_parent, ...wrapperCustomClassNames])}>
-        <p>{allDayText}</p>
-        {fixedHeight && <p className={styles.hidden}/>}
-      </div>
-    )
-  }
-
   const showHiddenRow = datesEqual && (allDay || agenda) && fixedHeight;
 
   return (
@@ -67,6 +58,8 @@ const TimeBox = ({
         endTime={endTime}
         endDate={endDate}
         timeZoneToShow={timeZoneToShow}
+        agenda={agenda}
+        allDayText={allDayText}
       />
 
       {
@@ -82,10 +75,18 @@ const TimeBox = ({
 }
 
 TimeBox.propTypes = {
-  start: PropTypes.string,
-  end: PropTypes.string,
+  start: PropTypes.string.isRequired,
+  end: PropTypes.string.isRequired,
   showIcons: PropTypes.bool,
+  locale: PropTypes.string,
+  dateFormat: PropTypes.string,
+  timeFormat: PropTypes.string,
+  allDay: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  showTimeZone: PropTypes.bool,
+  timeZone: PropTypes.string,
   wrapperCustomClassNames: PropTypes.array,
+  agenda: PropTypes.bool,
+  allDayText: PropTypes.string,
   oneLine: PropTypes.bool,
   fixedHeight: PropTypes.bool,
   startDateOnly: PropTypes.bool

@@ -139,13 +139,13 @@ function App() {
       /> */}
       <DateBox
         start="2022-04-15T13:15"
-        end="2022-04-15T15:13"
-        dateFormat="DD/MM/YYYY"
+        end="2022-04-16T15:13"
+        dateFormat="dddd, DD MMMM, YYYY"
         allDay={false}
         showIcons={true}
         // showYear={true}
         // startDateOnly={true}
-        // agenda={true}
+        agenda={true}
         // type=""
         // timeFormat='am/pm'
       />
