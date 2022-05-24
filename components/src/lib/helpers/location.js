@@ -1,8 +1,8 @@
 import { validateURL } from "./commons";
 import { LOCATION_TYPES } from "./constants";
 
-export function getLocationOptions(data) {
-    
+export function getLocationOptions(data, tbdText) {
+
     const value = data.values[data.type]
 
     switch (data.type) {
@@ -21,7 +21,7 @@ export function getLocationOptions(data) {
         default:
             return {
                 isLink: false,
-                value,
+                value: tbdText || value,
             }
     }
 }

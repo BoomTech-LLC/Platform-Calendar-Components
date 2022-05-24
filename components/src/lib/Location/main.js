@@ -7,6 +7,7 @@ import { getLocationOptions } from '../helpers/location'
 
 const Location = ({
   data,
+  tbdText,
   elipsis = false,
   linkCustomClassNames = [],
   textCustomClassNames = [],
@@ -16,7 +17,7 @@ const Location = ({
 
   if (!data) return null
 
-  const { isLink, value, href } = getLocationOptions(data)
+  const { isLink, value, href } = getLocationOptions(data, tbdText)
 
   return (
     <div className={combineClassNames([styles.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)])}>
@@ -44,6 +45,7 @@ const Location = ({
 
 Location.propTypes = {
   data: SHAPE_LOCATION,
+  tbdText: PropTypes.string,
   elipsis: PropTypes.bool,
   linkCustomClassNames: PT_CLASSNAMES,
   textCustomClassNames: PT_CLASSNAMES,
