@@ -5,7 +5,7 @@ import TimeBox from './timeBox/TimeBox'
 
 const DateBox = ({
   start,
-  end,
+  end = '9999-12-12',
   locale = 'en',
   showIcons = true,
   dateFormat = 'dddd, MMMM DD YYYY',
@@ -58,7 +58,7 @@ const DateBox = ({
 
 DateBox.propTypes = {
   start: PropTypes.string.isRequired,
-  end: PropTypes.string.isRequired,
+  end: PropTypes.string,
   locale: PropTypes.string,
   showIcons: PropTypes.bool,
   dateFormat: PropTypes.string,

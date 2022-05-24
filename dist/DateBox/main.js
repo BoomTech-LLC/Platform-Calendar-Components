@@ -18,7 +18,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const DateBox = _ref => {
   let {
     start,
-    end,
+    end = '9999-12-12',
     locale = 'en',
     showIcons = true,
     dateFormat = 'dddd, MMMM DD YYYY',
@@ -69,7 +69,7 @@ const DateBox = _ref => {
 
 DateBox.propTypes = {
   start: _propTypes.default.string.isRequired,
-  end: _propTypes.default.string.isRequired,
+  end: _propTypes.default.string,
   locale: _propTypes.default.string,
   showIcons: _propTypes.default.bool,
   dateFormat: _propTypes.default.string,
