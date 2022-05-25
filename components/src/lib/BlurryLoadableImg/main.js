@@ -17,7 +17,7 @@ const BlurryLoadableImg = ({
   const [ isOrigLoaded, setIsOrigLoaded ] = useState(isImgCached(url))
   const [ imgLoadingFailed, setImgLoadingFailed ] = useState(false)
   const wrapperClassNames = combineClassNames([styles.imgWrapper, ...wrapperCustomClassNames])
-
+  console.log(url);
   if(!url) {
     if(showColorAsBackground === false) return null
     return <div className={wrapperClassNames} style={{backgroundColor: imgLoadingFailed ? 'transparent' : color}}></div>
@@ -28,7 +28,7 @@ const BlurryLoadableImg = ({
         {!imgLoadingFailed &&
           <>
             {
-              isOrigLoaded && 
+              !isOrigLoaded && 
               <img
                 className={combineClassNames([styles.blurred, ...imgCustomClassNames])}
                 src={ decreaseImgQuality(url) }
