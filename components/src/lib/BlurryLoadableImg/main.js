@@ -6,49 +6,50 @@ import { combineClassNames } from '../helpers/commons'
 import { PT_CLASSNAMES } from '../helpers/commonPropTypes'
 
 const BlurryLoadableImg = ({
-    url,
-    showColorAsBackground = true,
-    color,
-    title,
-    wrapperCustomClassNames = [],
-    imgCustomClassNames = []
-  }) => {
+  url,
+  showColorAsBackground = true,
+  color,
+  title,
+  wrapperCustomClassNames = [],
+  imgCustomClassNames = []
+}) => {
 
-  const [ isOrigLoaded, setIsOrigLoaded ] = useState(isImgCached(url))
-  const [ imgLoadingFailed, setImgLoadingFailed ] = useState(false)
+  const [isOrigLoaded, setIsOrigLoaded] = useState(false)
+  const [blurredImgLoadingFailed, setBlurredImgLoadingFailed] = useState(false)
+  const [originalLoadingFailed, setOriginalLoadingFailed] = useState(false)
   const wrapperClassNames = combineClassNames([styles.imgWrapper, ...wrapperCustomClassNames])
-  console.log(url);
-  if(!url) {
-    if(showColorAsBackground === false) return null
-    return <div className={wrapperClassNames} style={{backgroundColor: imgLoadingFailed ? 'transparent' : color}}></div>
-  }
 
+  if (!url) {
+    if (!showColorAsBackground) return null
+    return <div className={wrapperClassNames} style={{ backgroundColor: blurredImgLoadingFailed ? 'transparent' : color }}/>
+  }
+console.log(blurredImgLoadingFailed, originalLoadingFailed, isOrigLoaded);
   return (
-      <div className={wrapperClassNames} style={{backgroundColor: imgLoadingFailed ? color : 'transparent'}}>
-        {!imgLoadingFailed &&
-          <>
-            {
-              !isOrigLoaded && 
-              <img
-                className={combineClassNames([styles.blurred, ...imgCustomClassNames])}
-                src={ decreaseImgQuality(url) }
-                title={ title }
-                alt={ title }
-                onError={() => setImgLoadingFailed(true)}
-              />
-            }
-            
-            <img
-              className={combineClassNames([...imgCustomClassNames, isOrigLoaded ? styles.shown: styles.hidden])}
-              onLoad={() => setIsOrigLoaded(true)}
-              src={ url }
-              title={ title }
-              alt={ title }
-              onError={() => setImgLoadingFailed(true)}
-              />
-          </>
-        }
-      </div>
+    <div className={wrapperClassNames} style={{ backgroundColor: blurredImgLoadingFailed ? color : 'transparent' }}>
+      { 
+      blurredImgLoadingFailed && !isOrigLoaded &&
+          <img
+            className={combineClassNames([styles.blurred, ...imgCustomClassNames])}
+            src={decreaseImgQuality(url)}
+            title={title}
+            alt={title}
+            onError={() => setBlurredImgLoadingFailed(true)}
+          />
+      }
+      { !originalLoadingFailed &&
+          <img
+            className={combineClassNames([...imgCustomClassNames, isOrigLoaded ? styles.shown : styles.hidden])}
+            onLoad={() => {
+              console.log(3543);
+              setIsOrigLoaded(true)
+            }}
+            src={url}
+            title={title}
+            alt={title}
+            onError={() => setOriginalLoadingFailed(true)} 
+          />
+      }
+    </div>
   )
 }
 

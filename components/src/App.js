@@ -177,8 +177,8 @@ function App() {
       /> */}
       <div style={{ height: 150, width: 150 }}>
         <BlurryLoadableImg
-          // url={'https://drive.google.com/uc?id=1rJhGctvvf5L-3qfLe1zfgmleuSo-AhWB'}
-          url={'https://static.wixstatic.com/media/02a1a0_003f068898e74254b5eff90f8e0ae71d~mv2.jpeg'}
+           //url={'https://drive.google.com/uc?id=1a2F01bYsAl1-33f19W0wqmXrEeljxuc3'}
+         url={'https://static.wixstatic.com/media/02a1a0_003f068898e74254b5eff90f8e0ae71d~mv2.jpeg'}
           color={"red"}
           title={'title'}
         />
