@@ -11,7 +11,7 @@ var _commons = require("./commons");
 
 var _constants = require("./constants");
 
-function getLocationOptions(data) {
+function getLocationOptions(data, tbdText) {
   var _data$values, _data$values$physical, _data$values2, _data$values2$physica;
 
   const value = data.values[data.type];
@@ -34,7 +34,7 @@ function getLocationOptions(data) {
     default:
       return {
         isLink: false,
-        value
+        value: tbdText || value
       };
   }
 }
