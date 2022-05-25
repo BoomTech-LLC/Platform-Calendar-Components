@@ -28,7 +28,7 @@ const BlurryLoadableImg = ({
         {!imgLoadingFailed &&
           <>
             {
-              !isOrigLoaded &&
+              !isOrigLoaded && !url.include('drive.google.com') && 
               <img
                 className={combineClassNames([styles.blurred, ...imgCustomClassNames])}
                 src={ decreaseImgQuality(url) }
