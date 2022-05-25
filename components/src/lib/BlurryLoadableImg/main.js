@@ -28,7 +28,7 @@ const BlurryLoadableImg = ({
         {!imgLoadingFailed &&
           <>
             {
-              !isOrigLoaded && imgLoadingFailed && 
+              isOrigLoaded && 
               <img
                 className={combineClassNames([styles.blurred, ...imgCustomClassNames])}
                 src={ decreaseImgQuality(url) }
