@@ -24,6 +24,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Location = _ref => {
   let {
     data,
+    tbdText,
     elipsis = false,
     linkCustomClassNames = [],
     textCustomClassNames = [],
@@ -35,7 +36,7 @@ const Location = _ref => {
     isLink,
     value,
     href
-  } = (0, _location.getLocationOptions)(data);
+  } = (0, _location.getLocationOptions)(data, tbdText);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)])
   }, showIcon && /*#__PURE__*/_react.default.createElement("div", {
@@ -51,6 +52,7 @@ const Location = _ref => {
 
 Location.propTypes = {
   data: _commonPropTypes.SHAPE_LOCATION,
+  tbdText: _propTypes.default.string,
   elipsis: _propTypes.default.bool,
   linkCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   textCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
