@@ -7,10 +7,3 @@ export const isImgCached = url => {
 }
 
 
-const acceptableFormats = [ 'png', 'jpeg', 'jpg', 'webm' ]
-  
-export const isImgDecreasable = url => {
-  let splitted = url.split('.')
-  let format = splitted[splitted.length - 1]
-  return acceptableFormats.includes(format)
-}

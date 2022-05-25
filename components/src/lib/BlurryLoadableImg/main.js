@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
-import { decreaseImgQuality, isImgCached, isImgDecreasable } from '../helpers/blurryLoadableImage'
+import { decreaseImgQuality, isImgCached } from '../helpers/blurryLoadableImage'
 import { combineClassNames } from '../helpers/commons'
 import { PT_CLASSNAMES } from '../helpers/commonPropTypes'
 
@@ -28,8 +28,7 @@ const BlurryLoadableImg = ({
         {!imgLoadingFailed &&
           <>
             {
-              isImgDecreasable(url) &&
-              !isOrigLoaded && 
+              !isOrigLoaded && imgLoadingFailed && 
               <img
                 className={combineClassNames([styles.blurred, ...imgCustomClassNames])}
                 src={ decreaseImgQuality(url) }
