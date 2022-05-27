@@ -49,7 +49,6 @@ const BlurryLoadableImg = _ref => {
     });
   }
 
-  console.log(blurredImgLoadingFailed, originalLoadingFailed, isOrigLoaded);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: wrapperClassNames,
     style: {
@@ -63,10 +62,6 @@ const BlurryLoadableImg = _ref => {
     onError: () => setBlurredImgLoadingFailed(true)
   }), !originalLoadingFailed && /*#__PURE__*/_react.default.createElement("img", {
     className: (0, _commons.combineClassNames)([...imgCustomClassNames, isOrigLoaded ? _mainModule.default.shown : _mainModule.default.hidden]),
-    onLoad: () => {
-      console.log(3543);
-      setIsOrigLoaded(true);
-    },
     src: url,
     title: title,
     alt: title,

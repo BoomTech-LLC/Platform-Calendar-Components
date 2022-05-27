@@ -21,33 +21,32 @@ const BlurryLoadableImg = ({
 
   if (!url) {
     if (!showColorAsBackground) return null
-    return <div className={wrapperClassNames} style={{ backgroundColor: blurredImgLoadingFailed ? 'transparent' : color }}/>
+    return <div className={wrapperClassNames} style={{ backgroundColor: blurredImgLoadingFailed ? 'transparent' : color }} />
   }
-console.log(blurredImgLoadingFailed, originalLoadingFailed, isOrigLoaded);
+
   return (
     <div className={wrapperClassNames} style={{ backgroundColor: blurredImgLoadingFailed ? color : 'transparent' }}>
-      { 
-      blurredImgLoadingFailed && !isOrigLoaded &&
-          <img
-            className={combineClassNames([styles.blurred, ...imgCustomClassNames])}
-            src={decreaseImgQuality(url)}
-            title={title}
-            alt={title}
-            onError={() => setBlurredImgLoadingFailed(true)}
-          />
+      {
+        blurredImgLoadingFailed && !isOrigLoaded &&
+        <img
+          className={combineClassNames([styles.blurred, ...imgCustomClassNames])}
+          src={decreaseImgQuality(url)}
+          title={title}
+          alt={title}
+          onError={() => setBlurredImgLoadingFailed(true)}
+        />
       }
-      { !originalLoadingFailed &&
-          <img
-            className={combineClassNames([...imgCustomClassNames, isOrigLoaded ? styles.shown : styles.hidden])}
-            onLoad={() => {
-              console.log(3543);
-              setIsOrigLoaded(true)
-            }}
-            src={url}
-            title={title}
-            alt={title}
-            onError={() => setOriginalLoadingFailed(true)} 
-          />
+      {!originalLoadingFailed &&
+        <img
+          className={combineClassNames([...imgCustomClassNames, isOrigLoaded ? styles.shown : styles.hidden])}
+          onLoad={() => {
+            setIsOrigLoaded(true)
+          }}
+          src={url}
+          title={title}
+          alt={title}
+          onError={() => setOriginalLoadingFailed(true)}
+        />
       }
     </div>
   )
