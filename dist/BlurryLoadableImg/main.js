@@ -62,6 +62,9 @@ const BlurryLoadableImg = _ref => {
     onError: () => setBlurredImgLoadingFailed(true)
   }), !originalLoadingFailed && /*#__PURE__*/_react.default.createElement("img", {
     className: (0, _commons.combineClassNames)([...imgCustomClassNames, isOrigLoaded ? _mainModule.default.shown : _mainModule.default.hidden]),
+    onLoad: () => {
+      setIsOrigLoaded(true);
+    },
     src: url,
     title: title,
     alt: title,
