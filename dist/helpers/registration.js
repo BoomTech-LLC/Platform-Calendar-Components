@@ -42,31 +42,42 @@ function generateRegistrationURL(cid, uid, event, registration, urlBase) {
 }
 
 function getGuestsOptions(event, registration, tickets) {
-  var _eventCopy$guests, _eventCopy$guests2, _eventCopy$guests2$ti, _eventCopy$guests$len, _eventCopy$guests3;
+  var _eventCopy$guests$len, _eventCopy$guests;
 
   const eventCopy = _objectSpread(_objectSpread({}, event), {}, {
     guests: filterEventGuests(event)
   });
 
   if (!registration.enabled) return null;
-  if (tickets !== null && tickets !== void 0 && tickets.enabled && (_eventCopy$guests = eventCopy.guests) !== null && _eventCopy$guests !== void 0 && _eventCopy$guests.length && (_eventCopy$guests2 = eventCopy.guests) !== null && _eventCopy$guests2 !== void 0 && (_eventCopy$guests2$ti = _eventCopy$guests2.tickets) !== null && _eventCopy$guests2$ti !== void 0 && _eventCopy$guests2$ti.length) return calcGuestsOptionsByTickets(eventCopy, tickets);
+  if (event.ticketEnabled && tickets !== null && tickets !== void 0 && tickets.length) return calcGuestsOptionsByTickets(eventCopy, tickets); // q2
+
   return {
-    count: (_eventCopy$guests$len = eventCopy === null || eventCopy === void 0 ? void 0 : (_eventCopy$guests3 = eventCopy.guests) === null || _eventCopy$guests3 === void 0 ? void 0 : _eventCopy$guests3.length) !== null && _eventCopy$guests$len !== void 0 ? _eventCopy$guests$len : 0,
+    count: (_eventCopy$guests$len = eventCopy === null || eventCopy === void 0 ? void 0 : (_eventCopy$guests = eventCopy.guests) === null || _eventCopy$guests === void 0 ? void 0 : _eventCopy$guests.length) !== null && _eventCopy$guests$len !== void 0 ? _eventCopy$guests$len : 0,
     limit: registration.guestsOptions.limit
   };
 }
 
 function calcGuestsOptionsByTickets(event, tickets) {
-  if (!tickets.showLimit) return null;
-  let result = {
-    count: event.guests.length,
-    limit: tickets.list.length
+  const result = {
+    count: 0,
+    limit: 0
   };
 
   for (let guest of event.guests) {
-    guest.tickets.forEach(guestTicket => {
+    var _guest$tickets;
+
+    (_guest$tickets = guest.tickets) === null || _guest$tickets === void 0 ? void 0 : _guest$tickets.forEach(guestTicket => {
       result.count += guestTicket.quantity;
     });
+  }
+
+  for (let ticket of tickets) {
+    if (ticket.limit.type === 'Unlimited') {
+      result.limit = 'unlimited';
+      break;
+    }
+
+    result.limit += ticket.limit.quantity;
   }
 
   return result;

@@ -22,22 +22,22 @@ var _registration = require("../helpers/registration");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const GuestLimit = _ref => {
-  var _event$registration, _event$tickets, _tickets$list;
+  var _event$registration;
 
   let {
     foreword = 'Guests Limit',
     event,
     globalRegistration,
-    globalTickets,
+    tickets,
     wrapperCustomClassNames = [],
     showIcon = false
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
-  const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
-  const show = (0, _registration.getShowRegistrationButtonStatus)(event, (tickets === null || tickets === void 0 ? void 0 : tickets.enabled) || (registration === null || registration === void 0 ? void 0 : registration.enabled));
+  const eventTickets = !event.ticketEnabled || !(tickets !== null && tickets !== void 0 && tickets.length) ? null : [...tickets];
+  const show = (0, _registration.getShowRegistrationButtonStatus)(event, registration === null || registration === void 0 ? void 0 : registration.enabled);
   if (!show) return null;
-  if (tickets && !((_tickets$list = tickets.list) !== null && _tickets$list !== void 0 && _tickets$list.length) || !registration.guestsOptions.isLimited || !registration.guestsOptions.show) return null;
-  const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, tickets);
+  if (!eventTickets && (!registration.guestsOptions.isLimited || !registration.guestsOptions.show)) return null;
+  const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, eventTickets);
   if (!guestsOptions) return null;
   const {
     count,
@@ -52,9 +52,9 @@ const GuestLimit = _ref => {
 
 GuestLimit.propTypes = {
   foreword: _propTypes.default.string,
-  guests: _propTypes.default.arrayOf(_propTypes.default.shape(_commonPropTypes.SHAPE_GUEST)),
+  event: _commonPropTypes.SHAPE_EVENT,
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
-  globalTickets: _commonPropTypes.SHAPE_TICKETS,
+  tickets: _commonPropTypes.SHAPE_TICKETS,
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   showIcon: _propTypes.default.bool
 };

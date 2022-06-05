@@ -29,8 +29,8 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function AddShareIcons(props) {
-  const {
+function AddShareIcons(_ref) {
+  let {
     title = _constants.ADD_SHARE_ICONS_CONSTRUCTOR.TITLE,
     comp_id,
     instance,
@@ -48,7 +48,7 @@ function AddShareIcons(props) {
     contentCustomClassNames = [],
     copyTooltipCustomClassNames = [],
     order = 'vertical'
-  } = props;
+  } = _ref;
   const [copyTooltipText, setCopyTooltipText] = (0, _react.useState)(copyActionTooltipText);
   if (hideAddToIcons && (hideShareIcons || !hideShareIcons && +event.kind === 4)) return null;
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -80,7 +80,7 @@ function AddShareIcons(props) {
   })));
 }
 
-const AddShareIconsRow = _ref => {
+const AddShareIconsRow = _ref2 => {
   let {
     comp_id,
     instance,
@@ -94,7 +94,7 @@ const AddShareIconsRow = _ref => {
     copyTooltipText,
     copyActionTooltipText,
     copyTooltipCustomClassNames
-  } = _ref;
+  } = _ref2;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.add_share_icons_row
   }, /*#__PURE__*/_react.default.createElement("div", null, sectionName), /*#__PURE__*/_react.default.createElement("div", null, constructor.icons.map(btn => {

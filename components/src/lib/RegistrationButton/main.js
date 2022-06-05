@@ -12,18 +12,18 @@ const RegistrationButton = ({
   urlBase,
   event,
   globalRegistration,
-  globalTickets,
+  tickets,
   wrapperCustomClassNames = [],
   disabledClassName = ''
 }) => {
   const registration = event.registration ?? globalRegistration
-  const tickets = event.tickets ?? globalTickets
+  const eventTickets = (!event.ticketEnabled || !tickets?.length) ? null : [...tickets];
 
-  const show = getShowRegistrationButtonStatus(event, tickets?.enabled || registration?.enabled)
+  const show = getShowRegistrationButtonStatus(event, registration?.enabled)
   if (!show) return null
 
   const url = generateRegistrationURL(cid, uid, event, registration, urlBase)
-  const guestsOptions = getGuestsOptions(event, registration, tickets)
+  const guestsOptions = getGuestsOptions(event, registration, eventTickets)
   if(!guestsOptions) return null
 
   const { count, limit } = guestsOptions

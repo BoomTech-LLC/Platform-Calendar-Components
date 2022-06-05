@@ -7,28 +7,25 @@ import { combineClassNames } from '../helpers/commons'
 import { generateEventUrl } from '../helpers/addShare'
 import { PT_CLASSNAMES } from '../helpers/commonPropTypes'
 
-export default function AddShareIcons(props) {
-
-   const {
-      title = ADD_SHARE_ICONS_CONSTRUCTOR.TITLE,
-      comp_id,
-      instance,
-      titleBorderHidden = false, 
-      addToSectionName = ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS.addToSectionName, 
-      hideAddToIcons = false, 
-      shareSectionName = ADD_SHARE_ICONS_CONSTRUCTOR.SHARE_ICONS.shareSectionName, 
-      hideShareIcons = false,
-      boomEventUrlBase,
-      event,
-      copyActionTooltipText = ADD_SHARE_ICONS_CONSTRUCTOR.SHARE_ICONS.copyActionTooltipText,
-      copiedTooltipText = ADD_SHARE_ICONS_CONSTRUCTOR.SHARE_ICONS.copiedTooltipText,
-      wrapperCustomClassNames = [],
-      titleCustomClassNames = [],
-      contentCustomClassNames = [],
-      copyTooltipCustomClassNames = [], 
-      order='vertical'
-   } = props
-   
+export default function AddShareIcons({
+   title = ADD_SHARE_ICONS_CONSTRUCTOR.TITLE,
+   comp_id,
+   instance,
+   titleBorderHidden = false, 
+   addToSectionName = ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS.addToSectionName, 
+   hideAddToIcons = false, 
+   shareSectionName = ADD_SHARE_ICONS_CONSTRUCTOR.SHARE_ICONS.shareSectionName, 
+   hideShareIcons = false,
+   boomEventUrlBase,
+   event,
+   copyActionTooltipText = ADD_SHARE_ICONS_CONSTRUCTOR.SHARE_ICONS.copyActionTooltipText,
+   copiedTooltipText = ADD_SHARE_ICONS_CONSTRUCTOR.SHARE_ICONS.copiedTooltipText,
+   wrapperCustomClassNames = [],
+   titleCustomClassNames = [],
+   contentCustomClassNames = [],
+   copyTooltipCustomClassNames = [], 
+   order='vertical'
+}) {
    const [ copyTooltipText, setCopyTooltipText ] = useState(copyActionTooltipText)
 
    if(hideAddToIcons && (hideShareIcons || (!hideShareIcons && +event.kind === 4))) return null

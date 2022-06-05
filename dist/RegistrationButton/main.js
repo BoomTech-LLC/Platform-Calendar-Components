@@ -22,7 +22,7 @@ var _registration = require("../helpers/registration");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const RegistrationButton = _ref => {
-  var _event$registration, _event$tickets;
+  var _event$registration;
 
   let {
     cid,
@@ -31,16 +31,16 @@ const RegistrationButton = _ref => {
     urlBase,
     event,
     globalRegistration,
-    globalTickets,
+    tickets,
     wrapperCustomClassNames = [],
     disabledClassName = ''
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
-  const tickets = (_event$tickets = event.tickets) !== null && _event$tickets !== void 0 ? _event$tickets : globalTickets;
-  const show = (0, _registration.getShowRegistrationButtonStatus)(event, (tickets === null || tickets === void 0 ? void 0 : tickets.enabled) || (registration === null || registration === void 0 ? void 0 : registration.enabled));
+  const eventTickets = !event.ticketEnabled || !(tickets !== null && tickets !== void 0 && tickets.length) ? null : [...tickets];
+  const show = (0, _registration.getShowRegistrationButtonStatus)(event, registration === null || registration === void 0 ? void 0 : registration.enabled);
   if (!show) return null;
   const url = (0, _registration.generateRegistrationURL)(cid, uid, event, registration, urlBase);
-  const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, tickets);
+  const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, eventTickets);
   if (!guestsOptions) return null;
   const {
     count,

@@ -20,7 +20,7 @@ export function getGuestsOptions(event, registration, tickets) {
   }
   
   if(!registration.enabled) return null
-  if(tickets?.enabled && eventCopy.guests?.length && eventCopy.guests?.tickets?.length) return calcGuestsOptionsByTickets(eventCopy, tickets)
+  if(event.ticketEnabled && tickets?.length) return calcGuestsOptionsByTickets(eventCopy, tickets) // q2
   return {
     count: eventCopy?.guests?.length ?? 0,
     limit: registration.guestsOptions.limit
@@ -28,16 +28,24 @@ export function getGuestsOptions(event, registration, tickets) {
 }
 
 export function calcGuestsOptionsByTickets(event, tickets) {
-  if(!tickets.showLimit) return null
-  let result = {
-    count: event.guests.length,
-    limit: tickets.list.length
+  const result = {
+    count: 0,
+    limit: 0
   }
   for(let guest of event.guests) {
-    guest.tickets.forEach(guestTicket => {
+    guest.tickets?.forEach(guestTicket => {
         result.count += guestTicket.quantity
     })
   }
+
+  for(let ticket of tickets){
+    if(ticket.limit.type === 'Unlimited') {
+      result.limit = 'unlimited';
+      break;
+    }
+    result.limit += ticket.limit.quantity;
+  }
+
   return result
 }
 
