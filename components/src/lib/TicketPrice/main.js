@@ -10,11 +10,12 @@ const TicketPrice = ({
   currency,
   showCurrencyAs,
   Icon,
-  wrapperCustomClassNames = []
+  wrapperCustomClassNames = [],
+  priceFormat
 }) => {
   if(!tickets.length) return null;
 
-  const priceRange = calculateTicketsPriceRange({tickets, currency, showCurrencyAs})
+  const priceRange = calculateTicketsPriceRange({tickets, currency, showCurrencyAs, priceFormat})
   
   return (
     <div className={ combineClassNames([styles.wrapper, ...wrapperCustomClassNames]) }>
@@ -31,7 +32,8 @@ TicketPrice.propTypes = {
   Icon: PropTypes.any,
   currency: SHAPE_CURRENCY,
   showCurrencyAs: PropTypes.oneOf(['code', 'symbol']),
-  wrapperCustomClassNames: PT_CLASSNAMES
+  wrapperCustomClassNames: PT_CLASSNAMES,
+  priceFormat: PropTypes.string
 }
 
 export default TicketPrice

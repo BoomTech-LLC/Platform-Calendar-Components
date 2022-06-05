@@ -27,13 +27,15 @@ const TicketPrice = _ref => {
     currency,
     showCurrencyAs,
     Icon,
-    wrapperCustomClassNames = []
+    wrapperCustomClassNames = [],
+    priceFormat
   } = _ref;
   if (!tickets.length) return null;
   const priceRange = (0, _ticket.calculateTicketsPriceRange)({
     tickets,
     currency,
-    showCurrencyAs
+    showCurrencyAs,
+    priceFormat
   });
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames])
@@ -47,7 +49,8 @@ TicketPrice.propTypes = {
   Icon: _propTypes.default.any,
   currency: _commonPropTypes.SHAPE_CURRENCY,
   showCurrencyAs: _propTypes.default.oneOf(['code', 'symbol']),
-  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
+  wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
+  priceFormat: _propTypes.default.string
 };
 var _default = TicketPrice;
 exports.default = _default;

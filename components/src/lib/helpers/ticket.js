@@ -13,13 +13,13 @@ export const getTicketPrice = (ticket) => {
     }
 }
 
-export const calculateTicketsPriceRange = ({tickets, currency, showCurrencyAs}) => {
+export const calculateTicketsPriceRange = ({tickets, currency, showCurrencyAs, priceFormat}) => {
     const prices = [];
     for(let ticket of tickets){
         prices.push(...getTicketPrice(ticket));
     }
-    const min = Math.min(...prices);
-    const max = Math.max(...prices);
+    const min = priceFormat.replace('{currency}', currency.symbol).replace('100', Math.min(...prices));
+    const max = priceFormat.replace('{currency}', currency.symbol).replace('100', Math.max(...prices));
     if(min === 0 && max === 0){
         return 'Free';
     }

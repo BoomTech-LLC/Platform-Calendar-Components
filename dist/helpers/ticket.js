@@ -7,6 +7,10 @@ exports.calculateTicketsPriceRange = exports.getTicketPrice = void 0;
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
+require("core-js/modules/es.regexp.exec.js");
+
+require("core-js/modules/es.string.replace.js");
+
 var _commonPropTypes = require("./commonPropTypes");
 
 const getTicketPrice = ticket => {
@@ -28,7 +32,8 @@ const calculateTicketsPriceRange = _ref => {
   let {
     tickets,
     currency,
-    showCurrencyAs
+    showCurrencyAs,
+    priceFormat
   } = _ref;
   const prices = [];
 
@@ -36,8 +41,8 @@ const calculateTicketsPriceRange = _ref => {
     prices.push(...getTicketPrice(ticket));
   }
 
-  const min = Math.min(...prices);
-  const max = Math.max(...prices);
+  const min = priceFormat.replace('{currency}', currency.symbol).replace('100', Math.min(...prices));
+  const max = priceFormat.replace('{currency}', currency.symbol).replace('100', Math.max(...prices));
 
   if (min === 0 && max === 0) {
     return 'Free';
