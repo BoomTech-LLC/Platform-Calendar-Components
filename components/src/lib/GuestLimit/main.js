@@ -34,7 +34,7 @@ const GuestLimit = ({
     <div className={combineClassNames([styles.guest_limit_parent, ...wrapperCustomClassNames])}>
       {showIcon && <span className="icon-guests"/>}
       <p>
-        {foreword}: {count} / {limit}
+        {foreword}: {typeof limit === 'string' ? limit : `${count} / ${limit}`}
       </p>
     </div>
   )
