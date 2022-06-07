@@ -8,7 +8,6 @@ import Location from './lib/Location/index'
 import AddShareIcons from './lib/AddShareIcons/index'
 import CategoryItem from './lib/CategoryItem'
 import { D_EVENT_1, D_REGISTRATION } from './lib/helpers/defaults'
-import TicketList from './lib/TicketList/main'
 import TicketPrice from './lib/TicketPrice/main'
 import { CURRENCY_TYPES } from './lib/helpers/commonPropTypes'
 
@@ -84,7 +83,7 @@ function App() {
       /> */}
 
       <hr />
-      <RegistrationButton
+      {/* <RegistrationButton
         cid={'123'}
         uid={'123'}
         text={'Pele'}
@@ -97,19 +96,20 @@ function App() {
         foreword='Guests'
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
-      />
-      {/* <DateBox
-        start="09/27/2021T12:30"
-        end="09/27/2021T12:30"
-        dateFormat='dddd, MMMM DD'
-        timeFormat='am/pm'
-        allDay={true}
-        showIcons={true}
-        type='dateBox'
-        oneLine={false}
-        direction='column'
-        locale={'it'}
       /> */}
+      <DateBox
+        start="2022-06-10T00:00"
+        end="2022-06-25T00:00"
+        dateFormat='DD/MM/YYYY'
+        timeFormat='24h'
+        showIcons={true}
+        type='timeBox'
+        oneLine={false}
+        locale='en'
+        showTimeZone={false}
+        timeZone={'(GMT + 4)'}
+        startDateOnly={true}
+      />
       <hr />
       {/* <DateBox
         start="09/27/2021T12:30"
@@ -122,22 +122,16 @@ function App() {
         direction='row'
         /> */}
       <hr />
-      {/* <DateBox
-        start="11/19/2021T17:00"
-        end="11/19/2021T19:00"
-        type='timeBox'
-        dateFormat='dddd, MMMM DD, YYYY'
-        timeFormat='am/pm'
-        allDay={false}
-        showIcons={true}
-        oneLine={false}
-        direction='row'
-        showYear={true}
-        year={2019}
-        fixedHeight={true}
-        // agenda={true}
-      /> */}
       <DateBox
+        start="2022-06-22T00:00"
+        end="2022-06-22T00:00"
+        locale='en'
+        showIcons={true}
+        timeFormat='am/pm'
+        type='oneLineDateBox'
+        allDay={false}
+      />
+      {/* <DateBox
         start="2022-04-15T13:15"
         end="2022-04-16T15:13"
         dateFormat="dddd, DD MMMM, YYYY"
@@ -146,9 +140,9 @@ function App() {
         // showYear={true}
         // startDateOnly={true}
         agenda={true}
-        // type=""
-        // timeFormat='am/pm'
-      />
+        type=""
+        timeFormat='am/pm'
+      /> */}
 
       {/* <CategoryItem
         category={{
@@ -175,19 +169,19 @@ function App() {
           },
         ]}
       /> */}
-      <div style={{ height: 150, width: 150 }}>
+      {/* <div style={{ height: 150, width: 150 }}>
         <BlurryLoadableImg
-           //url={'https://drive.google.com/uc?id=1a2F01bYsAl1-33f19W0wqmXrEeljxuc3'}
-         url={'https://static.wixstatic.com/media/02a1a0_003f068898e74254b5eff90f8e0ae71d~mv2.jpeg'}
+          //url={'https://drive.google.com/uc?id=1a2F01bYsAl1-33f19W0wqmXrEeljxuc3'}
+          url={'https://static.wixstatic.com/media/02a1a0_003f068898e74254b5eff90f8e0ae71d~mv2.jpeg'}
           color={"red"}
           title={'title'}
         />
-      </div>
-      <TicketPrice
+      </div> */}
+      {/* <TicketPrice
         tickets={test_tickets}
         currency={CURRENCY_TYPES[0]}
         showCurrencyAs='symbol'
-      />
+      /> */}
     </div>
   )
 }
@@ -208,8 +202,8 @@ const test_event_ticket =
 const test_event_guests =
   '[{"id":144,"created_at":"2021-09-02 13:14:49","comp_id":"comp-kr1zjlxk","instance":"67f3a243-b89c-4c58-96f4-87e2ebcdaac7","event_id":"808367","value":{"ticket":[{"quantity":2,"ticket_label":"tesxt"}],"first_name":"gd","last_name":"gdfg","email":"dfgdfg@fs.fd"},"passed":0,"date":"2021-09-04","time_zone":"Asia/Yerevan","info":{"boom_type":"cash","boom_status":"unpaid"},"status":"unpaid","type":"cash","sold_tickets":[{"id":360,"created_at":"2021-09-02T13:14:49.000000Z","updated_at":"2021-09-02T13:14:49.000000Z","option_id":"12","event_id":"808367","guest_id":"144","passed":0,"label":"tesxt"},{"id":361,"created_at":"2021-09-02T13:14:49.000000Z","updated_at":"2021-09-02T13:14:49.000000Z","option_id":"12","event_id":"808367","guest_id":"144","passed":0,"label":"tesxt"}]},{"id":145,"created_at":"2021-09-02 13:15:27","comp_id":"comp-kr1zjlxk","instance":"67f3a243-b89c-4c58-96f4-87e2ebcdaac7","event_id":"808367","value":{"ticket":[{"quantity":1,"ticket_label":"tesxt"}],"first_name":"sdfsd","last_name":"sdfsd","email":"fsdf@fsd.sdf"},"passed":0,"date":"2021-09-04","time_zone":"Asia/Yerevan","info":{"boom_type":"cash","boom_status":"unpaid"},"status":"unpaid","type":"cash","sold_tickets":[{"id":362,"created_at":"2021-09-02T13:15:27.000000Z","updated_at":"2021-09-02T13:15:27.000000Z","option_id":"12","event_id":"808367","guest_id":"145","passed":0,"label":"tesxt"}]},{"id":146,"created_at":"2021-09-02 13:15:48","comp_id":"comp-kr1zjlxk","instance":"67f3a243-b89c-4c58-96f4-87e2ebcdaac7","event_id":"808367","value":{"ticket":[{"quantity":1,"ticket_label":"tesxt"}],"first_name":"dfgdf","last_name":"gdf","email":"gdfgd@fsdf.sdf"},"passed":0,"date":"2021-09-04","time_zone":"Asia/Yerevan","info":{"boom_type":"cash","boom_status":"unpaid"},"status":"unpaid","type":"cash","sold_tickets":[{"id":363,"created_at":"2021-09-02T13:15:48.000000Z","updated_at":"2021-09-02T13:15:48.000000Z","option_id":"12","event_id":"808367","guest_id":"146","passed":0,"label":"tesxt"}]}]'
 
-const test_ticket = {"id":423,"name":"ticket 2","type":"Ticket","price":{"type":"Paid","amount":5},"plans":[{"cycle":"Monthly","price":1,"duration":1,"id":0}],"sales":{"type":"Fixed","Dynamic":{"start":"On event date"},"Fixed":{"start":"2022-04-20T00:00","end":"2022-04-21T00:00"}},"limit":{"type":"Limited","quantity":20,"show":true,"perOrder":{"min":null,"max":null}},"description":""}
+const test_ticket = { "id": 423, "name": "ticket 2", "type": "Ticket", "price": { "type": "Paid", "amount": 5 }, "plans": [{ "cycle": "Monthly", "price": 1, "duration": 1, "id": 0 }], "sales": { "type": "Fixed", "Dynamic": { "start": "On event date" }, "Fixed": { "start": "2022-04-20T00:00", "end": "2022-04-21T00:00" } }, "limit": { "type": "Limited", "quantity": 20, "show": true, "perOrder": { "min": null, "max": null } }, "description": "" }
 
-const test_tickets = [{"id":598,"name":"as","type":"Ticket","price":{"type":"Paid","amount":1},"plans":[{"cycle":"Monthly","price":1,"duration":1,"id":0}],"sales":{"type":"Fixed","Dynamic":{"start":"On event date"},"Fixed":{"start":"2022-04-24T00:00","end":"2022-04-25T00:00"}},"limit":{"type":"Limited","quantity":20,"show":true,"perOrder":{"min":null,"max":null}},"description":""},{"name":"fsdsdf","type":"Ticket","price":{"type":"Paid","amount":5},"plans":[{"cycle":"Monthly","price":1,"duration":1,"id":0}],"sales":{"type":"Fixed","Dynamic":{"start":"On event date"},"Fixed":{"start":"2022-04-25T00:00","end":"2022-04-26T00:00"}},"limit":{"type":"Limited","quantity":20,"show":true,"perOrder":{"min":null,"max":null}},"description":"","id":665},{"name":"424234","type":"Ticket","price":{"type":"Paid","amount":13},"plans":[{"cycle":"Monthly","price":1,"duration":1,"id":0}],"sales":{"type":"Fixed","Dynamic":{"start":"On event date"},"Fixed":{"start":"2022-04-25T00:00","end":"2022-04-26T00:00"}},"limit":{"type":"Limited","quantity":20,"show":true,"perOrder":{"min":null,"max":null}},"description":"","id":666},{"name":"fsdfsdf","type":"Plan","price":{"type":"Paid","amount":1},"plans":[{"cycle":"Monthly","price":4,"duration":1,"id":0},{"cycle":"Monthly","price":15,"duration":1,"id":1},{"cycle":"Monthly","price":242,"duration":1,"id":2}],"sales":{"type":"Fixed","Dynamic":{"start":"On event date"},"Fixed":{"start":"2022-04-25T00:00","end":"2022-04-26T00:00"}},"limit":{"type":"Limited","quantity":20,"show":true,"perOrder":{"min":null,"max":null}},"description":"","id":667},{"name":"fsdfsdf","type":"Donation","price":{"type":"Paid","amount":1},"plans":[{"cycle":"Monthly","price":1,"duration":1,"id":0}],"sales":{"type":"Fixed","Dynamic":{"start":"On event date"},"Fixed":{"start":"2022-04-25T00:00","end":"2022-04-26T00:00"}},"limit":{"type":"Limited","quantity":20,"show":true,"perOrder":{"min":null,"max":null}},"description":"","id":668}]
+const test_tickets = [{ "id": 598, "name": "as", "type": "Ticket", "price": { "type": "Paid", "amount": 1 }, "plans": [{ "cycle": "Monthly", "price": 1, "duration": 1, "id": 0 }], "sales": { "type": "Fixed", "Dynamic": { "start": "On event date" }, "Fixed": { "start": "2022-04-24T00:00", "end": "2022-04-25T00:00" } }, "limit": { "type": "Limited", "quantity": 20, "show": true, "perOrder": { "min": null, "max": null } }, "description": "" }, { "name": "fsdsdf", "type": "Ticket", "price": { "type": "Paid", "amount": 5 }, "plans": [{ "cycle": "Monthly", "price": 1, "duration": 1, "id": 0 }], "sales": { "type": "Fixed", "Dynamic": { "start": "On event date" }, "Fixed": { "start": "2022-04-25T00:00", "end": "2022-04-26T00:00" } }, "limit": { "type": "Limited", "quantity": 20, "show": true, "perOrder": { "min": null, "max": null } }, "description": "", "id": 665 }, { "name": "424234", "type": "Ticket", "price": { "type": "Paid", "amount": 13 }, "plans": [{ "cycle": "Monthly", "price": 1, "duration": 1, "id": 0 }], "sales": { "type": "Fixed", "Dynamic": { "start": "On event date" }, "Fixed": { "start": "2022-04-25T00:00", "end": "2022-04-26T00:00" } }, "limit": { "type": "Limited", "quantity": 20, "show": true, "perOrder": { "min": null, "max": null } }, "description": "", "id": 666 }, { "name": "fsdfsdf", "type": "Plan", "price": { "type": "Paid", "amount": 1 }, "plans": [{ "cycle": "Monthly", "price": 4, "duration": 1, "id": 0 }, { "cycle": "Monthly", "price": 15, "duration": 1, "id": 1 }, { "cycle": "Monthly", "price": 242, "duration": 1, "id": 2 }], "sales": { "type": "Fixed", "Dynamic": { "start": "On event date" }, "Fixed": { "start": "2022-04-25T00:00", "end": "2022-04-26T00:00" } }, "limit": { "type": "Limited", "quantity": 20, "show": true, "perOrder": { "min": null, "max": null } }, "description": "", "id": 667 }, { "name": "fsdfsdf", "type": "Donation", "price": { "type": "Paid", "amount": 1 }, "plans": [{ "cycle": "Monthly", "price": 1, "duration": 1, "id": 0 }], "sales": { "type": "Fixed", "Dynamic": { "start": "On event date" }, "Fixed": { "start": "2022-04-25T00:00", "end": "2022-04-26T00:00" } }, "limit": { "type": "Limited", "quantity": 20, "show": true, "perOrder": { "min": null, "max": null } }, "description": "", "id": 668 }]
 
 export default App
