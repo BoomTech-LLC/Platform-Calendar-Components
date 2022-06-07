@@ -13,6 +13,8 @@ var _DateBox = _interopRequireDefault(require("./DateBox"));
 
 var _TimeBox = _interopRequireDefault(require("./timeBox/TimeBox"));
 
+var _OneLineDateBox = _interopRequireDefault(require("./oneLineDateBox/OneLineDateBox"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const DateBox = _ref => {
@@ -54,6 +56,19 @@ const DateBox = _ref => {
       oneLine: oneLine,
       fixedHeight: fixedHeight,
       startDateOnly: startDateOnly
+    });
+  }
+
+  if (type === 'oneLineDateBox') {
+    return /*#__PURE__*/_react.default.createElement(_OneLineDateBox.default, {
+      start: start,
+      end: end,
+      locale: locale,
+      showIcons: showIcons,
+      timeFormat: timeFormat,
+      dateFormat: dateFormat,
+      allDay: allDay,
+      wrapperCustomClassNames: wrapperCustomClassNames
     });
   }
 
