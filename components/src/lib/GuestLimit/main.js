@@ -2,30 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import { combineClassNames } from './../helpers/commons'
-import { PT_CLASSNAMES, SHAPE_EVENT, SHAPE_GUEST, SHAPE_REGISTRATION, SHAPE_TICKETS } from '../helpers/commonPropTypes'
+import { PT_CLASSNAMES, SHAPE_EVENT, SHAPE_REGISTRATION, SHAPE_TICKETS } from '../helpers/commonPropTypes'
 import { getGuestsOptions, getShowRegistrationButtonStatus } from '../helpers/registration'
 
 const GuestLimit = ({
     foreword = 'Guests Limit',
+    unlimitedText =  'unlimited',
     event,
     globalRegistration,
-    tickets,
+    hasTickets,
     wrapperCustomClassNames = [],
     showIcon = false
 }) => {
 
   const registration = event.registration ?? globalRegistration;
-  const eventTickets = (!event.ticketEnabled || !tickets?.length) ? null : [...tickets];
 
   const show = getShowRegistrationButtonStatus(event, registration?.enabled)
   if(!show) return null
 
-  if(
-    !eventTickets && // q1
-    (!registration.guestsOptions.isLimited || !registration.guestsOptions.show)
-  ) return null
+  if( hasTickets || !registration.guestsOptions.show) return null
 
-  const guestsOptions = getGuestsOptions(event, registration, eventTickets)
+  const guestsOptions = getGuestsOptions(event, registration)
   if(!guestsOptions) return null
 
   const { count, limit } = guestsOptions
@@ -34,7 +31,7 @@ const GuestLimit = ({
     <div className={combineClassNames([styles.guest_limit_parent, ...wrapperCustomClassNames])}>
       {showIcon && <span className="icon-guests"/>}
       <p>
-        {foreword}: {typeof limit === 'string' ? limit : `${count} / ${limit}`}
+        {foreword}: {typeof limit === 'string' ? unlimitedText : `${count} / ${limit}`}
       </p>
     </div>
   )
@@ -42,9 +39,10 @@ const GuestLimit = ({
 
 GuestLimit.propTypes = {
     foreword: PropTypes.string,
+    unlimitedText: PropTypes.string,
     event: SHAPE_EVENT,
     globalRegistration: SHAPE_REGISTRATION,
-    tickets: SHAPE_TICKETS,
+    hasTickets: PropTypes.bool,
     wrapperCustomClassNames: PT_CLASSNAMES,
     showIcon: PropTypes.bool
 }

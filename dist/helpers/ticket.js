@@ -7,10 +7,6 @@ exports.calculateTicketsPriceRange = exports.getTicketPrice = void 0;
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
-require("core-js/modules/es.regexp.exec.js");
-
-require("core-js/modules/es.string.replace.js");
-
 var _commonPropTypes = require("./commonPropTypes");
 
 const getTicketPrice = ticket => {
@@ -32,31 +28,22 @@ const calculateTicketsPriceRange = _ref => {
   let {
     tickets,
     currency,
-    showCurrencyAs,
-    priceFormat
+    showCurrencyAs
   } = _ref;
-  const showCurrencyAsCode = showCurrencyAs === 'code';
   const prices = [];
 
   for (let ticket of tickets) {
     prices.push(...getTicketPrice(ticket));
   }
 
-  let min, max;
-
-  if (showCurrencyAsCode) {
-    min = priceFormat.replace('{currency}', currency.symbol).replace('100', Math.min(...prices));
-    max = priceFormat.replace('{currency}', currency.symbol).replace('100', Math.max(...prices));
-  } else {
-    min = Math.min(...prices);
-    max = Math.max(...prices);
-  }
+  const min = Math.min(...prices);
+  const max = Math.max(...prices);
 
   if (min === 0 && max === 0) {
     return 'Free';
   }
 
-  return "".concat(showCurrencyAsCode ? currency.code : '').concat(min, " ").concat(max !== min ? "- ".concat(currency[showCurrencyAs]).concat(max) : '');
+  return "".concat(currency[showCurrencyAs]).concat(min, " ").concat(max !== min ? "- ".concat(currency[showCurrencyAs]).concat(max) : '');
 };
 
 exports.calculateTicketsPriceRange = calculateTicketsPriceRange;

@@ -46,7 +46,7 @@ const RegistrationButton = _ref => {
     count,
     limit
   } = guestsOptions;
-  const disabled = count >= limit;
+  const disabled = typeof limit !== 'string' && count >= limit;
   return /*#__PURE__*/_react.default.createElement("button", {
     className: (0, _commons.combineClassNames)([_mainModule.default.register_button, ...wrapperCustomClassNames, disabled ? disabledClassName : null]),
     disabled: disabled,

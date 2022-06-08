@@ -20,10 +20,10 @@ export function getGuestsOptions(event, registration, tickets) {
   }
   
   if(!registration.enabled) return null
-  if(event.ticketEnabled && tickets?.length) return calcGuestsOptionsByTickets(eventCopy, tickets) // q2
+  if(event.ticketEnabled && tickets?.length) return calcGuestsOptionsByTickets(eventCopy, tickets)
   return {
     count: eventCopy?.guests?.length ?? 0,
-    limit: registration.guestsOptions.limit
+    limit: registration.guestsOptions.isLimited ? registration.guestsOptions.limit : 'unlimited'
   }
 }
 
