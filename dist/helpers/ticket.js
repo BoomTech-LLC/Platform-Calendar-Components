@@ -14,7 +14,9 @@ require("core-js/modules/es.string.replace.js");
 var _commonPropTypes = require("./commonPropTypes");
 
 const getTicketPrice = ticket => {
-  if (ticket.type === _commonPropTypes.TICKET_TYPES[2] || ticket.price.type === _commonPropTypes.TICKET_PRICING_TYPES[1]) {
+  if (ticket.type === _commonPropTypes.TICKET_TYPES[2]) {
+    return [];
+  } else if (ticket.price.type === _commonPropTypes.TICKET_PRICING_TYPES[1]) {
     return [0];
   } else if (ticket.type === _commonPropTypes.TICKET_TYPES[1]) {
     const prices = ticket.plans.map(plan => plan.price);
@@ -35,18 +37,26 @@ const calculateTicketsPriceRange = _ref => {
     priceFormat
   } = _ref;
   const prices = [];
+  const types = [];
 
   for (let ticket of tickets) {
+    if (ticket.type === _commonPropTypes.TICKET_TYPES[2] && !types.includes(_commonPropTypes.TICKET_TYPES[2])) {
+      types.push(_commonPropTypes.TICKET_TYPES[2]);
+    }
+
+    if (!types.includes(ticket.price.type)) {
+      types.push(ticket.price.type);
+    }
+
     prices.push(...getTicketPrice(ticket));
+  }
+
+  if (types.length === 1 && types[0] !== _commonPropTypes.TICKET_PRICING_TYPES[0]) {
+    return types[0];
   }
 
   const min = Math.min(...prices);
   const max = Math.max(...prices);
-
-  if (min === 0 && max === 0) {
-    return 'Free';
-  }
-
   const formatWithCurrency = priceFormat.replace('$', currency.symbol);
   return "".concat(formatWithCurrency.replace('100', min), " ").concat(max !== min ? "- ".concat(formatWithCurrency.replace('100', max)) : '');
 };
