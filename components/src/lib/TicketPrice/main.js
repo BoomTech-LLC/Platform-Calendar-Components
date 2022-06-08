@@ -8,14 +8,13 @@ import styles from './main.module.css'
 const TicketPrice = ({
   tickets,
   currency,
-  showCurrencyAs,
   Icon,
   wrapperCustomClassNames = [],
   priceFormat
 }) => {
   if(!tickets.length) return null;
 
-  const priceRange = calculateTicketsPriceRange({tickets, currency, showCurrencyAs, priceFormat})
+  const priceRange = calculateTicketsPriceRange({tickets, currency, priceFormat})
   
   return (
     <div className={ combineClassNames([styles.wrapper, ...wrapperCustomClassNames]) }>
@@ -31,7 +30,6 @@ TicketPrice.propTypes = {
   ticket: SHAPE_TICKETS,
   Icon: PropTypes.any,
   currency: SHAPE_CURRENCY,
-  showCurrencyAs: PropTypes.oneOf(['code', 'symbol']),
   wrapperCustomClassNames: PT_CLASSNAMES,
   priceFormat: PropTypes.string
 }

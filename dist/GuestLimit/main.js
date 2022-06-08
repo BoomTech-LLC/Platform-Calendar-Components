@@ -28,16 +28,15 @@ const GuestLimit = _ref => {
     foreword = 'Guests Limit',
     event,
     globalRegistration,
-    tickets,
+    hasTickets,
     wrapperCustomClassNames = [],
     showIcon = false
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
-  const eventTickets = !event.ticketEnabled || !(tickets !== null && tickets !== void 0 && tickets.length) ? null : [...tickets];
   const show = (0, _registration.getShowRegistrationButtonStatus)(event, registration === null || registration === void 0 ? void 0 : registration.enabled);
   if (!show) return null;
-  if (!eventTickets && (!registration.guestsOptions.isLimited || !registration.guestsOptions.show)) return null;
-  const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, eventTickets);
+  if (hasTickets || !registration.guestsOptions.isLimited || !registration.guestsOptions.show) return null;
+  const guestsOptions = (0, _registration.getGuestsOptions)(event, registration);
   if (!guestsOptions) return null;
   const {
     count,
@@ -47,14 +46,14 @@ const GuestLimit = _ref => {
     className: (0, _commons.combineClassNames)([_mainModule.default.guest_limit_parent, ...wrapperCustomClassNames])
   }, showIcon && /*#__PURE__*/_react.default.createElement("span", {
     className: "icon-guests"
-  }), /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", typeof limit === 'string' ? limit : "".concat(count, " / ").concat(limit)));
+  }), /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", "".concat(count, " / ").concat(limit)));
 };
 
 GuestLimit.propTypes = {
   foreword: _propTypes.default.string,
   event: _commonPropTypes.SHAPE_EVENT,
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
-  tickets: _commonPropTypes.SHAPE_TICKETS,
+  hasTickets: _propTypes.default.bool,
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   showIcon: _propTypes.default.bool
 };

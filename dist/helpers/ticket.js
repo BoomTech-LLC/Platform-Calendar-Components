@@ -14,7 +14,9 @@ require("core-js/modules/es.string.replace.js");
 var _commonPropTypes = require("./commonPropTypes");
 
 const getTicketPrice = ticket => {
-  if (ticket.type === _commonPropTypes.TICKET_TYPES[2] || ticket.price.type === _commonPropTypes.TICKET_PRICING_TYPES[1]) {
+  if (ticket.type === _commonPropTypes.TICKET_TYPES[2]) {
+    return [];
+  } else if (ticket.price.type === _commonPropTypes.TICKET_PRICING_TYPES[1]) {
     return [0];
   } else if (ticket.type === _commonPropTypes.TICKET_TYPES[1]) {
     const prices = ticket.plans.map(plan => plan.price);
@@ -32,31 +34,35 @@ const calculateTicketsPriceRange = _ref => {
   let {
     tickets,
     currency,
-    showCurrencyAs,
     priceFormat
   } = _ref;
-  const showCurrencyAsCode = showCurrencyAs === 'code';
   const prices = [];
+  const types = [];
 
   for (let ticket of tickets) {
+    if (ticket.type === _commonPropTypes.TICKET_TYPES[2] && !types.includes(_commonPropTypes.TICKET_TYPES[2])) {
+      types.push(_commonPropTypes.TICKET_TYPES[2]);
+    }
+
+    if (!types.includes(ticket.price.type) && ticket.type !== _commonPropTypes.TICKET_TYPES[2]) {
+      types.push(ticket.price.type);
+    }
+
     prices.push(...getTicketPrice(ticket));
   }
 
-  let min, max;
-
-  if (showCurrencyAsCode) {
-    min = priceFormat.replace('{currency}', currency.symbol).replace('100', Math.min(...prices));
-    max = priceFormat.replace('{currency}', currency.symbol).replace('100', Math.max(...prices));
-  } else {
-    min = Math.min(...prices);
-    max = Math.max(...prices);
+  if (types.length === 1 && types[0] !== _commonPropTypes.TICKET_PRICING_TYPES[0]) {
+    return types[0];
   }
 
-  if (min === 0 && max === 0) {
-    return 'Free';
+  if (!types.includes(_commonPropTypes.TICKET_PRICING_TYPES[0])) {
+    return _commonPropTypes.TICKET_PRICING_TYPES[1];
   }
 
-  return "".concat(showCurrencyAsCode ? currency.code : '').concat(min, " ").concat(max !== min ? "- ".concat(currency[showCurrencyAs]).concat(max) : '');
+  const min = Math.min(...prices);
+  const max = Math.max(...prices);
+  const formatWithCurrency = priceFormat.replace('$', currency.symbol);
+  return "".concat(formatWithCurrency.replace('100', min), " ").concat(max !== min ? "- ".concat(formatWithCurrency.replace('100', max)) : '');
 };
 
 exports.calculateTicketsPriceRange = calculateTicketsPriceRange;

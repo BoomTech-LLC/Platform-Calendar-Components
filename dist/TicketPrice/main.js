@@ -25,7 +25,6 @@ const TicketPrice = _ref => {
   let {
     tickets,
     currency,
-    showCurrencyAs,
     Icon,
     wrapperCustomClassNames = [],
     priceFormat
@@ -34,7 +33,6 @@ const TicketPrice = _ref => {
   const priceRange = (0, _ticket.calculateTicketsPriceRange)({
     tickets,
     currency,
-    showCurrencyAs,
     priceFormat
   });
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -48,7 +46,6 @@ TicketPrice.propTypes = {
   ticket: _commonPropTypes.SHAPE_TICKETS,
   Icon: _propTypes.default.any,
   currency: _commonPropTypes.SHAPE_CURRENCY,
-  showCurrencyAs: _propTypes.default.oneOf(['code', 'symbol']),
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   priceFormat: _propTypes.default.string
 };
