@@ -36,7 +36,7 @@ export const formatDate = (start, end, dateFormat, locale) => ({
 })
 
 export const formatTime = (start, end, timeFormat, all_day, locale) => {
-  const format = timeFormat.toLowerCase() !== 'am/pm' ? ' hh:mm a' : ' HH:mm'
+  const format = timeFormat.toLowerCase() === 'am/pm' ? ' hh:mm a' : ' HH:mm'
   return {
     startTime: all_day
       ? ''
