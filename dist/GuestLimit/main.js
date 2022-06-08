@@ -26,7 +26,6 @@ const GuestLimit = _ref => {
 
   let {
     foreword = 'Guests Limit',
-    unlimitedText = 'unlimited',
     event,
     globalRegistration,
     hasTickets,
@@ -36,7 +35,7 @@ const GuestLimit = _ref => {
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
   const show = (0, _registration.getShowRegistrationButtonStatus)(event, registration === null || registration === void 0 ? void 0 : registration.enabled);
   if (!show) return null;
-  if (hasTickets || !registration.guestsOptions.show) return null;
+  if (hasTickets || !registration.guestsOptions.isLimited || !registration.guestsOptions.show) return null;
   const guestsOptions = (0, _registration.getGuestsOptions)(event, registration);
   if (!guestsOptions) return null;
   const {
@@ -47,12 +46,11 @@ const GuestLimit = _ref => {
     className: (0, _commons.combineClassNames)([_mainModule.default.guest_limit_parent, ...wrapperCustomClassNames])
   }, showIcon && /*#__PURE__*/_react.default.createElement("span", {
     className: "icon-guests"
-  }), /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", typeof limit === 'string' ? unlimitedText : "".concat(count, " / ").concat(limit)));
+  }), /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", "".concat(count, " / ").concat(limit)));
 };
 
 GuestLimit.propTypes = {
   foreword: _propTypes.default.string,
-  unlimitedText: _propTypes.default.string,
   event: _commonPropTypes.SHAPE_EVENT,
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
   hasTickets: _propTypes.default.bool,

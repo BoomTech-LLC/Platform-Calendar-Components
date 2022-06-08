@@ -7,7 +7,6 @@ import { getGuestsOptions, getShowRegistrationButtonStatus } from '../helpers/re
 
 const GuestLimit = ({
     foreword = 'Guests Limit',
-    unlimitedText =  'unlimited',
     event,
     globalRegistration,
     hasTickets,
@@ -20,7 +19,7 @@ const GuestLimit = ({
   const show = getShowRegistrationButtonStatus(event, registration?.enabled)
   if(!show) return null
 
-  if( hasTickets || !registration.guestsOptions.show) return null
+  if( hasTickets || !registration.guestsOptions.isLimited || !registration.guestsOptions.show) return null
 
   const guestsOptions = getGuestsOptions(event, registration)
   if(!guestsOptions) return null
@@ -31,7 +30,7 @@ const GuestLimit = ({
     <div className={combineClassNames([styles.guest_limit_parent, ...wrapperCustomClassNames])}>
       {showIcon && <span className="icon-guests"/>}
       <p>
-        {foreword}: {typeof limit === 'string' ? unlimitedText : `${count} / ${limit}`}
+        {foreword}: {`${count} / ${limit}`}
       </p>
     </div>
   )
@@ -39,7 +38,6 @@ const GuestLimit = ({
 
 GuestLimit.propTypes = {
     foreword: PropTypes.string,
-    unlimitedText: PropTypes.string,
     event: SHAPE_EVENT,
     globalRegistration: SHAPE_REGISTRATION,
     hasTickets: PropTypes.bool,
