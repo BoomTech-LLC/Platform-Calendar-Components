@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import DateBoxComponent from './DateBox'
 import TimeBox from './timeBox/TimeBox'
+import OneLineDateBox from './oneLineDateBox/OneLineDateBox'
 
 const DateBox = ({
   start,
@@ -41,6 +42,20 @@ const DateBox = ({
         oneLine={oneLine}
         fixedHeight={fixedHeight}
         startDateOnly={startDateOnly}
+      />
+    )
+  }
+  if (type === 'oneLineDateBox') {
+    return (
+      <OneLineDateBox
+        start={start}
+        end={end}
+        locale={locale}
+        showIcons={showIcons}
+        timeFormat={timeFormat}
+        dateFormat={dateFormat}
+        allDay={allDay}
+        wrapperCustomClassNames={wrapperCustomClassNames}
       />
     )
   }
