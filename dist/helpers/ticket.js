@@ -55,6 +55,10 @@ const calculateTicketsPriceRange = _ref => {
     return types[0];
   }
 
+  if (!types.includes(_commonPropTypes.TICKET_PRICING_TYPES[0])) {
+    return _commonPropTypes.TICKET_PRICING_TYPES[1];
+  }
+
   const min = Math.min(...prices);
   const max = Math.max(...prices);
   const formatWithCurrency = priceFormat.replace('$', currency.symbol);

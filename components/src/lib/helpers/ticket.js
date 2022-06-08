@@ -30,6 +30,9 @@ export const calculateTicketsPriceRange = ({tickets, currency, priceFormat}) => 
     if(types.length === 1 && types[0] !== TICKET_PRICING_TYPES[0]){
         return types[0]
     }
+    if(!types.includes(TICKET_PRICING_TYPES[0])){
+        return TICKET_PRICING_TYPES[1]
+    }
     const min = Math.min(...prices);
     const max = Math.max(...prices);
     const formatWithCurrency = priceFormat.replace('$', currency.symbol);
