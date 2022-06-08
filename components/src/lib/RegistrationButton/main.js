@@ -27,7 +27,7 @@ const RegistrationButton = ({
   if(!guestsOptions) return null
 
   const { count, limit } = guestsOptions
-  const disabled = count >= limit
+  const disabled = typeof limit !== 'string' && count >= limit
   
   return (
     <button

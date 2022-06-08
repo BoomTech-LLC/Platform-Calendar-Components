@@ -49,11 +49,10 @@ function getGuestsOptions(event, registration, tickets) {
   });
 
   if (!registration.enabled) return null;
-  if (event.ticketEnabled && tickets !== null && tickets !== void 0 && tickets.length) return calcGuestsOptionsByTickets(eventCopy, tickets); // q2
-
+  if (event.ticketEnabled && tickets !== null && tickets !== void 0 && tickets.length) return calcGuestsOptionsByTickets(eventCopy, tickets);
   return {
     count: (_eventCopy$guests$len = eventCopy === null || eventCopy === void 0 ? void 0 : (_eventCopy$guests = eventCopy.guests) === null || _eventCopy$guests === void 0 ? void 0 : _eventCopy$guests.length) !== null && _eventCopy$guests$len !== void 0 ? _eventCopy$guests$len : 0,
-    limit: registration.guestsOptions.limit
+    limit: registration.guestsOptions.isLimited ? registration.guestsOptions.limit : 'unlimited'
   };
 }
 
