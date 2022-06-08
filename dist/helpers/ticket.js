@@ -44,7 +44,7 @@ const calculateTicketsPriceRange = _ref => {
       types.push(_commonPropTypes.TICKET_TYPES[2]);
     }
 
-    if (!types.includes(ticket.price.type)) {
+    if (!types.includes(ticket.price.type) && ticket.type !== _commonPropTypes.TICKET_TYPES[2]) {
       types.push(ticket.price.type);
     }
 

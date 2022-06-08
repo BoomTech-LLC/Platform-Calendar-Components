@@ -22,7 +22,7 @@ export const calculateTicketsPriceRange = ({tickets, currency, priceFormat}) => 
         if(ticket.type === TICKET_TYPES[2] && !types.includes(TICKET_TYPES[2])){
             types.push(TICKET_TYPES[2])
         }
-        if(!types.includes(ticket.price.type)){
+        if(!types.includes(ticket.price.type) && ticket.type !== TICKET_TYPES[2]){
             types.push(ticket.price.type)
         }
         prices.push(...getTicketPrice(ticket));
