@@ -1,6 +1,6 @@
 .description p{
   margin: 0;
-  overflow-wrap: anywhere;
+  word-break: break-all;
 }
 
 .description_title {
