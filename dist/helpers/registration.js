@@ -65,9 +65,7 @@ function calcGuestsOptionsByTickets(event, tickets) {
   for (let guest of event.guests) {
     var _guest$tickets;
 
-    (_guest$tickets = guest.tickets) === null || _guest$tickets === void 0 ? void 0 : _guest$tickets.forEach(guestTicket => {
-      result.count += guestTicket.quantity;
-    });
+    result.count += ((_guest$tickets = guest.tickets) === null || _guest$tickets === void 0 ? void 0 : _guest$tickets.length) || 0;
   }
 
   for (let ticket of tickets) {
