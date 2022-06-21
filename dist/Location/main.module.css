@@ -14,5 +14,5 @@
 }
 
 .line_breaker {
-  word-break: break-all;
+  word-break: break-word;
 }
