@@ -79,7 +79,8 @@ const AddShareIconsRow = ({
    copiedTooltipText,
    copyTooltipText,
    copyActionTooltipText,
-   copyTooltipCustomClassNames}) => {
+   copyTooltipCustomClassNames
+}) => {
 
    return (
       <div className={styles.add_share_icons_row}>

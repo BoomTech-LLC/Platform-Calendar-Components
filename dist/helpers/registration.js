@@ -19,6 +19,8 @@ var _moment = _interopRequireDefault(require("moment"));
 
 var _commons = require("./../helpers/commons");
 
+var _constants = require("./constants");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -87,12 +89,16 @@ const filterEventGuests = _ref => {
     repeat,
     repeated
   } = _ref;
-  if (!(repeat !== null && repeat !== void 0 && repeat.type) && !repeated) return guests;
-  return guests.filter(_ref2 => {
-    let {
-      date
-    } = _ref2;
-    return (0, _moment.default)(date).isSame(start);
+  return guests.filter(guest => {
+    if (guest.status === _constants.PAYMENT_STATUSES.unpaid && guest.payment_type !== _constants.PAYMENT_TYPES.cash) {
+      return false;
+    }
+
+    if (repeat !== null && repeat !== void 0 && repeat.type && repeated) {
+      return (0, _moment.default)(date).isSame(start);
+    }
+
+    return true;
   });
 };
 

@@ -80,3 +80,14 @@ export const ADD_SHARE_ICONS_CONSTRUCTOR = {
     ],
   }
 }
+
+export const PAYMENT_STATUSES = {
+  paid: 'paid',
+  unpaid: 'unpaid'
+}
+
+export const PAYMENT_TYPES = {
+  cash: 'cash',
+  paypal: 'paypal',
+  stripe: 'stripe'
+}

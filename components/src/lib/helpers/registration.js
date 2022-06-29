@@ -1,5 +1,6 @@
 import moment from "moment";
 import { validateURL } from './../helpers/commons'
+import { PAYMENT_STATUSES, PAYMENT_TYPES } from "./constants";
 
 export function getShowRegistrationButtonStatus(event, enabled) {
   if(event.isDefault) return false
@@ -48,7 +49,13 @@ export function calcGuestsOptionsByTickets(event, tickets) {
 }
 
 export const filterEventGuests = ({guests, start, repeat, repeated}) => {
-  if(!repeat?.type && !repeated) return guests;
-
-  return guests.filter(({date}) => moment(date).isSame(start))
+  return guests.filter((guest) => {
+    if(guest.status === PAYMENT_STATUSES.unpaid && guest.payment_type !== PAYMENT_TYPES.cash){
+      return false
+    }
+    if(repeat?.type && repeated){
+      return moment(date).isSame(start)
+    }
+    return true;
+  })
 }

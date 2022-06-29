@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = exports.LOCATION_TYPES = void 0;
+exports.PAYMENT_TYPES = exports.PAYMENT_STATUSES = exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = exports.LOCATION_TYPES = void 0;
 
 var _addShare = require("./addShare");
 
@@ -78,3 +78,14 @@ const ADD_SHARE_ICONS_CONSTRUCTOR = {
   }
 };
 exports.ADD_SHARE_ICONS_CONSTRUCTOR = ADD_SHARE_ICONS_CONSTRUCTOR;
+const PAYMENT_STATUSES = {
+  paid: 'paid',
+  unpaid: 'unpaid'
+};
+exports.PAYMENT_STATUSES = PAYMENT_STATUSES;
+const PAYMENT_TYPES = {
+  cash: 'cash',
+  paypal: 'paypal',
+  stripe: 'stripe'
+};
+exports.PAYMENT_TYPES = PAYMENT_TYPES;
