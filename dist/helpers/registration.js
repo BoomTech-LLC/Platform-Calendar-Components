@@ -90,7 +90,7 @@ const filterEventGuests = _ref => {
     repeated
   } = _ref;
   return guests.filter(guest => {
-    if (guest.status === _constants.PAYMENT_STATUSES.unpaid && guest.payment_type !== _constants.PAYMENT_TYPES.cash) {
+    if (guest.status === _constants.PAYMENT_STATUSES.unpaid && guest.paymentType !== _constants.PAYMENT_TYPES.cash) {
       return false;
     }
 

@@ -19,7 +19,7 @@ export function getGuestsOptions(event, registration, tickets) {
     ...event,
     guests: filterEventGuests(event)
   }
-  
+
   if(!registration.enabled) return null
   if(event.ticketEnabled && tickets?.length) return calcGuestsOptionsByTickets(eventCopy, tickets)
   return {
@@ -50,7 +50,7 @@ export function calcGuestsOptionsByTickets(event, tickets) {
 
 export const filterEventGuests = ({guests, start, repeat, repeated}) => {
   return guests.filter((guest) => {
-    if(guest.status === PAYMENT_STATUSES.unpaid && guest.payment_type !== PAYMENT_TYPES.cash){
+    if(guest.status === PAYMENT_STATUSES.unpaid && guest.paymentType !== PAYMENT_TYPES.cash){
       return false
     }
     if(repeat?.type && repeated){
