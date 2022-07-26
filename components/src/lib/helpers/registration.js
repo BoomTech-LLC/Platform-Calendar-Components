@@ -34,7 +34,7 @@ export function calcGuestsOptionsByTickets(event, tickets) {
     limit: 0
   }
   for(let guest of event.guests) {
-    result.count += guest.tickets?.length || 0
+    result.count += guest.tickets?.length || 1
   }
 
   for(let ticket of tickets){
