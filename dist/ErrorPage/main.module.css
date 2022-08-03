@@ -14,6 +14,7 @@
 	font-size: 40px;
 	letter-spacing: 0.02em;
 	color: var(--wsr-text-color-primary);
+  font-family: var(--typography1539259966-wsr-font-family, inherit);
 }
 
 .image_wrapper{

@@ -10,7 +10,7 @@ const ErrorPage = ({
 		<div className={styles.container}>
 			<h1 className={styles.title}>{title}</h1>
 			<div className={styles.image_wrapper}>
-				<img src={ErrorImage}/>
+				<ErrorImage/>
 			</div>
 		</div>
 	);

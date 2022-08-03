@@ -25,9 +25,7 @@ const ErrorPage = _ref => {
     className: _mainModule.default.title
   }, title), /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.image_wrapper
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    src: _Error.default
-  })));
+  }, /*#__PURE__*/_react.default.createElement(_Error.default, null)));
 };
 
 ErrorPage.propTypes = {
