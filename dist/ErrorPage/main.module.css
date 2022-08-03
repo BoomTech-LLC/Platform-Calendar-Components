@@ -1,0 +1,32 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.title {
+	text-align: center;
+	font-size: 40px;
+	letter-spacing: 0.02em;
+	color: var(--wsr-text-color-primary);
+}
+
+.image_wrapper{
+  display: flex;
+  width: 100%;
+  max-width: 542px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+@media only screen and (max-width: 500px) {
+	.title {
+		font-size: 28px;
+	}
+}
