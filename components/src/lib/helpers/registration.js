@@ -54,7 +54,7 @@ export const filterEventGuests = ({guests, start, repeat, repeated}) => {
       return false
     }
     if(repeat?.type && repeated){
-      return moment(date).isSame(start)
+      return moment(repeat.date).isSame(start)
     }
     return true;
   })
