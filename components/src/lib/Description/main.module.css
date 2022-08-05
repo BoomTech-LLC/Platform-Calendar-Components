@@ -1,6 +1,10 @@
-.description p{
+.description *{
   margin: 0;
-  word-break: break-all;
+  word-break: break-word;
+}
+
+.description img{
+  max-width: 100%;
 }
 
 .description_title {
