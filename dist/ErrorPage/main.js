@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _Error = _interopRequireDefault(require("./../assets/images/Error.svg"));
+var _error = _interopRequireDefault(require("./../assets/images/error.png"));
 
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
 
@@ -25,7 +25,7 @@ const ErrorPage = _ref => {
     className: _mainModule.default.title
   }, title), /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.image_wrapper
-  }, /*#__PURE__*/_react.default.createElement(_Error.default, null)));
+  }, /*#__PURE__*/_react.default.createElement(_error.default, null)));
 };
 
 ErrorPage.propTypes = {
