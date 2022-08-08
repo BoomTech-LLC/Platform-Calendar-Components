@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import ErrorImage from './../assets/images/error.png';
+import errorImage from './../assets/images/error.png';
 import styles from './main.module.css';
 
 const ErrorPage = ({
@@ -10,7 +10,7 @@ const ErrorPage = ({
 		<div className={styles.container}>
 			<h1 className={styles.title}>{title}</h1>
 			<div className={styles.image_wrapper}>
-				<ErrorImage/>
+				<img src={errorImage}/>
 			</div>
 		</div>
 	);
