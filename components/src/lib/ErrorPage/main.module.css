@@ -27,7 +27,7 @@
 .image_wrapper{
   display: flex;
   width: 50%;
-  max-width: 542px;
+  max-width: 500px;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
