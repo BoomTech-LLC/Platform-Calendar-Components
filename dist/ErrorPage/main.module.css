@@ -3,10 +3,16 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  position: absolute;
   align-items: center;
   justify-content: center;
   padding: 24px;
+}
+
+.container.page_cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
 }
 
 .title {
@@ -15,11 +21,12 @@
 	letter-spacing: 0.02em;
 	color: var(--wsr-text-color-primary);
   font-family: var(--typography1539259966-wsr-font-family, inherit);
+  margin: 0;
 }
 
 .image_wrapper{
   display: flex;
-  width: 100%;
+  width: 50%;
   max-width: 542px;
   justify-content: center;
   align-items: center;

@@ -13,14 +13,17 @@ var _error = _interopRequireDefault(require("./../assets/images/error.png"));
 
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
 
+var _commons = require("../helpers/commons");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const ErrorPage = _ref => {
   let {
-    title = 'Oops! Something went wrong'
+    title = 'Oops! Something went wrong',
+    pageCover = false
   } = _ref;
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: _mainModule.default.container
+    className: (0, _commons.combineClassNames)([_mainModule.default.container, pageCover ? _mainModule.default.page_cover : ''])
   }, /*#__PURE__*/_react.default.createElement("h1", {
     className: _mainModule.default.title
   }, title), /*#__PURE__*/_react.default.createElement("div", {
@@ -31,7 +34,8 @@ const ErrorPage = _ref => {
 };
 
 ErrorPage.propTypes = {
-  title: _propTypes.default.string
+  title: _propTypes.default.string,
+  pageCover: _propTypes.default.bool
 };
 var _default = ErrorPage;
 exports.default = _default;
