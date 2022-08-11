@@ -95,7 +95,7 @@ const filterEventGuests = _ref => {
     }
 
     if (repeat !== null && repeat !== void 0 && repeat.type && repeated) {
-      return (0, _moment.default)(date).isSame(start);
+      return (0, _moment.default)(repeat.date).isSame(start);
     }
 
     return true;
