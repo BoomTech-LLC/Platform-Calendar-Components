@@ -30,7 +30,7 @@ const GuestLimit = ({
     <div className={combineClassNames([styles.guest_limit_parent, ...wrapperCustomClassNames])}>
       {showIcon && <span className="icon-guests"/>}
       <p>
-        {event.registration.texts.guestsInfoPrefix || foreword}: {`${count} / ${limit}`}
+        {foreword}: {`${count} / ${limit}`}
       </p>
     </div>
   )

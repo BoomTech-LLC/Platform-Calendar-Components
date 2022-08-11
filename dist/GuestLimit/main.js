@@ -46,7 +46,7 @@ const GuestLimit = _ref => {
     className: (0, _commons.combineClassNames)([_mainModule.default.guest_limit_parent, ...wrapperCustomClassNames])
   }, showIcon && /*#__PURE__*/_react.default.createElement("span", {
     className: "icon-guests"
-  }), /*#__PURE__*/_react.default.createElement("p", null, event.registration.texts.guestsInfoPrefix || foreword, ": ", "".concat(count, " / ").concat(limit)));
+  }), /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", "".concat(count, " / ").concat(limit)));
 };
 
 GuestLimit.propTypes = {
