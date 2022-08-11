@@ -75,6 +75,7 @@ export const filterEventGuests = ({ guests, start, repeat, repeated }) => {
     if (repeat !== null || repeated) {
       return moment(repeat.date).isSame(start);
     }
+
     return true;
   });
 };
