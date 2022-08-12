@@ -6,11 +6,15 @@ Object.defineProperty(exports, "__esModule", {
 exports.combineClassNames = combineClassNames;
 exports.parseJson = parseJson;
 exports.validateURL = validateURL;
-exports.stopPropagation = exports.isObjectEmpty = exports.encodeId = exports.isDefined = void 0;
+exports.stopPropagation = exports.isObjectEmpty = exports.decodeId = exports.encodeId = exports.isDefined = void 0;
 
 require("core-js/modules/es.regexp.exec.js");
 
 require("core-js/modules/es.string.split.js");
+
+require("core-js/modules/es.string.replace.js");
+
+require("core-js/modules/web.dom-collections.iterator.js");
 
 const isDefined = value => value != null;
 
@@ -84,6 +88,19 @@ const encodeId = str => {
 };
 
 exports.encodeId = encodeId;
+
+const decodeId = encodedString => {
+  const symbolsToReplace = [['H9', '1'], ['A8', '2'], ['J7', '3'], ['M6', '4'], ['R5', '5'], ['O4', '6'], ['L3', '7'], ['W2', '8'], ['U1', '9'], ['K0', '0']];
+  let res = encodedString.replace(/[a-z]/g, '');
+
+  for (let pair of symbolsToReplace) {
+    res = res.replaceAll(pair[0], pair[1]);
+  }
+
+  return res;
+};
+
+exports.decodeId = decodeId;
 
 const isObjectEmpty = obj => !Object.values(obj).some(x => x !== null && x !== '');
 

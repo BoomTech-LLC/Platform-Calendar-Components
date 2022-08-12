@@ -142,7 +142,7 @@ function generateEventUrl(event, boomEventUrlBase, comp_id) {
   } else {
     var _event$repeat;
 
-    return "".concat(boomEventUrlBase, "?cid=").concat(comp_id, "&eventId=").concat((0, _commons.encodeId)("".concat(event.id)), "&startDate=").concat((_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '');
+    return "".concat(boomEventUrlBase, "?cid=").concat(comp_id, "&eventId=").concat((0, _commons.decodeId)("".concat(event.id)), "&startDate=").concat((_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '');
   }
 }
 
