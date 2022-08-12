@@ -67,11 +67,13 @@ export function calcGuestsOptionsByTickets(event, tickets) {
 export const filterEventGuests = ({ guests, start, repeat, repeated }) => {
   return guests.filter((guest) => {
     if (
+      guest.tickets.length &&
       guest.status === PAYMENT_STATUSES.unpaid &&
       guest.paymentType !== PAYMENT_TYPES.cash
     ) {
       return false;
     }
+
     if (repeat !== null || repeated) {
       return moment(guest.date).isSame(start);
     }
