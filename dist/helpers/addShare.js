@@ -136,13 +136,13 @@ function openShareUrl(e, type, eventUrl) {
   return;
 }
 
-function generateEventUrl(event, encode, boomEventUrlBase, comp_id, instance) {
+function generateEventUrl(event, boomEventUrlBase, comp_id) {
   if (event.kind === 4) {
     return event.eventPageUrl || '';
   } else {
-    var _event$repeat, _event$repeat2;
+    var _event$repeat;
 
-    return "".concat(boomEventUrlBase).concat((0, _commons.encodeId)("".concat(event.id)), "?").concat(encode ? encodeURIComponent("comp_id=".concat(comp_id, "&instance=").concat(instance, "&startDate=").concat((_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '')) : "comp_id=".concat(comp_id, "&instance=").concat(instance), "&startDate=").concat((_event$repeat2 = event.repeat) !== null && _event$repeat2 !== void 0 && _event$repeat2.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '');
+    return "".concat(boomEventUrlBase, "?cid=").concat(comp_id, "&eventId=").concat((0, _commons.encodeId)("".concat(event.id)), "&startDate=").concat((_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type ? (0, _moment.default)(event.start).format('YYYY-MM-DD') : '');
   }
 }
 

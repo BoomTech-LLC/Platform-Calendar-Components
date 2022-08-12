@@ -69,7 +69,6 @@ export default function AddShareIcons({
 
 const AddShareIconsRow = ({
    comp_id,
-   instance,
    constructor, 
    rowId, 
    sectionName, 
@@ -100,7 +99,7 @@ const AddShareIconsRow = ({
                            onClick={e => {
                               if(rowId === 1) return btn.clickHandler(e, btn.type, event)
                               if(rowId === 2) {
-                                 let eventUrl = generateEventUrl(event, !isCopyLink, boomEventUrlBase, comp_id, instance)
+                                 let eventUrl = generateEventUrl(event, boomEventUrlBase, comp_id)
                                  return isCopyLink ? 
                                  btn.clickHandler(e, setCopyTooltipText, copiedTooltipText, eventUrl) :
                                  btn.clickHandler(e, btn.type, eventUrl)
