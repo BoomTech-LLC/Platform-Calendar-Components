@@ -129,7 +129,7 @@ export function generateEventUrl(event, boomEventUrlBase, comp_id) {
     if (event.kind === 4) {
         return event.eventPageUrl || ''
     } else {
-        return `${boomEventUrlBase}?cid=${comp_id}&eventId=${decodeId(`${event.id}`)}&startDate=${event.repeat?.type ? moment(event.start).format('YYYY-MM-DD') : ''}`
+        return `${boomEventUrlBase}?cid=${comp_id}&eventId=${decodeId(`${event.id}`)}${event?.repeat?.type || event?.repeated ? "&startDate=" + event.start.split("T")[0] : ""}`
     }
 }
 

@@ -18,8 +18,10 @@ export function generateRegistrationURL(
   registration,
   urlBase
 ) {
-  if (registration.general?.external)
+  if (registration.general?.external) {
     return validateURL(registration.general?.url);
+  }
+  
   return `${urlBase}${uid}/${cid}/${String(event.id)}${
     event?.repeat?.type || event?.repeated
       ? "?startDate=" + event.start.split("T")[0]
