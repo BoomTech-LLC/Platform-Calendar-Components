@@ -50,7 +50,26 @@ export const encodeId = (str) => {
     }
     return id.join('')
 }
-
+export const decodeId = (encodedString) => {
+    const symbolsToReplace = [
+      ['H9', '1'],
+      ['A8', '2'],
+      ['J7', '3'],
+      ['M6', '4'],
+      ['R5', '5'],
+      ['O4', '6'],
+      ['L3', '7'],
+      ['W2', '8'],
+      ['U1', '9'],
+      ['K0', '0'],
+    ]
+    let res = encodedString.replace(/[a-z]/g, '');
+    for(let pair of symbolsToReplace){
+      res = res.replaceAll(pair[0], pair[1])
+    }
+  
+    return res;
+}
 export const isObjectEmpty = obj => !Object.values(obj).some(x => (x !== null && x !== ''));
 
 export const stopPropagation = e => e.stopPropagation()

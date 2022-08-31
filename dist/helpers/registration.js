@@ -39,10 +39,15 @@ function getShowRegistrationButtonStatus(event, enabled) {
 }
 
 function generateRegistrationURL(cid, uid, event, registration, urlBase) {
-  var _registration$general, _registration$general2, _event$repeat;
+  var _registration$general, _event$repeat;
 
-  if ((_registration$general = registration.general) !== null && _registration$general !== void 0 && _registration$general.external) return (0, _commons.validateURL)((_registration$general2 = registration.general) === null || _registration$general2 === void 0 ? void 0 : _registration$general2.url);
-  return "".concat(urlBase).concat(uid, "/").concat(cid, "/").concat(String(event.id)).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type || event !== null && event !== void 0 && event.repeated ? '?startDate=' + event.start.split('T')[0] : '');
+  if ((_registration$general = registration.general) !== null && _registration$general !== void 0 && _registration$general.external) {
+    var _registration$general2;
+
+    return (0, _commons.validateURL)((_registration$general2 = registration.general) === null || _registration$general2 === void 0 ? void 0 : _registration$general2.url);
+  }
+
+  return "".concat(urlBase).concat(uid, "/").concat(cid, "/").concat(String(event.id)).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type || event !== null && event !== void 0 && event.repeated ? "?startDate=" + event.start.split("T")[0] : "");
 }
 
 function getGuestsOptions(event, registration, tickets) {
@@ -57,7 +62,7 @@ function getGuestsOptions(event, registration, tickets) {
   if (event.ticketEnabled && tickets !== null && tickets !== void 0 && tickets.length) return calcGuestsOptionsByTickets(eventCopy, tickets);
   return {
     count: (_eventCopy$guests$len = eventCopy === null || eventCopy === void 0 ? void 0 : (_eventCopy$guests = eventCopy.guests) === null || _eventCopy$guests === void 0 ? void 0 : _eventCopy$guests.length) !== null && _eventCopy$guests$len !== void 0 ? _eventCopy$guests$len : 0,
-    limit: registration.guestsOptions.isLimited ? registration.guestsOptions.limit : 'unlimited'
+    limit: registration.guestsOptions.isLimited ? registration.guestsOptions.limit : "unlimited"
   };
 }
 
@@ -74,8 +79,8 @@ function calcGuestsOptionsByTickets(event, tickets) {
   }
 
   for (let ticket of tickets) {
-    if (ticket.limit.type === 'Unlimited') {
-      result.limit = 'unlimited';
+    if (ticket.limit.type === "Unlimited") {
+      result.limit = "unlimited";
       break;
     }
 
@@ -93,12 +98,12 @@ const filterEventGuests = _ref => {
     repeated
   } = _ref;
   return guests.filter(guest => {
-    if (guest.status === _constants.PAYMENT_STATUSES.unpaid && guest.paymentType !== _constants.PAYMENT_TYPES.cash) {
+    if (guest.tickets.length && guest.status === _constants.PAYMENT_STATUSES.unpaid && guest.paymentType !== _constants.PAYMENT_TYPES.cash) {
       return false;
     }
 
-    if (repeat !== null && repeat !== void 0 && repeat.type && repeated) {
-      return (0, _moment.default)(date).isSame(start);
+    if (repeat !== null || repeated) {
+      return (0, _moment.default)(guest.date).isSame(start);
     }
 
     return true;

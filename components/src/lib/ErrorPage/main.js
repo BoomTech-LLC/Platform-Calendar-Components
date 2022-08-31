@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import ErrorImage from './../assets/images/Error.svg';
+import errorImage from './../assets/images/error.png';
 import styles from './main.module.css';
+import { combineClassNames } from '../helpers/commons';
 
 const ErrorPage = ({
-  title = 'Oops! Something went wrong'
+  title = 'Oops! Something went wrong',
+  pageCover = false
 }) => {
 	return (
-		<div className={styles.container}>
+		<div className={combineClassNames([styles.container, pageCover ? styles.page_cover : ''])}>
 			<h1 className={styles.title}>{title}</h1>
 			<div className={styles.image_wrapper}>
-				<ErrorImage/>
+				<img src={errorImage}/>
 			</div>
 		</div>
 	);
@@ -18,6 +20,7 @@ const ErrorPage = ({
 
 ErrorPage.propTypes = {
   title: PropTypes.string,
+  pageCover: PropTypes.bool
 }
 
 export default ErrorPage;

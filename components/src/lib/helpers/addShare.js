@@ -1,5 +1,5 @@
 import moment from 'moment'
-import {encodeId} from '../helpers/commons'
+import {decodeId} from '../helpers/commons'
 
 export function downloadSharer(e, type, event) {
     const venue = event?.venue ?? {}
@@ -125,11 +125,11 @@ export function openShareUrl(e, type, eventUrl) {
     return
 }
 
-export function generateEventUrl(event, encode, boomEventUrlBase, comp_id, instance) {
+export function generateEventUrl(event, boomEventUrlBase, comp_id) {
     if (event.kind === 4) {
         return event.eventPageUrl || ''
     } else {
-        return `${boomEventUrlBase}${encodeId(`${event.id}`)}?${encode ? encodeURIComponent(`comp_id=${comp_id}&instance=${instance}&startDate=${event.repeat?.type ? moment(event.start).format('YYYY-MM-DD') : ''}`) : `comp_id=${comp_id}&instance=${instance}`}&startDate=${event.repeat?.type ? moment(event.start).format('YYYY-MM-DD') : ''}`
+        return `${boomEventUrlBase}?cid=${comp_id}&eventId=${decodeId(`${event.id}`)}${event?.repeat?.type || event?.repeated ? "&startDate=" + event.start.split("T")[0] : ""}`
     }
 }
 
