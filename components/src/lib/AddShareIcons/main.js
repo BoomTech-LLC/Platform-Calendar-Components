@@ -28,7 +28,7 @@ export default function AddShareIcons({
 }) {
    const [ copyTooltipText, setCopyTooltipText ] = useState(copyActionTooltipText)
 
-   if(hideAddToIcons && (hideShareIcons || (!hideShareIcons && +event.kind === 4))) return null
+   if(hideAddToIcons && hideShareIcons) return null
 
    return (
       <div className={combineClassNames([styles.add_share_icons_block, styles[order], ...wrapperCustomClassNames])}>
@@ -46,7 +46,7 @@ export default function AddShareIcons({
             {order === 'horizontal' && <div className={styles.horizontal_divider}/> }
             {
                !hideShareIcons && 
-               +event.kind !== 4 && 
+               +event.kind !== 12 && // this solution is temporary 
                <AddShareIconsRow
                   comp_id={comp_id}
                   instance={instance}

@@ -50,7 +50,7 @@ function AddShareIcons(_ref) {
     order = 'vertical'
   } = _ref;
   const [copyTooltipText, setCopyTooltipText] = (0, _react.useState)(copyActionTooltipText);
-  if (hideAddToIcons && (hideShareIcons || !hideShareIcons && +event.kind === 4)) return null;
+  if (hideAddToIcons && hideShareIcons) return null;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.add_share_icons_block, _mainModule.default[order], ...wrapperCustomClassNames])
   }, /*#__PURE__*/_react.default.createElement("h3", {
@@ -64,7 +64,10 @@ function AddShareIcons(_ref) {
     rowId: _constants.ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS.rowId
   }), order === 'horizontal' && /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.horizontal_divider
-  }), !hideShareIcons && +event.kind !== 4 && /*#__PURE__*/_react.default.createElement(AddShareIconsRow, {
+  }), !hideShareIcons && +event.kind !== 12 &&
+  /*#__PURE__*/
+  // this solution is temporary 
+  _react.default.createElement(AddShareIconsRow, {
     comp_id: comp_id,
     instance: instance,
     sectionName: shareSectionName,

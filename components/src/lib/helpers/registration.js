@@ -4,6 +4,7 @@ import { PAYMENT_STATUSES, PAYMENT_TYPES } from "./constants";
 
 export function getShowRegistrationButtonStatus(event, enabled) {
   if(event.isDefault) return false
+  if(event.kind === 12) return false // this solution is temporary 
   const dateToCompare = event.allDay ? moment(event.end).add(1, 'd') : moment(event.end)
   if(dateToCompare.isSameOrBefore(moment())) return false
   return enabled
@@ -21,6 +22,7 @@ export function getGuestsOptions(event, registration, tickets) {
   }
 
   if(!registration.enabled) return null
+  if(event.kind === 12) return null
   if(event.ticketEnabled && tickets?.length) return calcGuestsOptionsByTickets(eventCopy, tickets)
   return {
     count: eventCopy?.guests?.length ?? 0,
