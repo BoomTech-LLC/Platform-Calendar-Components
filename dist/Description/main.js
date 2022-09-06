@@ -39,7 +39,9 @@ const Description = _ref => {
     className: (0, _commons.combineClassNames)([_mainModule.default.description, ...wrapperCustomClassNames])
   }, title && /*#__PURE__*/_react.default.createElement("h3", {
     className: _mainModule.default.description_title
-  }, title), descriptionNode);
+  }, title), descriptionNode && /*#__PURE__*/_react.default.createElement("p", {
+    className: _mainModule.default.description_text
+  }, descriptionNode));
 };
 
 Description.propTypes = {

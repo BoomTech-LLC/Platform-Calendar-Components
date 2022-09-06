@@ -14,7 +14,7 @@ const Description = ({ title, children, wrapperCustomClassNames = [] }) => {
   return (
     <div className={combineClassNames([styles.description, ...wrapperCustomClassNames])}>
       {title && <h3 className={styles.description_title}>{title}</h3>}
-      {descriptionNode}
+      {descriptionNode && <p className={styles.description_text}>{descriptionNode}</p>}
     </div>
   )
 }
