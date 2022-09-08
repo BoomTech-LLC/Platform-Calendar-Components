@@ -25,7 +25,7 @@ const TicketPrice = _ref => {
   let {
     tickets,
     currency,
-    Icon,
+    showIcon = true,
     wrapperCustomClassNames = [],
     priceFormat
   } = _ref;
@@ -37,7 +37,7 @@ const TicketPrice = _ref => {
   });
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames])
-  }, Icon ? /*#__PURE__*/_react.default.createElement(Icon, null) : /*#__PURE__*/_react.default.createElement("div", {
+  }, showIcon && /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-ticket"
   }), /*#__PURE__*/_react.default.createElement("div", null, priceRange));
 };

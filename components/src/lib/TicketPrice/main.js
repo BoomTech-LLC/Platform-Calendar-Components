@@ -8,17 +8,17 @@ import styles from './main.module.css'
 const TicketPrice = ({
   tickets,
   currency,
-  Icon,
+  showIcon = true,
   wrapperCustomClassNames = [],
   priceFormat
 }) => {
-  if(!tickets.length) return null;
+  if (!tickets.length) return null;
 
-  const priceRange = calculateTicketsPriceRange({tickets, currency, priceFormat})
-  
+  const priceRange = calculateTicketsPriceRange({ tickets, currency, priceFormat })
+
   return (
-    <div className={ combineClassNames([styles.wrapper, ...wrapperCustomClassNames]) }>
-      {Icon ? <Icon/> : <div className='icon-ticket' />}
+    <div className={combineClassNames([styles.wrapper, ...wrapperCustomClassNames])}>
+      {showIcon && <div className='icon-ticket' />}
       <div>
         {priceRange}
       </div>
