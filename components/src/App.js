@@ -97,20 +97,19 @@ function App() {
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
       /> */}
-      <DateBox
-        start="2022-06-10T00:00"
-        end="2022-06-25T00:00"
-        dateFormat='DD/MM/YYYY'
-        timeFormat='24h'
-        showIcons={true}
+      {/* <DateBox
+        start="2022-09-12T00:00"
+        end="2022-09-12T00:00"
+        dateFormat='dddd, DD MMMM, YYYY'
+        showIcons={false}
         type='timeBox'
-        oneLine={false}
-        locale='en'
         showTimeZone={false}
         timeZone={'(GMT + 4)'}
         startDateOnly={true}
-      />
-      <hr />
+        agenda={true}
+        oneLine={true}
+        fixedHeight={true}
+      /> */}
       {/* <DateBox
         start="09/27/2021T12:30"
         end="09/27/2021T13:30"
@@ -122,15 +121,6 @@ function App() {
         direction='row'
         /> */}
       <hr />
-      <DateBox
-        start="2022-06-22T00:00"
-        end="2022-06-22T00:00"
-        locale='en'
-        showIcons={true}
-        timeFormat='am/pm'
-        type='oneLineDateBox'
-        allDay={false}
-      />
       {/* <DateBox
         start="2022-04-15T13:15"
         end="2022-04-16T15:13"
