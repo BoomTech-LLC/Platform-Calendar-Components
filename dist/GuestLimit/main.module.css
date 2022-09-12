@@ -1,9 +1,0 @@
-.guest_limit_parent{
-  display: flex;
-  gap: 8px
-}
-
-.guest_limit_parent p {
-    margin: 0;
-  }
-  

@@ -23,6 +23,7 @@ const DateBox = ({
   fixedHeight = false,
   dayNumberSize = 40,
   startDateOnly = false,
+  ticketEnabled = false
 }) => {
   if (type === 'timeBox') {
     return (
@@ -42,6 +43,7 @@ const DateBox = ({
         oneLine={oneLine}
         fixedHeight={fixedHeight}
         startDateOnly={startDateOnly}
+        ticketEnabled={ticketEnabled}
       />
     )
   }

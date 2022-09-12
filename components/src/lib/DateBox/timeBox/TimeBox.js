@@ -22,6 +22,7 @@ const TimeBox = ({
   oneLine,
   fixedHeight,
   startDateOnly,
+  ticketEnabled
 }) => {
   const { startDate, endDate } = formatDate(start, end, dateFormat, locale)
   const { startTime, endTime } = formatTime(
@@ -34,7 +35,7 @@ const TimeBox = ({
   const timeZoneToShow = (allDay || !showTimeZone) ? '' : timeZone;
   const datesEqual = startDate === endDate
 
-  const showHiddenRow = (allDay || agenda) && fixedHeight;
+  const showHiddenRow = ((allDay || agenda) && fixedHeight) || (agenda && ticketEnabled);
 
   return (
     <div className={combineClassNames([...wrapperCustomClassNames, styles.timebox_wrapper])}>
