@@ -1,0 +1,29 @@
+.imgWrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.imgWrapper img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.imgWrapper img.hidden {
+    max-height: 0;
+}
+
+.imgWrapper img.shown {
+    max-height: 999999px;
+}
+
+.blurred {
+    filter: blur(30px);
+    -webkit-filter: blur(30px);
+    -moz-filter: blur(30px);
+    -o-filter: blur(30px);
+    -ms-filter: blur(30px);
+    transform: scale(1.05);
+}
