@@ -1,0 +1,7 @@
+.category_item span {
+    vertical-align: middle;
+}
+
+.category_item span:first-of-type {
+    margin-right: .5rem;
+}

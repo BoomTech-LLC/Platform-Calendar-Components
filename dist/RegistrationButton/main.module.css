@@ -1,0 +1,18 @@
+.register_button {
+  all: unset;
+  width: fit-content;
+  background-color: #8437FF;
+  color: white;
+  min-height: 38px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.register_button:disabled {
+  cursor: auto;
+}
