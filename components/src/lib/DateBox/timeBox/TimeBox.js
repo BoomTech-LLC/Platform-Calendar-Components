@@ -33,9 +33,8 @@ const TimeBox = ({
     locale
   )
   const timeZoneToShow = (allDay || !showTimeZone) ? '' : timeZone;
-  const datesEqual = startDate === endDate
-
-  const showHiddenRow = (agenda && ticketEnabled) ? false : ((allDay || agenda) && fixedHeight);
+  const datesEqual = startDate === endDate;
+  const showHiddenRow = agenda && ticketEnabled;
 
   return (
     <div className={combineClassNames([...wrapperCustomClassNames, styles.timebox_wrapper])}>

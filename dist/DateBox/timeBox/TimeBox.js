@@ -52,7 +52,7 @@ const TimeBox = _ref => {
   } = (0, _dateBox.formatTime)(start, end, timeFormat, allDay, locale);
   const timeZoneToShow = allDay || !showTimeZone ? '' : timeZone;
   const datesEqual = startDate === endDate;
-  const showHiddenRow = agenda && ticketEnabled ? false : (allDay || agenda) && fixedHeight;
+  const showHiddenRow = agenda && ticketEnabled;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([...wrapperCustomClassNames, _mainModule.default.timebox_wrapper])
   }, /*#__PURE__*/_react.default.createElement(_StartTimeRow.default, {

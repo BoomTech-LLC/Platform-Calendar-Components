@@ -98,15 +98,14 @@ function App() {
         globalRegistration={D_REGISTRATION}
       /> */}
       {/* <DateBox
-        start="2022-09-12T00:00"
-        end="2022-09-12T00:00"
-        dateFormat='dddd, DD MMMM, YYYY'
-        showIcons={false}
-        type='timeBox'
-        showTimeZone={false}
-        timeZone={'(GMT + 4)'}
-        startDateOnly={true}
+        start='2022-09-12'
+        end='2022-09-12'
+        ticketEnabled={true}
+        allDay={true}
         agenda={true}
+        showIcons={false}
+        dateFormat='dddd, DD MMMM, YYYY'
+        type='timeBox'
         oneLine={true}
         fixedHeight={true}
       /> */}
