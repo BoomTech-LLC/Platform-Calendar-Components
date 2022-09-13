@@ -21,7 +21,6 @@ const DateBox = ({
   oneLine = false,
   direction = 'row',
   fixedHeight = false,
-  font = 'normal normal normal 14px / 16px Helvetica',
   startDateOnly = false,
   ticketEnabled = false
 }) => {
@@ -68,7 +67,6 @@ const DateBox = ({
       locale={locale}
       wrapperCustomClassNames={wrapperCustomClassNames}
       direction={direction}
-      font={font}
     />
   )
 }
@@ -90,7 +88,6 @@ DateBox.propTypes = {
   oneLine: PropTypes.bool,
   direction: PropTypes.string,
   fixedHeight: PropTypes.bool,
-  font: PropTypes.string,
   startDateOnly: PropTypes.bool
 }
 

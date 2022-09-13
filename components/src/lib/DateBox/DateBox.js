@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { getDateForDateBox } from '../helpers/dateBox'
 import { combineClassNames } from '../helpers/commons'
 
-const DateBox = ({ start, end, locale, wrapperCustomClassNames = [], direction = 'row', font }) => {
+const DateBox = ({ start, end, locale, wrapperCustomClassNames = [], direction = 'row' }) => {
   const {
     day,
     week,
@@ -19,7 +19,7 @@ const DateBox = ({ start, end, locale, wrapperCustomClassNames = [], direction =
 
   return (
     <div className={combineClassNames([styles.container, styles[direction], ...wrapperCustomClassNames])} ref={container}>
-      <div className={styles.day_of_month} style={{ font: font }}>
+      <div className={styles.day_of_month}>
         <p>{day}</p>
       </div>
       <div className={styles.month_day_of_week_parent}>
