@@ -21,7 +21,7 @@ const DateBox = ({
   oneLine = false,
   direction = 'row',
   fixedHeight = false,
-  dayNumberSize = 40,
+  font = 'normal normal normal 14px / 16px Helvetica',
   startDateOnly = false,
   ticketEnabled = false
 }) => {
@@ -68,7 +68,7 @@ const DateBox = ({
       locale={locale}
       wrapperCustomClassNames={wrapperCustomClassNames}
       direction={direction}
-      dayNumberSize={dayNumberSize}
+      font={font}
     />
   )
 }
@@ -90,7 +90,7 @@ DateBox.propTypes = {
   oneLine: PropTypes.bool,
   direction: PropTypes.string,
   fixedHeight: PropTypes.bool,
-  dayNumberSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  font: PropTypes.string,
   startDateOnly: PropTypes.bool
 }
 

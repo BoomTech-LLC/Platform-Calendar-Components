@@ -30,7 +30,7 @@ const DateBox = _ref => {
     locale,
     wrapperCustomClassNames = [],
     direction = 'row',
-    dayNumberSize
+    font
   } = _ref;
   const {
     day,
@@ -47,7 +47,7 @@ const DateBox = _ref => {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.day_of_month,
     style: {
-      fontSize: dayNumberSize
+      font: font
     }
   }, /*#__PURE__*/_react.default.createElement("p", null, day)), /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.month_day_of_week_parent
@@ -65,5 +65,5 @@ DateBox.propTypes = {
   end: _propTypes.default.string,
   locale: _propTypes.default.string,
   wrapperCustomClassNames: _propTypes.default.array,
-  dayNumberSize: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])
+  font: _propTypes.default.string
 };

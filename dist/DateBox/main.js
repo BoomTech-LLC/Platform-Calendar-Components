@@ -35,7 +35,7 @@ const DateBox = _ref => {
     oneLine = false,
     direction = 'row',
     fixedHeight = false,
-    dayNumberSize = 40,
+    font = 'normal normal normal 14px / 16px Helvetica',
     startDateOnly = false,
     ticketEnabled = false
   } = _ref;
@@ -80,7 +80,7 @@ const DateBox = _ref => {
     locale: locale,
     wrapperCustomClassNames: wrapperCustomClassNames,
     direction: direction,
-    dayNumberSize: dayNumberSize
+    font: font
   });
 };
 
@@ -101,7 +101,7 @@ DateBox.propTypes = {
   oneLine: _propTypes.default.bool,
   direction: _propTypes.default.string,
   fixedHeight: _propTypes.default.bool,
-  dayNumberSize: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+  font: _propTypes.default.string,
   startDateOnly: _propTypes.default.bool
 };
 var _default = DateBox;
