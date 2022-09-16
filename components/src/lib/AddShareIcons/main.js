@@ -46,7 +46,7 @@ export default function AddShareIcons({
             {order === 'horizontal' && <div className={styles.horizontal_divider}/> }
             {
                !hideShareIcons && 
-               +event.kind !== 12 && // this solution is temporary 
+               (+event.kind !== 12 || +event.kind !== 13) && // this solution is temporary 
                <AddShareIconsRow
                   comp_id={comp_id}
                   instance={instance}

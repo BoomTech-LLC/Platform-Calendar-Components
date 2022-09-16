@@ -64,7 +64,7 @@ function AddShareIcons(_ref) {
     rowId: _constants.ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS.rowId
   }), order === 'horizontal' && /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.horizontal_divider
-  }), !hideShareIcons && +event.kind !== 12 &&
+  }), !hideShareIcons && (+event.kind !== 12 || +event.kind !== 13) &&
   /*#__PURE__*/
   // this solution is temporary 
   _react.default.createElement(AddShareIconsRow, {

@@ -31,7 +31,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function getShowRegistrationButtonStatus(event, enabled) {
   if (event.isDefault) return false;
-  if (event.kind === 12) return false; // this solution is temporary 
+  if (event.kind === 12 || event.kind === 13) return false; // this solution is temporary 
 
   const dateToCompare = event.allDay ? (0, _moment.default)(event.end).add(1, 'd') : (0, _moment.default)(event.end);
   if (dateToCompare.isSameOrBefore((0, _moment.default)())) return false;
@@ -58,7 +58,7 @@ function getGuestsOptions(event, registration, tickets) {
   });
 
   if (!registration.enabled) return null;
-  if (event.kind === 12) return null;
+  if (event.kind === 12 || event.kind === 13) return null;
   if (event.ticketEnabled && tickets !== null && tickets !== void 0 && tickets.length) return calcGuestsOptionsByTickets(eventCopy, tickets);
   return {
     count: (_eventCopy$guests$len = eventCopy === null || eventCopy === void 0 ? void 0 : (_eventCopy$guests = eventCopy.guests) === null || _eventCopy$guests === void 0 ? void 0 : _eventCopy$guests.length) !== null && _eventCopy$guests$len !== void 0 ? _eventCopy$guests$len : 0,
