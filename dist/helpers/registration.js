@@ -13,6 +13,8 @@ require("core-js/modules/es.regexp.exec.js");
 
 require("core-js/modules/es.string.split.js");
 
+require("core-js/modules/es.string.includes.js");
+
 require("core-js/modules/web.dom-collections.iterator.js");
 
 var _moment = _interopRequireDefault(require("moment"));
@@ -58,7 +60,7 @@ function getGuestsOptions(event, registration, tickets) {
   });
 
   if (!registration.enabled) return null;
-  if (event.kind === 12 || event.kind === 13) return null;
+  if (_constants.SYNCED_EVENT_KINDS.includes(event.kind)) return null;
   if (event.ticketEnabled && tickets !== null && tickets !== void 0 && tickets.length) return calcGuestsOptionsByTickets(eventCopy, tickets);
   return {
     count: (_eventCopy$guests$len = eventCopy === null || eventCopy === void 0 ? void 0 : (_eventCopy$guests = eventCopy.guests) === null || _eventCopy$guests === void 0 ? void 0 : _eventCopy$guests.length) !== null && _eventCopy$guests$len !== void 0 ? _eventCopy$guests$len : 0,

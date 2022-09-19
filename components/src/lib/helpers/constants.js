@@ -91,3 +91,11 @@ export const PAYMENT_TYPES = {
   paypal: 'paypal',
   stripe: 'stripe'
 }
+
+export const SYNCED_EVENT_KINDS = [
+  20,
+	21,
+	22,
+	23,
+	24
+];

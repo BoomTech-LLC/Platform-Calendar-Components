@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.PAYMENT_TYPES = exports.PAYMENT_STATUSES = exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = exports.LOCATION_TYPES = void 0;
+exports.SYNCED_EVENT_KINDS = exports.PAYMENT_TYPES = exports.PAYMENT_STATUSES = exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = exports.LOCATION_TYPES = void 0;
 
 var _addShare = require("./addShare");
 
@@ -89,3 +89,5 @@ const PAYMENT_TYPES = {
   stripe: 'stripe'
 };
 exports.PAYMENT_TYPES = PAYMENT_TYPES;
+const SYNCED_EVENT_KINDS = [20, 21, 22, 23, 24];
+exports.SYNCED_EVENT_KINDS = SYNCED_EVENT_KINDS;

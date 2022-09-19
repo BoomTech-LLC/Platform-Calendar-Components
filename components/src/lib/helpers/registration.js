@@ -1,6 +1,6 @@
 import moment from "moment";
 import { validateURL } from "./../helpers/commons";
-import { PAYMENT_STATUSES, PAYMENT_TYPES } from "./constants";
+import { PAYMENT_STATUSES, PAYMENT_TYPES, SYNCED_EVENT_KINDS } from "./constants";
 
 export function getShowRegistrationButtonStatus(event, enabled) {
   if(event.isDefault) return false
@@ -35,7 +35,7 @@ export function getGuestsOptions(event, registration, tickets) {
   };
 
   if(!registration.enabled) return null
-  if(event.kind === 12 || event.kind === 13) return null
+  if(SYNCED_EVENT_KINDS.includes(event.kind)) return null
   if(event.ticketEnabled && tickets?.length) return calcGuestsOptionsByTickets(eventCopy, tickets)
 
   return {
