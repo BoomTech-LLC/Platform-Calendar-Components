@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './main.module.css'
 import '../assets/styles/icons.css'
-import { ADD_SHARE_ICONS_CONSTRUCTOR } from '../helpers/constants'
+import { ADD_SHARE_ICONS_CONSTRUCTOR, SYNCED_EVENT_KINDS } from '../helpers/constants'
 import { combineClassNames } from '../helpers/commons'
 import { generateEventUrl } from '../helpers/addShare'
 import { PT_CLASSNAMES } from '../helpers/commonPropTypes'
@@ -46,7 +46,7 @@ export default function AddShareIcons({
             {order === 'horizontal' && <div className={styles.horizontal_divider}/> }
             {
                !hideShareIcons && 
-               (+event.kind !== 12 || +event.kind !== 13) && // this solution is temporary 
+               !SYNCED_EVENT_KINDS.includes(event.kind) &&
                <AddShareIconsRow
                   comp_id={comp_id}
                   instance={instance}
