@@ -1,11 +1,10 @@
-import React from 'react'
-import styles from './../main.module.css'
-import PropTypes from 'prop-types'
-import StartTimeRow from './StartTimeRow'
-import EndTimeRow from './EndTimeRow'
-import { formatDate, formatTime } from '../../helpers/dateBox'
-import { combineClassNames } from '../../helpers/commons'
-
+import React from "react";
+import styles from "./../main.module.css";
+import PropTypes from "prop-types";
+import StartTimeRow from "./StartTimeRow";
+import EndTimeRow from "./EndTimeRow";
+import { formatDate, formatTime } from "../../helpers/dateBox";
+import { combineClassNames } from "../../helpers/commons";
 const TimeBox = ({
   start,
   end,
@@ -22,32 +21,33 @@ const TimeBox = ({
   oneLine,
   fixedHeight,
   startDateOnly,
-  ticketEnabled
 }) => {
-  const { startDate, endDate } = formatDate(start, end, dateFormat, locale)
+  const { startDate, endDate } = formatDate(start, end, dateFormat, locale);
   const { startTime, endTime } = formatTime(
     start,
     end,
     timeFormat,
     allDay,
     locale
-  )
-  const timeZoneToShow = (allDay || !showTimeZone) ? '' : timeZone;
+  );
+  const timeZoneToShow = allDay || !showTimeZone ? "" : timeZone;
   const datesEqual = startDate === endDate;
-  const showHiddenRow = !(agenda && ticketEnabled);
-
+  const showHiddenRow = datesEqual && (allDay || agenda) && fixedHeight;
   return (
-    <div className={combineClassNames([...wrapperCustomClassNames, styles.timebox_wrapper])}>
-      
+    <div
+      className={combineClassNames([
+        ...wrapperCustomClassNames,
+        styles.timebox_wrapper,
+      ])}
+    >
       <StartTimeRow
-          showIcons={showIcons}
-          datesEqual={datesEqual}
-          oneLine={oneLine}
-          startDate={startDate}
-          startTime={startTime}
-          timeZoneToShow={timeZoneToShow}
+        showIcons={showIcons}
+        datesEqual={datesEqual}
+        oneLine={oneLine}
+        startDate={startDate}
+        startTime={startTime}
+        timeZoneToShow={timeZoneToShow}
       />
-
       <EndTimeRow
         datesEqual={datesEqual}
         allDay={allDay}
@@ -61,19 +61,16 @@ const TimeBox = ({
         agenda={agenda}
         allDayText={allDayText}
       />
-
-      {
-        showHiddenRow &&
-          <div className={combineClassNames([styles.two_line_start, styles.hidden])}>
-            <p className={oneLine ? styles.oneLine : undefined}>
-              hidden row
-            </p>
-          </div>
-      }
+      {showHiddenRow && (
+        <div
+          className={combineClassNames([styles.two_line_start, styles.hidden])}
+        >
+          <p className={oneLine ? styles.oneLine : undefined}>hidden row</p>
+        </div>
+      )}
     </div>
-  )
-}
-
+  );
+};
 TimeBox.propTypes = {
   start: PropTypes.string.isRequired,
   end: PropTypes.string.isRequired,
@@ -89,8 +86,6 @@ TimeBox.propTypes = {
   allDayText: PropTypes.string,
   oneLine: PropTypes.bool,
   fixedHeight: PropTypes.bool,
-  startDateOnly: PropTypes.bool
-}
-
-export default TimeBox
-
+  startDateOnly: PropTypes.bool,
+};
+export default TimeBox;
