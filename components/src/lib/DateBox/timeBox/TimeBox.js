@@ -19,7 +19,6 @@ const TimeBox = ({
   agenda,
   allDayText,
   oneLine,
-  fixedHeight,
   startDateOnly,
 }) => {
   const { startDate, endDate } = formatDate(start, end, dateFormat, locale);
@@ -32,7 +31,7 @@ const TimeBox = ({
   );
   const timeZoneToShow = allDay || !showTimeZone ? "" : timeZone;
   const datesEqual = startDate === endDate;
-  const showHiddenRow = datesEqual && (allDay || agenda) && fixedHeight;
+
   return (
     <div
       className={combineClassNames([
@@ -61,13 +60,6 @@ const TimeBox = ({
         agenda={agenda}
         allDayText={allDayText}
       />
-      {showHiddenRow && (
-        <div
-          className={combineClassNames([styles.two_line_start, styles.hidden])}
-        >
-          <p className={oneLine ? styles.oneLine : undefined}>hidden row</p>
-        </div>
-      )}
     </div>
   );
 };
@@ -85,7 +77,6 @@ TimeBox.propTypes = {
   agenda: PropTypes.bool,
   allDayText: PropTypes.string,
   oneLine: PropTypes.bool,
-  fixedHeight: PropTypes.bool,
   startDateOnly: PropTypes.bool,
 };
 export default TimeBox;

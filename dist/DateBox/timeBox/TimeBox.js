@@ -38,7 +38,6 @@ const TimeBox = _ref => {
     agenda,
     allDayText,
     oneLine,
-    fixedHeight,
     startDateOnly
   } = _ref;
   const {
@@ -51,7 +50,6 @@ const TimeBox = _ref => {
   } = (0, _dateBox.formatTime)(start, end, timeFormat, allDay, locale);
   const timeZoneToShow = allDay || !showTimeZone ? "" : timeZone;
   const datesEqual = startDate === endDate;
-  const showHiddenRow = datesEqual && (allDay || agenda) && fixedHeight;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([...wrapperCustomClassNames, _mainModule.default.timebox_wrapper])
   }, /*#__PURE__*/_react.default.createElement(_StartTimeRow.default, {
@@ -73,11 +71,7 @@ const TimeBox = _ref => {
     timeZoneToShow: timeZoneToShow,
     agenda: agenda,
     allDayText: allDayText
-  }), showHiddenRow && /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.two_line_start, _mainModule.default.hidden])
-  }, /*#__PURE__*/_react.default.createElement("p", {
-    className: oneLine ? _mainModule.default.oneLine : undefined
-  }, "hidden row")));
+  }));
 };
 
 TimeBox.propTypes = {
@@ -94,7 +88,6 @@ TimeBox.propTypes = {
   agenda: _propTypes.default.bool,
   allDayText: _propTypes.default.string,
   oneLine: _propTypes.default.bool,
-  fixedHeight: _propTypes.default.bool,
   startDateOnly: _propTypes.default.bool
 };
 var _default = TimeBox;

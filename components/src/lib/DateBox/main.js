@@ -1,30 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import DateBoxComponent from './DateBox'
-import TimeBox from './timeBox/TimeBox'
-import OneLineDateBox from './oneLineDateBox/OneLineDateBox'
+import React from "react";
+import PropTypes from "prop-types";
+import DateBoxComponent from "./DateBox";
+import TimeBox from "./timeBox/TimeBox";
+import OneLineDateBox from "./oneLineDateBox/OneLineDateBox";
 
 const DateBox = ({
   start,
-  end = '9999-12-12',
-  locale = 'en',
+  end = "9999-12-12",
+  locale = "en",
   showIcons = true,
-  dateFormat = 'DD/MM/YYYY',
-  timeFormat = 'am/pm',
+  dateFormat = "DD/MM/YYYY",
+  timeFormat = "am/pm",
   allDay = true,
   showTimeZone = false,
-  timeZone = '',
+  timeZone = "",
   wrapperCustomClassNames = [],
   agenda = false,
-  type = 'dateBox',
-  allDayText = 'All Day',
+  type = "dateBox",
+  allDayText = "All Day",
   oneLine = false,
-  direction = 'row',
-  fixedHeight = false,
+  direction = "row",
   startDateOnly = false,
-  ticketEnabled = false
+  ticketEnabled = false,
 }) => {
-  if (type === 'timeBox') {
+  if (type === "timeBox") {
     return (
       <TimeBox
         start={start}
@@ -40,13 +39,12 @@ const DateBox = ({
         agenda={agenda}
         allDayText={allDayText}
         oneLine={oneLine}
-        fixedHeight={fixedHeight}
         startDateOnly={startDateOnly}
         ticketEnabled={ticketEnabled}
       />
-    )
+    );
   }
-  if (type === 'oneLineDateBox') {
+  if (type === "oneLineDateBox") {
     return (
       <OneLineDateBox
         start={start}
@@ -58,7 +56,7 @@ const DateBox = ({
         allDay={allDay}
         wrapperCustomClassNames={wrapperCustomClassNames}
       />
-    )
+    );
   }
   return (
     <DateBoxComponent
@@ -68,8 +66,8 @@ const DateBox = ({
       wrapperCustomClassNames={wrapperCustomClassNames}
       direction={direction}
     />
-  )
-}
+  );
+};
 
 DateBox.propTypes = {
   start: PropTypes.string.isRequired,
@@ -88,7 +86,7 @@ DateBox.propTypes = {
   oneLine: PropTypes.bool,
   direction: PropTypes.string,
   fixedHeight: PropTypes.bool,
-  startDateOnly: PropTypes.bool
-}
+  startDateOnly: PropTypes.bool,
+};
 
-export default DateBox
+export default DateBox;

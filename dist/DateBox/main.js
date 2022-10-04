@@ -20,26 +20,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const DateBox = _ref => {
   let {
     start,
-    end = '9999-12-12',
-    locale = 'en',
+    end = "9999-12-12",
+    locale = "en",
     showIcons = true,
-    dateFormat = 'DD/MM/YYYY',
-    timeFormat = 'am/pm',
+    dateFormat = "DD/MM/YYYY",
+    timeFormat = "am/pm",
     allDay = true,
     showTimeZone = false,
-    timeZone = '',
+    timeZone = "",
     wrapperCustomClassNames = [],
     agenda = false,
-    type = 'dateBox',
-    allDayText = 'All Day',
+    type = "dateBox",
+    allDayText = "All Day",
     oneLine = false,
-    direction = 'row',
-    fixedHeight = false,
+    direction = "row",
     startDateOnly = false,
     ticketEnabled = false
   } = _ref;
 
-  if (type === 'timeBox') {
+  if (type === "timeBox") {
     return /*#__PURE__*/_react.default.createElement(_TimeBox.default, {
       start: start,
       end: end,
@@ -54,13 +53,12 @@ const DateBox = _ref => {
       agenda: agenda,
       allDayText: allDayText,
       oneLine: oneLine,
-      fixedHeight: fixedHeight,
       startDateOnly: startDateOnly,
       ticketEnabled: ticketEnabled
     });
   }
 
-  if (type === 'oneLineDateBox') {
+  if (type === "oneLineDateBox") {
     return /*#__PURE__*/_react.default.createElement(_OneLineDateBox.default, {
       start: start,
       end: end,
