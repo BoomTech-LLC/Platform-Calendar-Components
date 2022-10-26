@@ -40,7 +40,7 @@
 }
 
 .vertical .add_share_icons_row > div:first-of-type {
-    min-width: 8em;
+    margin-right: 0.4rem;
 }
 
 .add_share_icons_row > div:last-of-type {
