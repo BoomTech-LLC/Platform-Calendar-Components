@@ -14,3 +14,7 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
+
+.description_text *{
+  background-color: transparent;
+}
