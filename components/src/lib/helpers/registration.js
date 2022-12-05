@@ -4,7 +4,7 @@ import { PAYMENT_STATUSES, PAYMENT_TYPES, SYNCED_EVENT_KINDS } from "./constants
 
 export function getShowRegistrationButtonStatus(event, enabled) {
   if(event.isDefault) return false
-  if(event.kind === 12 || event.kind === 13) return false // this solution is temporary 
+  if(SYNCED_EVENT_KINDS.includes(event.kind)) return false
   const dateToCompare = event.allDay ? moment(event.end).add(1, 'd') : moment(event.end)
   if(dateToCompare.isSameOrBefore(moment())) return false
   return enabled

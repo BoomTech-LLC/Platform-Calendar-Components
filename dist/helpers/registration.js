@@ -9,11 +9,11 @@ exports.getGuestsOptions = getGuestsOptions;
 exports.calcGuestsOptionsByTickets = calcGuestsOptionsByTickets;
 exports.filterEventGuests = void 0;
 
+require("core-js/modules/es.string.includes.js");
+
 require("core-js/modules/es.regexp.exec.js");
 
 require("core-js/modules/es.string.split.js");
-
-require("core-js/modules/es.string.includes.js");
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
@@ -33,8 +33,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function getShowRegistrationButtonStatus(event, enabled) {
   if (event.isDefault) return false;
-  if (event.kind === 12 || event.kind === 13) return false; // this solution is temporary 
-
+  if (_constants.SYNCED_EVENT_KINDS.includes(event.kind)) return false;
   const dateToCompare = event.allDay ? (0, _moment.default)(event.end).add(1, 'd') : (0, _moment.default)(event.end);
   if (dateToCompare.isSameOrBefore((0, _moment.default)())) return false;
   return enabled;
