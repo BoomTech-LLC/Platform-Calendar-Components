@@ -1,34 +1,12 @@
 import { TICKET_PRICING_TYPES, TICKET_TYPES } from "./commonPropTypes";
 
-export const roundNumber = (num) => {
-  if (num % 1 === 0) return num;
-
-  if (num * 100 > Number.MAX_SAFE_INTEGER) return Math.round(num);
-
-  return Math.round(num * 100) / 100;
-};
-
-export const getPlanCycleMonthlyPrice = ({
-  cycle,
-  price,
-  showPriceMonthly,
-  duration,
-}) => {
-  const countedPrice = price / duration;
-
-  if (showPriceMonthly && cycle === TICKET_BILLING_CYCLE_TYPES[2])
-    return roundNumber(countedPrice / 12);
-
-  return roundNumber(countedPrice);
-};
-
 export const getTicketPrice = (ticket) => {
   if (ticket.type === TICKET_TYPES[2]) {
     return [];
   } else if (ticket.price.type === TICKET_PRICING_TYPES[1]) {
     return [0];
   } else if (ticket.type === TICKET_TYPES[1]) {
-    const prices = ticket.plans.map((plan) => getPlanCycleMonthlyPrice(plan));
+    const prices = ticket.plans.map((plan) => plan.price);
     const minPrice = Math.min(...prices);
     const maxPrice = Math.max(...prices);
     return [minPrice, maxPrice];
