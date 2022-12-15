@@ -19,6 +19,8 @@ var _commonPropTypes = require("../helpers/commonPropTypes");
 
 var _registration = require("../helpers/registration");
 
+var _constants = require("../helpers/constants");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const RegistrationButton = _ref => {
@@ -33,10 +35,12 @@ const RegistrationButton = _ref => {
     globalRegistration,
     tickets,
     wrapperCustomClassNames = [],
-    disabledClassName = ''
+    disabledClassName = '',
+    planName = _commonPropTypes.PLAN_NAMES[3]
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
-  const eventTickets = !event.ticketEnabled || !(tickets !== null && tickets !== void 0 && tickets.length) ? null : [...tickets];
+  const hasTickets = event.ticketEnabled && (tickets === null || tickets === void 0 ? void 0 : tickets.length);
+  const eventTickets = hasTickets ? [...tickets] : null;
   const show = (0, _registration.getShowRegistrationButtonStatus)(event, registration === null || registration === void 0 ? void 0 : registration.enabled);
   if (!show) return null;
   const url = (0, _registration.generateRegistrationURL)(cid, uid, event, registration, urlBase);
@@ -46,7 +50,8 @@ const RegistrationButton = _ref => {
     count,
     limit
   } = guestsOptions;
-  const disabled = typeof limit !== 'string' && count >= limit;
+  const limitByPlan = _constants.APP_LIMITATIONS[planName][hasTickets ? 'tickets' : 'guests'];
+  const disabled = typeof limit !== 'string' && (count >= limit || limitByPlan && count >= limitByPlan);
   return /*#__PURE__*/_react.default.createElement("button", {
     className: (0, _commons.combineClassNames)([_mainModule.default.register_button, ...wrapperCustomClassNames, disabled ? disabledClassName : null]),
     disabled: disabled,
@@ -63,7 +68,8 @@ RegistrationButton.propTypes = {
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   globalRegistration: _commonPropTypes.SHAPE_REGISTRATION,
   globalTickets: _commonPropTypes.SHAPE_TICKETS,
-  disabledClassName: _propTypes.default.string
+  disabledClassName: _propTypes.default.string,
+  planName: _commonPropTypes.PLAN_NAME_TYPE
 };
 var _default = RegistrationButton;
 exports.default = _default;

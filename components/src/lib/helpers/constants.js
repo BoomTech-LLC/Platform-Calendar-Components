@@ -1,4 +1,5 @@
 import { copyLink, downloadSharer, openAddToUrl, openShareUrl } from "./addShare";
+import { PLAN_NAMES } from "./commonPropTypes";
 
 export const LOCATION_TYPES = {
   physical: 'physical', 
@@ -99,3 +100,22 @@ export const SYNCED_EVENT_KINDS = [
 	23,
 	24
 ];
+
+export const APP_LIMITATIONS = {
+	[PLAN_NAMES[0]]: {
+		tickets: 10,
+		guests: 10,
+	},
+	[PLAN_NAMES[1]]: {
+		tickets: 25,
+		guests: 25,
+	},
+	[PLAN_NAMES[2]]: {
+		tickets: 100,
+		guests: null,
+	},
+	[PLAN_NAMES[3]]: {
+		tickets: null,
+		guests: null,
+	}
+};

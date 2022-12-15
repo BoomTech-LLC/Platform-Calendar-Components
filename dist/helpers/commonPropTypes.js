@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_TICKET = exports.TICKET_LIMITATION_TYPES = exports.TICKET_SALES_TYPES = exports.TICKET_PRICING_TYPES = exports.TICKET_TYPES = exports.CURRENCY_TYPES = exports.SHAPE_CURRENCY = exports.SHAPE_PLAN = exports.TICKET_BILLING_CYCLE_TYPES = exports.SHAPE_REGISTRATION = exports.REGISTRATION_COUNTDOWN_OPTIONS = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_GUEST_TICKET = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_UID = exports.PT_CID = exports.PT_CLASSNAMES = void 0;
+exports.PLAN_NAME_TYPE = exports.SHAPE_EVENT = exports.SHAPE_REPEAT = exports.SHAPE_TICKETS = exports.SHAPE_TICKET = exports.TICKET_LIMITATION_TYPES = exports.TICKET_SALES_TYPES = exports.TICKET_PRICING_TYPES = exports.TICKET_TYPES = exports.CURRENCY_TYPES = exports.SHAPE_CURRENCY = exports.SHAPE_PLAN = exports.PLAN_NAMES = exports.TICKET_BILLING_CYCLE_TYPES = exports.SHAPE_REGISTRATION = exports.REGISTRATION_COUNTDOWN_OPTIONS = exports.SHAPE_ORGANIZER = exports.SHAPE_LOCATION = exports.SHAPE_GUEST = exports.SHAPE_GUEST_TICKET = exports.SHAPE_PHYSICAL_LOCATION = exports.PT_UID = exports.PT_CID = exports.PT_CLASSNAMES = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -95,6 +95,8 @@ const SHAPE_REGISTRATION = _propTypes.default.shape({
 exports.SHAPE_REGISTRATION = SHAPE_REGISTRATION;
 const TICKET_BILLING_CYCLE_TYPES = ['Weekly', 'Monthly', 'Yearly'];
 exports.TICKET_BILLING_CYCLE_TYPES = TICKET_BILLING_CYCLE_TYPES;
+const PLAN_NAMES = ['', 'starter', 'pro', 'bussiness'];
+exports.PLAN_NAMES = PLAN_NAMES;
 
 const SHAPE_PLAN = _propTypes.default.shape({
   cycle: _propTypes.default.oneOf(TICKET_BILLING_CYCLE_TYPES),
@@ -258,3 +260,7 @@ const SHAPE_EVENT = _propTypes.default.shape({
 });
 
 exports.SHAPE_EVENT = SHAPE_EVENT;
+
+const PLAN_NAME_TYPE = _propTypes.default.oneOf(PLAN_NAMES);
+
+exports.PLAN_NAME_TYPE = PLAN_NAME_TYPE;

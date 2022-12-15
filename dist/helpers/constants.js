@@ -3,9 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SYNCED_EVENT_KINDS = exports.PAYMENT_TYPES = exports.PAYMENT_STATUSES = exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = exports.LOCATION_TYPES = void 0;
+exports.APP_LIMITATIONS = exports.SYNCED_EVENT_KINDS = exports.PAYMENT_TYPES = exports.PAYMENT_STATUSES = exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = exports.LOCATION_TYPES = void 0;
 
 var _addShare = require("./addShare");
+
+var _commonPropTypes = require("./commonPropTypes");
 
 const LOCATION_TYPES = {
   physical: 'physical',
@@ -91,3 +93,22 @@ const PAYMENT_TYPES = {
 exports.PAYMENT_TYPES = PAYMENT_TYPES;
 const SYNCED_EVENT_KINDS = [20, 21, 22, 23, 24];
 exports.SYNCED_EVENT_KINDS = SYNCED_EVENT_KINDS;
+const APP_LIMITATIONS = {
+  [_commonPropTypes.PLAN_NAMES[0]]: {
+    tickets: 10,
+    guests: 10
+  },
+  [_commonPropTypes.PLAN_NAMES[1]]: {
+    tickets: 25,
+    guests: 25
+  },
+  [_commonPropTypes.PLAN_NAMES[2]]: {
+    tickets: 100,
+    guests: null
+  },
+  [_commonPropTypes.PLAN_NAMES[3]]: {
+    tickets: null,
+    guests: null
+  }
+};
+exports.APP_LIMITATIONS = APP_LIMITATIONS;

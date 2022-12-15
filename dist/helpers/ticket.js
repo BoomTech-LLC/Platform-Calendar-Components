@@ -51,18 +51,12 @@ const calculateTicketsPriceRange = _ref => {
     prices.push(...getTicketPrice(ticket));
   }
 
-  if (types.length === 1 && types[0] !== _commonPropTypes.TICKET_PRICING_TYPES[0]) {
-    return types[0];
-  }
-
-  if (!types.includes(_commonPropTypes.TICKET_PRICING_TYPES[0])) {
-    return _commonPropTypes.TICKET_PRICING_TYPES[1];
-  }
-
+  if (types.length === 1 && types[0] !== _commonPropTypes.TICKET_PRICING_TYPES[0]) return types[0];
+  if (!types.includes(_commonPropTypes.TICKET_PRICING_TYPES[0])) return _commonPropTypes.TICKET_PRICING_TYPES[1];
   const min = Math.min(...prices);
   const max = Math.max(...prices);
-  const formatWithCurrency = priceFormat.replace('$', currency.symbol);
-  return "".concat(formatWithCurrency.replace('100', min), " ").concat(max !== min ? "- ".concat(formatWithCurrency.replace('100', max)) : '');
+  const formatWithCurrency = priceFormat.replace("$", currency.symbol);
+  return "".concat(formatWithCurrency.replace("100", min), " ").concat(max !== min ? "- ".concat(formatWithCurrency.replace("100", max)) : "");
 };
 
 exports.calculateTicketsPriceRange = calculateTicketsPriceRange;
