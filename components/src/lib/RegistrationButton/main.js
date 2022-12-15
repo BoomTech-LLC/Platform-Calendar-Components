@@ -32,7 +32,7 @@ const RegistrationButton = ({
   const { count, limit } = guestsOptions;
   const limitByPlan = APP_LIMITATIONS[planName][hasTickets ? 'tickets' : 'guests'];
   const disabled = typeof limit !== 'string' && (count >= limit || (limitByPlan && count >= limitByPlan));
-  
+  console.log(limitByPlan, count, hasTickets, planName);
   return (
     <button
       className={combineClassNames([styles.register_button, ...wrapperCustomClassNames, disabled ? disabledClassName : null])}

@@ -52,6 +52,7 @@ const RegistrationButton = _ref => {
   } = guestsOptions;
   const limitByPlan = _constants.APP_LIMITATIONS[planName][hasTickets ? 'tickets' : 'guests'];
   const disabled = typeof limit !== 'string' && (count >= limit || limitByPlan && count >= limitByPlan);
+  console.log(limitByPlan, count, hasTickets, planName);
   return /*#__PURE__*/_react.default.createElement("button", {
     className: (0, _commons.combineClassNames)([_mainModule.default.register_button, ...wrapperCustomClassNames, disabled ? disabledClassName : null]),
     disabled: disabled,
