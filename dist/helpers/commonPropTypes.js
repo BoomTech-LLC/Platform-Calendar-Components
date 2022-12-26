@@ -95,7 +95,7 @@ const SHAPE_REGISTRATION = _propTypes.default.shape({
 exports.SHAPE_REGISTRATION = SHAPE_REGISTRATION;
 const TICKET_BILLING_CYCLE_TYPES = ['Weekly', 'Monthly', 'Yearly'];
 exports.TICKET_BILLING_CYCLE_TYPES = TICKET_BILLING_CYCLE_TYPES;
-const PLAN_NAMES = ['', 'starter', 'pro', 'bussiness'];
+const PLAN_NAMES = ['', 'starter', 'pro', 'business'];
 exports.PLAN_NAMES = PLAN_NAMES;
 
 const SHAPE_PLAN = _propTypes.default.shape({

@@ -57,7 +57,7 @@ const D_EVENT_1 = {
   },
   kind: 1,
   categoryIds: [],
-  guests: [D_GUEST_1],
+  guests: [D_GUEST_1, D_GUEST_1, D_GUEST_1, D_GUEST_1, D_GUEST_1, D_GUEST_1, D_GUEST_1, D_GUEST_1, D_GUEST_1, D_GUEST_1],
   registration: D_REGISTRATION,
   tickets: null
 };

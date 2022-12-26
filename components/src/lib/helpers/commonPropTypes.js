@@ -75,7 +75,7 @@ export const SHAPE_REGISTRATION = PropTypes.shape({
 
 export const TICKET_BILLING_CYCLE_TYPES = [ 'Weekly', 'Monthly', 'Yearly' ]
 
-export const PLAN_NAMES = [ '', 'starter', 'pro', 'bussiness' ]
+export const PLAN_NAMES = [ '', 'starter', 'pro', 'business' ]
 
 export const SHAPE_PLAN = PropTypes.shape({
     cycle: PropTypes.oneOf(TICKET_BILLING_CYCLE_TYPES),

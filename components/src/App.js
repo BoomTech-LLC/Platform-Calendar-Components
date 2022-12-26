@@ -273,7 +273,7 @@ function App() {
       /> */}
 
       <hr />
-      {/* <RegistrationButton
+      <RegistrationButton
         cid={'123'}
         uid={'123'}
         text={'Pele'}
@@ -281,12 +281,13 @@ function App() {
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
         disabledBg='lightgreen'
+        planName=''
       />
       <GuestLimit
         foreword='Guests'
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
-      /> */}
+      />
       {/* <DateBox
         start='2022-09-12'
         end='2022-09-12'
