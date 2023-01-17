@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./main.module.css";
-import "../assets/styles/icons.css";
 import {
   ADD_SHARE_ICONS_CONSTRUCTOR,
   SYNCED_EVENT_KINDS,
