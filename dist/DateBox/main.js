@@ -15,69 +15,62 @@ var _TimeBox = _interopRequireDefault(require("./timeBox/TimeBox"));
 
 var _OneLineDateBox = _interopRequireDefault(require("./oneLineDateBox/OneLineDateBox"));
 
+var _globalStyles = _interopRequireDefault(require("../assets/styles/globalStyles"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const DateBox = _ref => {
   let {
     start,
-    end = "9999-12-12",
-    locale = "en",
+    end = '9999-12-12',
+    locale = 'en',
     showIcons = true,
-    dateFormat = "DD/MM/YYYY",
-    timeFormat = "am/pm",
+    dateFormat = 'DD/MM/YYYY',
+    timeFormat = 'am/pm',
     allDay = true,
     showTimeZone = false,
-    timeZone = "",
+    timeZone = '',
     wrapperCustomClassNames = [],
     agenda = false,
-    type = "dateBox",
-    allDayText = "All Day",
+    type = 'dateBox',
+    allDayText = 'All Day',
     oneLine = false,
-    direction = "row",
+    direction = 'row',
     startDateOnly = false,
     ticketEnabled = false
   } = _ref;
-
-  if (type === "timeBox") {
-    return /*#__PURE__*/_react.default.createElement(_TimeBox.default, {
-      start: start,
-      end: end,
-      locale: locale,
-      showIcons: showIcons,
-      dateFormat: dateFormat,
-      timeFormat: timeFormat,
-      allDay: allDay,
-      showTimeZone: showTimeZone,
-      timeZone: timeZone,
-      wrapperCustomClassNames: wrapperCustomClassNames,
-      agenda: agenda,
-      allDayText: allDayText,
-      oneLine: oneLine,
-      startDateOnly: startDateOnly,
-      ticketEnabled: ticketEnabled
-    });
-  }
-
-  if (type === "oneLineDateBox") {
-    return /*#__PURE__*/_react.default.createElement(_OneLineDateBox.default, {
-      start: start,
-      end: end,
-      locale: locale,
-      showIcons: showIcons,
-      timeFormat: timeFormat,
-      dateFormat: dateFormat,
-      allDay: allDay,
-      wrapperCustomClassNames: wrapperCustomClassNames
-    });
-  }
-
-  return /*#__PURE__*/_react.default.createElement(_DateBox.default, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), type === 'timeBox' ? /*#__PURE__*/_react.default.createElement(_TimeBox.default, {
+    start: start,
+    end: end,
+    locale: locale,
+    showIcons: showIcons,
+    dateFormat: dateFormat,
+    timeFormat: timeFormat,
+    allDay: allDay,
+    showTimeZone: showTimeZone,
+    timeZone: timeZone,
+    wrapperCustomClassNames: wrapperCustomClassNames,
+    agenda: agenda,
+    allDayText: allDayText,
+    oneLine: oneLine,
+    startDateOnly: startDateOnly,
+    ticketEnabled: ticketEnabled
+  }) : type === 'oneLineDateBox' ? /*#__PURE__*/_react.default.createElement(_OneLineDateBox.default, {
+    start: start,
+    end: end,
+    locale: locale,
+    showIcons: showIcons,
+    timeFormat: timeFormat,
+    dateFormat: dateFormat,
+    allDay: allDay,
+    wrapperCustomClassNames: wrapperCustomClassNames
+  }) : /*#__PURE__*/_react.default.createElement(_DateBox.default, {
     start: start,
     end: end,
     locale: locale,
     wrapperCustomClassNames: wrapperCustomClassNames,
     direction: direction
-  });
+  }));
 };
 
 DateBox.propTypes = {

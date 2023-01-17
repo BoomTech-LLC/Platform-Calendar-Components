@@ -19,6 +19,8 @@ var _ticket = require("./../helpers/ticket");
 
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
 
+var _globalStyles = _interopRequireDefault(require("../assets/styles/globalStyles"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const TicketPrice = _ref => {
@@ -37,7 +39,7 @@ const TicketPrice = _ref => {
   });
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames])
-  }, showIcon && /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), showIcon && /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-ticket"
   }), /*#__PURE__*/_react.default.createElement("div", null, priceRange));
 };

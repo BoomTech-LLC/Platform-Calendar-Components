@@ -19,6 +19,8 @@ var _commonPropTypes = require("../helpers/commonPropTypes");
 
 var _location = require("../helpers/location");
 
+var _globalStyles = _interopRequireDefault(require("../assets/styles/globalStyles"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const Location = _ref => {
@@ -39,7 +41,7 @@ const Location = _ref => {
   } = (0, _location.getLocationOptions)(data, tbdText);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)])
-  }, showIcon && /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), showIcon && /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-location"
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.line_breaker, elipsis ? _mainModule.default.text_elipsis : ''])

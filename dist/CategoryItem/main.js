@@ -5,19 +5,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("core-js/modules/web.dom-collections.iterator.js");
-
 var _react = _interopRequireDefault(require("react"));
-
-var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
-require("../assets/styles/icons.css");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _commons = require("../helpers/commons");
 
 var _commonPropTypes = require("../helpers/commonPropTypes");
+
+var _globalStyles = _interopRequireDefault(require("../assets/styles/globalStyles"));
+
+var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32,12 +30,12 @@ const CategoryItem = props => {
     wrapperCustomClassNames = []
   } = props;
   if (!id) return null;
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_styles.Wrapper, {
     style: {
       color
     },
-    className: (0, _commons.combineClassNames)([_mainModule.default.category_item, ...wrapperCustomClassNames])
-  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: (0, _commons.combineClassNames)(wrapperCustomClassNames)
+  }, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), /*#__PURE__*/_react.default.createElement("span", {
     className: "icon-tag"
   }), /*#__PURE__*/_react.default.createElement("span", null, name));
 };

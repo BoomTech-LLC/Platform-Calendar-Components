@@ -25,6 +25,8 @@ var _Location = _interopRequireDefault(require("./../Location"));
 
 var _commonPropTypes = require("../helpers/commonPropTypes");
 
+var _globalStyles = _interopRequireDefault(require("../assets/styles/globalStyles"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -55,7 +57,7 @@ const ListedDetails = _ref => {
     style: {
       gap: rowSpace
     }
-  }, /*#__PURE__*/_react.default.createElement("h3", {
+  }, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), /*#__PURE__*/_react.default.createElement("h3", {
     className: titleBorderHidden ? '' : _mainModule.default.bordered
   }, title), Object.entries(parsedValues).map(val => {
     const itemKey = "listed-details-".concat(id, "-").concat(val[0], "}");

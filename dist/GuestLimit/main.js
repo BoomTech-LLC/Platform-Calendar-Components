@@ -19,6 +19,8 @@ var _commonPropTypes = require("../helpers/commonPropTypes");
 
 var _registration = require("../helpers/registration");
 
+var _globalStyles = _interopRequireDefault(require("../assets/styles/globalStyles"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const GuestLimit = _ref => {
@@ -44,7 +46,7 @@ const GuestLimit = _ref => {
   } = guestsOptions;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.guest_limit_parent, ...wrapperCustomClassNames])
-  }, showIcon && /*#__PURE__*/_react.default.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), showIcon && /*#__PURE__*/_react.default.createElement("span", {
     className: "icon-guests"
   }), /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", "".concat(count, " / ").concat(limit)));
 };
