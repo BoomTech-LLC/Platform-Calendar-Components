@@ -1,0 +1,29 @@
+{
+	"semi": true,
+	"useTabs": true,
+	"printWidth": 100,
+	"jsxSingleQuote": true,
+	"trailingComma": "none",
+	"bracketSpacing": true,
+	"bracketSameLine": false,
+	"arrowParens": "always",
+	"singleAttributePerLine": true,
+	"importOrder": [
+		"^react(.*)",
+		"@fullcalendar/react",
+		"<THIRD_PARTY_MODULES>",
+		"^api/(.*)$",
+		"^store/(.*)$",
+		"^hooks/(.*)$",
+		"^helpers/(.*)$",
+		"^pages/(.*)$",
+		"^components/(.*)$",
+		"^lib/(.*)$",
+		"^assets/(.*)$",
+		"^(.*)css$"
+	],
+	"singleQuote": true,
+	"quoteProps": "consistent",
+	"importOrderSeparation": false,
+	"tabWidth": 4
+}

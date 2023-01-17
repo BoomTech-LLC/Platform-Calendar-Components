@@ -1,6 +1,6 @@
 {
   "name": "boom-components",
-  "version": "3.4.7",
+  "version": "3.4.8",
   "main": "./dist/index.js",
   "module": "./components/src/lib/index.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "react-scripts": "4.0.3"
   },
   "dependencies": {
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "styled-components": "^5.3.6"
   }
 }
