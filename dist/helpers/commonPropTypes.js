@@ -117,69 +117,84 @@ const SHAPE_CURRENCY = _propTypes.default.shape({
 exports.SHAPE_CURRENCY = SHAPE_CURRENCY;
 const CURRENCY_TYPES = [{
   id: 0,
-  value: '$ Dollars',
+  value: '$ Dollar',
   code: 'USD',
   symbol: '$'
 }, {
   id: 1,
+  value: '$ Australian Dollar',
+  code: 'AUD',
+  symbol: '$'
+}, {
+  id: 2,
   value: '฿ Baht',
   code: 'THB',
   symbol: '฿'
 }, {
-  id: 2,
+  id: 3,
+  value: 'DKK Danish Krone',
+  code: 'DKK',
+  symbol: 'DKK'
+}, {
+  id: 4,
   value: '€ Euros',
   code: 'EUR',
   symbol: '€'
 }, {
-  id: 3,
+  id: 5,
   value: 'Ft Forint',
   code: 'HUF',
   symbol: 'Ft'
 }, {
-  id: 4,
+  id: 6,
   value: 'CHF Francs',
   code: 'CHF',
   symbol: 'CHF'
 }, {
-  id: 5,
+  id: 7,
+  value: '¥ Japanese Yen',
+  code: 'JPY',
+  symbol: '¥'
+}, {
+  id: 8,
   value: 'Kč Koruna',
   code: 'CZK',
   symbol: 'Kč'
 }, {
-  id: 6,
+  id: 9,
   value: 'kr Krona',
   code: 'SEK',
   symbol: 'kr'
 }, {
-  id: 7,
+  id: 10,
   value: '$ Mexican Pesos',
   code: 'MXN',
   symbol: '$'
 }, {
-  id: 8,
+  id: 11,
   value: '£ Pounds Sterling',
   code: 'GBP',
   symbol: '£'
 }, {
-  id: 9,
+  id: 12,
   value: 'RM Ringgit',
   code: 'MYR',
   symbol: 'RM'
-}, {
-  id: 10,
-  value: '₪ Shekel',
-  code: 'ILS',
-  symbol: '₪'
-}, {
-  id: 11,
-  value: 'zł Zloty',
-  code: 'PLN',
-  symbol: 'zł'
 }, {
   id: 13,
   value: '₹ Rupee',
   code: 'INR',
   symbol: '₹'
+}, {
+  id: 14,
+  value: '₪ Shekel',
+  code: 'ILS',
+  symbol: '₪'
+}, {
+  id: 15,
+  value: 'zł Zloty',
+  code: 'PLN',
+  symbol: 'zł'
 }];
 exports.CURRENCY_TYPES = CURRENCY_TYPES;
 const TICKET_TYPES = ['Ticket', 'Plan', 'Donation'];
