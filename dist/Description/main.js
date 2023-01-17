@@ -5,21 +5,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("core-js/modules/es.symbol.description.js");
-
 require("core-js/modules/web.dom-collections.iterator.js");
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _htmlReactParser = _interopRequireDefault(require("html-react-parser"));
 
-var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 var _commons = require("../helpers/commons");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _commonPropTypes = require("../helpers/commonPropTypes");
+
+var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35,13 +33,9 @@ const Description = _ref => {
   } = _ref;
   const descriptionNode = (0, _react.useMemo)(() => (0, _htmlReactParser.default)(children), [children]);
   if (!children) return null;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.description, ...wrapperCustomClassNames])
-  }, title && /*#__PURE__*/_react.default.createElement("h3", {
-    className: _mainModule.default.description_title
-  }, title), descriptionNode && /*#__PURE__*/_react.default.createElement("p", {
-    className: _mainModule.default.description_text
-  }, descriptionNode));
+  return /*#__PURE__*/_react.default.createElement(_styles.Wrapper, {
+    className: (0, _commons.combineClassNames)([...wrapperCustomClassNames])
+  }, title && /*#__PURE__*/_react.default.createElement(_styles.Title, null, title), descriptionNode && /*#__PURE__*/_react.default.createElement(Text, null, descriptionNode));
 };
 
 Description.propTypes = {

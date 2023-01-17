@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import parse from 'html-react-parser';
-import styles from './main.module.css';
 import { combineClassNames } from '../helpers/commons';
 import PropTypes from 'prop-types';
 import { PT_CLASSNAMES } from '../helpers/commonPropTypes';
+import { Title, Wrapper } from './styles';
 
 const Description = ({ title, children, wrapperCustomClassNames = [] }) => {
 	const descriptionNode = useMemo(() => parse(children), [children]);
@@ -11,10 +11,10 @@ const Description = ({ title, children, wrapperCustomClassNames = [] }) => {
 	if (!children) return null;
 
 	return (
-		<div className={combineClassNames([styles.description, ...wrapperCustomClassNames])}>
-			{title && <h3 className={styles.description_title}>{title}</h3>}
-			{descriptionNode && <p className={styles.description_text}>{descriptionNode}</p>}
-		</div>
+		<Wrapper className={combineClassNames([...wrapperCustomClassNames])}>
+			{title && <Title>{title}</Title>}
+			{descriptionNode && <Text>{descriptionNode}</Text>}
+		</Wrapper>
 	);
 };
 
