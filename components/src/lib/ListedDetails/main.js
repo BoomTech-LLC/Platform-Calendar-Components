@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import styles from './main.module.css';
-import '../assets/styles/icons.css';
 import PropTypes from 'prop-types';
 import {
 	combineClassNames,
