@@ -4,6 +4,7 @@ import StartTimeRow from './StartTimeRow';
 import EndTimeRow from './EndTimeRow';
 import { formatDate, formatTime } from '../../helpers/dateBox';
 import { combineClassNames } from '../../helpers/commons';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
 	display: flex;

@@ -5,17 +5,17 @@ import NameOfFontTtf from './../fonts/icomoon.ttf';
 import NameOfFontSvg from './../fonts/icomoon.svg';
 
 const GlobalStyle = createGlobalStyle`
-    @font-face {
-        font-family: 'icomoon';
-        src:  url('${NameOfFontEot}');
-        src:  url('${NameOfFontEot}') format('embedded-opentype'),
+@font-face {
+    font-family: 'icomoon';
+    src: url('${NameOfFontEot}');
+    src: url('${NameOfFontEot}') format('embedded-opentype'),
         url('${NameOfFontTtf}') format('truetype'),
         url('${NameOfFontWoff}') format('woff'),
         url('${NameOfFontSvg}') format('svg');
-        font-weight: normal;
-        font-style: normal;
-        font-display: block;
-    }
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
     
     [class^="icon-"], [class*=" icon-"] {
         /* use !important to prevent issues with browser extensions that change fonts */
