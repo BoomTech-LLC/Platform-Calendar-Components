@@ -7,8 +7,6 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _dateBox = require("../helpers/dateBox");

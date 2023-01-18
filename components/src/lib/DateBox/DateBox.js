@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './main.module.css';
 import PropTypes from 'prop-types';
 import { getDateForDateBox } from '../helpers/dateBox';
 import { combineClassNames } from '../helpers/commons';
