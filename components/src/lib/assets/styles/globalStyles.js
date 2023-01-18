@@ -1,13 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
+import NameOfFontEot from './../fonts/icomoon.eot';
+import NameOfFontWoff from './../fonts/icomoon.woff';
+import NameOfFontTtf from './../fonts/icomoon.ttf';
+import NameOfFontSvg from './../fonts/icomoon.svg';
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: 'icomoon';
-        src:  url('../fonts/icomoon.eot?8k8pqj');
-        src:  url('../fonts/icomoon.eot?8k8pqj#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?8k8pqj') format('truetype'),
-        url('../fonts/icomoon.woff?8k8pqj') format('woff'),
-        url('../fonts/icomoon.svg?8k8pqj#icomoon') format('svg');
+        src:  url('${NameOfFontEot}');
+        src:  url('${NameOfFontEot}') format('embedded-opentype'),
+        url('${NameOfFontTtf}') format('truetype'),
+        url('${NameOfFontWoff}') format('woff'),
+        url('${NameOfFontSvg}') format('svg');
         font-weight: normal;
         font-style: normal;
         font-display: block;

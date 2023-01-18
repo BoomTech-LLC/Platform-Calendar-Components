@@ -11,8 +11,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 var _commons = require("./../helpers/commons");
 
 var _commonPropTypes = require("../helpers/commonPropTypes");
@@ -20,6 +18,8 @@ var _commonPropTypes = require("../helpers/commonPropTypes");
 var _registration = require("../helpers/registration");
 
 var _constants = require("../helpers/constants");
+
+var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53,9 +53,9 @@ const RegistrationButton = _ref => {
   const limitByPlan = _constants.APP_LIMITATIONS[planName][hasTickets ? 'tickets' : 'guests'];
   const disabled = typeof limit !== 'string' && (count >= limit || limitByPlan && count >= limitByPlan);
   console.log(limitByPlan, count, hasTickets, planName);
-  return /*#__PURE__*/_react.default.createElement("button", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.register_button, ...wrapperCustomClassNames, disabled ? disabledClassName : null]),
+  return /*#__PURE__*/_react.default.createElement(_styles.Button, {
     disabled: disabled,
+    className: (0, _commons.combineClassNames)([...wrapperCustomClassNames, disabled ? disabledClassName : null]),
     onClick: () => window.open(url, '_blank')
   }, text);
 };

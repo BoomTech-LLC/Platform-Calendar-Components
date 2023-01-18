@@ -11,9 +11,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _error = _interopRequireDefault(require("./../assets/images/error.png"));
 
-var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
-var _commons = require("../helpers/commons");
+var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,13 +20,9 @@ const ErrorPage = _ref => {
     title = 'Oops! Something went wrong',
     pageCover = false
   } = _ref;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.container, pageCover ? _mainModule.default.page_cover : ''])
-  }, /*#__PURE__*/_react.default.createElement("h1", {
-    className: _mainModule.default.title
-  }, title), /*#__PURE__*/_react.default.createElement("div", {
-    className: _mainModule.default.image_wrapper
-  }, /*#__PURE__*/_react.default.createElement("img", {
+  return /*#__PURE__*/_react.default.createElement(_styles.Wrapper, {
+    pageCover: pageCover
+  }, /*#__PURE__*/_react.default.createElement(_styles.Title, null, title), /*#__PURE__*/_react.default.createElement(_styles.ImageWrapper, null, /*#__PURE__*/_react.default.createElement("img", {
     src: _error.default
   })));
 };

@@ -11,8 +11,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 var _commons = require("../helpers/commons");
 
 var _commonPropTypes = require("../helpers/commonPropTypes");
@@ -20,6 +18,8 @@ var _commonPropTypes = require("../helpers/commonPropTypes");
 var _location = require("../helpers/location");
 
 var _globalStyles = _interopRequireDefault(require("../assets/styles/globalStyles"));
+
+var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39,12 +39,12 @@ const Location = _ref => {
     value,
     href
   } = (0, _location.getLocationOptions)(data, tbdText);
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)])
+  return /*#__PURE__*/_react.default.createElement(_styles.Wrapper, {
+    className: (0, _commons.combineClassNames)([...wrapperCustomClassNames, ...(isLink ? linkCustomClassNames : textCustomClassNames)])
   }, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), showIcon && /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-location"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.line_breaker, elipsis ? _mainModule.default.text_elipsis : ''])
+  }), /*#__PURE__*/_react.default.createElement(_styles.LineBraker, {
+    elipsis: elipsis
   }, isLink ? /*#__PURE__*/_react.default.createElement("a", {
     href: href,
     target: "_blank",

@@ -11,8 +11,6 @@ require("core-js/modules/web.dom-collections.iterator.js");
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _commons = require("../helpers/commons");
@@ -24,6 +22,8 @@ var _Location = _interopRequireDefault(require("./../Location"));
 var _commonPropTypes = require("../helpers/commonPropTypes");
 
 var _globalStyles = _interopRequireDefault(require("../assets/styles/globalStyles"));
+
+var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -50,13 +50,13 @@ const ListedDetails = _ref => {
     return _constants.LISTED_DETAILS_CONSTRUCTOR[key] && value;
   });
   if (!values || (0, _commons.isObjectEmpty)(parsedValues) || !hasAcceptableValues) return null;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.listed_details_block, ...wrapperCustomClassNames]),
+  return /*#__PURE__*/_react.default.createElement(_styles.Wrapper, {
+    className: (0, _commons.combineClassNames)(wrapperCustomClassNames),
     style: {
       gap: rowSpace
     }
-  }, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), /*#__PURE__*/_react.default.createElement("h3", {
-    className: titleBorderHidden ? '' : _mainModule.default.bordered
+  }, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), /*#__PURE__*/_react.default.createElement(_styles.SectionTitle, {
+    titleBorderHidden: titleBorderHidden
   }, title), Object.entries(parsedValues).map(val => {
     const itemKey = "listed-details-".concat(id, "-").concat(val[0], "}");
     if (val[0] === 'location') return /*#__PURE__*/_react.default.createElement(_Location.default, _extends({
@@ -83,8 +83,8 @@ const DetailsItem = _ref3 => {
     template,
     rowCustomClassNames
   } = _ref3;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.listed_details_row, ...rowCustomClassNames])
+  return /*#__PURE__*/_react.default.createElement(_styles.WrapperRows, {
+    className: (0, _commons.combineClassNames)(rowCustomClassNames)
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: 'icon-' + template.iconName
   }), /*#__PURE__*/_react.default.createElement("div", null, !(0, _commons.isDefined)(template.preposition) ? /*#__PURE__*/_react.default.createElement("div", null, value) : /*#__PURE__*/_react.default.createElement("a", {

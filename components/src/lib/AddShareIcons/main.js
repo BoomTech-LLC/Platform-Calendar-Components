@@ -4,8 +4,8 @@ import { ADD_SHARE_ICONS_CONSTRUCTOR, SYNCED_EVENT_KINDS } from '../helpers/cons
 import { combineClassNames } from '../helpers/commons';
 import { PT_CLASSNAMES } from '../helpers/commonPropTypes';
 import AddShareIconsRow from './addShareIconsRow/AddShareIconsRow';
-import {RowsWrapper, SectionTitle, Divider} from './styles'
-
+import { RowsWrapper, SectionTitle, Divider } from './styles';
+import GlobalStyle from '../assets/styles/globalStyles';
 
 export default function AddShareIcons({
 	title = ADD_SHARE_ICONS_CONSTRUCTOR.TITLE,
@@ -33,6 +33,7 @@ export default function AddShareIcons({
 
 	return (
 		<div className={combineClassNames(wrapperCustomClassNames)}>
+			<GlobalStyle />
 			<SectionTitle
 				titleBorderHidden={titleBorderHidden}
 				className={combineClassNames(titleCustomClassNames)}

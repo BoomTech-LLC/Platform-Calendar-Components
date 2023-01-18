@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("core-js/modules/web.dom-collections.iterator.js");
-
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
@@ -17,9 +15,9 @@ var _commons = require("./../helpers/commons");
 
 var _ticket = require("./../helpers/ticket");
 
-var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 var _globalStyles = _interopRequireDefault(require("../assets/styles/globalStyles"));
+
+var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37,8 +35,8 @@ const TicketPrice = _ref => {
     currency,
     priceFormat
   });
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames])
+  return /*#__PURE__*/_react.default.createElement(_styles.Wrapper, {
+    className: (0, _commons.combineClassNames)(wrapperCustomClassNames)
   }, /*#__PURE__*/_react.default.createElement(_globalStyles.default, null), showIcon && /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-ticket"
   }), /*#__PURE__*/_react.default.createElement("div", null, priceRange));

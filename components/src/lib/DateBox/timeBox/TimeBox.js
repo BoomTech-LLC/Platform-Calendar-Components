@@ -1,10 +1,15 @@
 import React from 'react';
-import styles from './../main.module.css';
 import PropTypes from 'prop-types';
 import StartTimeRow from './StartTimeRow';
 import EndTimeRow from './EndTimeRow';
 import { formatDate, formatTime } from '../../helpers/dateBox';
 import { combineClassNames } from '../../helpers/commons';
+
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+`;
 
 const TimeBox = ({
 	start,
@@ -28,7 +33,7 @@ const TimeBox = ({
 	const datesEqual = startDate === endDate;
 
 	return (
-		<div className={combineClassNames([...wrapperCustomClassNames, styles.timebox_wrapper])}>
+		<Wrapper className={combineClassNames(wrapperCustomClassNames)}>
 			<StartTimeRow
 				showIcons={showIcons}
 				datesEqual={datesEqual}
@@ -50,7 +55,7 @@ const TimeBox = ({
 				agenda={agenda}
 				allDayText={allDayText}
 			/>
-		</div>
+		</Wrapper>
 	);
 };
 TimeBox.propTypes = {

@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './main.module.css';
 import { combineClassNames } from './../helpers/commons';
 import {
 	PT_CLASSNAMES,
 	SHAPE_EVENT,
 	SHAPE_REGISTRATION,
-	SHAPE_TICKETS
 } from '../helpers/commonPropTypes';
 import { getGuestsOptions, getShowRegistrationButtonStatus } from '../helpers/registration';
 import GlobalStyle from '../assets/styles/globalStyles';
+import { Wrapper } from './styles';
 
 const GuestLimit = ({
 	foreword = 'Guests Limit',
@@ -33,13 +32,13 @@ const GuestLimit = ({
 	const { count, limit } = guestsOptions;
 
 	return (
-		<div className={combineClassNames([styles.guest_limit_parent, ...wrapperCustomClassNames])}>
+		<Wrapper className={combineClassNames(wrapperCustomClassNames)}>
 			<GlobalStyle />
 			{showIcon && <span className='icon-guests' />}
 			<p>
 				{foreword}: {`${count} / ${limit}`}
 			</p>
-		</div>
+		</Wrapper>
 	);
 };
 

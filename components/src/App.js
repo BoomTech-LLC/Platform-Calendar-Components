@@ -237,7 +237,7 @@ function App() {
 			{/* <ListedDetails
           title='title' 
           id={'id'}
-          // title={'venueTitle'}
+          title={'venueTitle'}
           values = {
             {
               name: "Organizer name",
@@ -348,14 +348,14 @@ function App() {
           },
         ]}
       /> */}
-			{/* <div style={{ height: 150, width: 150 }}>
+			<div style={{ height: 150, width: 150 }}>
         <BlurryLoadableImg
           //url={'https://drive.google.com/uc?id=1a2F01bYsAl1-33f19W0wqmXrEeljxuc3'}
           url={'https://static.wixstatic.com/media/02a1a0_003f068898e74254b5eff90f8e0ae71d~mv2.jpeg'}
           color={"red"}
           title={'title'}
         />
-      </div> */}
+      </div>
 			{/* <TicketPrice
         tickets={test_tickets}
         currency={CURRENCY_TYPES[0]}

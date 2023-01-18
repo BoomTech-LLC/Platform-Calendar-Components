@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './main.module.css';
 import { combineClassNames } from '../helpers/commons';
 import { PT_CLASSNAMES, SHAPE_LOCATION } from '../helpers/commonPropTypes';
 import { getLocationOptions } from '../helpers/location';
 import GlobalStyle from '../assets/styles/globalStyles';
+import { LineBraker, Wrapper } from './styles';
+
 
 const Location = ({
 	data,
@@ -19,22 +20,17 @@ const Location = ({
 
 	const { isLink, value, href } = getLocationOptions(data, tbdText);
 
+	
 	return (
-		<div
+		<Wrapper
 			className={combineClassNames([
-				styles.wrapper,
 				...wrapperCustomClassNames,
 				...(isLink ? linkCustomClassNames : textCustomClassNames)
 			])}
 		>
 			<GlobalStyle />
 			{showIcon && <div className='icon-location' />}
-			<div
-				className={combineClassNames([
-					styles.line_breaker,
-					elipsis ? styles.text_elipsis : ''
-				])}
-			>
+			<LineBraker elipsis={elipsis}>
 				{isLink ? (
 					<a
 						href={href}
@@ -46,8 +42,8 @@ const Location = ({
 				) : (
 					<>{value}</>
 				)}
-			</div>
-		</div>
+			</LineBraker>
+		</Wrapper>
 	);
 };
 

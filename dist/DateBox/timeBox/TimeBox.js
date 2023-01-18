@@ -5,11 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("core-js/modules/web.dom-collections.iterator.js");
-
 var _react = _interopRequireDefault(require("react"));
-
-var _mainModule = _interopRequireDefault(require("./../main.module.css"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -21,7 +17,13 @@ var _dateBox = require("../../helpers/dateBox");
 
 var _commons = require("../../helpers/commons");
 
+var _templateObject;
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+const Wrapper = styled.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tflex-direction: column;\n\tgap: 0.25rem;\n"])));
 
 const TimeBox = _ref => {
   let {
@@ -50,8 +52,8 @@ const TimeBox = _ref => {
   } = (0, _dateBox.formatTime)(start, end, timeFormat, allDay, locale);
   const timeZoneToShow = allDay || !showTimeZone ? '' : timeZone;
   const datesEqual = startDate === endDate;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([...wrapperCustomClassNames, _mainModule.default.timebox_wrapper])
+  return /*#__PURE__*/_react.default.createElement(Wrapper, {
+    className: (0, _commons.combineClassNames)(wrapperCustomClassNames)
   }, /*#__PURE__*/_react.default.createElement(_StartTimeRow.default, {
     showIcons: showIcons,
     datesEqual: datesEqual,

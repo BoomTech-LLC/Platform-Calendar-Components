@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import styles from './main.module.css';
 import PropTypes from 'prop-types';
 import {
 	combineClassNames,
@@ -12,6 +11,7 @@ import { LISTED_DETAILS_CONSTRUCTOR } from '../helpers/constants';
 import Location from './../Location';
 import { PT_CLASSNAMES } from '../helpers/commonPropTypes';
 import GlobalStyle from '../assets/styles/globalStyles';
+import { SectionTitle, Wrapper, WrapperRows } from './styles';
 
 const ListedDetails = ({
 	id,
@@ -31,12 +31,12 @@ const ListedDetails = ({
 	if (!values || isObjectEmpty(parsedValues) || !hasAcceptableValues) return null;
 
 	return (
-		<div
-			className={combineClassNames([styles.listed_details_block, ...wrapperCustomClassNames])}
+		<Wrapper
+			className={combineClassNames(wrapperCustomClassNames)}
 			style={{ gap: rowSpace }}
 		>
 			<GlobalStyle />
-			<h3 className={titleBorderHidden ? '' : styles.bordered}>{title}</h3>
+			<SectionTitle titleBorderHidden={titleBorderHidden}>{title}</SectionTitle>
 			{Object.entries(parsedValues).map((val) => {
 				const itemKey = `listed-details-${id}-${val[0]}}`;
 				if (val[0] === 'location')
@@ -68,13 +68,13 @@ const ListedDetails = ({
 					/>
 				);
 			})}
-		</div>
+		</Wrapper>
 	);
 };
 
 const DetailsItem = ({ value, template, rowCustomClassNames }) => {
 	return (
-		<div className={combineClassNames([styles.listed_details_row, ...rowCustomClassNames])}>
+		<WrapperRows className={combineClassNames(rowCustomClassNames)}>
 			<div className={'icon-' + template.iconName}></div>
 			<div>
 				{!isDefined(template.preposition) ? (
@@ -90,7 +90,7 @@ const DetailsItem = ({ value, template, rowCustomClassNames }) => {
 					</a>
 				)}
 			</div>
-		</div>
+		</WrapperRows>
 	);
 };
 

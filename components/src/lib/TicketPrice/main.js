@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { PT_CLASSNAMES, SHAPE_CURRENCY, SHAPE_TICKETS } from '../helpers/commonPropTypes';
 import { combineClassNames } from './../helpers/commons';
 import { calculateTicketsPriceRange } from './../helpers/ticket';
-import styles from './main.module.css';
 import GlobalStyle from '../assets/styles/globalStyles';
+import { Wrapper } from './styles';
 
 const TicketPrice = ({
 	tickets,
@@ -18,11 +18,11 @@ const TicketPrice = ({
 	const priceRange = calculateTicketsPriceRange({ tickets, currency, priceFormat });
 
 	return (
-		<div className={combineClassNames([styles.wrapper, ...wrapperCustomClassNames])}>
+		<Wrapper className={combineClassNames(wrapperCustomClassNames)}>
 			<GlobalStyle />
 			{showIcon && <div className='icon-ticket' />}
 			<div>{priceRange}</div>
-		</div>
+		</Wrapper>
 	);
 };
 
