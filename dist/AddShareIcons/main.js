@@ -13,15 +13,15 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 var _constants = require("../helpers/constants");
 
 var _commons = require("../helpers/commons");
 
-var _addShare = require("../helpers/addShare");
-
 var _commonPropTypes = require("../helpers/commonPropTypes");
+
+var _AddShareIconsRow = _interopRequireDefault(require("./addShareIconsRow/AddShareIconsRow"));
+
+var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -47,25 +47,25 @@ function AddShareIcons(_ref) {
     titleCustomClassNames = [],
     contentCustomClassNames = [],
     copyTooltipCustomClassNames = [],
-    order = "vertical",
+    order = 'vertical',
     isMobile
   } = _ref;
   const [copyTooltipText, setCopyTooltipText] = (0, _react.useState)(copyActionTooltipText);
   if (hideAddToIcons && hideShareIcons) return null;
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.add_share_icons_block, _mainModule.default[order], ...wrapperCustomClassNames])
-  }, /*#__PURE__*/_react.default.createElement("h3", {
-    className: (0, _commons.combineClassNames)([titleBorderHidden ? "" : _mainModule.default.bordered, ...titleCustomClassNames])
-  }, title), /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default[order], ...contentCustomClassNames])
-  }, !hideAddToIcons && /*#__PURE__*/_react.default.createElement(AddShareIconsRow, {
+    className: (0, _commons.combineClassNames)(wrapperCustomClassNames)
+  }, /*#__PURE__*/_react.default.createElement(_styles.SectionTitle, {
+    titleBorderHidden: titleBorderHidden,
+    className: (0, _commons.combineClassNames)(titleCustomClassNames)
+  }, title), /*#__PURE__*/_react.default.createElement(_styles.RowsWrapper, {
+    order: order,
+    className: (0, _commons.combineClassNames)(contentCustomClassNames)
+  }, !hideAddToIcons && /*#__PURE__*/_react.default.createElement(_AddShareIconsRow.default, {
     constructor: _constants.ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS,
     sectionName: addToSectionName,
     event: event,
     rowId: _constants.ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS.rowId
-  }), order === "horizontal" && /*#__PURE__*/_react.default.createElement("div", {
-    className: _mainModule.default.horizontal_divider
-  }), !hideShareIcons && !_constants.SYNCED_EVENT_KINDS.includes(event.kind) && /*#__PURE__*/_react.default.createElement(AddShareIconsRow, {
+  }), order === 'horizontal' && /*#__PURE__*/_react.default.createElement(_styles.Divider, null), !hideShareIcons && !_constants.SYNCED_EVENT_KINDS.includes(event.kind) && /*#__PURE__*/_react.default.createElement(_AddShareIconsRow.default, {
     comp_id: comp_id,
     instance: instance,
     sectionName: shareSectionName,
@@ -81,49 +81,6 @@ function AddShareIcons(_ref) {
     isMobile: isMobile
   })));
 }
-
-const AddShareIconsRow = _ref2 => {
-  let {
-    comp_id,
-    constructor,
-    rowId,
-    sectionName,
-    event,
-    setCopyTooltipText,
-    boomEventUrlBase,
-    copiedTooltipText,
-    copyTooltipText,
-    copyActionTooltipText,
-    copyTooltipCustomClassNames,
-    isMobile
-  } = _ref2;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: _mainModule.default.add_share_icons_row
-  }, /*#__PURE__*/_react.default.createElement("div", null, sectionName), /*#__PURE__*/_react.default.createElement("div", null, constructor.icons.map(btn => {
-    const isCopyLink = btn.type === "copy";
-    return /*#__PURE__*/_react.default.createElement(_react.Fragment, {
-      key: "".concat(event.id, "-").concat(event.startDate, "-add-share-").concat(btn.type)
-    }, /*#__PURE__*/_react.default.createElement("button", {
-      className: (0, _commons.combineClassNames)(["icon-" + btn.type, isCopyLink ? _mainModule.default.hoverable : ""]),
-      onMouseOut: () => isCopyLink && setTimeout(() => setCopyTooltipText(copyActionTooltipText), 300),
-      onClick: e => {
-        if (rowId === 1) return btn.clickHandler(e, btn.type, event);
-
-        if (rowId === 2) {
-          let eventUrl = (0, _addShare.generateEventUrl)(event, boomEventUrlBase, comp_id);
-
-          if (isCopyLink) {
-            btn.clickHandler(e, setCopyTooltipText, copiedTooltipText, eventUrl);
-          } else {
-            btn.clickHandler(e, btn.type, eventUrl);
-          }
-        }
-      }
-    }), !isMobile && isCopyLink && /*#__PURE__*/_react.default.createElement("span", {
-      className: (0, _commons.combineClassNames)([_mainModule.default.copy_tooltip, ...copyTooltipCustomClassNames])
-    }, copyTooltipText));
-  })));
-};
 
 AddShareIcons.propTypes = {
   title: _propTypes.default.string,
@@ -142,5 +99,5 @@ AddShareIcons.propTypes = {
   titleCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   contentCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
   copyTooltipCustomClassNames: _commonPropTypes.PT_CLASSNAMES,
-  order: _propTypes.default.oneOf(["vertical", "horizontal"])
+  order: _propTypes.default.oneOf(['vertical', 'horizontal'])
 };

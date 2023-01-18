@@ -35,7 +35,7 @@ const Description = _ref => {
   if (!children) return null;
   return /*#__PURE__*/_react.default.createElement(_styles.Wrapper, {
     className: (0, _commons.combineClassNames)([...wrapperCustomClassNames])
-  }, title && /*#__PURE__*/_react.default.createElement(_styles.Title, null, title), descriptionNode && /*#__PURE__*/_react.default.createElement(Text, null, descriptionNode));
+  }, title && /*#__PURE__*/_react.default.createElement(_styles.Title, null, title), descriptionNode && /*#__PURE__*/_react.default.createElement(_styles.Text, null, descriptionNode));
 };
 
 Description.propTypes = {

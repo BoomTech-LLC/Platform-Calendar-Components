@@ -48,7 +48,7 @@ const TimeBox = _ref => {
     startTime,
     endTime
   } = (0, _dateBox.formatTime)(start, end, timeFormat, allDay, locale);
-  const timeZoneToShow = allDay || !showTimeZone ? "" : timeZone;
+  const timeZoneToShow = allDay || !showTimeZone ? '' : timeZone;
   const datesEqual = startDate === endDate;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([...wrapperCustomClassNames, _mainModule.default.timebox_wrapper])

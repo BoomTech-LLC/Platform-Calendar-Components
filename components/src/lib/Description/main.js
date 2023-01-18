@@ -3,7 +3,7 @@ import parse from 'html-react-parser';
 import { combineClassNames } from '../helpers/commons';
 import PropTypes from 'prop-types';
 import { PT_CLASSNAMES } from '../helpers/commonPropTypes';
-import { Title, Wrapper } from './styles';
+import { Title, Wrapper, Text } from './styles';
 
 const Description = ({ title, children, wrapperCustomClassNames = [] }) => {
 	const descriptionNode = useMemo(() => parse(children), [children]);

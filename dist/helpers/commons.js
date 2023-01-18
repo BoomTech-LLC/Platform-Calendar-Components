@@ -28,49 +28,49 @@ function combineClassNames(classNames) {
 }
 
 const encodeId = str => {
-  const id = str.split("");
+  const id = str.split('');
   let i;
 
   for (i = 0; i < id.length; i++) {
     switch (id[i]) {
-      case "1":
-        id[i] = "H9";
+      case '1':
+        id[i] = 'H9';
         break;
 
-      case "2":
-        id[i] = "A8";
+      case '2':
+        id[i] = 'A8';
         break;
 
-      case "3":
-        id[i] = "J7";
+      case '3':
+        id[i] = 'J7';
         break;
 
-      case "4":
-        id[i] = "M6";
+      case '4':
+        id[i] = 'M6';
         break;
 
-      case "5":
-        id[i] = "R5";
+      case '5':
+        id[i] = 'R5';
         break;
 
-      case "6":
-        id[i] = "O4";
+      case '6':
+        id[i] = 'O4';
         break;
 
-      case "7":
-        id[i] = "L3";
+      case '7':
+        id[i] = 'L3';
         break;
 
-      case "8":
-        id[i] = "W2";
+      case '8':
+        id[i] = 'W2';
         break;
 
-      case "9":
-        id[i] = "U1";
+      case '9':
+        id[i] = 'U1';
         break;
 
-      case "0":
-        id[i] = "K0";
+      case '0':
+        id[i] = 'K0';
         break;
 
       default:
@@ -78,7 +78,7 @@ const encodeId = str => {
   }
 
   const l = id.length;
-  const chars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  const chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
   for (i = 0; i < l * 2 + 2; i = i + Math.ceil(Math.random() * 3)) {
     id.splice(i, 0, chars[Math.ceil(Math.random() * 26)]);
