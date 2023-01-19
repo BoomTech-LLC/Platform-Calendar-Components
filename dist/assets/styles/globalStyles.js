@@ -7,13 +7,13 @@ exports.default = void 0;
 
 var _styledComponents = require("styled-components");
 
-var _icomoon = _interopRequireDefault(require("./../fonts/icomoon.eot"));
+var _icomoon = _interopRequireDefault(require("https://shahen.boomtechdev.com/calendar/fonts/icomoon.eot"));
 
-var _icomoon2 = _interopRequireDefault(require("./../fonts/icomoon.woff"));
+var _icomoon2 = _interopRequireDefault(require("https://shahen.boomtechdev.com/calendar/fonts/icomoon.woff"));
 
-var _icomoon3 = _interopRequireDefault(require("./../fonts/icomoon.ttf"));
+var _icomoon3 = _interopRequireDefault(require("https://shahen.boomtechdev.com/calendar/fonts/icomoon.ttf"));
 
-var _icomoon4 = _interopRequireDefault(require("./../fonts/icomoon.svg"));
+var _icomoon4 = _interopRequireDefault(require("https://shahen.boomtechdev.com/calendar/fonts/icomoon.svg"));
 
 var _templateObject;
 

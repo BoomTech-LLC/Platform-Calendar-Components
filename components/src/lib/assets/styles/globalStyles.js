@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-import NameOfFontEot from './../fonts/icomoon.eot';
-import NameOfFontWoff from './../fonts/icomoon.woff';
-import NameOfFontTtf from './../fonts/icomoon.ttf';
-import NameOfFontSvg from './../fonts/icomoon.svg';
+import NameOfFontEot from 'https://shahen.boomtechdev.com/calendar/fonts/icomoon.eot';
+import NameOfFontWoff from 'https://shahen.boomtechdev.com/calendar/fonts/icomoon.woff';
+import NameOfFontTtf from 'https://shahen.boomtechdev.com/calendar/fonts/icomoon.ttf';
+import NameOfFontSvg from 'https://shahen.boomtechdev.com/calendar/fonts/icomoon.svg';
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
