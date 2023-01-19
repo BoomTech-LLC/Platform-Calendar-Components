@@ -3,7 +3,7 @@ import NameOfFontEot from './../fonts/icomoon.eot';
 import NameOfFontWoff from './../fonts/icomoon.woff';
 import NameOfFontTtf from './../fonts/icomoon.ttf';
 import NameOfFontSvg from './../fonts/icomoon.svg';
-
+//
 const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: 'icomoon';
@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+    
     
     [class^="icon-"]::before, 
     [class*=" icon-"]::before{
