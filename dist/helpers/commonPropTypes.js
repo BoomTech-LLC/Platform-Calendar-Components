@@ -53,7 +53,7 @@ const SHAPE_GUEST = _propTypes.default.shape({
 exports.SHAPE_GUEST = SHAPE_GUEST;
 
 const SHAPE_LOCATION = _propTypes.default.shape({
-  type: _propTypes.default.oneOf(['physical', 'online', 'tbd']),
+  type: _propTypes.default.oneOf(["physical", "online", "tbd"]),
   values: _propTypes.default.shape({
     physical: SHAPE_PHYSICAL_LOCATION,
     online: _propTypes.default.string,
@@ -72,7 +72,7 @@ const SHAPE_ORGANIZER = _propTypes.default.shape({
 
 exports.SHAPE_ORGANIZER = SHAPE_ORGANIZER;
 
-const REGISTRATION_COUNTDOWN_OPTIONS = _propTypes.default.oneOf(['15 mins', '30 mins', '45 mins', '60 mins']);
+const REGISTRATION_COUNTDOWN_OPTIONS = _propTypes.default.oneOf(["15 mins", "30 mins", "45 mins", "60 mins"]);
 
 exports.REGISTRATION_COUNTDOWN_OPTIONS = REGISTRATION_COUNTDOWN_OPTIONS;
 
@@ -93,9 +93,9 @@ const SHAPE_REGISTRATION = _propTypes.default.shape({
 });
 
 exports.SHAPE_REGISTRATION = SHAPE_REGISTRATION;
-const TICKET_BILLING_CYCLE_TYPES = ['Weekly', 'Monthly', 'Yearly'];
+const TICKET_BILLING_CYCLE_TYPES = ["Weekly", "Monthly", "Yearly"];
 exports.TICKET_BILLING_CYCLE_TYPES = TICKET_BILLING_CYCLE_TYPES;
-const PLAN_NAMES = ['', 'starter', 'pro', 'business'];
+const PLAN_NAMES = ["", "starter", "pro", "business"];
 exports.PLAN_NAMES = PLAN_NAMES;
 
 const SHAPE_PLAN = _propTypes.default.shape({
@@ -117,78 +117,93 @@ const SHAPE_CURRENCY = _propTypes.default.shape({
 exports.SHAPE_CURRENCY = SHAPE_CURRENCY;
 const CURRENCY_TYPES = [{
   id: 0,
-  value: '$ Dollars',
-  code: 'USD',
-  symbol: '$'
+  value: "$ Dollar",
+  code: "USD",
+  symbol: "$"
 }, {
   id: 1,
-  value: '฿ Baht',
-  code: 'THB',
-  symbol: '฿'
+  value: "$ Australian Dollar",
+  code: "AUD",
+  symbol: "$"
 }, {
   id: 2,
-  value: '€ Euros',
-  code: 'EUR',
-  symbol: '€'
+  value: "฿ Baht",
+  code: "THB",
+  symbol: "฿"
 }, {
   id: 3,
-  value: 'Ft Forint',
-  code: 'HUF',
-  symbol: 'Ft'
+  value: "DKK Danish Krone",
+  code: "DKK",
+  symbol: "DKK"
 }, {
   id: 4,
-  value: 'CHF Francs',
-  code: 'CHF',
-  symbol: 'CHF'
+  value: "€ Euros",
+  code: "EUR",
+  symbol: "€"
 }, {
   id: 5,
-  value: 'Kč Koruna',
-  code: 'CZK',
-  symbol: 'Kč'
+  value: "Ft Forint",
+  code: "HUF",
+  symbol: "Ft"
 }, {
   id: 6,
-  value: 'kr Krona',
-  code: 'SEK',
-  symbol: 'kr'
+  value: "CHF Francs",
+  code: "CHF",
+  symbol: "CHF"
 }, {
   id: 7,
-  value: '$ Mexican Pesos',
-  code: 'MXN',
-  symbol: '$'
+  value: "¥ Japanese Yen",
+  code: "JPY",
+  symbol: "¥"
 }, {
   id: 8,
-  value: '£ Pounds Sterling',
-  code: 'GBP',
-  symbol: '£'
+  value: "Kč Koruna",
+  code: "CZK",
+  symbol: "Kč"
 }, {
   id: 9,
-  value: 'RM Ringgit',
-  code: 'MYR',
-  symbol: 'RM'
+  value: "kr Krona",
+  code: "SEK",
+  symbol: "kr"
 }, {
   id: 10,
-  value: '₪ Shekel',
-  code: 'ILS',
-  symbol: '₪'
+  value: "$ Mexican Pesos",
+  code: "MXN",
+  symbol: "$"
 }, {
   id: 11,
-  value: 'zł Zloty',
-  code: 'PLN',
-  symbol: 'zł'
+  value: "£ Pounds Sterling",
+  code: "GBP",
+  symbol: "£"
+}, {
+  id: 12,
+  value: "RM Ringgit",
+  code: "MYR",
+  symbol: "RM"
 }, {
   id: 13,
-  value: '₹ Rupee',
-  code: 'INR',
-  symbol: '₹'
+  value: "₹ Rupee",
+  code: "INR",
+  symbol: "₹"
+}, {
+  id: 14,
+  value: "₪ Shekel",
+  code: "ILS",
+  symbol: "₪"
+}, {
+  id: 15,
+  value: "zł Zloty",
+  code: "PLN",
+  symbol: "zł"
 }];
 exports.CURRENCY_TYPES = CURRENCY_TYPES;
-const TICKET_TYPES = ['Ticket', 'Plan', 'Donation'];
+const TICKET_TYPES = ["Ticket", "Plan", "Donation"];
 exports.TICKET_TYPES = TICKET_TYPES;
-const TICKET_PRICING_TYPES = ['Paid', 'Free'];
+const TICKET_PRICING_TYPES = ["Paid", "Free"];
 exports.TICKET_PRICING_TYPES = TICKET_PRICING_TYPES;
-const TICKET_SALES_TYPES = ['Dynamic', 'Fixed'];
+const TICKET_SALES_TYPES = ["Dynamic", "Fixed"];
 exports.TICKET_SALES_TYPES = TICKET_SALES_TYPES;
-const TICKET_LIMITATION_TYPES = ['Unlimited', 'Limited'];
+const TICKET_LIMITATION_TYPES = ["Unlimited", "Limited"];
 exports.TICKET_LIMITATION_TYPES = TICKET_LIMITATION_TYPES;
 
 const SHAPE_TICKET = _propTypes.default.shape({
@@ -229,7 +244,7 @@ const SHAPE_TICKETS = _propTypes.default.arrayOf(SHAPE_TICKET);
 exports.SHAPE_TICKETS = SHAPE_TICKETS;
 
 const SHAPE_REPEAT = _propTypes.default.shape({
-  type: _propTypes.default.oneOf(['Day', 'Week', 'Month', 'Year']),
+  type: _propTypes.default.oneOf(["Day", "Week", "Month", "Year"]),
   interval: _propTypes.default.number,
   end: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
 });
