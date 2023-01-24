@@ -46,40 +46,69 @@ function App() {
     tickets: null,
   };
   let exampleEvent2 = {
-    id: 782910,
-    title: "Bisong Art Gallery",
-    start: "2022-02-04T18:00",
-    end: "2022-02-04T21:00",
-    allDay: 0,
+    id: 1,
+    title: "Yoga at the Beach",
     image:
-      "https://static.wixstatic.com/media/f4af14_0be51224659d4168a6b0d79a214548d3~mv2.jpg",
-    desc: '<p>Bisong Art Gallery along with The D.R.E.A.M Affect Foundation is partnering with Prairie View A&amp;M Northwest Houston Center for a Black History Month Exhibition.</p><br><p>"Culture: Our New Normal" draws attention to the current events of black culture and how they continue to shape history. A portion of the proceeds will go to a scholarship fund for a Fine Art Student at PVAMU.</p>',
-    color: "#9fe1e7",
-    venue: {
-      address:
-        "Prairie View A&M University, N.W. Houston Center, 9449 Grant Road, Houston, TX 77070, USA",
-      email: "",
-      name: "Prairie View A&M University",
-      phone: "",
-      showMap: "1",
-      showMapLink: "1",
-      website: "",
-      lat: "29.9658645",
-      long: "-95.5587025",
+      "https://static.wixstatic.com/media/11062b_30464ec0744e445198eb1b60f2b594c2~mv2_d_5327_3551_s_4_2.jpg",
+    all_day: "0",
+    start: "2023-01-30T13:00:00",
+    end: "2023-01-30T14:00:00",
+    desc: "Leave your stress at the office! Come join us this Tuesday afternoon for yoga during your lunch break. Yoga at the beach: it sounds idyllic, right? Yet while beach yoga may make you feel like you’re on vacation, it has plenty of health benefits too. Taking your practice to the beach can help you challenge yourself, protect your body, deepen your poses, feel better about life and even recover faster. Find out all the reasons why beach yoga is a great way to keep your practice fresh.",
+    color: "#FFFF00",
+    kind: 0,
+    location: {
+      type: "physical",
+      values: {
+        physical: {
+          email: "yoga@gmail.com",
+          name: "Marina del Rey",
+          phone: "(555) 555-1234",
+          website: "yoga.com",
+          lat: 33.9802893,
+          lng: -118.4517449,
+          address: "Marina del Rey, CA, USA",
+        },
+        online: "",
+        tbd: "Location is going to be announced",
+      },
     },
-    organizer: {
-      email: "info@bisonggallery.com",
-      name: "Bisong Art Gallery",
-      phone: "713-498-3015",
-      website: "www.bisonggallery.com",
+    organizerId: 1,
+    repeat: {
+      type: "Month",
+      interval: 2,
+      end: 10,
+      advanced: {
+        Month: {
+          onSelectedWeek: true,
+        },
+        Week: {
+          dayIndices: [1, 2, 3],
+        },
+      },
+      exclude: null,
     },
-    repeat: { type: "", interval: "", end: "", advanced: "" },
-    kind: "1",
-    categories: [{ id: 19412, name: "Opening Reception", color: "#005FB0" }],
+    categoryIds: [],
+    uid: "636bfb85304ddb3de114bfa1",
+    cid: "632",
+    isDefault: true,
+    key: "_1_2023-01-30T13:00:00_2023-01-30T14:00:00",
+    allDay: false,
+    startMs: 1675069200000,
+    endMs: 1675072800000,
+    textColor: "#FFFF00",
+    borderColor: "#FFFF00",
+    backgroundColor: "#FFFF00",
+    tags: [],
     guests: [],
-    registration: null,
-    tickets: null,
+    invitations: {
+      newInvites: [],
+      alreadyInvited: [],
+    },
+    emails: null,
+    ticketEnabled: false,
+    promocodes: [],
   };
+
   if (!exampleEvent1.allDay) {
     exampleEvent1.startTime = moment(exampleEvent1.start).format("HH:mm");
     exampleEvent1.endTime = moment(exampleEvent1.end).format("HH:mm");
@@ -227,14 +256,16 @@ function App() {
       >
         {exampleEvent1.desc}
       </Description> */}
-      {/* <AddShareIcons
-          comp_id={'comp-ky3hw27'}
-          instance={'b75dQ3ITC3GqJcOOQOHXDDpNVVcSTMZtaSnLfUC-VJ4.eyJpbnN0YW5jZUlkIjoiNTgxMmVlNWQtNjVhOC00ODNiLTlhYjctOTg2OTVmMjMwYTg5IiwiYXBwRGVmSWQiOiIxM2I0YTAyOC0wMGZhLTcxMzMtMjQyZi00NjI4MTA2YjhjOTEiLCJzaWduRGF0ZSI6IjIwMjItMDEtMTdUMDg6MjA6MTUuMTE1WiIsInZlbmRvclByb2R1Y3RJZCI6IlByZW1pdW0iLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImExOWNkMGIwLTY2ZTUtNGZhZC1iMThiLTdkOGJiZDliYzNmMiIsInNpdGVPd25lcklkIjoiZjRhZjE0OGEtNWY4My00NzQ1LTg5Y2YtYWVlMWExNGVkMGFlIn0'}
-          event={exampleEvent2}
-          boomEventUrlBase={'https://calendar.boomte.ch/single/'}
-          order='horizontal'
-          hideAddToIcons={false}
-      /> */}
+      <AddShareIcons
+        comp_id={"comp-ky3hw27"}
+        instance={
+          "b75dQ3ITC3GqJcOOQOHXDDpNVVcSTMZtaSnLfUC-VJ4.eyJpbnN0YW5jZUlkIjoiNTgxMmVlNWQtNjVhOC00ODNiLTlhYjctOTg2OTVmMjMwYTg5IiwiYXBwRGVmSWQiOiIxM2I0YTAyOC0wMGZhLTcxMzMtMjQyZi00NjI4MTA2YjhjOTEiLCJzaWduRGF0ZSI6IjIwMjItMDEtMTdUMDg6MjA6MTUuMTE1WiIsInZlbmRvclByb2R1Y3RJZCI6IlByZW1pdW0iLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImExOWNkMGIwLTY2ZTUtNGZhZC1iMThiLTdkOGJiZDliYzNmMiIsInNpdGVPd25lcklkIjoiZjRhZjE0OGEtNWY4My00NzQ1LTg5Y2YtYWVlMWExNGVkMGFlIn0"
+        }
+        event={exampleEvent2}
+        boomEventUrlBase={"https://calendar.boomte.ch/single/"}
+        order="horizontal"
+        hideAddToIcons={false}
+      />
       {/* <ListedDetails
           title='title' 
           id={'id'}
@@ -274,32 +305,29 @@ function App() {
 
       <hr />
       <RegistrationButton
-        cid={'123'}
-        uid={'123'}
-        text={'Pele'}
-        urlBase='https://shahen.boomtechdev.com/calendar/model/registration.php/'
+        cid={"123"}
+        uid={"123"}
+        text={"Pele"}
+        urlBase="https://shahen.boomtechdev.com/calendar/model/registration.php/"
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
-        disabledBg='lightgreen'
-        planName=''
+        disabledBg="lightgreen"
+        planName=""
       />
       <GuestLimit
-        foreword='Guests'
+        foreword="Guests"
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
       />
-      {/* <DateBox
-        start='2022-09-12'
-        end='2022-09-12'
-        ticketEnabled={true}
-        allDay={true}
-        agenda={true}
-        showIcons={false}
-        dateFormat='dddd, DD MMMM, YYYY'
-        type='timeBox'
+      <DateBox
+        start={exampleEvent2.start}
+        end={exampleEvent2.end}
+        allDay={exampleEvent2.allDay}
+        dateFormat="dddd, DD MMMM, YYYY"
+        type="timeBox"
         oneLine={true}
         fixedHeight={true}
-      /> */}
+      />
       {/* <DateBox
         start="09/27/2021T12:30"
         end="09/27/2021T13:30"
