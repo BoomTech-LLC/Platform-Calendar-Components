@@ -51,7 +51,7 @@ function openAddToUrl(e, type, event) {
 
     case "yahoo":
       eventDescription = event.desc ? createDesc(event, "yahoo") : "";
-      if (event.all_day) url = "https://calendar.yahoo.com/?v=60&view=d&type=20&DUR=all_day" + "&TITLE=" + encodeURIComponent(event.title) + "&ST=" + formatForAddtoCalendar(event, "start", type) + "&ET=" + formatForAddtoCalendar(event, "end", "yahoo") + "&DESC=" + eventDescription + "&in_loc=" + setLocation(event);else url = "https://calendar.yahoo.com/?v=60&view=d&type=20&TITLE=" + encodeURIComponent(event.title) + "&ST=" + formatForAddtoCalendar(event, "start", type) + "&ET=" + formatForAddtoCalendar(event, "end") + "&DESC=" + eventDescription + "&in_loc=" + setLocation(event);
+      if (event.all_day) url = "https://calendar.yahoo.com/?v=60&view=d&type=20&DUR=allday" + "&TITLE=" + encodeURIComponent(event.title) + "&ST=" + formatForAddtoCalendar(event, "start", type) + "&ET=" + formatForAddtoCalendar(event, "end", "yahoo") + "&DESC=" + eventDescription + "&in_loc=" + setLocation(event);else url = "https://calendar.yahoo.com/?v=60&view=d&type=20&TITLE=" + encodeURIComponent(event.title) + "&ST=" + formatForAddtoCalendar(event, "start", type) + "&ET=" + formatForAddtoCalendar(event, "end") + "&DESC=" + eventDescription + "&in_loc=" + setLocation(event);
       break;
 
     default:

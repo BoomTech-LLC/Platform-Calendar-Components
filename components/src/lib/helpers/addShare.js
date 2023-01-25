@@ -85,7 +85,7 @@ export function openAddToUrl(e, type, event) {
       eventDescription = event.desc ? createDesc(event, "yahoo") : "";
       if (event.all_day)
         url =
-          "https://calendar.yahoo.com/?v=60&view=d&type=20&DUR=all_day" +
+          "https://calendar.yahoo.com/?v=60&view=d&type=20&DUR=allday" +
           "&TITLE=" +
           encodeURIComponent(event.title) +
           "&ST=" +
