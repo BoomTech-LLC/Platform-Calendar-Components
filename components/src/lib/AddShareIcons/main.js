@@ -130,20 +130,19 @@ const AddShareIconsRow = ({
                 onClick={(e) => {
                   if (rowId === 1) return btn.clickHandler(e, btn.type, event);
                   if (rowId === 2) {
-                    let eventUrl = generateEventUrl(
-                      event,
-                      boomEventUrlBase,
-                      comp_id
-                    );
                     if (isCopyLink) {
                       btn.clickHandler(
                         e,
                         setCopyTooltipText,
                         copiedTooltipText,
-                        eventUrl
+                        generateEventUrl(event, boomEventUrlBase, comp_id)
                       );
                     } else {
-                      btn.clickHandler(e, btn.type, eventUrl);
+                      btn.clickHandler(
+                        e,
+                        btn.type,
+                        generateEventUrl(event, boomEventUrlBase, comp_id, true)
+                      );
                     }
                   }
                 }}
