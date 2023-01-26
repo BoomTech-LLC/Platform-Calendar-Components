@@ -147,13 +147,14 @@ function openShareUrl(e, type, eventUrl) {
   return;
 }
 
-function generateEventUrl(event, boomEventUrlBase, comp_id) {
+function generateEventUrl(event, boomEventUrlBase, comp_id, encode) {
   if (event.kind === 4) {
     return event.eventPageUrl || "";
   } else {
     var _event$repeat;
 
-    return "".concat(boomEventUrlBase, "?cid=").concat(comp_id, "&eventId=").concat((0, _commons.decodeId)("".concat(event.id))).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type || event !== null && event !== void 0 && event.repeated ? "&startDate=" + event.start.split("T")[0] : "");
+    const url = "".concat(boomEventUrlBase, "?cid=").concat(comp_id, "&eventId=").concat((0, _commons.decodeId)("".concat(event.id))).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type || event !== null && event !== void 0 && event.repeated ? "&startDate=" + event.start.split("T")[0] : "");
+    return encode ? encodeURIComponent(url) : url;
   }
 }
 
