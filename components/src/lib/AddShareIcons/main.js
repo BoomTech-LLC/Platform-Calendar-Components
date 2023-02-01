@@ -41,22 +41,19 @@ export default function AddShareIcons({
         styles.add_share_icons_block,
         styles[order],
         ...wrapperCustomClassNames,
-      ])}
-    >
+      ])}>
       <h3
         className={combineClassNames([
           titleBorderHidden ? "" : styles.bordered,
           ...titleCustomClassNames,
-        ])}
-      >
+        ])}>
         {title}
       </h3>
       <div
         className={combineClassNames([
           styles[order],
           ...contentCustomClassNames,
-        ])}
-      >
+        ])}>
         {!hideAddToIcons && (
           <AddShareIconsRow
             constructor={ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS}
@@ -65,9 +62,11 @@ export default function AddShareIcons({
             rowId={ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS.rowId}
           />
         )}
-        {order === "horizontal" && (
+
+        {order === "horizontal" && hideAddToIcons && hideShareIcons && (
           <div className={styles.horizontal_divider} />
         )}
+
         {!hideShareIcons && !SYNCED_EVENT_KINDS.includes(event.kind) && (
           <AddShareIconsRow
             comp_id={comp_id}
@@ -113,8 +112,7 @@ const AddShareIconsRow = ({
 
           return (
             <Fragment
-              key={`${event.id}-${event.startDate}-add-share-${btn.type}`}
-            >
+              key={`${event.id}-${event.startDate}-add-share-${btn.type}`}>
               <button
                 className={combineClassNames([
                   "icon-" + btn.type,
@@ -154,8 +152,7 @@ const AddShareIconsRow = ({
                   className={combineClassNames([
                     styles.copy_tooltip,
                     ...copyTooltipCustomClassNames,
-                  ])}
-                >
+                  ])}>
                   {copyTooltipText}
                 </span>
               )}
