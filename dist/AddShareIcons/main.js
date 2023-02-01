@@ -65,7 +65,7 @@ function AddShareIcons(_ref) {
     sectionName: addToSectionName,
     event: event,
     rowId: _constants.ADD_SHARE_ICONS_CONSTRUCTOR.ADD_TO_ICONS.rowId
-  }), order === "horizontal" && /*#__PURE__*/_react.default.createElement("div", {
+  }), order === "horizontal" && hideAddToIcons && hideShareIcons && /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.horizontal_divider
   }), !hideShareIcons && !_constants.SYNCED_EVENT_KINDS.includes(event.kind) && /*#__PURE__*/_react.default.createElement(AddShareIconsRow, {
     comp_id: comp_id,
