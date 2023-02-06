@@ -25,7 +25,7 @@ const GuestLimit = _ref => {
   var _event$registration;
 
   let {
-    foreword = 'Guests Limit',
+    foreword = "Guests Limit",
     event,
     globalRegistration,
     hasTickets,
@@ -46,7 +46,7 @@ const GuestLimit = _ref => {
     className: (0, _commons.combineClassNames)([_mainModule.default.guest_limit_parent, ...wrapperCustomClassNames])
   }, showIcon && /*#__PURE__*/_react.default.createElement("span", {
     className: "icon-guests"
-  }), /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", "".concat(count, " / ").concat(limit)));
+  }), /*#__PURE__*/_react.default.createElement("p", null, foreword, ": ", "".concat(count, " / ").concat(Math.max(count, limit))));
 };
 
 GuestLimit.propTypes = {
