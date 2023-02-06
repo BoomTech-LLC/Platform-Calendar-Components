@@ -105,7 +105,7 @@ const AddShareIconsRow = ({
 }) => {
   return (
     <div className={styles.add_share_icons_row}>
-      <div>{sectionName}</div>
+      <p>{sectionName}</p>
       <div>
         {constructor.icons.map((btn) => {
           const isCopyLink = btn.type === "copy";

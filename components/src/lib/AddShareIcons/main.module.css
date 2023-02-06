@@ -1,94 +1,95 @@
 .add_share_icons_block .horizontal {
-    display: flex;
+  display: flex;
 }
 
 .horizontal .add_share_icons_row:first-of-type {
-    padding-right: calc(1rem - 1px);
+  padding-right: calc(1rem - 1px);
 }
 
 .horizontal .add_share_icons_row:last-of-type {
-    padding-left: 1rem;
+  padding-left: 1rem;
 }
 
-.horizontal .horizontal_divider{
-    height: 18px;
-    width: 1px;
-    background-color: #2B5672;
-    margin-top: auto;
-    margin-bottom: 0.2rem;
+.horizontal .horizontal_divider {
+  height: 18px;
+  width: 1px;
+  background-color: #2b5672;
+  margin-top: auto;
+  margin-bottom: 0.2rem;
 }
 
 .add_share_icons_block > h3 {
-    margin-top: 0;
-    margin-bottom: .5rem;
-    padding-bottom: .5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .add_share_icons_row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .horizontal .add_share_icons_row {
-    flex-direction: column;
+  flex-direction: column;
 }
 
-.add_share_icons_row > div {
-    margin-top: 0.15rem;
-    margin-bottom: 0.15rem;
+.add_share_icons_row > div,
+.add_share_icons_row > p {
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
 }
 
-.vertical .add_share_icons_row > div:first-of-type {
-    margin-right: 0.4rem;
+.vertical .add_share_icons_row p {
+  margin-right: 0.4rem;
 }
 
 .add_share_icons_row > div:last-of-type {
-    position: relative;
+  position: relative;
 }
 
 .add_share_icons_row button {
-    all: initial;
-    cursor: pointer;
-    margin-right: .8rem;
+  all: initial;
+  cursor: pointer;
+  margin-right: 0.8rem;
 }
 
 h3.bordered {
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .copy_tooltip {
-    visibility: hidden;
-    width: max-content;
-    background-color: rgba(85, 85, 85, 0.897);
-    color: #fff;
-    text-align: center;
-    border-radius: .3rem;
-    padding: .3rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translateY(calc(-100% - .25rem));
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s;
-    overflow-wrap: anywhere;
+  visibility: hidden;
+  width: max-content;
+  background-color: rgba(85, 85, 85, 0.897);
+  color: #fff;
+  text-align: center;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(calc(-100% - 0.25rem));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+  overflow-wrap: anywhere;
 }
 
 .hoverable:hover + .copy_tooltip {
-    visibility: visible;
-    z-index: 999;
-    opacity: 1;
+  visibility: visible;
+  z-index: 999;
+  opacity: 1;
 }
 
 .hoverable:hover + .copy_tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    right: .75rem;
-    margin-left: .25rem;
-    border-width: .25rem;
-    border-style: solid;
-    border-color: rgba(85, 85, 85, 0.897) transparent transparent transparent;
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0.75rem;
+  margin-left: 0.25rem;
+  border-width: 0.25rem;
+  border-style: solid;
+  border-color: rgba(85, 85, 85, 0.897) transparent transparent transparent;
 }
