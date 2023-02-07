@@ -6,7 +6,6 @@ import {
   PT_CLASSNAMES,
   SHAPE_EVENT,
   SHAPE_REGISTRATION,
-  SHAPE_TICKETS,
 } from "../helpers/commonPropTypes";
 import {
   getGuestsOptions,
@@ -43,8 +42,7 @@ const GuestLimit = ({
       className={combineClassNames([
         styles.guest_limit_parent,
         ...wrapperCustomClassNames,
-      ])}
-    >
+      ])}>
       {showIcon && <span className="icon-guests" />}
       <p>
         {foreword}: {`${count} / ${Math.max(count, limit)}`}

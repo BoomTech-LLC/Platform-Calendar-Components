@@ -46,67 +46,54 @@ function App() {
     tickets: null,
   };
   let exampleEvent2 = {
-    id: 1,
-    title: "Yoga at the Beach",
-    image:
-      "https://static.wixstatic.com/media/11062b_30464ec0744e445198eb1b60f2b594c2~mv2_d_5327_3551_s_4_2.jpg",
-    all_day: "0",
-    start: "2023-01-30T13:00:00",
-    end: "2023-01-30T14:00:00",
-    desc: "Leave your stress at the office! Come join us this Tuesday afternoon for yoga during your lunch break. Yoga at the beach: it sounds idyllic, right? Yet while beach yoga may make you feel like you’re on vacation, it has plenty of health benefits too. Taking your practice to the beach can help you challenge yourself, protect your body, deepen your poses, feel better about life and even recover faster. Find out all the reasons why beach yoga is a great way to keep your practice fresh.",
-    color: "#FFFF00",
-    kind: 0,
+    id: 1816,
+    key: "1675771151257",
+    uid: null,
+    title: "adsfasdf",
+    cid: "1234",
+    kind: 1,
+    start: "2023-02-24",
+    startMs: 1677182400000,
+    end: "2023-02-24",
+    endMs: 1677182400000,
+    allDay: true,
+    image: "",
+    desc: "<p>dsfasdfads</p>",
+    color: "#3899ec",
+    textColor: "#3899ec",
+    borderColor: "#3899ec",
+    backgroundColor: "#3899ec",
+    repeat: null,
     location: {
-      type: "physical",
+      type: "tbd",
       values: {
         physical: {
-          email: "yoga@gmail.com",
-          name: "Marina del Rey",
-          phone: "(555) 555-1234",
-          website: "yoga.com",
-          lat: 33.9802893,
-          lng: -118.4517449,
-          address: "Marina del Rey, CA, USA",
+          name: "",
+          address: "sdfasd",
+          phone: "",
+          email: "",
+          website: "",
+          lat: null,
+          lng: null,
         },
         online: "",
         tbd: "Location is going to be announced",
       },
     },
-    organizerId: 1,
-    repeat: {
-      type: "Month",
-      interval: 2,
-      end: 10,
-      advanced: {
-        Month: {
-          onSelectedWeek: true,
-        },
-        Week: {
-          dayIndices: [1, 2, 3],
-        },
-      },
-      exclude: null,
-    },
+    organizerId: "demo-organizer",
     categoryIds: [],
-    uid: "636bfb85304ddb3de114bfa1",
-    cid: "632",
-    isDefault: true,
-    key: "_1_2023-01-30T13:00:00_2023-01-30T14:00:00",
-    allDay: false,
-    startMs: 1675069200000,
-    endMs: 1675072800000,
-    textColor: "#FFFF00",
-    borderColor: "#FFFF00",
-    backgroundColor: "#FFFF00",
+    registration: null,
+    ticketEnabled: true,
+    ticketIds: [],
+    promocodes: [],
+    emails: null,
     tags: [],
-    guests: [],
     invitations: {
       newInvites: [],
       alreadyInvited: [],
     },
-    emails: null,
-    ticketEnabled: false,
-    promocodes: [],
+    guests: [],
+    scheduledOn: "2023-02-07T15:59:06",
   };
 
   if (!exampleEvent1.allDay) {
@@ -256,7 +243,7 @@ function App() {
       >
         {exampleEvent1.desc}
       </Description> */}
-      <AddShareIcons
+      {/* <AddShareIcons
         comp_id={"comp-ky3hw27"}
         instance={
           "b75dQ3ITC3GqJcOOQOHXDDpNVVcSTMZtaSnLfUC-VJ4.eyJpbnN0YW5jZUlkIjoiNTgxMmVlNWQtNjVhOC00ODNiLTlhYjctOTg2OTVmMjMwYTg5IiwiYXBwRGVmSWQiOiIxM2I0YTAyOC0wMGZhLTcxMzMtMjQyZi00NjI4MTA2YjhjOTEiLCJzaWduRGF0ZSI6IjIwMjItMDEtMTdUMDg6MjA6MTUuMTE1WiIsInZlbmRvclByb2R1Y3RJZCI6IlByZW1pdW0iLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImExOWNkMGIwLTY2ZTUtNGZhZC1iMThiLTdkOGJiZDliYzNmMiIsInNpdGVPd25lcklkIjoiZjRhZjE0OGEtNWY4My00NzQ1LTg5Y2YtYWVlMWExNGVkMGFlIn0"
@@ -265,7 +252,7 @@ function App() {
         boomEventUrlBase={"https://calendar.boomte.ch/single/"}
         order="horizontal"
         hideAddToIcons={false}
-      />
+      /> */}
       {/* <ListedDetails
         title="title"
         id={"id"}
@@ -280,7 +267,7 @@ function App() {
         textDetailsCustomClassNames={["textDetailsCustomClassNames"]}
         linkDetailsCustomClassNames={["linkDetailsCustomClassNames"]}
       /> */}
-      <Location
+      {/* <Location
         elipsis
         textCustomClassNames={["123"]}
         linkCustomClassNames={["456"]}
@@ -316,12 +303,14 @@ function App() {
         foreword="Guests"
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
-      />
+      /> */}
+
       <DateBox
         start={exampleEvent2.start}
         end={exampleEvent2.end}
         allDay={exampleEvent2.allDay}
-        dateFormat="dddd, DD MMMM, YYYY"
+        dateFormat="DD MMMM, YYYY"
+        agenda={true}
         type="timeBox"
         oneLine={true}
         fixedHeight={true}
@@ -350,14 +339,14 @@ function App() {
         timeFormat='am/pm'
       /> */}
 
-      <CategoryItem
+      {/* <CategoryItem
         category={{
           id: 454,
           name: "My category",
           color: "red",
         }}
         wrapperCustomClassNames={["customClassName"]}
-      />
+      /> */}
 
       {/* <TicketList
         enabled={true}

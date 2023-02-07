@@ -3,7 +3,11 @@ import styles from "./../main.module.css";
 import PropTypes from "prop-types";
 import StartTimeRow from "./StartTimeRow";
 import EndTimeRow from "./EndTimeRow";
-import { formatDate, formatTime } from "../../helpers/dateBox";
+import {
+  formatDate,
+  formatTime,
+  isDatesInCurrentYear,
+} from "../../helpers/dateBox";
 import { combineClassNames } from "../../helpers/commons";
 const TimeBox = ({
   start,
@@ -32,21 +36,25 @@ const TimeBox = ({
   const timeZoneToShow = allDay || !showTimeZone ? "" : timeZone;
   const datesEqual = startDate === endDate;
 
+  const datesInCurrentYear = isDatesInCurrentYear(start, end);
+
   return (
     <div
       className={combineClassNames([
         ...wrapperCustomClassNames,
         styles.timebox_wrapper,
-      ])}
-    >
-      <StartTimeRow
-        showIcons={showIcons}
-        datesEqual={datesEqual}
-        oneLine={oneLine}
-        startDate={startDate}
-        startTime={startTime}
-        timeZoneToShow={timeZoneToShow}
-      />
+      ])}>
+      {(!datesInCurrentYear || !datesEqual) && (
+        <StartTimeRow
+          showIcons={showIcons}
+          datesEqual={datesEqual}
+          oneLine={oneLine}
+          startDate={startDate}
+          startTime={startTime}
+          timeZoneToShow={timeZoneToShow}
+        />
+      )}
+
       <EndTimeRow
         datesEqual={datesEqual}
         allDay={allDay}
