@@ -350,14 +350,15 @@ function App() {
         timeFormat='am/pm'
       /> */}
 
-      {/* <CategoryItem
+      <CategoryItem
         category={{
           id: 454,
-          name: 'My category',
-          color: 'red'
+          name: "My category",
+          color: "red",
         }}
-        wrapperCustomClassNames={['customClassName']}
-      /> */}
+        wrapperCustomClassNames={["customClassName"]}
+      />
+
       {/* <TicketList
         enabled={true}
         tickets={[
