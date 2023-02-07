@@ -42,12 +42,12 @@ const Location = _ref => {
   }, showIcon && /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-location"
   }), /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _commons.combineClassNames)([_mainModule.default.line_breaker, elipsis ? _mainModule.default.text_elipsis : ''])
+    className: (0, _commons.combineClassNames)([_mainModule.default.line_breaker, elipsis ? _mainModule.default.text_elipsis : ""])
   }, isLink ? /*#__PURE__*/_react.default.createElement("a", {
     href: href,
     target: "_blank",
     rel: "noreferrer"
-  }, value) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, value)));
+  }, value) : /*#__PURE__*/_react.default.createElement("p", null, value)));
 };
 
 Location.propTypes = {
