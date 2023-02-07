@@ -267,20 +267,18 @@ function App() {
         hideAddToIcons={false}
       />
       {/* <ListedDetails
-          title='title' 
-          id={'id'}
-          // title={'venueTitle'}
-          values = {
-            {
-              name: "Organizer name",
-              email: "Organizer name",
-              phone: "Organizer name",
-              website: "http://nancylittlejohnfineart.com/"
-            }
-          }
-          wrapperCustomClassNames={['wrapper-call']}
-          textDetailsCustomClassNames={['textDetailsCustomClassNames']}
-          linkDetailsCustomClassNames={['linkDetailsCustomClassNames']}
+        title="title"
+        id={"id"}
+        // title={'venueTitle'}
+        values={{
+          name: "Organizer name",
+          email: "Organizer name",
+          phone: "Organizer name",
+          website: "http://nancylittlejohnfineart.com/",
+        }}
+        wrapperCustomClassNames={["wrapper-call"]}
+        textDetailsCustomClassNames={["textDetailsCustomClassNames"]}
+        linkDetailsCustomClassNames={["linkDetailsCustomClassNames"]}
       /> */}
       {/* <Location
         elipsis
@@ -388,7 +386,7 @@ function App() {
       {/* <TicketPrice
         tickets={test_tickets}
         currency={CURRENCY_TYPES[0]}
-        showCurrencyAs='symbol'
+        showCurrencyAs="symbol"
       /> */}
     </div>
   );
