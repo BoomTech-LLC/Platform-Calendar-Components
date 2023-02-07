@@ -101,7 +101,7 @@ const AddShareIconsRow = _ref2 => {
   } = _ref2;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.add_share_icons_row
-  }, /*#__PURE__*/_react.default.createElement("div", null, sectionName), /*#__PURE__*/_react.default.createElement("div", null, constructor.icons.map(btn => {
+  }, /*#__PURE__*/_react.default.createElement("p", null, sectionName), /*#__PURE__*/_react.default.createElement("div", null, constructor.icons.map(btn => {
     const isCopyLink = btn.type === "copy";
     return /*#__PURE__*/_react.default.createElement(_react.Fragment, {
       key: "".concat(event.id, "-").concat(event.startDate, "-add-share-").concat(btn.type)

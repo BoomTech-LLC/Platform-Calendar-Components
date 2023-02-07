@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
   align-items: center;
 }
 
@@ -8,8 +8,8 @@
   margin-top: 2px;
 }
 
-.wrapper > div:nth-of-type(2) {
+.wrapper p {
   flex-direction: column;
   display: flex;
-  gap: .25rem;
+  gap: 0.25rem;
 }

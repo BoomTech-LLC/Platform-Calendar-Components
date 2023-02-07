@@ -39,7 +39,7 @@ const TicketPrice = _ref => {
     className: (0, _commons.combineClassNames)([_mainModule.default.wrapper, ...wrapperCustomClassNames])
   }, showIcon && /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-ticket"
-  }), /*#__PURE__*/_react.default.createElement("div", null, priceRange));
+  }), /*#__PURE__*/_react.default.createElement("p", null, priceRange));
 };
 
 TicketPrice.propTypes = {

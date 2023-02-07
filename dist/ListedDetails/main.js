@@ -37,12 +37,12 @@ const ListedDetails = _ref => {
   let {
     id,
     values,
-    title = '',
+    title = "",
     titleBorderHidden = false,
     wrapperCustomClassNames = [],
     textDetailsCustomClassNames = [],
     linkDetailsCustomClassNames = [],
-    rowSpace = '0.25rem'
+    rowSpace = "0.25rem"
   } = _ref;
   const parsedValues = (0, _commons.parseJson)(values);
   const hasAcceptableValues = Object.entries(parsedValues).some(_ref2 => {
@@ -56,12 +56,12 @@ const ListedDetails = _ref => {
       gap: rowSpace
     }
   }, /*#__PURE__*/_react.default.createElement("h3", {
-    className: titleBorderHidden ? '' : _mainModule.default.bordered
+    className: titleBorderHidden ? "" : _mainModule.default.bordered
   }, title), Object.entries(parsedValues).map(val => {
     const itemKey = "listed-details-".concat(id, "-").concat(val[0], "}");
-    if (val[0] === 'location') return /*#__PURE__*/_react.default.createElement(_Location.default, _extends({
+    if (val[0] === "location") return /*#__PURE__*/_react.default.createElement(_Location.default, _extends({
       key: itemKey,
-      linkClassName: linkDetailsCustomClassNames.join(' ')
+      linkClassName: linkDetailsCustomClassNames.join(" ")
     }, val[1]));
     let [key, value] = val;
     if (!value) return null;
@@ -86,8 +86,8 @@ const DetailsItem = _ref3 => {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.listed_details_row, ...rowCustomClassNames])
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: 'icon-' + template.iconName
-  }), /*#__PURE__*/_react.default.createElement("div", null, !(0, _commons.isDefined)(template.preposition) ? /*#__PURE__*/_react.default.createElement("div", null, value) : /*#__PURE__*/_react.default.createElement("a", {
+    className: "icon-" + template.iconName
+  }), /*#__PURE__*/_react.default.createElement("div", null, !(0, _commons.isDefined)(template.preposition) ? /*#__PURE__*/_react.default.createElement("p", null, value) : /*#__PURE__*/_react.default.createElement("a", {
     target: "_blank",
     rel: "noreferrer",
     href: template.preposition + value,
