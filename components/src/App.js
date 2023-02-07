@@ -280,26 +280,26 @@ function App() {
         textDetailsCustomClassNames={["textDetailsCustomClassNames"]}
         linkDetailsCustomClassNames={["linkDetailsCustomClassNames"]}
       /> */}
-      {/* <Location
+      <Location
         elipsis
-        textCustomClassNames={['123']}
-        linkCustomClassNames={['456']}
-        wrapperCustomClassNames={['789']}
+        textCustomClassNames={["123"]}
+        linkCustomClassNames={["456"]}
+        wrapperCustomClassNames={["789"]}
         data={{
-          type: 'tbd',
+          type: "tbd",
           values: {
             physical: {
-              address: 'Shengavit', 
-              lat: 100, 
+              address: "Shengavit",
+              lat: 100,
 
-              lng: 200
+              lng: 200,
             },
-            tbd: '123132',
-            online: 'figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8'
-          }
-            
+            tbd: "123132",
+            online:
+              "figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8",
+          },
         }}
-      /> */}
+      />
 
       <hr />
       <RegistrationButton

@@ -1,6 +1,10 @@
 .wrapper {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
+}
+
+.wrapper p {
+  margin: 0px;
 }
 
 .wrapper .text_elipsis {
@@ -10,7 +14,7 @@
 }
 
 .wrapper a {
-  color: inherit
+  color: inherit;
 }
 
 .line_breaker {
