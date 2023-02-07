@@ -37,7 +37,7 @@ const CategoryItem = props => {
       color
     },
     className: (0, _commons.combineClassNames)([_mainModule.default.category_item, ...wrapperCustomClassNames])
-  }, /*#__PURE__*/_react.default.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-tag"
   }), /*#__PURE__*/_react.default.createElement("span", null, name));
 };

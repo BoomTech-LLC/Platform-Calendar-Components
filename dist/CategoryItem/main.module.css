@@ -1,7 +1,13 @@
 .category_item span {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .category_item span:first-of-type {
-    margin-right: .5rem;
+  margin-right: 0.5rem;
+}
+
+.category_item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
