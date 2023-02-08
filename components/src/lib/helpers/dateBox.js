@@ -28,26 +28,38 @@ export const getDateForDateBox = (start, end, locale) => {
   };
 };
 
-const getFormattedDate = (date, dateFormat, locale) => {
-  // let format = dateFormat;
+const getFormattedDate = (date, dateFormat, locale, showYearAnyway) => {
+  let format = dateFormat;
 
-  // if (dateFormat.includes('YYYY') && moment(date).format('YYYY') === moment().format('YYYY') && !showYear) {
-  //   const yearRegex = new RegExp(',? ?,?YYYY,? ?,?')
-  //   format = dateFormat.split(yearRegex)[1]
-  //     ? dateFormat.replace(/,? ?,?YYYY/, '').trim()
-  //     : dateFormat.replace(yearRegex, '').trim()
-  // }
+  if (
+    dateFormat.includes("YYYY") &&
+    !showYearAnyway &&
+    moment(date).format("YYYY") === moment().format("YYYY")
+  ) {
+    const yearRegex = new RegExp(",? ?,?YYYY,? ?,?");
+    format = dateFormat.split(yearRegex)[1]
+      ? dateFormat.replace(/,? ?,?YYYY/, "").trim()
+      : dateFormat.replace(yearRegex, "").trim();
+  }
 
-  return moment(date).locale(locale).format(dateFormat);
+  return moment(date).locale(locale).format(format);
 };
 
-export const formatDate = (start, end, dateFormat, locale) => ({
-  startDate: getFormattedDate(start.replace("T", " "), dateFormat, locale),
-  endDate: getFormattedDate(end.replace("T", " "), dateFormat, locale),
-});
+export const formatDate = (start, end, dateFormat, locale) => {
+  const startDate = start.replace("T", " ");
+  const endDate = end.replace("T", " ");
+  const showYearAnyway =
+    dateFormat.includes("YYYY") && !isDatesInCurrentYear(startDate, endDate);
+
+  return {
+    startDate: getFormattedDate(startDate, dateFormat, locale, showYearAnyway),
+    endDate: getFormattedDate(endDate, dateFormat, locale, showYearAnyway),
+  };
+};
 
 export const formatTime = (start, end, timeFormat, all_day, locale) => {
   const format = timeFormat.toLowerCase() === "am/pm" ? " hh:mm a" : " HH:mm";
+
   return {
     startTime: all_day
       ? ""
