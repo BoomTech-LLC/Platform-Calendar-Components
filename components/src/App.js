@@ -46,67 +46,70 @@ function App() {
     tickets: null,
   };
   let exampleEvent2 = {
-    id: 1,
-    title: "Yoga at the Beach",
-    image:
-      "https://static.wixstatic.com/media/11062b_30464ec0744e445198eb1b60f2b594c2~mv2_d_5327_3551_s_4_2.jpg",
-    all_day: "0",
-    start: "2023-01-30T13:00:00",
-    end: "2023-01-30T14:00:00",
-    desc: "Leave your stress at the office! Come join us this Tuesday afternoon for yoga during your lunch break. Yoga at the beach: it sounds idyllic, right? Yet while beach yoga may make you feel like you’re on vacation, it has plenty of health benefits too. Taking your practice to the beach can help you challenge yourself, protect your body, deepen your poses, feel better about life and even recover faster. Find out all the reasons why beach yoga is a great way to keep your practice fresh.",
-    color: "#FFFF00",
-    kind: 0,
+    id: 1799,
+    user_id: "63d35eac34865debd20333ca",
+    calendar_id: 692,
+    title: "Event 1",
+    start: "2023-02-17",
+    end: "2023-11-11",
+    all_day: 1,
+    color: "#800080",
+    image: "https://www.dropbox.com/s/fxf77qasyyi890z/2531644.webp?raw=1",
+    desc: "<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\n<p></p>\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
+    kind: 1,
+    categoryIds: ["225", "226"],
+    organizerId: 903,
+    registration: null,
+    ticketIds: [],
     location: {
-      type: "physical",
+      type: "tbd",
       values: {
         physical: {
-          email: "yoga@gmail.com",
-          name: "Marina del Rey",
-          phone: "(555) 555-1234",
-          website: "yoga.com",
-          lat: 33.9802893,
-          lng: -118.4517449,
-          address: "Marina del Rey, CA, USA",
+          name: "",
+          address: "",
+          phone: "",
+          email: "",
+          website: "",
+          lat: null,
+          lng: null,
         },
         online: "",
         tbd: "Location is going to be announced",
       },
     },
-    organizerId: 1,
-    repeat: {
-      type: "Month",
-      interval: 2,
-      end: 10,
-      advanced: {
-        Month: {
-          onSelectedWeek: true,
-        },
-        Week: {
-          dayIndices: [1, 2, 3],
-        },
+    categories: [
+      {
+        id: 225,
+        name: "Tag 2",
+        color: "#3899ec",
       },
-      exclude: null,
-    },
-    categoryIds: [],
-    uid: "636bfb85304ddb3de114bfa1",
-    cid: "632",
-    isDefault: true,
-    key: "_1_2023-01-30T13:00:00_2023-01-30T14:00:00",
-    allDay: false,
-    startMs: 1675069200000,
-    endMs: 1675072800000,
-    textColor: "#FFFF00",
-    borderColor: "#FFFF00",
-    backgroundColor: "#FFFF00",
+      {
+        id: 226,
+        name: "Tag 2",
+        color: "#FF0000",
+      },
+    ],
+    repeat: null,
     tags: [],
     guests: [],
+    emails: null,
     invitations: {
       newInvites: [],
       alreadyInvited: [],
     },
-    emails: null,
-    ticketEnabled: false,
+    tickets: [],
+    uid: "63d35eac34865debd20333ca",
+    cid: "692",
+    key: "_1799",
+    allDay: true,
+    startMs: 1676580300000,
+    endMs: 1699656300000,
+    textColor: "#800080",
+    borderColor: "#800080",
+    backgroundColor: "#800080",
+    ticketEnabled: true,
     promocodes: [],
+    scheduledOn: "2023-02-08T10:04:00",
   };
 
   if (!exampleEvent1.allDay) {
@@ -256,7 +259,7 @@ function App() {
       >
         {exampleEvent1.desc}
       </Description> */}
-      <AddShareIcons
+      {/* <AddShareIcons
         comp_id={"comp-ky3hw27"}
         instance={
           "b75dQ3ITC3GqJcOOQOHXDDpNVVcSTMZtaSnLfUC-VJ4.eyJpbnN0YW5jZUlkIjoiNTgxMmVlNWQtNjVhOC00ODNiLTlhYjctOTg2OTVmMjMwYTg5IiwiYXBwRGVmSWQiOiIxM2I0YTAyOC0wMGZhLTcxMzMtMjQyZi00NjI4MTA2YjhjOTEiLCJzaWduRGF0ZSI6IjIwMjItMDEtMTdUMDg6MjA6MTUuMTE1WiIsInZlbmRvclByb2R1Y3RJZCI6IlByZW1pdW0iLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImExOWNkMGIwLTY2ZTUtNGZhZC1iMThiLTdkOGJiZDliYzNmMiIsInNpdGVPd25lcklkIjoiZjRhZjE0OGEtNWY4My00NzQ1LTg5Y2YtYWVlMWExNGVkMGFlIn0"
@@ -265,7 +268,7 @@ function App() {
         boomEventUrlBase={"https://calendar.boomte.ch/single/"}
         order="horizontal"
         hideAddToIcons={false}
-      />
+      /> */}
       {/* <ListedDetails
         title="title"
         id={"id"}
@@ -280,7 +283,7 @@ function App() {
         textDetailsCustomClassNames={["textDetailsCustomClassNames"]}
         linkDetailsCustomClassNames={["linkDetailsCustomClassNames"]}
       /> */}
-      <Location
+      {/* <Location
         elipsis
         textCustomClassNames={["123"]}
         linkCustomClassNames={["456"]}
@@ -316,12 +319,14 @@ function App() {
         foreword="Guests"
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
-      />
+      /> */}
+
       <DateBox
         start={exampleEvent2.start}
         end={exampleEvent2.end}
         allDay={exampleEvent2.allDay}
-        dateFormat="dddd, DD MMMM, YYYY"
+        dateFormat="DD MMMM, YYYY"
+        agenda={true}
         type="timeBox"
         oneLine={true}
         fixedHeight={true}
@@ -350,14 +355,14 @@ function App() {
         timeFormat='am/pm'
       /> */}
 
-      <CategoryItem
+      {/* <CategoryItem
         category={{
           id: 454,
           name: "My category",
           color: "red",
         }}
         wrapperCustomClassNames={["customClassName"]}
-      />
+      /> */}
 
       {/* <TicketList
         enabled={true}
