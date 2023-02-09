@@ -44,7 +44,7 @@ const BlurryLoadableImg = _ref => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: wrapperClassNames,
       style: {
-        backgroundColor: blurredImgLoadingFailed ? 'transparent' : color
+        backgroundColor: blurredImgLoadingFailed ? "transparent" : color
       }
     });
   }
@@ -52,7 +52,7 @@ const BlurryLoadableImg = _ref => {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: wrapperClassNames,
     style: {
-      backgroundColor: blurredImgLoadingFailed ? color : 'transparent'
+      backgroundColor: blurredImgLoadingFailed ? color : "transparent"
     }
   }, blurredImgLoadingFailed && !isOrigLoaded && /*#__PURE__*/_react.default.createElement("img", {
     className: (0, _commons.combineClassNames)([_mainModule.default.blurred, ...imgCustomClassNames]),

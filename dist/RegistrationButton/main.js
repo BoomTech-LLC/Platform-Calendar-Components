@@ -29,13 +29,13 @@ const RegistrationButton = _ref => {
   let {
     cid,
     uid,
-    text = 'Register',
+    text = "Register",
     urlBase,
     event,
     globalRegistration,
     tickets,
     wrapperCustomClassNames = [],
-    disabledClassName = '',
+    disabledClassName = "",
     planName = _commonPropTypes.PLAN_NAMES[3]
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
@@ -50,13 +50,12 @@ const RegistrationButton = _ref => {
     count,
     limit
   } = guestsOptions;
-  const limitByPlan = _constants.APP_LIMITATIONS[planName][hasTickets ? 'tickets' : 'guests'];
-  const disabled = typeof limit !== 'string' && (count >= limit || limitByPlan && count >= limitByPlan);
-  console.log(limitByPlan, count, hasTickets, planName);
+  const limitByPlan = _constants.APP_LIMITATIONS[planName][hasTickets ? "tickets" : "guests"];
+  const disabled = typeof limit !== "string" && (count >= limit || limitByPlan && count >= limitByPlan);
   return /*#__PURE__*/_react.default.createElement("button", {
     className: (0, _commons.combineClassNames)([_mainModule.default.register_button, ...wrapperCustomClassNames, disabled ? disabledClassName : null]),
     disabled: disabled,
-    onClick: () => window.open(url, '_blank')
+    onClick: () => window.open(url, "_blank")
   }, text);
 };
 
