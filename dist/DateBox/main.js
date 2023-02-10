@@ -36,7 +36,8 @@ const DateBox = _ref => {
     direction = "row",
     startDateOnly = false,
     ticketEnabled = false,
-    showTimeOnly = false
+    showTimeOnly = false,
+    showYear = false
   } = _ref;
 
   if (type === "timeBox") {
@@ -68,6 +69,7 @@ const DateBox = _ref => {
       showIcons: showIcons,
       timeFormat: timeFormat,
       dateFormat: dateFormat,
+      showYear: showYear,
       allDay: allDay,
       wrapperCustomClassNames: wrapperCustomClassNames
     });

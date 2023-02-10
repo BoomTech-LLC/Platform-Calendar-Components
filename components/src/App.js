@@ -46,21 +46,22 @@ function App() {
     tickets: null,
   };
   let exampleEvent2 = {
-    id: 1799,
-    user_id: "63d35eac34865debd20333ca",
-    calendar_id: 692,
-    title: "Event 1",
-    start: "2023-02-17",
-    end: "2023-11-11",
+    id: 1915,
+    user_id: "63e5d60a3306bda5647f8a39",
+    calendar_id: 705,
+    title: "Event 123",
+    start: "2023-02-24",
+    end: "2023-02-24",
     all_day: 1,
-    color: "#800080",
-    image: "https://www.dropbox.com/s/fxf77qasyyi890z/2531644.webp?raw=1",
-    desc: "<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\n<p></p>\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
+    color: "#3899ec",
+    image: "",
+    desc: "<p>dsfdsafdasfasd</p>",
     kind: 1,
-    categoryIds: ["225", "226"],
-    organizerId: 903,
+    categoryIds: [],
+    organizerId: null,
     registration: null,
-    ticketIds: [],
+    ticketIds: [486],
+    organizers: [],
     location: {
       type: "tbd",
       values: {
@@ -77,18 +78,7 @@ function App() {
         tbd: "Location is going to be announced",
       },
     },
-    categories: [
-      {
-        id: 225,
-        name: "Tag 2",
-        color: "#3899ec",
-      },
-      {
-        id: 226,
-        name: "Tag 2",
-        color: "#FF0000",
-      },
-    ],
+    categories: [],
     repeat: null,
     tags: [],
     guests: [],
@@ -97,19 +87,69 @@ function App() {
       newInvites: [],
       alreadyInvited: [],
     },
-    tickets: [],
-    uid: "63d35eac34865debd20333ca",
-    cid: "692",
-    key: "_1799",
+    tickets: [
+      {
+        id: 486,
+        user_id: "123",
+        calendar_id: 705,
+        name: "T1",
+        type: "Ticket",
+        params: {
+          limit: {
+            show: true,
+            type: "Limited",
+            perOrder: {
+              max: null,
+              min: null,
+            },
+            quantity: 20,
+          },
+          plans: [
+            {
+              id: 0,
+              cycle: "Monthly",
+              price: 1,
+              duration: 1,
+              showPriceMonthly: false,
+            },
+            {
+              id: 1,
+              cycle: "Weekly",
+              price: 1,
+              duration: 1,
+              showPriceMonthly: false,
+            },
+          ],
+          price: {
+            type: "Paid",
+            amount: 1,
+          },
+          sales: {
+            type: "Dynamic",
+            Fixed: {
+              end: "2023-02-11T00:00",
+              start: "2023-02-10T00:00",
+            },
+            Dynamic: {
+              start: "On event date",
+            },
+          },
+          description: "",
+        },
+      },
+    ],
+    uid: "63e5d60a3306bda5647f8a39",
+    cid: "705",
+    key: "_1915",
     allDay: true,
-    startMs: 1676580300000,
-    endMs: 1699656300000,
-    textColor: "#800080",
-    borderColor: "#800080",
-    backgroundColor: "#800080",
+    startMs: 1677196800000,
+    endMs: 1677196800000,
+    textColor: "#3899ec",
+    borderColor: "#3899ec",
+    backgroundColor: "#3899ec",
     ticketEnabled: true,
     promocodes: [],
-    scheduledOn: "2023-02-08T10:04:00",
+    expandable: false,
   };
 
   if (!exampleEvent1.allDay) {
@@ -325,11 +365,10 @@ function App() {
         start={exampleEvent2.start}
         end={exampleEvent2.end}
         allDay={exampleEvent2.allDay}
-        dateFormat="DD MMMM, YYYY"
-        agenda={true}
-        type="timeBox"
-        oneLine={true}
-        fixedHeight={true}
+        dateFormat="DD/MM/YYYY"
+        showIcons={true}
+        showYear={true}
+        type="oneLineDateBox"
       />
       {/* <DateBox
         start="09/27/2021T12:30"

@@ -23,6 +23,7 @@ const DateBox = ({
   startDateOnly = false,
   ticketEnabled = false,
   showTimeOnly = false,
+  showYear = false,
 }) => {
   if (type === "timeBox") {
     return (
@@ -55,6 +56,7 @@ const DateBox = ({
         showIcons={showIcons}
         timeFormat={timeFormat}
         dateFormat={dateFormat}
+        showYear={showYear}
         allDay={allDay}
         wrapperCustomClassNames={wrapperCustomClassNames}
       />
