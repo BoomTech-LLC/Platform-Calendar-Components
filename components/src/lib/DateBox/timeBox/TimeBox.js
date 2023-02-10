@@ -24,6 +24,7 @@ const TimeBox = ({
   allDayText,
   oneLine,
   startDateOnly,
+  showTimeOnly,
 }) => {
   const { startDate, endDate } = formatDate(start, end, dateFormat, locale);
   const { startTime, endTime } = formatTime(
@@ -44,7 +45,7 @@ const TimeBox = ({
         ...wrapperCustomClassNames,
         styles.timebox_wrapper,
       ])}>
-      {(!datesInCurrentYear || !datesEqual) && (
+      {(!datesInCurrentYear || !(showTimeOnly && datesEqual)) && (
         <StartTimeRow
           showIcons={showIcons}
           datesEqual={datesEqual}
