@@ -22,6 +22,7 @@ const DateBox = ({
   direction = "row",
   startDateOnly = false,
   ticketEnabled = false,
+  showTimeOnly = false,
 }) => {
   if (type === "timeBox") {
     return (
@@ -41,6 +42,7 @@ const DateBox = ({
         oneLine={oneLine}
         startDateOnly={startDateOnly}
         ticketEnabled={ticketEnabled}
+        showTimeOnly={showTimeOnly}
       />
     );
   }

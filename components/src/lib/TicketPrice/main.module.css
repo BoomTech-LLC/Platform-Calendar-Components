@@ -12,4 +12,5 @@
   flex-direction: column;
   display: flex;
   gap: 0.25rem;
+  margin: 0px;
 }

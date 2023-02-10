@@ -38,7 +38,8 @@ const TimeBox = _ref => {
     agenda,
     allDayText,
     oneLine,
-    startDateOnly
+    startDateOnly,
+    showTimeOnly
   } = _ref;
   const {
     startDate,
@@ -53,7 +54,7 @@ const TimeBox = _ref => {
   const datesInCurrentYear = (0, _dateBox.isDatesInCurrentYear)(start, end);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([...wrapperCustomClassNames, _mainModule.default.timebox_wrapper])
-  }, (!datesInCurrentYear || !datesEqual) && /*#__PURE__*/_react.default.createElement(_StartTimeRow.default, {
+  }, (!datesInCurrentYear || !(showTimeOnly && datesEqual)) && /*#__PURE__*/_react.default.createElement(_StartTimeRow.default, {
     showIcons: showIcons,
     datesEqual: datesEqual,
     oneLine: oneLine,
