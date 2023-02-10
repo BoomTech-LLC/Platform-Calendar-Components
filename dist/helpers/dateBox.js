@@ -59,10 +59,11 @@ const getFormattedDate = (date, dateFormat, locale, showYearAnyway) => {
   return (0, _moment.default)(date).locale(locale).format(format);
 };
 
-const formatDate = (start, end, dateFormat, locale) => {
+const formatDate = function formatDate(start, end, dateFormat, locale) {
+  let showYear = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
   const startDate = start.replace("T", " ");
   const endDate = end.replace("T", " ");
-  const showYearAnyway = dateFormat.includes("YYYY") && !isDatesInCurrentYear(startDate, endDate);
+  const showYearAnyway = dateFormat.includes("YYYY") && !isDatesInCurrentYear(startDate, endDate) || dateFormat.includes("YYYY") && showYear;
   return {
     startDate: getFormattedDate(startDate, dateFormat, locale, showYearAnyway),
     endDate: getFormattedDate(endDate, dateFormat, locale, showYearAnyway)

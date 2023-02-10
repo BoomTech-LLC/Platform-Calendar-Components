@@ -28,12 +28,13 @@ const OneLineDateBox = _ref => {
     dateFormat,
     timeFormat,
     allDay,
-    wrapperCustomClassNames = []
+    wrapperCustomClassNames = [],
+    showYear
   } = _ref;
   const {
     startDate,
     endDate
-  } = (0, _dateBox.formatDate)(start, end, dateFormat, locale);
+  } = (0, _dateBox.formatDate)(start, end, dateFormat, locale, showYear);
   const {
     startTime,
     endTime
