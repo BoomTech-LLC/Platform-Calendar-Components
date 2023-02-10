@@ -35,7 +35,8 @@ const DateBox = _ref => {
     oneLine = false,
     direction = "row",
     startDateOnly = false,
-    ticketEnabled = false
+    ticketEnabled = false,
+    showTimeOnly = false
   } = _ref;
 
   if (type === "timeBox") {
@@ -54,7 +55,8 @@ const DateBox = _ref => {
       allDayText: allDayText,
       oneLine: oneLine,
       startDateOnly: startDateOnly,
-      ticketEnabled: ticketEnabled
+      ticketEnabled: ticketEnabled,
+      showTimeOnly: showTimeOnly
     });
   }
 
