@@ -6,6 +6,7 @@ import { PT_CLASSNAMES, SHAPE_LOCATION } from "../helpers/commonPropTypes";
 import { getLocationOptions } from "../helpers/location";
 
 const Location = ({
+  isRedirectToMap=true,
   data,
   tbdText,
   elipsis = false,
@@ -24,14 +25,16 @@ const Location = ({
         styles.wrapper,
         ...wrapperCustomClassNames,
         ...(isLink ? linkCustomClassNames : textCustomClassNames),
-      ])}>
+      ])}
+    >
       {showIcon && <div className="icon-location" />}
       <div
         className={combineClassNames([
           styles.line_breaker,
           elipsis ? styles.text_elipsis : "",
-        ])}>
-        {isLink ? (
+        ])}
+      >
+        {isLink && isRedirectToMap ? (
           <a href={href} target="_blank" rel="noreferrer">
             {value}
           </a>

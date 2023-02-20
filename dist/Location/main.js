@@ -23,6 +23,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Location = _ref => {
   let {
+    isRedirectToMap = true,
     data,
     tbdText,
     elipsis = false,
@@ -43,7 +44,7 @@ const Location = _ref => {
     className: "icon-location"
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _commons.combineClassNames)([_mainModule.default.line_breaker, elipsis ? _mainModule.default.text_elipsis : ""])
-  }, isLink ? /*#__PURE__*/_react.default.createElement("a", {
+  }, isLink && isRedirectToMap ? /*#__PURE__*/_react.default.createElement("a", {
     href: href,
     target: "_blank",
     rel: "noreferrer"
