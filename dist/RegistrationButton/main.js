@@ -43,7 +43,7 @@ const RegistrationButton = _ref => {
   const eventTickets = hasTickets ? [...tickets] : null;
   const show = (0, _registration.getShowRegistrationButtonStatus)(event, registration === null || registration === void 0 ? void 0 : registration.enabled);
   if (!show) return null;
-  const url = (0, _registration.generateRegistrationURL)(cid, uid, event, registration, urlBase);
+  const url = (0, _registration.generateRegistrationURL)(cid, uid, event, registration, urlBase, hasTickets);
   const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, eventTickets);
   if (!guestsOptions) return null;
   const {

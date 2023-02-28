@@ -34,15 +34,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function getShowRegistrationButtonStatus(event, enabled) {
   if (event.isDefault) return false;
   if (_constants.SYNCED_EVENT_KINDS.includes(event.kind)) return false;
-  const dateToCompare = event.allDay ? (0, _moment.default)(event.end).add(1, 'd') : (0, _moment.default)(event.end);
+  const dateToCompare = event.allDay ? (0, _moment.default)(event.end).add(1, "d") : (0, _moment.default)(event.end);
   if (dateToCompare.isSameOrBefore((0, _moment.default)())) return false;
   return enabled;
 }
 
-function generateRegistrationURL(cid, uid, event, registration, urlBase) {
+function generateRegistrationURL(cid, uid, event, registration, urlBase, hasTickets) {
   var _registration$general, _event$repeat;
 
-  if ((_registration$general = registration.general) !== null && _registration$general !== void 0 && _registration$general.external) {
+  if ((_registration$general = registration.general) !== null && _registration$general !== void 0 && _registration$general.external && !hasTickets) {
     var _registration$general2;
 
     return (0, _commons.validateURL)((_registration$general2 = registration.general) === null || _registration$general2 === void 0 ? void 0 : _registration$general2.url);

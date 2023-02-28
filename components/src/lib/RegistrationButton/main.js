@@ -38,7 +38,14 @@ const RegistrationButton = ({
   const show = getShowRegistrationButtonStatus(event, registration?.enabled);
   if (!show) return null;
 
-  const url = generateRegistrationURL(cid, uid, event, registration, urlBase);
+  const url = generateRegistrationURL(
+    cid,
+    uid,
+    event,
+    registration,
+    urlBase,
+    hasTickets
+  );
   const guestsOptions = getGuestsOptions(event, registration, eventTickets);
   if (!guestsOptions) return null;
 
@@ -57,7 +64,8 @@ const RegistrationButton = ({
         disabled ? disabledClassName : null,
       ])}
       disabled={disabled}
-      onClick={() => window.open(url, "_blank")}>
+      onClick={() => window.open(url, "_blank")}
+    >
       {text}
     </button>
   );

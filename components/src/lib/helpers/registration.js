@@ -1,13 +1,19 @@
 import moment from "moment";
 import { validateURL } from "./../helpers/commons";
-import { PAYMENT_STATUSES, PAYMENT_TYPES, SYNCED_EVENT_KINDS } from "./constants";
+import {
+  PAYMENT_STATUSES,
+  PAYMENT_TYPES,
+  SYNCED_EVENT_KINDS,
+} from "./constants";
 
 export function getShowRegistrationButtonStatus(event, enabled) {
-  if(event.isDefault) return false
-  if(SYNCED_EVENT_KINDS.includes(event.kind)) return false
-  const dateToCompare = event.allDay ? moment(event.end).add(1, 'd') : moment(event.end)
-  if(dateToCompare.isSameOrBefore(moment())) return false
-  return enabled
+  if (event.isDefault) return false;
+  if (SYNCED_EVENT_KINDS.includes(event.kind)) return false;
+  const dateToCompare = event.allDay
+    ? moment(event.end).add(1, "d")
+    : moment(event.end);
+  if (dateToCompare.isSameOrBefore(moment())) return false;
+  return enabled;
 }
 
 export function generateRegistrationURL(
@@ -15,12 +21,13 @@ export function generateRegistrationURL(
   uid,
   event,
   registration,
-  urlBase
+  urlBase,
+  hasTickets
 ) {
-  if (registration.general?.external) {
+  if (registration.general?.external && !hasTickets) {
     return validateURL(registration.general?.url);
   }
-  
+
   return `${urlBase}?uid=${uid}&cid=${cid}&eventId=${String(event.id)}${
     event?.repeat?.type || event?.repeated
       ? "&startDate=" + event.start.split("T")[0]
@@ -34,9 +41,10 @@ export function getGuestsOptions(event, registration, tickets) {
     guests: filterEventGuests(event),
   };
 
-  if(!registration.enabled) return null
-  if(SYNCED_EVENT_KINDS.includes(event.kind)) return null
-  if(event.ticketEnabled && tickets?.length) return calcGuestsOptionsByTickets(eventCopy, tickets)
+  if (!registration.enabled) return null;
+  if (SYNCED_EVENT_KINDS.includes(event.kind)) return null;
+  if (event.ticketEnabled && tickets?.length)
+    return calcGuestsOptionsByTickets(eventCopy, tickets);
 
   return {
     count: eventCopy?.guests?.length ?? 0,
