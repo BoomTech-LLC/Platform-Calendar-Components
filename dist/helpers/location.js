@@ -12,14 +12,12 @@ var _commons = require("./commons");
 var _constants = require("./constants");
 
 function getLocationOptions(data, tbdText) {
-  var _data$values, _data$values$physical, _data$values2, _data$values2$physica;
-
   const value = data.values[data.type];
 
   switch (data.type) {
     case _constants.LOCATION_TYPES.physical:
       return {
-        isLink: ((_data$values = data.values) === null || _data$values === void 0 ? void 0 : (_data$values$physical = _data$values.physical) === null || _data$values$physical === void 0 ? void 0 : _data$values$physical.lat) && ((_data$values2 = data.values) === null || _data$values2 === void 0 ? void 0 : (_data$values2$physica = _data$values2.physical) === null || _data$values2$physica === void 0 ? void 0 : _data$values2$physica.lng),
+        isLink: true,
         value: value.address,
         href: "https://www.google.com/maps/search/?api=1&query=".concat(encodeURIComponent(value.address))
       };
