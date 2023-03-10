@@ -40,9 +40,13 @@ export function downloadSharer(e, type, event) {
     event.title
   }&desc=${encodeURIComponent(
     type === "icalendar" ? desc.replace(/(<([^>]+)>)/gi, "") : desc
-  )}&start=${event.start}&end=${event.end}&address=${encodeURIComponent(
+  )}&start=${formatForAddtoCalendar(
+    event,
+    "start"
+  )}&end=${formatForAddtoCalendar(event, "end")}&address=${encodeURIComponent(
     venue.address
   )}`;
+
   window.location.href = icsSharer;
 }
 
@@ -50,7 +54,6 @@ export function openAddToUrl(e, type, event) {
   e.stopPropagation();
   let eventDescription = "";
   let url;
-  console.log(formatForAddtoCalendar(event, "start", type));
   switch (type) {
     case "google":
       eventDescription = event.desc ? createDesc(event, "google") : "";
@@ -217,14 +220,14 @@ export function generateEventUrl(event, boomEventUrlBase, comp_id, encode) {
   if (event.kind === 4) {
     return event.eventPageUrl || "";
   } else {
-     const url = `${boomEventUrlBase}?cid=${comp_id}&eventId=${decodeId(
-       `${event.id}`
-     )}${
-       event?.repeat?.type || event?.repeated
-         ? "&startDate=" + event.start.split("T")[0]
-         : ""
-     }`;
-     return encode ? encodeURIComponent(url) : url;
+    const url = `${boomEventUrlBase}?cid=${comp_id}&eventId=${decodeId(
+      `${event.id}`
+    )}${
+      event?.repeat?.type || event?.repeated
+        ? "&startDate=" + event.start.split("T")[0]
+        : ""
+    }`;
+    return encode ? encodeURIComponent(url) : url;
   }
 }
 
