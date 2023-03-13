@@ -31,7 +31,7 @@ function downloadSharer(e, type, event) {
   const organizer = (_event$organizer = event === null || event === void 0 ? void 0 : event.organizer) !== null && _event$organizer !== void 0 ? _event$organizer : {};
   e.stopPropagation();
   let desc = "\n        ".concat(event.desc ? "".concat(event.desc.replace(/&lt/g, "<").replace(/&gt/g, ">").replace(/&nbsp/g, " "), "  ") : "", "\n        ").concat(venue.name || venue.phone || venue.email || venue.website ? "<p><b>Venue Details.</b></p>  " : "").concat(venue.name ? "".concat(venue.name, ",<br/>  ") : "").concat(venue.phone ? "".concat(venue.phone, ",<br/>  ") : "").concat(venue.email ? "".concat(venue.email, ",<br/>  ") : "").concat(venue.website ? "".concat(venue.website, ".<br/>  ") : "", "\n        ").concat(organizer.name || organizer.phone || organizer.email || organizer.website ? "<p><b>Organizer</b></p>  " : "").concat(organizer.name ? "".concat(organizer.name, ",<br/>  ") : "").concat(organizer.phone ? "".concat(organizer.phone, ",<br/>  ") : "").concat(organizer.email ? "".concat(organizer.email, ",<br/>  ") : "").concat(organizer.website ? "".concat(organizer.website, ".<br/>  ") : "", "\n    ");
-  let icsSharer = "https://calendar.boomte.ch/createIcsFile?title=".concat(event.title, "&desc=").concat(encodeURIComponent(type === "icalendar" ? desc.replace(/(<([^>]+)>)/gi, "") : desc), "&start=").concat(event.start, "&end=").concat(event.end, "&address=").concat(encodeURIComponent(venue.address));
+  let icsSharer = "https://calendar.boomte.ch/createIcsFile?title=".concat(event.title, "&desc=").concat(encodeURIComponent(type === "icalendar" ? desc.replace(/(<([^>]+)>)/gi, "") : desc), "&start=").concat(formatForAddtoCalendar(event, "start"), "&end=").concat(formatForAddtoCalendar(event, "end"), "&address=").concat(encodeURIComponent(venue.address));
   window.location.href = icsSharer;
 }
 
@@ -41,7 +41,6 @@ function openAddToUrl(e, type, event) {
   e.stopPropagation();
   let eventDescription = "";
   let url;
-  console.log(formatForAddtoCalendar(event, "start", type));
 
   switch (type) {
     case "google":
