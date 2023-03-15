@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getLocationOptions = getLocationOptions;
+exports.getLocationDisplayName = getLocationDisplayName;
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
@@ -35,4 +36,9 @@ function getLocationOptions(data, tbdText) {
         value: tbdText || value
       };
   }
+}
+
+function getLocationDisplayName(eventLocation) {
+  const location = eventLocation.values[eventLocation.type];
+  return typeof location === "string" ? location : location.address;
 }

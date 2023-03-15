@@ -46,33 +46,37 @@ function App() {
     tickets: null,
   };
   let exampleEvent2 = {
-    id: 1915,
-    user_id: "63e5d60a3306bda5647f8a39",
-    calendar_id: 705,
-    title: "Event 123",
-    start: "2023-02-24",
-    end: "2023-02-24",
+    id: 356,
+    user_id: "6310ba278cfb000cf2958be0",
+    calendar_id: 88,
+    title: "My Event",
+    start: "2023-03-16",
+    end: "2023-03-16",
     all_day: 1,
     color: "#3899ec",
     image: "",
-    desc: "<p>dsfdsafdasfasd</p>",
+    desc: "<p>Description</p>",
     kind: 1,
     categoryIds: [],
     organizerId: null,
     registration: null,
-    ticketIds: [486],
+    ticketIds: [],
     organizers: [],
     location: {
-      type: "tbd",
+      type: "physical",
       values: {
         physical: {
-          name: "",
-          address: "",
-          phone: "",
-          email: "",
-          website: "",
-          lat: null,
-          lng: null,
+          id: 252,
+          created_at: "2023-03-15T06:21:50.000000Z",
+          updated_at: "2023-03-15T07:18:06.000000Z",
+          venue_id: 356,
+          email: "scsc",
+          name: "cscs",
+          phone: "scscs",
+          website: "scscs",
+          lat: 39.0489391,
+          lng: -94.4839157,
+          address: "1 Arrowhead Dr, Kansas City, MO 64129, USA",
         },
         online: "",
         tbd: "Location is going to be announced",
@@ -87,69 +91,18 @@ function App() {
       newInvites: [],
       alreadyInvited: [],
     },
-    tickets: [
-      {
-        id: 486,
-        user_id: "123",
-        calendar_id: 705,
-        name: "T1",
-        type: "Ticket",
-        params: {
-          limit: {
-            show: true,
-            type: "Limited",
-            perOrder: {
-              max: null,
-              min: null,
-            },
-            quantity: 20,
-          },
-          plans: [
-            {
-              id: 0,
-              cycle: "Monthly",
-              price: 1,
-              duration: 1,
-              showPriceMonthly: false,
-            },
-            {
-              id: 1,
-              cycle: "Weekly",
-              price: 1,
-              duration: 1,
-              showPriceMonthly: false,
-            },
-          ],
-          price: {
-            type: "Paid",
-            amount: 1,
-          },
-          sales: {
-            type: "Dynamic",
-            Fixed: {
-              end: "2023-02-11T00:00",
-              start: "2023-02-10T00:00",
-            },
-            Dynamic: {
-              start: "On event date",
-            },
-          },
-          description: "",
-        },
-      },
-    ],
-    uid: "63e5d60a3306bda5647f8a39",
-    cid: "705",
-    key: "_1915",
+    tickets: [],
+    uid: "6310ba278cfb000cf2958be0",
+    cid: "88",
+    key: "_356",
     allDay: true,
-    startMs: 1677196800000,
-    endMs: 1677196800000,
+    startMs: 1678924800000,
+    endMs: 1678924800000,
     textColor: "#3899ec",
     borderColor: "#3899ec",
     backgroundColor: "#3899ec",
     ticketEnabled: true,
     promocodes: [],
-    expandable: false,
   };
 
   if (!exampleEvent1.allDay) {
@@ -299,7 +252,7 @@ function App() {
       >
         {exampleEvent1.desc}
       </Description> */}
-      {/* <AddShareIcons
+      <AddShareIcons
         comp_id={"comp-ky3hw27"}
         instance={
           "b75dQ3ITC3GqJcOOQOHXDDpNVVcSTMZtaSnLfUC-VJ4.eyJpbnN0YW5jZUlkIjoiNTgxMmVlNWQtNjVhOC00ODNiLTlhYjctOTg2OTVmMjMwYTg5IiwiYXBwRGVmSWQiOiIxM2I0YTAyOC0wMGZhLTcxMzMtMjQyZi00NjI4MTA2YjhjOTEiLCJzaWduRGF0ZSI6IjIwMjItMDEtMTdUMDg6MjA6MTUuMTE1WiIsInZlbmRvclByb2R1Y3RJZCI6IlByZW1pdW0iLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImExOWNkMGIwLTY2ZTUtNGZhZC1iMThiLTdkOGJiZDliYzNmMiIsInNpdGVPd25lcklkIjoiZjRhZjE0OGEtNWY4My00NzQ1LTg5Y2YtYWVlMWExNGVkMGFlIn0"
@@ -308,7 +261,7 @@ function App() {
         boomEventUrlBase={"https://calendar.boomte.ch/single/"}
         order="horizontal"
         hideAddToIcons={false}
-      /> */}
+      />
       {/* <ListedDetails
         title="title"
         id={"id"}
