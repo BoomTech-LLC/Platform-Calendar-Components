@@ -10,11 +10,11 @@ exports.openShareUrl = openShareUrl;
 exports.generateEventUrl = generateEventUrl;
 exports.copyLink = copyLink;
 
-require("core-js/modules/es.string.trim.js");
-
 require("core-js/modules/es.regexp.exec.js");
 
 require("core-js/modules/es.string.replace.js");
+
+require("core-js/modules/es.string.trim.js");
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
@@ -33,9 +33,8 @@ function downloadSharer(e, type, event) {
 
   const organizer = (_event$organizer = event === null || event === void 0 ? void 0 : event.organizer) !== null && _event$organizer !== void 0 ? _event$organizer : {};
   e.stopPropagation();
-  let desc = "".concat(event.desc ? event.desc : "", "\n        ").concat(organizer.name || organizer.phone || organizer.email || organizer.website ? "<p><b>Organizer</b></p>  " : "").concat(organizer.name ? "".concat(organizer.name, ",<br/>  ") : "").concat(organizer.phone ? "".concat(organizer.phone, ",<br/>  ") : "").concat(organizer.email ? "".concat(organizer.email, ",<br/>  ") : "").concat(organizer.website ? "".concat(organizer.website, ".<br/>  ") : "", "\n    ");
+  let desc = " ".concat(event.desc ? "".concat(event.desc.replace(/&lt/g, "<").replace(/&gt/g, ">").replace(/&nbsp/g, " "), "  ") : "", "\n  ").concat(organizer.name || organizer.phone || organizer.email || organizer.website ? "<p><b>Organizer</b></p>  " : "").concat(organizer.name ? "".concat(organizer.name, ",<br/>  ") : "").concat(organizer.phone ? "".concat(organizer.phone, ",<br/>  ") : "").concat(organizer.email ? "".concat(organizer.email, ",<br/>  ") : "").concat(organizer.website ? "".concat(organizer.website, ".<br/>  ") : "", "\n    ");
   let icsSharer = "https://calendar.boomte.ch/createIcsFile?title=".concat(event.title, "&desc=").concat(encodeURIComponent(type === "apple" ? desc.replace(/(<([^>]+)>)/gi, "").trim() : desc.trim()), "&start=").concat(formatForAddtoCalendar(event, "start"), "&end=").concat(formatForAddtoCalendar(event, "end"), "&address=").concat(encodeURIComponent((0, _location.getLocationDisplayName)(event.location)));
-  console.log(icsSharer, "icsSharer");
   window.location.href = icsSharer;
 }
 
@@ -119,6 +118,7 @@ const plainTextFromHTML = htmlStr => {
 const createDesc = (event, type) => {
   var _event$organizer2, _Object$values;
 
+  console.log(event, "event");
   const organizer = (_event$organizer2 = event.organizer) !== null && _event$organizer2 !== void 0 ? _event$organizer2 : {};
   return "".concat(event.desc ? "".concat(encodeURIComponent(type === "yahoo" ? plainTextFromHTML(event.desc) : event.desc)) : "").concat(((_Object$values = Object.values(organizer)) === null || _Object$values === void 0 ? void 0 : _Object$values.length) > 0 ? "%0D%0A%0D%0AOrganizer Details:%0D%0A" : "", "\n    ").concat(organizer.name ? "".concat(encodeURIComponent(organizer.name), "%0D%0A") : "", "\n    ").concat(organizer.phone ? "".concat(encodeURIComponent(organizer.phone), "%0D%0A") : "", "\n    ").concat(organizer.email ? "".concat(encodeURIComponent(organizer.email), "%0D%0A") : "", "\n    ").concat(organizer.website ? "".concat(encodeURIComponent(organizer.website)) : "");
 };

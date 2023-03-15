@@ -5,15 +5,19 @@ import { getLocationDisplayName } from "./location";
 export function downloadSharer(e, type, event) {
   const organizer = event?.organizer ?? {};
   e.stopPropagation();
-  let desc = `${event.desc ? event.desc : ""}
-        ${
-          organizer.name ||
-          organizer.phone ||
-          organizer.email ||
-          organizer.website
-            ? "<p><b>Organizer</b></p>  "
-            : ""
-        }${organizer.name ? `${organizer.name},<br/>  ` : ""}${
+  let desc = ` ${
+    event.desc
+      ? `${event.desc
+          .replace(/&lt/g, "<")
+          .replace(/&gt/g, ">")
+          .replace(/&nbsp/g, " ")}  `
+      : ""
+  }
+  ${
+    organizer.name || organizer.phone || organizer.email || organizer.website
+      ? "<p><b>Organizer</b></p>  "
+      : ""
+  }${organizer.name ? `${organizer.name},<br/>  ` : ""}${
     organizer.phone ? `${organizer.phone},<br/>  ` : ""
   }${organizer.email ? `${organizer.email},<br/>  ` : ""}${
     organizer.website ? `${organizer.website}.<br/>  ` : ""
@@ -29,8 +33,6 @@ export function downloadSharer(e, type, event) {
   )}&end=${formatForAddtoCalendar(event, "end")}&address=${encodeURIComponent(
     getLocationDisplayName(event.location)
   )}`;
-
-  console.log(icsSharer, "icsSharer");
   window.location.href = icsSharer;
 }
 
@@ -148,6 +150,7 @@ const plainTextFromHTML = (htmlStr) => {
 };
 
 const createDesc = (event, type) => {
+  console.log(event, "event");
   const organizer = event.organizer ?? {};
   return `${
     event.desc

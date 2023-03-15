@@ -58,10 +58,9 @@ function App() {
     desc: "<p>Description</p>",
     kind: 1,
     categoryIds: [],
-    organizerId: null,
+    organizerId: "30",
     registration: null,
     ticketIds: [],
-    organizers: [],
     location: {
       type: "physical",
       values: {
@@ -103,6 +102,7 @@ function App() {
     backgroundColor: "#3899ec",
     ticketEnabled: true,
     promocodes: [],
+    scheduledOn: "2023-03-15T18:03:36",
   };
 
   if (!exampleEvent1.allDay) {
