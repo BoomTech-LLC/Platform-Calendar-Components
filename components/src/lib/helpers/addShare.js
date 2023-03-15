@@ -1,36 +1,23 @@
 import moment from "moment";
 import { decodeId } from "../helpers/commons";
+import { getLocationDisplayName } from "./location";
 
 export function downloadSharer(e, type, event) {
-  const venue = event?.venue ?? {};
   const organizer = event?.organizer ?? {};
   e.stopPropagation();
-  let desc = `
-        ${
-          event.desc
-            ? `${event.desc
-                .replace(/&lt/g, "<")
-                .replace(/&gt/g, ">")
-                .replace(/&nbsp/g, " ")}  `
-            : ""
-        }
-        ${
-          venue.name || venue.phone || venue.email || venue.website
-            ? "<p><b>Venue Details.</b></p>  "
-            : ""
-        }${venue.name ? `${venue.name},<br/>  ` : ""}${
-    venue.phone ? `${venue.phone},<br/>  ` : ""
-  }${venue.email ? `${venue.email},<br/>  ` : ""}${
-    venue.website ? `${venue.website}.<br/>  ` : ""
+  let desc = ` ${
+    event.desc
+      ? `${event.desc
+          .replace(/&lt/g, "<")
+          .replace(/&gt/g, ">")
+          .replace(/&nbsp/g, " ")}  `
+      : ""
   }
-        ${
-          organizer.name ||
-          organizer.phone ||
-          organizer.email ||
-          organizer.website
-            ? "<p><b>Organizer</b></p>  "
-            : ""
-        }${organizer.name ? `${organizer.name},<br/>  ` : ""}${
+  ${
+    organizer.name || organizer.phone || organizer.email || organizer.website
+      ? "<p><b>Organizer</b></p>  "
+      : ""
+  }${organizer.name ? `${organizer.name},<br/>  ` : ""}${
     organizer.phone ? `${organizer.phone},<br/>  ` : ""
   }${organizer.email ? `${organizer.email},<br/>  ` : ""}${
     organizer.website ? `${organizer.website}.<br/>  ` : ""
@@ -39,14 +26,13 @@ export function downloadSharer(e, type, event) {
   let icsSharer = `https://calendar.boomte.ch/createIcsFile?title=${
     event.title
   }&desc=${encodeURIComponent(
-    type === "icalendar" ? desc.replace(/(<([^>]+)>)/gi, "") : desc
+    type === "apple" ? desc.replace(/(<([^>]+)>)/gi, "").trim() : desc.trim()
   )}&start=${formatForAddtoCalendar(
     event,
     "start"
   )}&end=${formatForAddtoCalendar(event, "end")}&address=${encodeURIComponent(
-    venue.address
+    getLocationDisplayName(event.location)
   )}`;
-
   window.location.href = icsSharer;
 }
 
@@ -164,7 +150,7 @@ const plainTextFromHTML = (htmlStr) => {
 };
 
 const createDesc = (event, type) => {
-  const venue = event.venue ?? {};
+  console.log(event, "event");
   const organizer = event.organizer ?? {};
   return `${
     event.desc
@@ -172,19 +158,11 @@ const createDesc = (event, type) => {
           type === "yahoo" ? plainTextFromHTML(event.desc) : event.desc
         )}`
       : ""
+  }${
+    Object.values(organizer)?.length > 0
+      ? "%0D%0A%0D%0AOrganizer Details:%0D%0A"
+      : ""
   }
-    ${
-      Object.values(venue)?.length > 0 ? "%0D%0A%0D%0AVenue Details:%0D%0A" : ""
-    }
-    ${venue.name ? `${encodeURIComponent(venue.name)}%0D%0A` : ""}
-    ${venue.phone ? `${encodeURIComponent(venue.phone)}%0D%0A` : ""}
-    ${venue.email ? `${encodeURIComponent(venue.email)}%0D%0A` : ""}
-    ${venue.website ? `${encodeURIComponent(venue.website)}%0D%0A%0D%0A` : ""}
-    ${
-      Object.values(organizer)?.length > 0
-        ? "%0D%0A%0D%0AOrganizer Details:%0D%0A"
-        : ""
-    }
     ${organizer.name ? `${encodeURIComponent(organizer.name)}%0D%0A` : ""}
     ${organizer.phone ? `${encodeURIComponent(organizer.phone)}%0D%0A` : ""}
     ${organizer.email ? `${encodeURIComponent(organizer.email)}%0D%0A` : ""}

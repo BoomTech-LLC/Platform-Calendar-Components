@@ -26,3 +26,8 @@ export function getLocationOptions(data, tbdText) {
       };
   }
 }
+
+export function getLocationDisplayName(eventLocation) {
+  const location = eventLocation.values[eventLocation.type];
+  return typeof location === "string" ? location : location.address;
+}
