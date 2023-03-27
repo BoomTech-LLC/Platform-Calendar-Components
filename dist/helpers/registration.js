@@ -71,12 +71,14 @@ function calcGuestsOptionsByTickets(event, tickets) {
   const result = {
     count: 0,
     limit: 0
-  };
+  }; //This function is temporary, we should improve this logic.
 
-  for (let guest of event.guests) {
-    var _guest$tickets;
-
-    result.count += ((_guest$tickets = guest.tickets) === null || _guest$tickets === void 0 ? void 0 : _guest$tickets.length) || 0;
+  for (const guest of event.guests) {
+    for (const guestTicket of guest.tickets) {
+      for (const ticket of tickets) {
+        if (ticket.id === guestTicket.ticketId) result.count++;
+      }
+    }
   }
 
   for (let ticket of tickets) {
