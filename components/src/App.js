@@ -308,13 +308,15 @@ function App() {
         disabledBg="lightgreen"
         planName=""
       />
+       */}
+
       <GuestLimit
         foreword="Guests"
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
-      /> */}
+      />
 
-      <DateBox
+      {/* <DateBox
         start={exampleEvent2.start}
         end={exampleEvent2.end}
         allDay={exampleEvent2.allDay}
@@ -322,7 +324,7 @@ function App() {
         showIcons={true}
         showYear={true}
         type="oneLineDateBox"
-      />
+      /> */}
       {/* <DateBox
         start="09/27/2021T12:30"
         end="09/27/2021T13:30"
