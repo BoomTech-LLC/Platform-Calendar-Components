@@ -8,7 +8,7 @@ export function getLocationOptions(data, tbdText) {
     case LOCATION_TYPES.physical:
       return {
         isLink: true,
-        value: value.address,
+        value: value.name || value.address,
         href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
           value.address
         )}`,
