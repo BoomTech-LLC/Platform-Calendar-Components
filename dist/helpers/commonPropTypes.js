@@ -253,6 +253,7 @@ exports.SHAPE_REPEAT = SHAPE_REPEAT;
 
 const SHAPE_EVENT = _propTypes.default.shape({
   id: _propTypes.default.number.isRequired,
+  origId: _propTypes.default.number,
   key: _propTypes.default.string.isRequired,
   kind: _propTypes.default.number,
   title: _propTypes.default.string,

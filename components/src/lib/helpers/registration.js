@@ -28,7 +28,9 @@ export function generateRegistrationURL(
     return validateURL(registration.general?.url);
   }
 
-  return `${urlBase}?uid=${uid}&cid=${cid}&eventId=${String(event.id)}${
+  return `${urlBase}?uid=${uid}&cid=${cid}&eventId=${String(
+    event.orifId ?? event.id
+  )}${
     event?.repeat?.type || event?.repeated
       ? "&startDate=" + event.start.split("T")[0]
       : ""

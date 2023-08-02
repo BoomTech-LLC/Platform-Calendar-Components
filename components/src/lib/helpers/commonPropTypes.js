@@ -159,6 +159,7 @@ export const SHAPE_REPEAT = PropTypes.shape({
 
 export const SHAPE_EVENT = PropTypes.shape({
   id: PropTypes.number.isRequired,
+  origId: PropTypes.number,
   key: PropTypes.string.isRequired,
   kind: PropTypes.number,
   title: PropTypes.string,

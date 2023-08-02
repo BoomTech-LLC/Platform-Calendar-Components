@@ -199,7 +199,7 @@ export function generateEventUrl(event, boomEventUrlBase, comp_id, encode) {
     return event.eventPageUrl || "";
   } else {
     const url = `${boomEventUrlBase}?cid=${comp_id}&eventId=${decodeId(
-      `${event.id}`
+      `${event.origId ?? event.id}`
     )}${
       event?.repeat?.type || event?.repeated
         ? "&startDate=" + event.start.split("T")[0]
