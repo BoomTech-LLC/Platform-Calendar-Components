@@ -29,7 +29,7 @@ export function generateRegistrationURL(
   }
 
   return `${urlBase}?uid=${uid}&cid=${cid}&eventId=${String(
-    event.orifId ?? event.id
+    event.origId ?? event.id
   )}${
     event?.repeat?.type || event?.repeated
       ? "&startDate=" + event.start.split("T")[0]

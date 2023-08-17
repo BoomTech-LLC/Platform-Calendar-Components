@@ -40,7 +40,7 @@ function getShowRegistrationButtonStatus(event, enabled) {
 }
 
 function generateRegistrationURL(cid, uid, event, registration, urlBase, hasTickets) {
-  var _registration$general, _event$orifId, _event$repeat;
+  var _registration$general, _event$origId, _event$repeat;
 
   if ((_registration$general = registration.general) !== null && _registration$general !== void 0 && _registration$general.external && !hasTickets) {
     var _registration$general2;
@@ -48,7 +48,7 @@ function generateRegistrationURL(cid, uid, event, registration, urlBase, hasTick
     return (0, _commons.validateURL)((_registration$general2 = registration.general) === null || _registration$general2 === void 0 ? void 0 : _registration$general2.url);
   }
 
-  return "".concat(urlBase, "?uid=").concat(uid, "&cid=").concat(cid, "&eventId=").concat(String((_event$orifId = event.orifId) !== null && _event$orifId !== void 0 ? _event$orifId : event.id)).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type || event !== null && event !== void 0 && event.repeated ? "&startDate=" + event.start.split("T")[0] : "");
+  return "".concat(urlBase, "?uid=").concat(uid, "&cid=").concat(cid, "&eventId=").concat(String((_event$origId = event.origId) !== null && _event$origId !== void 0 ? _event$origId : event.id)).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type || event !== null && event !== void 0 && event.repeated ? "&startDate=" + event.start.split("T")[0] : "");
 }
 
 function getGuestsOptions(event, registration, tickets) {
