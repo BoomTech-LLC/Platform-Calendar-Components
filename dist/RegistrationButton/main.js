@@ -54,6 +54,7 @@ const RegistrationButton = _ref => {
   const disabled = typeof limit !== "string" && (count >= limit || limitByPlan && count >= limitByPlan);
   return /*#__PURE__*/_react.default.createElement("button", {
     className: (0, _commons.combineClassNames)([_mainModule.default.register_button, ...wrapperCustomClassNames, disabled ? disabledClassName : null]),
+    "data-hook": "boom-calendar-".concat(hasTickets ? "ticket" : "register", "-button"),
     disabled: disabled,
     onClick: () => window.open(url, "_blank")
   }, text);

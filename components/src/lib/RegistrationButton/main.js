@@ -63,6 +63,7 @@ const RegistrationButton = ({
         ...wrapperCustomClassNames,
         disabled ? disabledClassName : null,
       ])}
+      data-hook={`boom-calendar-${hasTickets ? "ticket" : "register"}-button`}
       disabled={disabled}
       onClick={() => window.open(url, "_blank")}
     >
