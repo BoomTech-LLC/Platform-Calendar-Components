@@ -181,7 +181,7 @@ export function openShareUrl(e, type, eventUrl) {
       base = "https://www.linkedin.com/sharing/share-offsite/?url=";
       break;
     case "twitter":
-      base = "http://twitter.com/share?url=";
+      base = "https://x.com/intent/post?url=";
       break;
     default:
       console.error("undefined share url type");
