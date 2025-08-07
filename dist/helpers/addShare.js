@@ -155,7 +155,7 @@ function generateEventUrl(event, boomEventUrlBase, comp_id, encode) {
   } else {
     var _event$origId, _event$repeat;
 
-    const url = "".concat(boomEventUrlBase, "?cid=").concat(comp_id, "&eventId=").concat((0, _commons.decodeId)("".concat((_event$origId = event.origId) !== null && _event$origId !== void 0 ? _event$origId : event.id))).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type || event !== null && event !== void 0 && event.repeated ? "&startDate=" + event.start.split("T")[0] : "");
+    const url = "".concat(boomEventUrlBase, "?cid=").concat(comp_id, "&eventId=").concat((0, _commons.decodeId)("".concat((_event$origId = event.origId) !== null && _event$origId !== void 0 ? _event$origId : event.id))).concat(event !== null && event !== void 0 && (_event$repeat = event.repeat) !== null && _event$repeat !== void 0 && _event$repeat.type || event !== null && event !== void 0 && event.repeated ? "&startDate=" + event.start.split("T")[0] : "").concat(event.kind == 0 ? "&source=default" : "");
     return encode ? encodeURIComponent(url) : url;
   }
 }
