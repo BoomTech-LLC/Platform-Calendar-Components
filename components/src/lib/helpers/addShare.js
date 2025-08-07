@@ -204,7 +204,7 @@ export function generateEventUrl(event, boomEventUrlBase, comp_id, encode) {
       event?.repeat?.type || event?.repeated
         ? "&startDate=" + event.start.split("T")[0]
         : ""
-    }`;
+    }${event.kind == 0 ? "&source=default" : ""}`;
     return encode ? encodeURIComponent(url) : url;
   }
 }
