@@ -113,8 +113,7 @@ const AddShareIconsRow = _ref2 => {
 
         if (rowId === 2) {
           if (isCopyLink) {
-            console.log((0, _addShare.generateEventUrl)(event, boomEventUrlBase, comp_id));
-            btn.clickHandler(e, setCopyTooltipText, copiedTooltipText, (0, _addShare.generateEventUrl)(event, boomEventUrlBase, comp_id), event.kind);
+            btn.clickHandler(e, setCopyTooltipText, copiedTooltipText, (0, _addShare.generateEventUrl)(event, boomEventUrlBase, comp_id));
           } else {
             btn.clickHandler(e, btn.type, (0, _addShare.generateEventUrl)(event, boomEventUrlBase, comp_id, true));
           }
