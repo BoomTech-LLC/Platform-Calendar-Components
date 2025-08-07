@@ -50,8 +50,8 @@ function App() {
     user_id: "6310ba278cfb000cf2958be0",
     calendar_id: 88,
     title: "My Event",
-    start: "2023-03-16",
-    end: "2023-03-16",
+    start: "2025-08-31",
+    end: "2025-08-31",
     all_day: 1,
     color: "#3899ec",
     image: "",
@@ -276,26 +276,29 @@ function App() {
         textDetailsCustomClassNames={["textDetailsCustomClassNames"]}
         linkDetailsCustomClassNames={["linkDetailsCustomClassNames"]}
       /> */}
-      {/* <Location
+      <Location
         elipsis
         textCustomClassNames={["123"]}
         linkCustomClassNames={["456"]}
         wrapperCustomClassNames={["789"]}
         data={{
-          type: "tbd",
+          type: "physical",
           values: {
             physical: {
-              address: "Shengavit",
-              lat: 100,
-
-              lng: 200,
+              name: "",
+              address: "",
+              phone: "",
+              email: "",
+              website: "",
+              lat: null,
+              lng: null,
             },
-            tbd: "123132",
-            online:
-              "figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8figma.com/file/bphT1D8WXMzdWcwLSIZs9X/Platform-Calendar?node-id=991%3A8",
+            online: "",
+            tbd: "Location is going to be announced",
           },
         }}
       />
+      {/*
 
       <hr />
       <RegistrationButton

@@ -138,7 +138,7 @@ function openShareUrl(e, type, eventUrl) {
       break;
 
     case "twitter":
-      base = "http://twitter.com/share?url=";
+      base = "https://x.com/intent/post?url=";
       break;
 
     default:
