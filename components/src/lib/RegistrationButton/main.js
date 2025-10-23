@@ -30,12 +30,18 @@ const RegistrationButton = ({
   wrapperCustomClassNames = [],
   disabledClassName = "",
   planName = PLAN_NAMES[3],
+  convertDate = false,
 }) => {
   const registration = event.registration ?? globalRegistration;
   const hasTickets = event.ticketEnabled && tickets?.length;
   const eventTickets = hasTickets ? [...tickets] : null;
 
-  const show = getShowRegistrationButtonStatus(event, registration?.enabled);
+  const show = getShowRegistrationButtonStatus(
+    event,
+    registration?.enabled,
+    convertDate
+  );
+
   if (!show) return null;
 
   const url = generateRegistrationURL(

@@ -36,12 +36,13 @@ const RegistrationButton = _ref => {
     tickets,
     wrapperCustomClassNames = [],
     disabledClassName = "",
-    planName = _commonPropTypes.PLAN_NAMES[3]
+    planName = _commonPropTypes.PLAN_NAMES[3],
+    convertDate = false
   } = _ref;
   const registration = (_event$registration = event.registration) !== null && _event$registration !== void 0 ? _event$registration : globalRegistration;
   const hasTickets = event.ticketEnabled && (tickets === null || tickets === void 0 ? void 0 : tickets.length);
   const eventTickets = hasTickets ? [...tickets] : null;
-  const show = (0, _registration.getShowRegistrationButtonStatus)(event, registration === null || registration === void 0 ? void 0 : registration.enabled);
+  const show = (0, _registration.getShowRegistrationButtonStatus)(event, registration === null || registration === void 0 ? void 0 : registration.enabled, convertDate);
   if (!show) return null;
   const url = (0, _registration.generateRegistrationURL)(cid, uid, event, registration, urlBase, hasTickets);
   const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, eventTickets);
