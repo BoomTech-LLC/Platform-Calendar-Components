@@ -19,6 +19,8 @@ require("core-js/modules/web.dom-collections.iterator.js");
 
 var _moment = _interopRequireDefault(require("moment"));
 
+var _momentTimezone = _interopRequireDefault(require("moment-timezone"));
+
 var _commons = require("./../helpers/commons");
 
 var _constants = require("./constants");
@@ -31,11 +33,16 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function getShowRegistrationButtonStatus(event, enabled) {
+function getShowRegistrationButtonStatus(event, enabled, convertDate) {
   if (event.isDefault) return false;
   if (_constants.SYNCED_EVENT_KINDS.includes(event.kind)) return false;
-  const dateToCompare = event.allDay ? (0, _moment.default)(event.end).add(1, "d") : (0, _moment.default)(event.end);
-  if (dateToCompare.isSameOrBefore((0, _moment.default)())) return false;
+  const eventEndDate = event.allDay ? (0, _momentTimezone.default)(event.end).add(1, "d").format("YYYY-MM-DD") : (0, _momentTimezone.default)(event.end).format("YYYY-MM-DDTHH:mm:ss");
+
+  const eventTimezone = event.time_zone || _momentTimezone.default.tz.guess();
+
+  const now = _momentTimezone.default.tz(convertDate ? _momentTimezone.default.tz.guess() : eventTimezone).format(event.allDay ? "YYYY-MM-DD" : "YYYY-MM-DDTHH:mm:ss");
+
+  if (eventEndDate <= now) return false;
   return enabled;
 }
 

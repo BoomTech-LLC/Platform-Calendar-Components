@@ -1,4 +1,5 @@
 import moment from "moment";
+import momenttimezone from "moment-timezone";
 import { validateURL } from "./../helpers/commons";
 import {
   PAYMENT_STATUSES,
@@ -6,13 +7,23 @@ import {
   SYNCED_EVENT_KINDS,
 } from "./constants";
 
-export function getShowRegistrationButtonStatus(event, enabled) {
+export function getShowRegistrationButtonStatus(event, enabled, convertDate) {
   if (event.isDefault) return false;
+
   if (SYNCED_EVENT_KINDS.includes(event.kind)) return false;
-  const dateToCompare = event.allDay
-    ? moment(event.end).add(1, "d")
-    : moment(event.end);
-  if (dateToCompare.isSameOrBefore(moment())) return false;
+
+  const eventEndDate = event.allDay
+    ? momenttimezone(event.end).add(1, "d").format("YYYY-MM-DD")
+    : momenttimezone(event.end).format("YYYY-MM-DDTHH:mm:ss");
+
+  const eventTimezone = event.time_zone || momenttimezone.tz.guess();
+
+  const now = momenttimezone
+    .tz(convertDate ? momenttimezone.tz.guess() : eventTimezone)
+    .format(event.allDay ? "YYYY-MM-DD" : "YYYY-MM-DDTHH:mm:ss");
+
+  if (eventEndDate <= now) return false;
+
   return enabled;
 }
 

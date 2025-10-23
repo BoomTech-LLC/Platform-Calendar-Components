@@ -252,7 +252,7 @@ function App() {
       >
         {exampleEvent1.desc}
       </Description> */}
-      <AddShareIcons
+      {/* <AddShareIcons
         comp_id={"comp-ky3hw27"}
         instance={
           "b75dQ3ITC3GqJcOOQOHXDDpNVVcSTMZtaSnLfUC-VJ4.eyJpbnN0YW5jZUlkIjoiNTgxMmVlNWQtNjVhOC00ODNiLTlhYjctOTg2OTVmMjMwYTg5IiwiYXBwRGVmSWQiOiIxM2I0YTAyOC0wMGZhLTcxMzMtMjQyZi00NjI4MTA2YjhjOTEiLCJzaWduRGF0ZSI6IjIwMjItMDEtMTdUMDg6MjA6MTUuMTE1WiIsInZlbmRvclByb2R1Y3RJZCI6IlByZW1pdW0iLCJkZW1vTW9kZSI6ZmFsc2UsImFpZCI6ImExOWNkMGIwLTY2ZTUtNGZhZC1iMThiLTdkOGJiZDliYzNmMiIsInNpdGVPd25lcklkIjoiZjRhZjE0OGEtNWY4My00NzQ1LTg5Y2YtYWVlMWExNGVkMGFlIn0"
@@ -261,7 +261,7 @@ function App() {
         boomEventUrlBase={"https://calendar.boomte.ch/single/"}
         order="horizontal"
         hideAddToIcons={false}
-      />
+      /> */}
       {/* <ListedDetails
         title="title"
         id={"id"}
@@ -276,7 +276,7 @@ function App() {
         textDetailsCustomClassNames={["textDetailsCustomClassNames"]}
         linkDetailsCustomClassNames={["linkDetailsCustomClassNames"]}
       /> */}
-      <Location
+      {/* <Location
         elipsis
         textCustomClassNames={["123"]}
         linkCustomClassNames={["456"]}
@@ -297,27 +297,216 @@ function App() {
             tbd: "Location is going to be announced",
           },
         }}
-      />
+      /> */}
       {/*
 
       <hr />
+      
+       */}
+
       <RegistrationButton
         cid={"123"}
         uid={"123"}
-        text={"Pele"}
+        text={"Register Now"}
         urlBase="https://shahen.boomtechdev.com/calendar/model/registration.php/"
-        event={D_EVENT_1}
+        event={{
+          id: 96,
+          user_id: "677ce83bf331232e2b6bc0de",
+          calendar_id: 66,
+          title: "Event 1",
+          start: "2025-10-23T13:00:00",
+          end: "2025-10-23T20:00:00",
+          time_zone: "Asia/Yerevan",
+          all_day: 0,
+          color: "#3899ec",
+          image: "",
+          desc: "",
+          kind: 1,
+          categoryIds: [],
+          organizerId: 50,
+          registration: {
+            cid: 66,
+            enabled: true,
+            emailsEnabled: true,
+            general: {
+              admin: "nareksargsyan713@yahoo.com",
+              external: false,
+              url: "",
+              countDown: false,
+            },
+            guestsOptions: {
+              isLimited: true,
+              limit: 500,
+              show: true,
+            },
+            form: {
+              firstName: {
+                name: "firstName",
+                enabled: true,
+                required: true,
+                label: "",
+              },
+              lastName: {
+                name: "lastName",
+                enabled: true,
+                required: true,
+                label: "",
+              },
+              email: {
+                name: "email",
+                enabled: true,
+                required: true,
+                label: "",
+              },
+              phone: {
+                name: "phone",
+                enabled: true,
+                required: true,
+                label: "",
+              },
+              address: {
+                name: "address",
+                enabled: false,
+                required: false,
+                label: "",
+              },
+              comments: {
+                name: "comments",
+                enabled: false,
+                required: false,
+                label: "",
+              },
+              number: {
+                name: "number",
+                enabled: false,
+                required: false,
+                label: "",
+              },
+              checkbox: {
+                name: "checkbox",
+                enabled: false,
+                required: false,
+                label: "",
+                selection: [
+                  {
+                    id: "selection-checkbox-1",
+                    checked: false,
+                    label: "",
+                  },
+                  {
+                    id: "selection-checkbox-2",
+                    checked: false,
+                    label: "",
+                  },
+                  {
+                    id: "selection-checkbox-3",
+                    checked: false,
+                    label: "",
+                  },
+                ],
+              },
+              radio: {
+                name: "radio",
+                enabled: false,
+                required: false,
+                label: "",
+                selection: [
+                  {
+                    id: "selection-radio-4",
+                    checked: false,
+                    label: "",
+                  },
+                  {
+                    id: "selection-radio-5",
+                    checked: false,
+                    label: "",
+                  },
+                  {
+                    id: "selection-radio-6",
+                    checked: false,
+                    label: "",
+                  },
+                ],
+              },
+            },
+            texts: {
+              toPage: "",
+              submit: "",
+              thanksTitle: "",
+              thanksBody: "",
+              guestsInfoPrefix: "",
+            },
+          },
+          ticketIds: [],
+          seatmapIds: [],
+          guests: [],
+          organizers: [
+            {
+              id: 50,
+              created_at: "2025-10-23T09:23:16.000000Z",
+              updated_at: "2025-10-23T09:23:16.000000Z",
+              user_id: "677ce83bf331232e2b6bc0de",
+              calendar_id: 66,
+              email: "",
+              name: "",
+              phone: "",
+              website: "",
+              pivot: {
+                event_id: 96,
+                organizer_id: 50,
+              },
+            },
+          ],
+          location: {
+            type: "tbd",
+            values: {
+              physical: {
+                name: "",
+                address: "",
+                phone: "",
+                email: "",
+                website: "",
+                lat: null,
+                lng: null,
+              },
+              online: "",
+              tbd: "Location is going to be announced",
+            },
+          },
+          categories: [],
+          repeat: null,
+          tags: [],
+          emails: null,
+          invitations: {
+            newInvites: [],
+            alreadyInvited: [],
+          },
+          tickets: [],
+          seatmaps: [],
+          uid: "677ce83bf331232e2b6bc0de",
+          cid: "66",
+          key: "_96",
+          allDay: false,
+          startMs: 1761210000000,
+          endMs: 1761217200000,
+          textColor: "#3899ec",
+          borderColor: "#3899ec",
+          backgroundColor: "#3899ec",
+          ticketEnabled: true,
+          promocodes: [],
+          seatmapEnabled: true,
+        }}
         globalRegistration={D_REGISTRATION}
         disabledBg="lightgreen"
         planName=""
+        convertDate={true}
       />
-       */}
 
-      <GuestLimit
+      {/* <GuestLimit
         foreword="Guests"
         event={D_EVENT_1}
         globalRegistration={D_REGISTRATION}
-      />
+      /> */}
 
       {/* <DateBox
         start={exampleEvent2.start}
