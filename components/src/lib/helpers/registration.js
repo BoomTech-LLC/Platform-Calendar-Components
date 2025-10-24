@@ -29,7 +29,6 @@ export function getShowRegistrationButtonStatus(event, enabled, convertDate) {
 
 export function generateRegistrationURL(
   cid,
-  uid,
   event,
   registration,
   urlBase,
@@ -39,9 +38,7 @@ export function generateRegistrationURL(
     return validateURL(registration.general?.url);
   }
 
-  return `${urlBase}?uid=${uid}&cid=${cid}&eventId=${String(
-    event.origId ?? event.id
-  )}${
+  return `${urlBase}?cid=${cid}&eventId=${String(event.origId ?? event.id)}${
     event?.repeat?.type || event?.repeated
       ? "&startDate=" + event.start.split("T")[0]
       : ""

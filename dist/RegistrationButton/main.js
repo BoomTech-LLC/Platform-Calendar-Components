@@ -26,7 +26,6 @@ const RegistrationButton = _ref => {
 
   let {
     cid,
-    uid,
     text = "Register",
     urlBase,
     event,
@@ -42,7 +41,7 @@ const RegistrationButton = _ref => {
   const eventTickets = hasTickets ? [...tickets] : null;
   const show = (0, _registration.getShowRegistrationButtonStatus)(event, registration === null || registration === void 0 ? void 0 : registration.enabled, convertDate);
   if (!show) return null;
-  const url = (0, _registration.generateRegistrationURL)(cid, uid, event, registration, urlBase, hasTickets);
+  const url = (0, _registration.generateRegistrationURL)(cid, event, registration, urlBase, hasTickets);
   const guestsOptions = (0, _registration.getGuestsOptions)(event, registration, eventTickets);
   if (!guestsOptions) return null;
   const {
@@ -61,7 +60,6 @@ const RegistrationButton = _ref => {
 
 RegistrationButton.propTypes = {
   cid: _commonPropTypes.PT_CID.isRequired,
-  uid: _commonPropTypes.PT_UID.isRequired,
   urlBase: _propTypes.default.string.isRequired,
   event: _commonPropTypes.SHAPE_EVENT,
   text: _propTypes.default.string,
