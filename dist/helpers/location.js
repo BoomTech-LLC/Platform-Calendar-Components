@@ -6,8 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.getLocationOptions = getLocationOptions;
 exports.getLocationDisplayName = getLocationDisplayName;
 
-require("core-js/modules/web.dom-collections.iterator.js");
-
 var _commons = require("./commons");
 
 var _constants = require("./constants");
