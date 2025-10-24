@@ -9,14 +9,6 @@ exports.getGuestsOptions = getGuestsOptions;
 exports.calcGuestsOptionsByTickets = calcGuestsOptionsByTickets;
 exports.filterEventGuests = void 0;
 
-require("core-js/modules/es.string.includes.js");
-
-require("core-js/modules/es.regexp.exec.js");
-
-require("core-js/modules/es.string.split.js");
-
-require("core-js/modules/web.dom-collections.iterator.js");
-
 var _moment = _interopRequireDefault(require("moment"));
 
 var _momentTimezone = _interopRequireDefault(require("moment-timezone"));

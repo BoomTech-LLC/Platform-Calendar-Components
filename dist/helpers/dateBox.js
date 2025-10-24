@@ -5,22 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.formatTime = exports.formatDate = exports.getDateForDateBox = exports.isDatesInCurrentYear = void 0;
 
-require("core-js/modules/es.regexp.exec.js");
-
-require("core-js/modules/es.string.replace.js");
-
-require("core-js/modules/web.dom-collections.iterator.js");
-
-require("core-js/modules/es.string.split.js");
-
-require("core-js/modules/es.string.includes.js");
-
-require("core-js/modules/es.regexp.constructor.js");
-
-require("core-js/modules/es.regexp.to-string.js");
-
-require("core-js/modules/es.string.trim.js");
-
 var _moment = _interopRequireDefault(require("moment"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

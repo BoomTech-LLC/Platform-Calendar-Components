@@ -10,16 +10,6 @@ exports.openShareUrl = openShareUrl;
 exports.generateEventUrl = generateEventUrl;
 exports.copyLink = copyLink;
 
-require("core-js/modules/es.regexp.exec.js");
-
-require("core-js/modules/es.string.replace.js");
-
-require("core-js/modules/es.string.trim.js");
-
-require("core-js/modules/web.dom-collections.iterator.js");
-
-require("core-js/modules/es.string.split.js");
-
 var _moment = _interopRequireDefault(require("moment"));
 
 var _commons = require("../helpers/commons");
