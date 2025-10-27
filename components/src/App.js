@@ -306,7 +306,6 @@ function App() {
 
       <RegistrationButton
         cid={"123"}
-        uid={"123"}
         text={"Register Now"}
         urlBase="https://shahen.boomtechdev.com/calendar/model/registration.php/"
         event={{
