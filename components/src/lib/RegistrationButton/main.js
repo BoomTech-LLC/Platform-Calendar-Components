@@ -7,7 +7,6 @@ import {
   PLAN_NAME_TYPE,
   PT_CID,
   PT_CLASSNAMES,
-  PT_UID,
   SHAPE_EVENT,
   SHAPE_REGISTRATION,
   SHAPE_TICKETS,
@@ -21,7 +20,6 @@ import { APP_LIMITATIONS } from "../helpers/constants";
 
 const RegistrationButton = ({
   cid,
-  uid,
   text = "Register",
   urlBase,
   event,
@@ -46,7 +44,6 @@ const RegistrationButton = ({
 
   const url = generateRegistrationURL(
     cid,
-    uid,
     event,
     registration,
     urlBase,
@@ -80,7 +77,6 @@ const RegistrationButton = ({
 
 RegistrationButton.propTypes = {
   cid: PT_CID.isRequired,
-  uid: PT_UID.isRequired,
   urlBase: PropTypes.string.isRequired,
   event: SHAPE_EVENT,
   text: PropTypes.string,
