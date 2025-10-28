@@ -10,6 +10,7 @@ import {
   isDatesInCurrentYear,
 } from "../../helpers/dateBox";
 import { combineClassNames } from "../../helpers/commons";
+
 const TimeBox = ({
   start,
   end,
@@ -36,9 +37,7 @@ const TimeBox = ({
     allDay,
     locale
   );
-  const timeZoneToShow = allDay || !showTimeZone ? "" : timeZone;
   const datesEqual = startDate === endDate;
-
   const datesInCurrentYear = isDatesInCurrentYear(start, end);
 
   return (
@@ -55,7 +54,6 @@ const TimeBox = ({
           oneLine={oneLine}
           startDate={startDate}
           startTime={startTime}
-          timeZoneToShow={timeZoneToShow}
         />
       )}
 
@@ -68,7 +66,6 @@ const TimeBox = ({
         startTime={startTime}
         endTime={endTime}
         endDate={endDate}
-        timeZoneToShow={timeZoneToShow}
         agenda={agenda}
         allDayText={allDayText}
       />
@@ -83,6 +80,7 @@ const TimeBox = ({
     </div>
   );
 };
+
 TimeBox.propTypes = {
   start: PropTypes.string.isRequired,
   end: PropTypes.string.isRequired,
@@ -100,4 +98,5 @@ TimeBox.propTypes = {
   startDateOnly: PropTypes.bool,
   convertDate: PropTypes.bool,
 };
+
 export default TimeBox;
