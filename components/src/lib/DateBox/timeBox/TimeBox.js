@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./../main.module.css";
 import PropTypes from "prop-types";
 import StartTimeRow from "./StartTimeRow";
+import TimeZoneRow from "../TimeZoneRow";
 import EndTimeRow from "./EndTimeRow";
 import {
   formatDate,
@@ -25,6 +26,7 @@ const TimeBox = ({
   oneLine,
   startDateOnly,
   showTimeOnly,
+  convertDate,
 }) => {
   const { startDate, endDate } = formatDate(start, end, dateFormat, locale);
   const { startTime, endTime } = formatTime(
@@ -44,7 +46,8 @@ const TimeBox = ({
       className={combineClassNames([
         ...wrapperCustomClassNames,
         styles.timebox_wrapper,
-      ])}>
+      ])}
+    >
       {(!datesInCurrentYear || !(showTimeOnly && datesEqual)) && (
         <StartTimeRow
           showIcons={showIcons}
@@ -69,6 +72,14 @@ const TimeBox = ({
         agenda={agenda}
         allDayText={allDayText}
       />
+
+      {showTimeZone && (
+        <TimeZoneRow
+          showIcons={showIcons}
+          timeZone={timeZone}
+          convertDate={convertDate}
+        />
+      )}
     </div>
   );
 };
@@ -87,5 +98,6 @@ TimeBox.propTypes = {
   allDayText: PropTypes.string,
   oneLine: PropTypes.bool,
   startDateOnly: PropTypes.bool,
+  convertDate: PropTypes.bool,
 };
 export default TimeBox;

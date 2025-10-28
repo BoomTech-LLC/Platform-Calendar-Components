@@ -23,7 +23,6 @@ const EndTimeRow = _ref => {
     startTime,
     endTime,
     endDate,
-    timeZoneToShow,
     agenda,
     allDayText
   } = _ref;
@@ -33,14 +32,13 @@ const EndTimeRow = _ref => {
     className: "icon-clock"
   }), /*#__PURE__*/_react.default.createElement("p", {
     className: oneLine ? _mainModule.default.oneLine : undefined
-  }, datesEqual && allDay && agenda ? allDayText : datesEqual ? "".concat(startTime).concat(startTime === endTime ? '' : " -".concat(endTime), " ").concat(timeZoneToShow) : "".concat(endDate).concat(endTime, " ").concat(timeZoneToShow)));
+  }, datesEqual && allDay && agenda ? allDayText : datesEqual ? "".concat(startTime).concat(startTime === endTime ? "" : " -".concat(endTime)) : "".concat(endDate).concat(endTime)));
 };
 
 EndTimeRow.propTypes = {
   datesEqual: _propTypes.default.bool,
   startDate: _propTypes.default.string,
   startTime: _propTypes.default.string,
-  timeZoneToShow: _propTypes.default.string,
   showIcons: _propTypes.default.bool,
   oneLine: _propTypes.default.bool,
   allDay: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.bool]),
