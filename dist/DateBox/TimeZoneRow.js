@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _react = _interopRequireDefault(require("react"));
+
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
@@ -21,11 +23,11 @@ const TimeZoneRow = _ref => {
   } = _ref;
   const choosedTimezone = convertDate ? _momentTimezone.default.tz.guess() : timeZone;
   const timezoneDisplayName = "GMT".concat(_momentTimezone.default.tz(choosedTimezone).format("Z"), " \u2022 ").concat(choosedTimezone);
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.two_line_end
-  }, showIcons && /*#__PURE__*/React.createElement("div", {
+  }, showIcons && /*#__PURE__*/_react.default.createElement("div", {
     className: "icon-world"
-  }), /*#__PURE__*/React.createElement("p", {
+  }), /*#__PURE__*/_react.default.createElement("p", {
     className: _mainModule.default.oneLine
   }, timezoneDisplayName));
 };
