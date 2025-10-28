@@ -46,63 +46,513 @@ function App() {
     tickets: null,
   };
   let exampleEvent2 = {
-    id: 356,
-    user_id: "6310ba278cfb000cf2958be0",
-    calendar_id: 88,
-    title: "My Event",
-    start: "2025-08-31",
-    end: "2025-08-31",
-    all_day: 1,
+    id: 101,
+    user_id: "677ce83bf331232e2b6bc0de",
+    calendar_id: "80",
+    title: "Event 1",
+    start: "2025-10-27T15:15:00",
+    end: "2025-10-27T20:00:00",
+    time_zone: "Asia/Yerevan",
+    all_day: 0,
     color: "#3899ec",
     image: "",
-    desc: "<p>Description</p>",
+    desc: "",
     kind: 1,
-    categoryIds: [],
-    organizerId: "30",
-    registration: null,
-    ticketIds: [],
+    ticket_enabled: 1,
+    seatmap_enabled: 1,
+    calendar_registration: {
+      cid: 80,
+      enabled: true,
+      emailsEnabled: true,
+      general: {
+        admin: "nareksargsyan713@yahoo.com",
+        external: false,
+        url: "",
+        countDown: false,
+      },
+      guestsOptions: {
+        isLimited: true,
+        limit: 500,
+        show: true,
+      },
+      form: {
+        firstName: {
+          name: "firstName",
+          enabled: true,
+          required: true,
+          label: "",
+        },
+        lastName: {
+          name: "lastName",
+          enabled: true,
+          required: true,
+          label: "",
+        },
+        email: {
+          name: "email",
+          enabled: true,
+          required: true,
+          label: "",
+        },
+        phone: {
+          name: "phone",
+          enabled: true,
+          required: true,
+          label: "",
+        },
+        address: {
+          name: "address",
+          enabled: false,
+          required: false,
+          label: "",
+        },
+        comments: {
+          name: "comments",
+          enabled: false,
+          required: false,
+          label: "",
+        },
+        number: {
+          name: "number",
+          enabled: false,
+          required: false,
+          label: "",
+        },
+        checkbox: {
+          name: "checkbox",
+          enabled: false,
+          required: false,
+          label: "",
+          selection: [
+            {
+              id: "selection-checkbox-1",
+              checked: false,
+              label: "",
+            },
+            {
+              id: "selection-checkbox-2",
+              checked: false,
+              label: "",
+            },
+            {
+              id: "selection-checkbox-3",
+              checked: false,
+              label: "",
+            },
+          ],
+        },
+        radio: {
+          name: "radio",
+          enabled: false,
+          required: false,
+          label: "",
+          selection: [
+            {
+              id: "selection-radio-4",
+              checked: false,
+              label: "",
+            },
+            {
+              id: "selection-radio-5",
+              checked: false,
+              label: "",
+            },
+            {
+              id: "selection-radio-6",
+              checked: false,
+              label: "",
+            },
+          ],
+        },
+      },
+      texts: {
+        toPage: "",
+        submit: "",
+        thanksTitle: "",
+        thanksBody: "",
+        guestsInfoPrefix: "",
+      },
+    },
+    registration: {
+      cid: 80,
+      enabled: true,
+      emailsEnabled: true,
+      general: {
+        admin: "nareksargsyan713@yahoo.com",
+        external: false,
+        url: "",
+        countDown: false,
+      },
+      guestsOptions: {
+        isLimited: true,
+        limit: 500,
+        show: true,
+      },
+      form: {
+        firstName: {
+          name: "firstName",
+          enabled: true,
+          required: true,
+          label: "",
+        },
+        lastName: {
+          name: "lastName",
+          enabled: true,
+          required: true,
+          label: "",
+        },
+        email: {
+          name: "email",
+          enabled: true,
+          required: true,
+          label: "",
+        },
+        phone: {
+          name: "phone",
+          enabled: true,
+          required: true,
+          label: "",
+        },
+        address: {
+          name: "address",
+          enabled: false,
+          required: false,
+          label: "",
+        },
+        comments: {
+          name: "comments",
+          enabled: false,
+          required: false,
+          label: "",
+        },
+        number: {
+          name: "number",
+          enabled: false,
+          required: false,
+          label: "",
+        },
+        checkbox: {
+          name: "checkbox",
+          enabled: false,
+          required: false,
+          label: "",
+          selection: [
+            {
+              id: "selection-checkbox-1",
+              checked: false,
+              label: "",
+            },
+            {
+              id: "selection-checkbox-2",
+              checked: false,
+              label: "",
+            },
+            {
+              id: "selection-checkbox-3",
+              checked: false,
+              label: "",
+            },
+          ],
+        },
+        radio: {
+          name: "radio",
+          enabled: false,
+          required: false,
+          label: "",
+          selection: [
+            {
+              id: "selection-radio-4",
+              checked: false,
+              label: "",
+            },
+            {
+              id: "selection-radio-5",
+              checked: false,
+              label: "",
+            },
+            {
+              id: "selection-radio-6",
+              checked: false,
+              label: "",
+            },
+          ],
+        },
+      },
+      texts: {
+        toPage: "",
+        submit: "",
+        thanksTitle: "",
+        thanksBody: "",
+        guestsInfoPrefix: "",
+      },
+    },
+    settings: {
+      header: {
+        titlesTexts: {
+          map: "",
+          card: "",
+          agenda: "",
+        },
+        buttonsTexts: {
+          day: "",
+          map: "",
+          card: "",
+          next: "",
+          prev: "",
+          week: "",
+          month: "",
+          today: "",
+          agenda: "",
+        },
+        titleInCenter: false,
+        titlesDisabled: {
+          map: false,
+          card: false,
+          agenda: false,
+        },
+        buttonsDisabled: {
+          all: false,
+          day: false,
+          map: false,
+          card: false,
+          next: false,
+          prev: false,
+          week: false,
+          month: false,
+          print: true,
+          title: false,
+          today: false,
+          agenda: false,
+          search: false,
+          addEvent: false,
+        },
+      },
+      appearance: {
+        type: "tooltip",
+        defaultView: "dayGridMonth",
+        proportions: 1.3,
+        showAddToIcons: true,
+        showShareIcons: true,
+      },
+      categories: {
+        show: true,
+        inFooter: true,
+      },
+      mapOptions: {
+        style: 0,
+      },
+      mwdOptions: {
+        maxTime: "20:00:00",
+        minTime: "08:00:00",
+        showTime: false,
+        lightMode: false,
+        showHours: true,
+        dailyRowsLimit: 7,
+        fixedWeekCount: false,
+        highlightToday: true,
+        weekDaysHidden: [],
+        showWeekNumbers: false,
+        showTitleOnMobile: false,
+        showSkeletonOnMobile: false,
+      },
+      cardOptions: {
+        limit: 6,
+        reversed: false,
+        cardsInRow: 3,
+        spaceBetweenCards: 5,
+        shownOnlyUpcomings: false,
+      },
+      localization: {
+        firstDay: 0,
+        isHour12: false,
+        language: "en",
+        timeZone: "Asia/Yerevan",
+        convertDate: true,
+        defaultDate: 3,
+        showTimeZone: true,
+      },
+      agendaOptions: {
+        limit: 20,
+        style: "modern",
+        reversed: false,
+        shownOnlyUpcomings: true,
+      },
+    },
+    payment_settings: {
+      methods: {
+        cash: {
+          connected: true,
+        },
+        paypal: {
+          connected: false,
+          email: "",
+        },
+        stripe: {
+          connected: false,
+          token: "",
+        },
+      },
+      options: {
+        currency: {
+          code: "USD",
+          id: 0,
+          symbol: "$",
+          value: "$ Dollar",
+        },
+        fee: "Absorb fee",
+        priceFormat: "$100",
+      },
+    },
+    premium_plan: "business",
+    categories: [],
+    organizers: [
+      {
+        id: 54,
+        created_at: "2025-10-27T11:10:47.000000Z",
+        updated_at: "2025-10-27T11:10:47.000000Z",
+        user_id: "677ce83bf331232e2b6bc0de",
+        calendar_id: 80,
+        email: "",
+        name: "",
+        phone: "",
+        website: "",
+        pivot: {
+          event_id: 101,
+          organizer_id: 54,
+        },
+      },
+    ],
     location: {
-      type: "physical",
+      type: "tbd",
       values: {
         physical: {
-          id: 252,
-          created_at: "2023-03-15T06:21:50.000000Z",
-          updated_at: "2023-03-15T07:18:06.000000Z",
-          venue_id: 356,
-          email: "scsc",
-          name: "cscs",
-          phone: "scscs",
-          website: "scscs",
-          lat: 39.0489391,
-          lng: -94.4839157,
-          address: "1 Arrowhead Dr, Kansas City, MO 64129, USA",
+          name: "",
+          address: "",
+          phone: "",
+          email: "",
+          website: "",
+          lat: null,
+          lng: null,
+          id: null,
         },
         online: "",
         tbd: "Location is going to be announced",
       },
     },
-    categories: [],
     repeat: null,
-    tags: [],
+    additional_info: null,
     guests: [],
-    emails: null,
-    invitations: {
-      newInvites: [],
-      alreadyInvited: [],
-    },
+    emails: [],
     tickets: [],
-    uid: "6310ba278cfb000cf2958be0",
-    cid: "88",
-    key: "_356",
-    allDay: true,
-    startMs: 1678924800000,
-    endMs: 1678924800000,
-    textColor: "#3899ec",
-    borderColor: "#3899ec",
-    backgroundColor: "#3899ec",
+    promo_codes: [],
+    calendar: {
+      id: 80,
+      created_at: "2025-10-27T11:07:57.000000Z",
+      updated_at: "2025-10-28T08:13:13.000000Z",
+      user_id: "677ce83bf331232e2b6bc0de",
+      name: "Cal 9",
+      type: "Registration/Tickets",
+      country: "AM",
+      ip: "5.77.193.125",
+      published: 1,
+      defaults: [
+        {
+          name: "categories",
+          value: [
+            {
+              id: 1,
+              color: "#008000",
+              name: "Sport",
+            },
+            {
+              id: 2,
+              color: "#800070",
+              name: "Art",
+            },
+          ],
+        },
+        {
+          name: "emails",
+          value: [
+            {
+              type: "confirmation",
+              value: {
+                enabled: true,
+                subject: "Thank you for registering",
+                contact:
+                  "If you have any questions please contact the organizer",
+                desc: "<p>Hi {guestname},</p><p></p><p>Thanks for registering to our event. You can check your registration details below.</p><p></p><p>Looking forward to seeing you!</p>",
+              },
+            },
+            {
+              type: "reminder",
+              value: {
+                enabled: true,
+                subject: "You have an event coming up!",
+                contact:
+                  "If you have any questions please contact the organizer",
+                before: "1 day",
+                desc: "<p>Hi,</p><p></p><p>A friendly reminder on the upcoming event:</p><p></p><p>If there are any changes in your plans you can just hit reply to let us know.</p>",
+              },
+            },
+            {
+              type: "cancellation",
+              value: {
+                enabled: true,
+                subject: "An upcoming event has been canceled",
+                contact:
+                  "If you have any questions please contact the organizer",
+                desc: "<p>Hi,</p><p></p><p>We are sorry to inform you that the below event has been canceled.</p><p></p><p>Please accept our sincerest apologies for any inconvenience this may cause. We are looking forward to hosting you in the future.</p>",
+              },
+            },
+            {
+              type: "notification",
+              value: {
+                enabled: true,
+                subject: "You have a new guest!",
+                contact: "If you have any questions please contact us",
+                desc: "<p>Hi,</p><p></p><p>You have a new guest!</p>",
+              },
+            },
+          ],
+        },
+        {
+          name: "payment_settings",
+          value: {
+            methods: {
+              cash: {
+                connected: true,
+              },
+              paypal: {
+                connected: false,
+                email: "",
+              },
+              stripe: {
+                connected: false,
+                token: "",
+              },
+            },
+            options: {
+              currency: {
+                code: "USD",
+                id: 0,
+                symbol: "$",
+                value: "$ Dollar",
+              },
+              fee: "Absorb fee",
+              priceFormat: "$100",
+            },
+          },
+        },
+      ],
+    },
+    seatmaps: [],
+    allDay: false,
+    language: "en",
+    timeFormat: "24h",
+    showTimeZone: true,
+    key: "101",
     ticketEnabled: true,
-    promocodes: [],
-    scheduledOn: "2023-03-15T18:03:36",
   };
 
   if (!exampleEvent1.allDay) {
@@ -116,133 +566,133 @@ function App() {
   //   exampleEvent2.endTime = moment(exampleEvent2.end).format('HH:mm');
   // }
 
-  const addons = [
-    {
-      value: {
-        afterSubm: "0",
-        afterShowForm: "0",
-        afterPage: "0",
-        afterUrl: "",
-        backToForm: "Back to Form",
-        afterUrlTab: "0",
-        submit_once: false,
-      },
-      title: "Eventbrite",
-      name: "eventbrite",
-      open_in: 1,
-      image: "Eventbrite.svg",
-      description:
-        "Monitor your Event Brite events through the Event Brite sync feature.",
-    },
-    {
-      value: null,
-      title: "Google",
-      name: "google",
-      open_in: 1,
-      image: "Google.svg",
-      description:
-        "Google Calendar sync allows you to integrate your events and sessions with your Boom Calendar.",
-    },
-    {
-      value: {
-        registration: {
-          open: true,
-          general: {
-            limit_type: "limited",
-            page_url: "",
-            site_type: 1,
-            limit: 500,
-            adminInfo: "",
-            show_guest: true,
-          },
-          fields: [
-            {
-              id: 1,
-              type: "phone",
-              placeholder: "Phone Number",
-              label: "",
-              required: false,
-              active: false,
-            },
-            {
-              id: 2,
-              type: "address",
-              placeholder: "Address",
-              label: "",
-              required: false,
-              active: false,
-            },
-            {
-              id: 3,
-              type: "date",
-              placeholder: "Date",
-              label: "",
-              required: false,
-              active: false,
-            },
-            {
-              id: 4,
-              type: "text",
-              placeholder: "Your comments",
-              label: "",
-              required: false,
-              active: false,
-            },
-            {
-              id: 5,
-              type: "person",
-              placeholder: "How many guests?",
-              label: "",
-              required: false,
-              active: false,
-            },
-            {
-              id: 6,
-              type: "comment",
-              placeholder: "Anything else we need to know?",
-              label: "",
-              required: false,
-              active: false,
-            },
-          ],
-          defFields: {
-            form_title: "",
-            form_desc: "",
-            first_name: "",
-            last_name: "",
-            email: "",
-          },
-          texts: {
-            rsvp: "Register",
-            submit: "Submit",
-            thank_title: "Registration completed successfully!",
-            thank_body: "Please check your registered email address",
-          },
-          emails: { notif: true, remind: true, cancel: true },
-        },
-        confirmation: {
-          subject: "Thank you for registering",
-          desc: "<p style='color:black'>Hi {guestname},</p><p style='color:black'>Thanks for registering to our event. You can check your registration details below.</p><p style='color:black'>Looking forward to seeing you!</p>",
-        },
-        reminder: {
-          subject: "You have an event coming up!",
-          desc: "<p>Hi,</p><p>A friendly reminder on the upcoming event:</p><p>If there are any changes in your plans you can just hit reply to let us know.</p>",
-          remTime: { id: "time_option_2", value: "1 day before" },
-        },
-        cancelation: {
-          subject: "An upcoming event has been canceled",
-          desc: "<p>Hi,</p><p>We are sorry to inform you that the below event has been canceled.</p><p>Please accept our sincerest apologies for any inconvenience this may cause. We are looking forward to hosting you in the future.</p>",
-        },
-      },
-      title: "Registration",
-      name: "registration",
-      open_in: 0,
-      image: "Registration.svg",
-      description:
-        "Collect and manage event registrations with a customizable form and email template.",
-    },
-  ];
-  const registration = null;
+  // const addons = [
+  //   {
+  //     value: {
+  //       afterSubm: "0",
+  //       afterShowForm: "0",
+  //       afterPage: "0",
+  //       afterUrl: "",
+  //       backToForm: "Back to Form",
+  //       afterUrlTab: "0",
+  //       submit_once: false,
+  //     },
+  //     title: "Eventbrite",
+  //     name: "eventbrite",
+  //     open_in: 1,
+  //     image: "Eventbrite.svg",
+  //     description:
+  //       "Monitor your Event Brite events through the Event Brite sync feature.",
+  //   },
+  //   {
+  //     value: null,
+  //     title: "Google",
+  //     name: "google",
+  //     open_in: 1,
+  //     image: "Google.svg",
+  //     description:
+  //       "Google Calendar sync allows you to integrate your events and sessions with your Boom Calendar.",
+  //   },
+  //   {
+  //     value: {
+  //       registration: {
+  //         open: true,
+  //         general: {
+  //           limit_type: "limited",
+  //           page_url: "",
+  //           site_type: 1,
+  //           limit: 500,
+  //           adminInfo: "",
+  //           show_guest: true,
+  //         },
+  //         fields: [
+  //           {
+  //             id: 1,
+  //             type: "phone",
+  //             placeholder: "Phone Number",
+  //             label: "",
+  //             required: false,
+  //             active: false,
+  //           },
+  //           {
+  //             id: 2,
+  //             type: "address",
+  //             placeholder: "Address",
+  //             label: "",
+  //             required: false,
+  //             active: false,
+  //           },
+  //           {
+  //             id: 3,
+  //             type: "date",
+  //             placeholder: "Date",
+  //             label: "",
+  //             required: false,
+  //             active: false,
+  //           },
+  //           {
+  //             id: 4,
+  //             type: "text",
+  //             placeholder: "Your comments",
+  //             label: "",
+  //             required: false,
+  //             active: false,
+  //           },
+  //           {
+  //             id: 5,
+  //             type: "person",
+  //             placeholder: "How many guests?",
+  //             label: "",
+  //             required: false,
+  //             active: false,
+  //           },
+  //           {
+  //             id: 6,
+  //             type: "comment",
+  //             placeholder: "Anything else we need to know?",
+  //             label: "",
+  //             required: false,
+  //             active: false,
+  //           },
+  //         ],
+  //         defFields: {
+  //           form_title: "",
+  //           form_desc: "",
+  //           first_name: "",
+  //           last_name: "",
+  //           email: "",
+  //         },
+  //         texts: {
+  //           rsvp: "Register",
+  //           submit: "Submit",
+  //           thank_title: "Registration completed successfully!",
+  //           thank_body: "Please check your registered email address",
+  //         },
+  //         emails: { notif: true, remind: true, cancel: true },
+  //       },
+  //       confirmation: {
+  //         subject: "Thank you for registering",
+  //         desc: "<p style='color:black'>Hi {guestname},</p><p style='color:black'>Thanks for registering to our event. You can check your registration details below.</p><p style='color:black'>Looking forward to seeing you!</p>",
+  //       },
+  //       reminder: {
+  //         subject: "You have an event coming up!",
+  //         desc: "<p>Hi,</p><p>A friendly reminder on the upcoming event:</p><p>If there are any changes in your plans you can just hit reply to let us know.</p>",
+  //         remTime: { id: "time_option_2", value: "1 day before" },
+  //       },
+  //       cancelation: {
+  //         subject: "An upcoming event has been canceled",
+  //         desc: "<p>Hi,</p><p>We are sorry to inform you that the below event has been canceled.</p><p>Please accept our sincerest apologies for any inconvenience this may cause. We are looking forward to hosting you in the future.</p>",
+  //       },
+  //     },
+  //     title: "Registration",
+  //     name: "registration",
+  //     open_in: 0,
+  //     image: "Registration.svg",
+  //     description:
+  //       "Collect and manage event registrations with a customizable form and email template.",
+  //   },
+  // ];
+  // const registration = null;
 
   return (
     <div className="App">
@@ -304,7 +754,7 @@ function App() {
       
        */}
 
-      <RegistrationButton
+      {/* <RegistrationButton
         cid={"123"}
         text={"Register Now"}
         urlBase="https://shahen.boomtechdev.com/calendar/model/registration.php/"
@@ -499,7 +949,7 @@ function App() {
         disabledBg="lightgreen"
         planName=""
         convertDate={true}
-      />
+      /> */}
 
       {/* <GuestLimit
         foreword="Guests"
@@ -507,15 +957,21 @@ function App() {
         globalRegistration={D_REGISTRATION}
       /> */}
 
-      {/* <DateBox
+      <DateBox
+        dateFormat={"dddd, DD MMMM, YYYY"}
         start={exampleEvent2.start}
-        end={exampleEvent2.end}
-        allDay={exampleEvent2.allDay}
-        dateFormat="DD/MM/YYYY"
         showIcons={true}
-        showYear={true}
-        type="oneLineDateBox"
-      /> */}
+        end={exampleEvent2.end}
+        type="timeBox"
+        event={exampleEvent2}
+        locale={exampleEvent2.language}
+        timeFormat={exampleEvent2.timeFormat}
+        timeZone={exampleEvent2.time_zone}
+        allDay={exampleEvent2.allDay}
+        allDayText={"All Day"}
+        showTimeZone={exampleEvent2.showTimeZone}
+        convertDate={exampleEvent2?.settings?.localization?.convertDate}
+      />
       {/* <DateBox
         start="09/27/2021T12:30"
         end="09/27/2021T13:30"

@@ -24,6 +24,7 @@ const DateBox = ({
   ticketEnabled = false,
   showTimeOnly = false,
   showYear = false,
+  convertDate = false,
 }) => {
   if (type === "timeBox") {
     return (
@@ -44,6 +45,7 @@ const DateBox = ({
         startDateOnly={startDateOnly}
         ticketEnabled={ticketEnabled}
         showTimeOnly={showTimeOnly}
+        convertDate={convertDate}
       />
     );
   }
@@ -91,6 +93,7 @@ DateBox.propTypes = {
   direction: PropTypes.string,
   fixedHeight: PropTypes.bool,
   startDateOnly: PropTypes.bool,
+  convertDate: PropTypes.bool,
 };
 
 export default DateBox;

@@ -13,6 +13,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _StartTimeRow = _interopRequireDefault(require("./StartTimeRow"));
 
+var _TimeZoneRow = _interopRequireDefault(require("../TimeZoneRow"));
+
 var _EndTimeRow = _interopRequireDefault(require("./EndTimeRow"));
 
 var _dateBox = require("../../helpers/dateBox");
@@ -37,7 +39,8 @@ const TimeBox = _ref => {
     allDayText,
     oneLine,
     startDateOnly,
-    showTimeOnly
+    showTimeOnly,
+    convertDate
   } = _ref;
   const {
     startDate,
@@ -71,6 +74,10 @@ const TimeBox = _ref => {
     timeZoneToShow: timeZoneToShow,
     agenda: agenda,
     allDayText: allDayText
+  }), showTimeZone && /*#__PURE__*/_react.default.createElement(_TimeZoneRow.default, {
+    showIcons: showIcons,
+    timeZone: timeZone,
+    convertDate: convertDate
   }));
 };
 
@@ -88,7 +95,8 @@ TimeBox.propTypes = {
   agenda: _propTypes.default.bool,
   allDayText: _propTypes.default.string,
   oneLine: _propTypes.default.bool,
-  startDateOnly: _propTypes.default.bool
+  startDateOnly: _propTypes.default.bool,
+  convertDate: _propTypes.default.bool
 };
 var _default = TimeBox;
 exports.default = _default;
