@@ -50,7 +50,6 @@ const TimeBox = _ref => {
     startTime,
     endTime
   } = (0, _dateBox.formatTime)(start, end, timeFormat, allDay, locale);
-  const timeZoneToShow = allDay || !showTimeZone ? "" : timeZone;
   const datesEqual = startDate === endDate;
   const datesInCurrentYear = (0, _dateBox.isDatesInCurrentYear)(start, end);
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -60,8 +59,7 @@ const TimeBox = _ref => {
     datesEqual: datesEqual,
     oneLine: oneLine,
     startDate: startDate,
-    startTime: startTime,
-    timeZoneToShow: timeZoneToShow
+    startTime: startTime
   }), /*#__PURE__*/_react.default.createElement(_EndTimeRow.default, {
     datesEqual: datesEqual,
     allDay: allDay,
@@ -71,7 +69,6 @@ const TimeBox = _ref => {
     startTime: startTime,
     endTime: endTime,
     endDate: endDate,
-    timeZoneToShow: timeZoneToShow,
     agenda: agenda,
     allDayText: allDayText
   }), showTimeZone && /*#__PURE__*/_react.default.createElement(_TimeZoneRow.default, {

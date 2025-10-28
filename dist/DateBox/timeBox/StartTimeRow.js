@@ -19,8 +19,7 @@ const StartTimeRow = _ref => {
     datesEqual,
     oneLine,
     startDate,
-    startTime,
-    timeZoneToShow
+    startTime
   } = _ref;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: _mainModule.default.two_line_start
@@ -28,14 +27,13 @@ const StartTimeRow = _ref => {
     className: datesEqual ? "icon-date" : "icon-clock"
   }), /*#__PURE__*/_react.default.createElement("p", {
     className: oneLine ? _mainModule.default.oneLine : undefined
-  }, "".concat(startDate, " ").concat(datesEqual ? "" : "".concat(startTime, " ").concat(timeZoneToShow))));
+  }, "".concat(startDate, " ").concat(datesEqual ? "" : "".concat(startTime))));
 };
 
 StartTimeRow.propTypes = {
   datesEqual: _propTypes.default.bool,
   startDate: _propTypes.default.string,
   startTime: _propTypes.default.string,
-  timeZoneToShow: _propTypes.default.string,
   showIcons: _propTypes.default.bool,
   oneLine: _propTypes.default.bool
 };
