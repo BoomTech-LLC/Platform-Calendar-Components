@@ -4,19 +4,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _DateBox = _interopRequireDefault(require("./DateBox"));
-
 var _TimeBox = _interopRequireDefault(require("./timeBox/TimeBox"));
-
 var _OneLineDateBox = _interopRequireDefault(require("./oneLineDateBox/OneLineDateBox"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const DateBox = _ref => {
   let {
     start,
@@ -40,7 +33,6 @@ const DateBox = _ref => {
     showYear = false,
     convertDate = false
   } = _ref;
-
   if (type === "timeBox") {
     return /*#__PURE__*/_react.default.createElement(_TimeBox.default, {
       start: start,
@@ -62,7 +54,6 @@ const DateBox = _ref => {
       convertDate: convertDate
     });
   }
-
   if (type === "oneLineDateBox") {
     return /*#__PURE__*/_react.default.createElement(_OneLineDateBox.default, {
       start: start,
@@ -76,7 +67,6 @@ const DateBox = _ref => {
       wrapperCustomClassNames: wrapperCustomClassNames
     });
   }
-
   return /*#__PURE__*/_react.default.createElement(_DateBox.default, {
     start: start,
     end: end,
@@ -85,7 +75,6 @@ const DateBox = _ref => {
     direction: direction
   });
 };
-
 DateBox.propTypes = {
   start: _propTypes.default.string.isRequired,
   end: _propTypes.default.string,
@@ -106,5 +95,4 @@ DateBox.propTypes = {
   startDateOnly: _propTypes.default.bool,
   convertDate: _propTypes.default.bool
 };
-var _default = DateBox;
-exports.default = _default;
+var _default = exports.default = DateBox;

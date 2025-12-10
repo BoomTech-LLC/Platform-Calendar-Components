@@ -4,19 +4,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _error = _interopRequireDefault(require("./../assets/images/error.png"));
-
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 var _commons = require("../helpers/commons");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const ErrorPage = _ref => {
   let {
     title = 'Oops! Something went wrong',
@@ -32,10 +25,8 @@ const ErrorPage = _ref => {
     src: _error.default
   })));
 };
-
 ErrorPage.propTypes = {
   title: _propTypes.default.string,
   pageCover: _propTypes.default.bool
 };
-var _default = ErrorPage;
-exports.default = _default;
+var _default = exports.default = ErrorPage;

@@ -754,7 +754,7 @@ function App() {
       
        */}
 
-      {/* <RegistrationButton
+      <RegistrationButton
         cid={"123"}
         text={"Register Now"}
         urlBase="https://shahen.boomtechdev.com/calendar/model/registration.php/"
@@ -763,8 +763,8 @@ function App() {
           user_id: "677ce83bf331232e2b6bc0de",
           calendar_id: 66,
           title: "Event 1",
-          start: "2025-10-23T13:00:00",
-          end: "2025-10-23T20:00:00",
+          start: "2025-12-10T20:00:00",
+          end: "2025-12-10T21:00:00",
           time_zone: "Asia/Yerevan",
           all_day: 0,
           color: "#3899ec",
@@ -949,7 +949,7 @@ function App() {
         disabledBg="lightgreen"
         planName=""
         convertDate={true}
-      /> */}
+      />
 
       {/* <GuestLimit
         foreword="Guests"

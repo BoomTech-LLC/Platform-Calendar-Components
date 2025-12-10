@@ -4,17 +4,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 var _momentTimezone = _interopRequireDefault(require("moment-timezone"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const TimeZoneRow = _ref => {
   let {
     showIcons,
@@ -31,11 +25,9 @@ const TimeZoneRow = _ref => {
     className: _mainModule.default.oneLine
   }, timezoneDisplayName));
 };
-
 TimeZoneRow.propTypes = {
   showIcons: _propTypes.default.bool,
   timeZone: _propTypes.default.string,
   convertDate: _propTypes.default.bool
 };
-var _default = TimeZoneRow;
-exports.default = _default;
+var _default = exports.default = TimeZoneRow;

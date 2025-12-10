@@ -4,15 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _mainModule = _interopRequireDefault(require("./../main.module.css"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const EndTimeRow = _ref => {
   let {
     datesEqual,
@@ -34,7 +29,6 @@ const EndTimeRow = _ref => {
     className: oneLine ? _mainModule.default.oneLine : undefined
   }, datesEqual && allDay && agenda ? allDayText : datesEqual ? "".concat(startTime).concat(startTime === endTime ? "" : " -".concat(endTime)) : "".concat(endDate).concat(endTime)));
 };
-
 EndTimeRow.propTypes = {
   datesEqual: _propTypes.default.bool,
   startDate: _propTypes.default.string,
@@ -48,5 +42,4 @@ EndTimeRow.propTypes = {
   agenda: _propTypes.default.bool,
   allDayText: _propTypes.default.string
 };
-var _default = EndTimeRow;
-exports.default = _default;
+var _default = exports.default = EndTimeRow;

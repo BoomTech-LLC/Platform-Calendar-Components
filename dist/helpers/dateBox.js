@@ -3,20 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.formatTime = exports.formatDate = exports.getDateForDateBox = exports.isDatesInCurrentYear = void 0;
-
+exports.isDatesInCurrentYear = exports.getDateForDateBox = exports.formatTime = exports.formatDate = void 0;
 var _moment = _interopRequireDefault(require("moment"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const isDatesInCurrentYear = (start, end) => {
   const currentYear = (0, _moment.default)().format("YYYY");
   const dates = [(0, _moment.default)(start.replace("T", " ")).format("YYYY"), (0, _moment.default)(end.replace("T", " ")).format("YYYY")];
   return dates.every(date => date === currentYear);
 };
-
 exports.isDatesInCurrentYear = isDatesInCurrentYear;
-
 const getDateForDateBox = (start, end, locale) => {
   const [startDate] = start.split("T");
   const [endDate] = end.split("T");
@@ -29,21 +24,16 @@ const getDateForDateBox = (start, end, locale) => {
     month: (0, _moment.default)(dateToShow).locale(locale).format("MMMM")
   };
 };
-
 exports.getDateForDateBox = getDateForDateBox;
-
 const getFormattedDate = (date, dateFormat, locale, showYearAnyway) => {
   let format = dateFormat;
-
   if (dateFormat.includes("YYYY") && !showYearAnyway && (0, _moment.default)(date).format("YYYY") === (0, _moment.default)().format("YYYY")) {
     const yearRegex = new RegExp(",? ?,?YYYY,? ?,?");
     format = dateFormat.split(yearRegex)[1] ? dateFormat.replace(/,? ?,?YYYY/, "").trim() : dateFormat.replace(yearRegex, "").trim();
   }
-
   return (0, _moment.default)(date).locale(locale).format(format);
 };
-
-const formatDate = function formatDate(start, end, dateFormat, locale) {
+const formatDate = exports.formatDate = function formatDate(start, end, dateFormat, locale) {
   let showYear = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
   const startDate = start.replace("T", " ");
   const endDate = end.replace("T", " ");
@@ -53,9 +43,6 @@ const formatDate = function formatDate(start, end, dateFormat, locale) {
     endDate: getFormattedDate(endDate, dateFormat, locale, showYearAnyway)
   };
 };
-
-exports.formatDate = formatDate;
-
 const formatTime = (start, end, timeFormat, all_day, locale) => {
   const format = timeFormat.toLowerCase() === "am/pm" ? " hh:mm a" : " HH:mm";
   return {
@@ -63,5 +50,4 @@ const formatTime = (start, end, timeFormat, all_day, locale) => {
     endTime: all_day ? "" : (0, _moment.default)(end.replace("T", " ")).locale(locale).format(format)
   };
 };
-
 exports.formatTime = formatTime;

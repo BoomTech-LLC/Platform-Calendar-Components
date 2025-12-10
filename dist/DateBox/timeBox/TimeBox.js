@@ -4,25 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _mainModule = _interopRequireDefault(require("./../main.module.css"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _StartTimeRow = _interopRequireDefault(require("./StartTimeRow"));
-
 var _TimeZoneRow = _interopRequireDefault(require("../TimeZoneRow"));
-
 var _EndTimeRow = _interopRequireDefault(require("./EndTimeRow"));
-
 var _dateBox = require("../../helpers/dateBox");
-
 var _commons = require("../../helpers/commons");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const TimeBox = _ref => {
   let {
     start,
@@ -77,7 +67,6 @@ const TimeBox = _ref => {
     convertDate: convertDate
   }));
 };
-
 TimeBox.propTypes = {
   start: _propTypes.default.string.isRequired,
   end: _propTypes.default.string.isRequired,
@@ -95,5 +84,4 @@ TimeBox.propTypes = {
   startDateOnly: _propTypes.default.bool,
   convertDate: _propTypes.default.bool
 };
-var _default = TimeBox;
-exports.default = _default;
+var _default = exports.default = TimeBox;

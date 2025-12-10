@@ -4,21 +4,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _mainModule = _interopRequireDefault(require("./main.module.css"));
-
 require("../assets/styles/icons.css");
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _commons = require("../helpers/commons");
-
 var _commonPropTypes = require("../helpers/commonPropTypes");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const CategoryItem = props => {
   if (!props.category || !props.category.id) return null;
   const {
@@ -39,7 +31,6 @@ const CategoryItem = props => {
     className: "icon-tag"
   }), /*#__PURE__*/_react.default.createElement("span", null, name));
 };
-
 CategoryItem.propTypes = {
   category: _propTypes.default.shape({
     id: _propTypes.default.string,
@@ -49,5 +40,4 @@ CategoryItem.propTypes = {
   }),
   wrapperCustomClassNames: _commonPropTypes.PT_CLASSNAMES
 };
-var _default = CategoryItem;
-exports.default = _default;
+var _default = exports.default = CategoryItem;

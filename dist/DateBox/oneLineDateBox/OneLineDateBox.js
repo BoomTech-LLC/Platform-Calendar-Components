@@ -4,19 +4,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _mainModule = _interopRequireDefault(require("./../main.module.css"));
-
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _dateBox = require("../../helpers/dateBox");
-
 var _commons = require("../../helpers/commons");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const OneLineDateBox = _ref => {
   let {
     start,
@@ -43,7 +36,6 @@ const OneLineDateBox = _ref => {
     className: "icon-clock"
   }), /*#__PURE__*/_react.default.createElement("span", null, startDate, " ", startTime && !allDay ? startTime : null), start !== end && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("span", null, "-"), /*#__PURE__*/_react.default.createElement("span", null, endDate !== startDate ? endDate : null, " ", startTime && endTime ? endTime : null)));
 };
-
 OneLineDateBox.propTypes = {
   start: _propTypes.default.string.isRequired,
   end: _propTypes.default.string.isRequired,
@@ -56,5 +48,4 @@ OneLineDateBox.propTypes = {
   agenda: _propTypes.default.bool,
   allDayText: _propTypes.default.string
 };
-var _default = OneLineDateBox;
-exports.default = _default;
+var _default = exports.default = OneLineDateBox;

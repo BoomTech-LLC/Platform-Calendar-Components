@@ -3,19 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.APP_LIMITATIONS = exports.SYNCED_EVENT_KINDS = exports.PAYMENT_TYPES = exports.PAYMENT_STATUSES = exports.ADD_SHARE_ICONS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = exports.LOCATION_TYPES = void 0;
-
+exports.SYNCED_EVENT_KINDS = exports.PAYMENT_TYPES = exports.PAYMENT_STATUSES = exports.LOCATION_TYPES = exports.LISTED_DETAILS_CONSTRUCTOR = exports.APP_LIMITATIONS = exports.ADD_SHARE_ICONS_CONSTRUCTOR = void 0;
 var _addShare = require("./addShare");
-
 var _commonPropTypes = require("./commonPropTypes");
-
-const LOCATION_TYPES = {
+const LOCATION_TYPES = exports.LOCATION_TYPES = {
   physical: "physical",
   online: "online",
   tbd: "tbd"
 };
-exports.LOCATION_TYPES = LOCATION_TYPES;
-const LISTED_DETAILS_CONSTRUCTOR = {
+const LISTED_DETAILS_CONSTRUCTOR = exports.LISTED_DETAILS_CONSTRUCTOR = {
   name: {
     iconName: "name"
   },
@@ -39,8 +35,7 @@ const LISTED_DETAILS_CONSTRUCTOR = {
     iconName: "map-pin"
   }
 };
-exports.LISTED_DETAILS_CONSTRUCTOR = LISTED_DETAILS_CONSTRUCTOR;
-const ADD_SHARE_ICONS_CONSTRUCTOR = {
+const ADD_SHARE_ICONS_CONSTRUCTOR = exports.ADD_SHARE_ICONS_CONSTRUCTOR = {
   TITLE: "Add & Share",
   ADD_TO_ICONS: {
     rowId: 1,
@@ -79,21 +74,17 @@ const ADD_SHARE_ICONS_CONSTRUCTOR = {
     }]
   }
 };
-exports.ADD_SHARE_ICONS_CONSTRUCTOR = ADD_SHARE_ICONS_CONSTRUCTOR;
-const PAYMENT_STATUSES = {
+const PAYMENT_STATUSES = exports.PAYMENT_STATUSES = {
   paid: "paid",
   unpaid: "unpaid"
 };
-exports.PAYMENT_STATUSES = PAYMENT_STATUSES;
-const PAYMENT_TYPES = {
+const PAYMENT_TYPES = exports.PAYMENT_TYPES = {
   cash: "cash",
   paypal: "paypal",
   stripe: "stripe"
 };
-exports.PAYMENT_TYPES = PAYMENT_TYPES;
-const SYNCED_EVENT_KINDS = [20, 21, 22, 23, 24, 25];
-exports.SYNCED_EVENT_KINDS = SYNCED_EVENT_KINDS;
-const APP_LIMITATIONS = {
+const SYNCED_EVENT_KINDS = exports.SYNCED_EVENT_KINDS = [20, 21, 22, 23, 24, 25];
+const APP_LIMITATIONS = exports.APP_LIMITATIONS = {
   [_commonPropTypes.PLAN_NAMES[0]]: {
     tickets: 10,
     guests: 10
@@ -111,4 +102,3 @@ const APP_LIMITATIONS = {
     guests: null
   }
 };
-exports.APP_LIMITATIONS = APP_LIMITATIONS;

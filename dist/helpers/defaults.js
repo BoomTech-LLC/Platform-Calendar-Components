@@ -3,11 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.D_EVENT_1 = exports.D_GUEST_1 = exports.D_REGISTRATION = void 0;
-
+exports.D_REGISTRATION = exports.D_GUEST_1 = exports.D_EVENT_1 = void 0;
 var _commonPropTypes = require("./commonPropTypes");
-
-const D_REGISTRATION = {
+const D_REGISTRATION = exports.D_REGISTRATION = {
   cid: "123",
   enabled: true,
   general: {
@@ -22,16 +20,14 @@ const D_REGISTRATION = {
     show: true
   }
 };
-exports.D_REGISTRATION = D_REGISTRATION;
-const D_GUEST_1 = {
+const D_GUEST_1 = exports.D_GUEST_1 = {
   id: "1",
   date: "",
   firstName: "Poxos",
   lastName: "Petros",
   tickets: []
 };
-exports.D_GUEST_1 = D_GUEST_1;
-const D_EVENT_1 = {
+const D_EVENT_1 = exports.D_EVENT_1 = {
   cid: "113371128461234",
   id: 1689317407500,
   key: "_1689317407500_2023-07-18T11:00:00+0400",
@@ -85,4 +81,3 @@ const D_EVENT_1 = {
     name: "Test event Integration"
   }
 };
-exports.D_EVENT_1 = D_EVENT_1;
